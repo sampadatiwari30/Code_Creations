@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #1a1a1a;
+            --text-primary: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --royal-purple: #6c5ce7;
+            --deep-navy: #001f3f;
+            --card-bg: #1a1a1a;
+            --hover-glow: rgba(108, 92, 231, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(108, 92, 231, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 31, 63, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(108, 92, 231, 0.05) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
+        }
+
+        /* Glowing dots animation */
+        .glow-dots {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .glow-dot {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--royal-purple);
+            border-radius: 50%;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        .glow-dot:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .glow-dot:nth-child(2) { top: 60%; left: 80%; animation-delay: 1s; }
+        .glow-dot:nth-child(3) { top: 80%; left: 30%; animation-delay: 2s; }
+        .glow-dot:nth-child(4) { top: 30%; left: 70%; animation-delay: 1.5s; }
+        .glow-dot:nth-child(5) { top: 70%; left: 15%; animation-delay: 0.5s; }
+
+        @keyframes glowPulse {
+            0%, 100% { 
+                opacity: 0.3; 
+                transform: scale(1);
+                box-shadow: 0 0 10px var(--royal-purple);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.5);
+                box-shadow: 0 0 20px var(--royal-purple);
+            }
+        }
+
+        /* Main container */
+        .projects-section {
+            min-height: 100vh;
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Main heading */
+        .main-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--royal-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Project cards */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--royal-purple), var(--deep-navy));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px var(--hover-glow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .project-card:hover .project-content {
+            transform: translateY(-4px);
+        }
+
+        .project-content {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-link {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .project-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--royal-purple), var(--deep-navy));
+            transition: width 0.4s ease;
+        }
+
+        .project-link:hover {
+            color: var(--royal-purple);
+            transform: translateX(4px);
+        }
+
+        .project-link:hover::after {
+            width: 100%;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--royal-purple), var(--deep-navy));
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(108, 92, 231, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(108, 92, 231, 0.5);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-heading {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .project-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .project-link {
+                font-size: 1.3rem;
+            }
+            
+            .projects-section {
+                padding: 40px 0;
+            }
+            
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-heading {
+                font-size: 2rem;
+            }
+            
+            .project-card {
+                padding: 1.2rem;
+            }
+            
+            .project-link {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Animation delays for staggered effect */
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Glowing dots -->
+    <div class="glow-dots">
+        <div class="glow-dot"></div>
+        <div class="glow-dot"></div>
+        <div class="glow-dot"></div>
+        <div class="glow-dot"></div>
+        <div class="glow-dot"></div>
+    </div>
+
+    <!-- Main projects section -->
+    <section class="projects-section">
+        <div class="container">
+            <h1 class="main-heading">Projects</h1>
+            
+            <div class="row">
+                <div class="col-12">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-content">
+                            <a href="https://example.com/project2" target="_blank" class="project-link">
+                                spam-mail-classification
+                            </a>
+                            <p class="project-description">
+                                This project focuses on developing an automated email classification system to accurately detect and filter spam emails in real-time.
+                                 Using NLP techniques for feature extraction, the system processes incoming emails quickly and efficiently, ensuring only legitimate messages reach the inbox. It is 
+                                designed to be scalable and adaptable, continuously learning to identify new types of spam and enhancing user productivity and security.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-content">
+                            <a href="https://example.com/project3" target="_blank" class="project-link">
+                                DeFi Trading Platform
+                            </a>
+                            <p class="project-description">
+                                A comprehensive decentralized finance platform that enables users to trade, stake, and provide liquidity across multiple blockchain networks. Features advanced analytics, automated trading strategies, and seamless wallet integration.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-content">
+                            <a href="https://example.com/project3" target="_blank" class="project-link">
+                                AI-Powered Analytics
+                            </a>
+                            <p class="project-description">
+                                An intelligent business analytics platform that leverages machine learning to provide real-time insights, predictive modeling, and automated reporting. Designed for enterprise-level data visualization and decision-making.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-content">
+                            <a href="https://example.com/project4" target="_blank" class="project-link">
+                              Identity Verification
+                            </a>
+                            <p class="project-description">
+                                A secure, decentralized identity verification system built on blockchain technology. Enables users to maintain control over their personal data while providing seamless authentication across multiple platforms and services.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <div class="project-content">
+                            <a href="https://example.com/project5" target="_blank" class="project-link">
+                                 Contract Auditing Tool
+                            </a>
+                            <p class="project-description">
+                                An automated smart contract security auditing platform that identifies vulnerabilities, gas optimization opportunities, and compliance issues. Features comprehensive reporting and integration with popular development frameworks.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card">
+                        <div class="project-content">
+                            <a href="https://example.com/project6" target="_blank" class="project-link">
+                                 Real Estate Platform
+                            </a>
+                            <p class="project-description">
+                                A virtual real estate marketplace that enables users to buy, sell, and develop properties in various metaverse environments. Includes 3D visualization tools, virtual tours, and integrated payment systems for seamless transactions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scroll to top
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add smooth scroll behavior for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Intersection Observer for animation triggers
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.animationPlayState = 'paused';
+            observer.observe(card);
+        });
+
+        // Add subtle parallax effect to background elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.glow-dot');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
