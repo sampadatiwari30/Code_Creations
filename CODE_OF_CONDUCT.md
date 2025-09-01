@@ -33,8 +33,8 @@ The use of sexualized language or imagery and sexual attention or advances of an
 
 This Code of Conduct applies within all community spaces, including but not limited to:
 - The Code_Creations GitHub repository (Issues, Pull Requests, Discussions,Code).
-- Official communication channels (project Discord).
-- Social media platforms when representing the TLDRify project (LinkedIn).
+- Official communication channels (Discord).
+- Social media platforms when representing the Code_Creations project (LinkedIn).
 - Any other public spaces where an individual is representing the project or its community.
 
 ---
