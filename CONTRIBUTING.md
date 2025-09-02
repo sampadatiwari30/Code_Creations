@@ -30,7 +30,7 @@ This guide will walk you through the entire contribution process, from setting u
 
 ## 📜 Code of Conduct
 
-We expect all contributors to follow our `Coming Soon` .
+We expect all contributors to follow our [`Code of Conduct`](https://github.com/sampadatiwari30/Code_Creations/blob/main/CODE_OF_CONDUCT.md) .
 
 By participating in this project, you agree to maintain a **respectful and inclusive environment** for everyone.
 
@@ -132,8 +132,8 @@ The structure and recommendations follow **GitHub Open Source Guides** and best 
 
 ## 👍 Thank you for your contribution!!
 
-<h4 align="center">
+<h3 align="center">
 Thank you for contributing to Code_Creations 🌟
  <br>
 We can't wait to see what you build! 🍽️✨
-</h4>
+</h3>
