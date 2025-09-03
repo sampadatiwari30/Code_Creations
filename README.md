@@ -16,6 +16,7 @@
 - <a href="#overview"> Overview </a>
 - <a href="#project-insights"> Project Insights </a>
 - <a href="#screenshots">Screenshots</a>
+- <a href="#project-structure">Project Structure</a>
 - <a href="#contribution-guidelines">Contribution Guidelines</a>
 - <a href="#acknowledgments">Acknowledgments</a>
 - <a href="#submitting-pull-request">Submitting a Pull Request</a>
@@ -115,6 +116,25 @@ Experience kala.ficial live here:
 - 📜 Receive certificates and swag!
 
 🎉 **I can’t wait to welcome new contributors** from GSSoC 2025 to this Code_Creations project family! Let's build, learn, and grow together — one commit at a time. 🔥👨‍💻👩‍💻
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<h2 id="project-structure">📁 Project Structure</h2>
+
+```bash
+Code_Creations/
+│
+├── CODE_OF_CONDUCT.md 
+├── CONTRIBUTING.md 
+├── LICENSE
+├── images /
+├── about.html
+├── contact.html
+├── expierence.html
+├── project.html
+├── index.html
+├── README.md
+```
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
