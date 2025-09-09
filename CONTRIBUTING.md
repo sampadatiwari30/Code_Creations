@@ -43,15 +43,18 @@ By contributing to this project, you agree that your contributions will be licen
 
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
+---
+
 ## 🤝 Ways to Contribute
 
-You can contribute in several ways:
-- **🐞 Report Bugs:** Submit issues for reproducible bugs.
-- **💡 Suggest Features:** Propose new ideas or improvements.
-- **📖 Improve Documentation:** Enhance clarity, grammar, or structure.
-- **⚡ Add Code:** Fix bugs, build new features, or optimize existing ones.
-- **🧪 Test:** Help us find issues by testing code in different environments.
+You can contribute in many valuable ways:
+- 🐞 **Report Bugs**: Submit detailed, reproducible bug reports.
+- 💡 **Suggest Features**: Share ideas to enhance the project.
+- 📖 **Improve Documentation**: Clarify, correct, or update content.
+- ⚡ **Add Code**: Implement new features or fix existing issues.
+- 🧪 **Test**: Help test across browsers and devices.
 
+---
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## 🎯 Points & Difficulty Levels
