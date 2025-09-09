@@ -1,4 +1,4 @@
-<h1 align="center">✨ Contributors Guide ✨</h1>
+8<h1 align="center">✨ Contributors Guide ✨</h1>
 
 <h3 align="center">Welcome to the Code_Creations project! 😍<br>
 We appreciate your interest in contributing.😊<br> </h3>
@@ -75,11 +75,12 @@ If you're participating in GSSoC’25, you’ll earn points based on the complex
 
 ## 💡 Contribution Guidelines
 
-* **Code Style**: Use clean, readable code with meaningful names.
-* **UI Consistency**: Follow the modern UI style with animated gradients.
-* **Responsive Design**: Ensure changes work on both desktop and mobile.
-* **Commit Messages**: Use descriptive commit messages.
+- ✅ **Code Style**: Use readable, clean code with meaningful variable/function names.
+- 🎨 **UI Consistency**: Match the project’s modern, animated gradient style.
+- 📱 **Responsive Design**: Ensure compatibility across desktop and mobile.
+- 📌 **Commit Messages**: Write concise, descriptive commit messages (e.g., `fix: correct navbar link`, `feat: add dark mode toggle`).
 
+---
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## ✅ PR Review Process
