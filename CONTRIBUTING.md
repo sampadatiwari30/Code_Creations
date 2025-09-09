@@ -3,14 +3,15 @@
 <h3 align="center">Welcome to the Code_Creations project! 😍<br>
 We appreciate your interest in contributing.😊<br> </h3>
 
-First off, thank you for considering contributing to **Code_Creations!** We're excited to have you join our community. Every contribution, no matter how small, helps us build the best academic resource platform for students.
+First off, thank you for considering contributing to **Code_Creations!** We're excited to have you join our community. Every contribution, no matter how small, helps us build one of the best academic resource platforms for students.
 
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
-This guide will walk you through the entire contribution process, from setting up your local environment to submitting a polished pull request.
+This guide will walk you through the entire contribution process—from setting up your local environment to submitting a polished pull request.
 
-> **New to Open Source?** No problem! This guide is designed to be beginner-friendly. If you get stuck, don't hesitate to open an issue or ask for help.
+> **New to Open Source?** No worries! This guide is beginner-friendly. If you get stuck, feel free to open an issue or ask for help.
 
+---
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## 📋 Table of Contents
