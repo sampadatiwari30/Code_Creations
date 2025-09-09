@@ -57,18 +57,20 @@ You can contribute in many valuable ways:
 ---
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
+
 ## 🎯 Points & Difficulty Levels
 
-Your contributions earn points that count toward GSSoC'25 and your Code_Creations Leaderboard status!
+If you're participating in GSSoC’25, you’ll earn points based on the complexity of your contribution:
 
 | Difficulty | Points |
-| :--------- | :----- |
-| Level 1 | 3 |
-| Level 2 | 7 |
-| Level 3 | 10  |
+|------------|--------|
+| Level 1    | 3      |
+| Level 2    | 7      |
+| Level 3    | 10     |
 
-> **Note:** The scoring system applies only to GSSOC contributors.
+> 📝 *Note: Point tracking is applicable only for GSSoC contributors.*
 
+---
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## 💡 Contribution Guidelines
