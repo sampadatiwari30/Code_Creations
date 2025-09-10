@@ -1,636 +1,333 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --dark-bg: #0d0d0d;
-            --card-bg: #1a1a1a;
-            --soft-white: #f8f9fa;
-            --royal-purple: #6c5ce7;
-            --deep-navy: #001f3f;
-            --text-secondary: #adb5bd;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-bg);
-            color: var(--soft-white);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation Bar */
-        .navbar {
-            background: rgba(13, 13, 13, 0.95) !important;
-            backdrop-filter: blur(20px);
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .navbar.scrolled {
-            background: rgba(13, 13, 13, 0.98) !important;
-            box-shadow: 0 2px 30px rgba(108, 92, 231, 0.2);
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--soft-white) !important;
-        }
-
-        .navbar-nav {
-            margin: 0 auto;
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--soft-white) !important;
-            margin: 0 1.5rem;
-            font-weight: 500;
-            position: relative;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: var(--royal-purple) !important;
-        }
-
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: linear-gradient(90deg, var(--royal-purple), var(--deep-navy));
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 100%;
-        }
-
-        .navbar-toggler {
-            border: 1px solid var(--royal-purple);
-            padding: 0.25rem 0.5rem;
-        }
-
-        .navbar-toggler:focus {
-            box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
-        }
-
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28248, 249, 250, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
-        /* Main Container */
-        .main-container {
-            padding: 8rem 0 4rem;
-            min-height: 100vh;
-        }
-
-        /* Title Section */
-        .title-section {
-            text-align: center;
-            margin-bottom: 5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out 0.3s forwards;
-        }
-
-        .title-section h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--soft-white);
-            text-shadow: 0 0 30px rgba(248, 249, 250, 0.3);
-            margin-bottom: 1rem;
-        }
-
-        .title-underline {
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--royal-purple), var(--deep-navy));
-            margin: 0 auto;
-            border-radius: 2px;
-            animation: glowPulse 2s ease-in-out infinite alternate;
-        }
-
-        /* Experience Cards */
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto 6rem;
-            padding: 0 1rem;
-        }
-
-        .experience-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(108, 92, 231, 0.1);
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 0.8s ease-out forwards;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(108, 92, 231, 0.05), rgba(0, 31, 63, 0.05));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 20px;
-        }
-
-        .experience-card:hover::before {
-            opacity: 1;
-        }
-
-        .experience-card:nth-child(1) { animation-delay: 0.1s; }
-        .experience-card:nth-child(2) { animation-delay: 0.2s; }
-        .experience-card:nth-child(3) { animation-delay: 0.3s; }
-        .experience-card:nth-child(4) { animation-delay: 0.4s; }
-        .experience-card:nth-child(5) { animation-delay: 0.5s; }
-        .experience-card:nth-child(6) { animation-delay: 0.6s; }
-        .experience-card:nth-child(7) { animation-delay: 0.7s; }
-        .experience-card:nth-child(8) { animation-delay: 0.8s; }
-        .experience-card:nth-child(9) { animation-delay: 0.9s; }
-
-        .experience-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(108, 92, 231, 0.2), 0 0 30px rgba(0, 31, 63, 0.1);
-            border-color: var(--royal-purple);
-        }
-
-        .card-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .company-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--royal-purple);
-            margin-bottom: 0.5rem;
-        }
-
-        .role-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--soft-white);
-            margin-bottom: 0.5rem;
-        }
-
-        .duration {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .location {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .card-content li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--soft-white);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .card-content li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: var(--royal-purple);
-            font-size: 0.8rem;
-        }
-
-        /* Review Section */
-        .review-section {
-            margin-top: 6rem;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .review-section.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .review-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--soft-white);
-            margin-bottom: 3rem;
-            text-shadow: 0 0 20px rgba(248, 249, 250, 0.2);
-        }
-
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .review-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(108, 92, 231, 0.1);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out forwards;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .review-card:nth-child(1) { animation-delay: 0.2s; }
-        .review-card:nth-child(2) { animation-delay: 0.4s; }
-        .review-card:nth-child(3) { animation-delay: 0.6s; }
-
-        .review-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(108, 92, 231, 0.03), rgba(0, 31, 63, 0.03));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 20px;
-        }
-
-        .review-card:hover::before {
-            opacity: 1;
-        }
-
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.15);
-            border-color: var(--royal-purple);
-        }
-
-        .review-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--soft-white);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-
-        .review-author {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--royal-purple);
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes glowPulse {
-            0% {
-                box-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
-            }
-            100% {
-                box-shadow: 0 0 20px rgba(108, 92, 231, 0.8);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .main-container {
-                padding: 6rem 0 2rem;
-            }
-
-            .title-section h1 {
-                font-size: 2.5rem;
-            }
-
-            .experience-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .experience-card {
-                padding: 1.5rem;
-            }
-
-            .company-name {
-                font-size: 1.2rem;
-            }
-
-            .role-title {
-                font-size: 1.1rem;
-            }
-
-            .review-title {
-                font-size: 2rem;
-            }
-
-            .review-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .review-card {
-                padding: 1.5rem;
-            }
-
-            .navbar-nav .nav-link {
-                margin: 0.5rem 0;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .title-section h1 {
-                font-size: 2rem;
-            }
-
-            .experience-card {
-                padding: 1.2rem;
-            }
-
-            .review-card {
-                padding: 1.2rem;
-            }
-
-            .review-text {
-                font-size: 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f172a, #1e293b, #0f172a);
+      color: white;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    /* Animated glowing marker */
+    .glow-marker {
+      box-shadow: 0 0 15px rgba(255,255,255,0.8), 0 0 30px currentColor;
+      animation: pulse 2s infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); opacity: 0.9; }
+      to { transform: scale(1.2); opacity: 0.6; }
+    }
+  </style>
 </head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
-        <div class="container">
-            <a class="navbar-brand" href="#">Sampada Tiwari</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="project.html">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="expierence.html">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Me</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<body class="font-sans">
+      <!-- Navbar -->
+<header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <!-- Brand / Logo -->
+    <h1 class="text-white text-2xl font-bold">Sampada <span class="text-cyan-400">Tiwari</span></h1>
+
+    <!-- Navigation Links -->
+    <nav class="space-x-6 hidden md:flex">
+      <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
+      <a href="#about" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
+      <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
+      <a href="#experience" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
+      <a href="#projects" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
+      <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
+      <a href="#contact" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
     </nav>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <div class="container-fluid">
-            <!-- Title Section -->
-            <div class="title-section">
-                <h1>Experience</h1>
-                <div class="title-underline"></div>
-            </div>
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
 
-            <!-- Experience Cards -->
-            <div class="experience-grid">
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
+    <nav class="flex flex-col px-6 py-4 space-y-4">
+      <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
+      <a href="#about" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
 
-                <!-- Card 2 -->
-                <div class="experience-card">
-                    <div class="card-header">
-                        <div class="company-name">Gaming Network</div>
-                        <div class="role-title">Fellowship – City Lead</div>
-                        <div class="duration">May 2024 – Present · 1 yr 3 mos</div>
-                        <div class="location">India · Remote</div>
-                    </div>
-                    <div class="card-content">
-                        <ul>
-                            <li>Represented Kratos in city-based esports initiatives</li>
-                            <li>Managed partnerships, events, and local campaigns</li>
-                            <li>Tracked outreach stats with Excel</li>
-                        </ul>
-                    </div>
-                </div>
+      <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
+      <a href="#experience" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
+      <a href="#projects" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
+      <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
+      <a href="#contact" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
+    </nav>
+  </div>
+</header>
 
-                <!-- Card 4 -->
-                <div class="experience-card">
-                    <div class="card-header">
-                        <div class="company-name">Future baba </div>
-                        <div class="role-title">Data Analytics & Data Science Intern</div>
-                        <div class="duration">Apr 2025 · 1 mo</div>
-                        <div class="location">Remote</div>
-                    </div>
-                    <div class="card-content">
-                        <ul>
-                            <li>Used Python, Excel, Power BI for insights</li>
-                            <li>Built interactive KPI dashboards</li>
-                            <li>Contributed to modeling and reporting</li>
-                        </ul>
-                    </div>
-                </div>
+<!-- Tailwind JS for Mobile Menu Toggle -->
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-                <!-- Card 5 -->
-                <div class="experience-card">
-                    <div class="card-header">
-                        <div class="company-name">Algorithm</div>
-                        <div class="role-title">CCP Lead</div>
-                        <div class="duration">Jun 2024 – May 2025 · 1 month</div>
-                    </div>
-                    <div class="card-content">
-                        <ul>
-                            <li>Led 50+ coders for DSA and CP</li>
-                            <li>Hosted coding contests and mentoring</li>
-                            <li>Maintained community via GitHub/Discord</li>
-                        </ul>
-                    </div>
-                </div>
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+  </script>
+  <!-- Header -->
+  <header class="text-center py-10" style="margin-top: 6rem;">
+    <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
+      My Experience
+    </h1>
+    <p class="mt-4 text-gray-300 text-lg">A timeline of my professional journey 🚀</p>
+  </header>
 
-                <!-- Card 6 -->
-                <div class="experience-card">
-                    <div class="card-header">
-                        <div class="company-name">Palmolive (India) Ltd</div>
-                        <div class="role-title">Content Creator</div>
-                        <div class="duration">May 2024 – May 2024 (1 mo)</div>
-                    </div>
-                    <div class="card-content">
-                        <ul>
-                            <li>Created engaging content aligned to brand voice</li>
-                            <li>Supported marketing campaigns</li>
-                            <li>Drove user engagement through storytelling</li>
-                        </ul>
-                    </div>
-                </div>
+  <!-- Timeline Section -->
+  <section class="relative max-w-5xl mx-auto px-6">
+    <div class="border-l-4 border-purple-500">
 
-            <!-- Review Section -->
-            <div class="review-section" id="reviews">
-                <h2 class="review-title">Testimonials</h2>
-                <div class="review-grid">
-                    <!-- Review 1 -->
-                    <div class="review-card">
-                        <div class="review-text">
-                         community building efforts have been transformative, fostering a sense of belonging and driving user engagement to new heights. His passion and expertise shine through in everything he does."
-                        </div>
-                        <div class="review-author">— Sandeep Jain, CEO GeeksforGeeks</div>
-                    </div>
-
-                    <!-- Review 2 -->
-                    <div class="review-card">
-                        <div class="review-text">
-                    ability to connect us with the right gaming influencers and opportunities has been impressive. He's helped us reach new audiences and build a loyal following among gamers."
-                        </div>
-                        <div class="review-author">— Abhishek Aggarwal, CEO Trinity Gaming</div>
-                    </div>
-
-                    <!-- Review 3 -->
-                    <div class="review-card">
-                        <div class="review-text">
-                         gaming sponsorship expertise has been a game-changer for our brand. He's delivered top-notch partnerships and activations that have significantly boosted our visibility and credibility in the gaming community."
-                        </div>
-                        <div class="review-author">— Manish Agarwal, CEO KGeN</div>
-                    </div>
-                </div>
-            </div>
+      <!-- Example Timeline Card -->
+      <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-purple-500 glow-marker flex items-center justify-center text-xs font-bold">2025</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-purple-500/40 hover:border-purple-400/70 transition-all transform hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-purple-400">GirlScript Summer of Code</h3>
+          <p class="text-gray-300">Project Admin & Discord Moderator · Jul 2025 – Present</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <li>Selected as Project Admin</li>
+            <li>Full-time Discord Moderator</li>
+            <li>Managed projects, mentored contributors & coordinated events</li>
+          </ul>
         </div>
+      </div>
+
+      <!-- Gaming Network -->
+      <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-pink-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-pink-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-pink-400">Gaming Network</h3>
+          <p class="text-gray-300">Fellowship – City Lead · May 2024 – Present</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <li>Represented Kratos in city-based esports initiatives</li>
+            <li>Managed partnerships, events & campaigns</li>
+            <li>Tracked outreach stats with Excel</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Future Baba -->
+      <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-red-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-red-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-red-400">Future Baba</h3>
+          <p class="text-gray-300">Data Analytics & Data Science Intern · Apr 2025</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+             <li>Used Python, Excel, Power BI for insights</li>
+            <li>Built interactive KPI dashboards</li>
+            <li>Contributed to modeling & reporting</li>
+          </ul>
+        </div>
+      </div>
+       <!-- Gaming Network -->
+      <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-gray-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-gray-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-gray-400">Algorithm</h3>
+          <p class="text-gray-300">CCP Lead · Jun 2024 – May 2025</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+             <li>Led 50+ coders in DSA & CP</li>
+            <li>Hosted contests and mentoring sessions</li>
+            <li>Maintained community on GitHub/Discord</li>
+          </ul>
+        </div>
+      </div>
+       <!-- Gaming Network -->
+      <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-cyan-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-cyan-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-cyan-400">Palmolive (India) Ltd</h3>
+          <p class="text-gray-300">Content Creator · May 2024</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <li>Created content aligned to brand voice</li>
+            <li>Supported marketing campaigns</li>
+            <li>Drove engagement via storytelling</li>
+          </ul>
+        </div>
+      </div>
+       <!-- Gaming Network -->
+      <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-indigo-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-indigo-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-indigo-400">GirlScript Summer of Code</h3>
+          <p class="text-gray-300">Mentor & Campus Ambassador · Sep – Nov 2024</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <li>Guided contributors, hosted sessions & secured <span class="text-white font-bold">8th rank</span>.</li>
+          </ul>
+        </div>
+      </div>
+       <!-- Gaming Network -->
+      <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-teal-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-teal-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-teal-400">French Quiz</h3>
+          <p class="text-gray-300">Banasthali Vidyapith · Oct 2024</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <li>Participated in "Le Grand Concours '24" in collaboration with Uzbekistan State World Language University & French Embassy in India.</li>
+          </ul>
+        </div>
+      </div>
+       <!-- Gaming Network -->
+      <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-orange-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-orange-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-orange-400">Nasa Space Apps Challenge</h3>
+          <p class="text-gray-300">Cusco · Remote · Oct 2024</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <li>Built innovative solutions for planetary exploration during NASA Hackathon.</li>
+          </ul>
+        </div>
+      </div>
+        <!-- Gaming Network -->
+      <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-blue-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-blue-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-blue-400">Campus Ambassador</h3>
+          <p class="text-gray-300">Techkriti, IIT Kanpur · Sep 2023 – Apr 2024</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <li>Represented IIT Kanpur’s Techkriti Fest. Skills gained: <span class="font-bold text-white">Team Management, Time Management</span>.</li>
+          </ul>
+        </div>
+      </div>
+            <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-red-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-red-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-red-400">Web Development Intern </h3>
+          <p class="text-gray-300">CLUMOSS · Aug – Sep 2023</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <li>Worked remotely on frontend development projects.</li>
+          </ul>
+        </div>
+      </div>
+       <div class="relative mb-12 pl-10" data-tilt>
+        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-indigo-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
+        <div class="glass rounded-3xl p-6 shadow-2xl border border-indigo-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
+          <h3 class="text-2xl font-semibold text-indigo-400">Tata Group Hackathon </h3>
+          <p class="text-gray-300">Participant · May 2023</p>
+          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <li>Contributed ideas & prototypes in Tata Group challenge.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <h2 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-14">
+      Testimonials
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="glass p-8 rounded-3xl shadow-2xl border border-green-400/40 hover:border-green-400/70 transition transform hover:scale-[1.05]" data-tilt>
+        <div class="flex items-start gap-3">
+          <span class="text-green-400 text-3xl">❝</span>
+          <p class="italic">Community building efforts have been transformative, fostering belonging and driving engagement. His passion shines through.</p>
+        </div>
+        <p class="mt-5 font-semibold text-gray-300">— Sandeep Jain, CEO GeeksforGeeks</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass p-8 rounded-3xl shadow-2xl border border-blue-400/40 hover:border-blue-400/70 transition transform hover:scale-[1.05]" data-tilt>
+        <div class="flex items-start gap-3">
+          <span class="text-blue-400 text-3xl">❝</span>
+          <p class="italic">Ability to connect us with the right gaming influencers and opportunities has been impressive. Helped us reach loyal audiences.</p>
+        </div>
+        <p class="mt-5 font-semibold text-gray-300">— Abhishek Aggarwal, CEO Trinity Gaming</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass p-8 rounded-3xl shadow-2xl border border-purple-400/40 hover:border-purple-400/70 transition transform hover:scale-[1.05]" data-tilt>
+        <div class="flex items-start gap-3">
+          <span class="text-purple-400 text-3xl">❝</span>
+          <p class="italic">Gaming sponsorship expertise has been a game-changer. Delivered partnerships that boosted visibility in the gaming community.</p>
+        </div>
+        <p class="mt-5 font-semibold text-gray-300">— Manish Agarwal, CEO KGeN</p>
+      </div>
+    </div>
+  </section>
+  <!-- ================= FOOTER SECTION ================= -->
+<footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12">
+
+  <!-- Footer Container -->
+  <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
+
+    <!-- Brand / Logo -->
+    <div class="text-center md:text-left">
+      <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+        Sampada<span class="font-extrabold">Tiwari</span>
+      </h2>
+      <p class="text-gray-400 mt-1 text-sm md:text-base">Data Scientist • Leader • Creator</p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('mainNavbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+    <!-- Quick Links -->
+    <div class="text-center md:text-left">
+      <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
+      <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2">
+        <li><a href="#about" class="hover:text-cyan-400 transition-colors">About</a></li>
+        <li><a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a></li>
+        <li><a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a></li>
+        <li><a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a></li>
+        <li><a href="#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a></li>
+        <li><a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a></li>
+      </ul>
+    </div>
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- Social Media -->
+    <div class="text-center md:text-left">
+      <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
+      <div class="flex justify-center md:justify-start gap-4 text-2xl">
+        <a href="https://linkedin.com/in/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:sampada@example.com" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
 
-        // Mobile menu auto-close on link click
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
-                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-                    bsCollapse.hide();
-                }
-            });
-        });
+  </div>
 
-        // Intersection Observer for review section animation
-        const reviewSection = document.querySelector('.review-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    reviewSection.classList.add('animate');
-                }
-            });
-        }, {
-            threshold: 0.2
-        });
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+    © 2025 Sampada Tiwari • All Rights Reserved
+  </div>
 
-        observer.observe(reviewSection);
+</footer>
 
-        // Enhanced hover effects for cards
-        document.querySelectorAll('.experience-card, .review-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+  <script>
+    // Scroll reveal
+    ScrollReveal().reveal('.glass', {
+      delay: 150,
+      distance: '60px',
+      origin: 'bottom',
+      opacity: 0,
+      duration: 1000,
+      easing: 'ease-in-out',
+      interval: 200
+    });
 
-        // Add parallax effect to title
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const titleSection = document.querySelector('.title-section');
-            const rate = scrolled * -0.1;
-            
-            if (titleSection && scrolled < window.innerHeight) {
-                titleSection.style.transform = `translateY(${rate}px)`;
-            }
-        });
-    </script>
+    // Tilt effect
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+      max: 10,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2
+    });
+  </script>
 </body>
 </html>
