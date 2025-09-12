@@ -1,16 +1,17 @@
-<h1 align="center">✨ Contributors Guide ✨</h1>
+8<h1 align="center">✨ Contributors Guide ✨</h1>
 
 <h3 align="center">Welcome to the Code_Creations project! 😍<br>
 We appreciate your interest in contributing.😊<br> </h3>
 
-First off, thank you for considering contributing to **Code_Creations!** We're excited to have you join our community. Every contribution, no matter how small, helps us build the best academic resource platform for students.
+First off, thank you for considering contributing to **Code_Creations!** We're excited to have you join our community. Every contribution, no matter how small, helps us build one of the best academic resource platforms for students.
 
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
-This guide will walk you through the entire contribution process, from setting up your local environment to submitting a polished pull request.
+This guide will walk you through the entire contribution process—from setting up your local environment to submitting a polished pull request.
 
-> **New to Open Source?** No problem! This guide is designed to be beginner-friendly. If you get stuck, don't hesitate to open an issue or ask for help.
+> **New to Open Source?** No worries! This guide is beginner-friendly. If you get stuck, feel free to open an issue or ask for help.
 
+---
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## 📋 Table of Contents
@@ -42,38 +43,44 @@ By contributing to this project, you agree that your contributions will be licen
 
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
+---
+
 ## 🤝 Ways to Contribute
 
-You can contribute in several ways:
-- **🐞 Report Bugs:** Submit issues for reproducible bugs.
-- **💡 Suggest Features:** Propose new ideas or improvements.
-- **📖 Improve Documentation:** Enhance clarity, grammar, or structure.
-- **⚡ Add Code:** Fix bugs, build new features, or optimize existing ones.
-- **🧪 Test:** Help us find issues by testing code in different environments.
+You can contribute in many valuable ways:
+- 🐞 **Report Bugs**: Submit detailed, reproducible bug reports.
+- 💡 **Suggest Features**: Share ideas to enhance the project.
+- 📖 **Improve Documentation**: Clarify, correct, or update content.
+- ⚡ **Add Code**: Implement new features or fix existing issues.
+- 🧪 **Test**: Help test across browsers and devices.
 
+---
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
+
 
 ## 🎯 Points & Difficulty Levels
 
-Your contributions earn points that count toward GSSoC'25 and your Code_Creations Leaderboard status!
+If you're participating in GSSoC’25, you’ll earn points based on the complexity of your contribution:
 
 | Difficulty | Points |
-| :--------- | :----- |
-| Level 1 | 3 |
-| Level 2 | 7 |
-| Level 3 | 10  |
+|------------|--------|
+| Level 1    | 3      |
+| Level 2    | 7      |
+| Level 3    | 10     |
 
-> **Note:** The scoring system applies only to GSSOC contributors.
+> 📝 *Note: Point tracking is applicable only for GSSoC contributors.*
 
+---
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## 💡 Contribution Guidelines
 
-* **Code Style**: Use clean, readable code with meaningful names.
-* **UI Consistency**: Follow the modern UI style with animated gradients.
-* **Responsive Design**: Ensure changes work on both desktop and mobile.
-* **Commit Messages**: Use descriptive commit messages.
+- ✅ **Code Style**: Use readable, clean code with meaningful variable/function names.
+- 🎨 **UI Consistency**: Match the project’s modern, animated gradient style.
+- 📱 **Responsive Design**: Ensure compatibility across desktop and mobile.
+- 📌 **Commit Messages**: Write concise, descriptive commit messages (e.g., `fix: correct navbar link`, `feat: add dark mode toggle`).
 
+---
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## ✅ PR Review Process
