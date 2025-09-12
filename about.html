@@ -204,6 +204,17 @@
             margin-right: 2rem;
             filter: drop-shadow(0 0 10px rgba(108, 92, 231, 0.3));
         }
+        @keyframes tiltLoop {
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(-8deg); }
+    50%  { transform: rotate(8deg); }
+    75%  { transform: rotate(-8deg); }
+    100% { transform: rotate(0deg); }
+}
+
+        .education-card:hover .education-icon {
+        animation: tiltLoop 1.2s infinite ease-in-out;
+}
 
         .education-title {
             font-size: 1.8rem;
