@@ -127,6 +127,7 @@
             border-radius: 25px;
             z-index: -1;
         }
+       
 
         /* Heading */
         .contact-heading {
@@ -143,7 +144,7 @@
             font-weight: 700;
             color: var(--soft-white);
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--royal-purple), var(--deep-navy));
+            background: linear-gradient(90deg, rgb(0, 229, 255), rgb(59, 59, 253));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -207,8 +208,14 @@
             color: var(--soft-white);
             margin-bottom: 2rem;
             font-weight: 600;
+            transition: transform 0.3s ease-in-out;
         }
-
+        .social-title:hover{
+            transform: scale(1.3);
+             background: linear-gradient(45deg, #33e0f0, #52879f, #2791dc, #2364cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .social-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -295,15 +302,15 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .instagram:hover { border-color: #e6683c; }
+        .instagram:hover { border-color: #e63cbe; }
 
         /* Facebook */
         .facebook:hover .social-icon { color: #1877f2; }
         .facebook:hover { border-color: #1877f2; }
 
         /* Twitter */
-        .twitter:hover .social-icon { color: #1da1f2; }
-        .twitter:hover { border-color: #1da1f2; }
+        .twitter:hover .social-icon { color: #1df239; }
+        .twitter:hover { border-color: #1df236; }
 
         /* Scroll to Top Button */
         .scroll-top {
