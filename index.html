@@ -230,7 +230,7 @@
     <nav class="space-x-6 hidden md:flex">
       <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
       <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
-      <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
+      <a href="skills.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
       <a href="expierence.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
       <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
       <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
@@ -847,7 +847,7 @@ cards.forEach(card => observer.observe(card));
 // Animated counters
 const counters = document.querySelectorAll(".counter");
 const speed = 200;
-const observer = new IntersectionObserver(entries => {
+const counterObserver = new IntersectionObserver(entries => { // <-- changed name here
   entries.forEach(entry => {
     if(entry.isIntersecting){
       counters.forEach(counter => {
@@ -867,7 +867,7 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 },{threshold:0.5});
-counters.forEach(c => observer.observe(c));
+counters.forEach(c => counterObserver.observe(c)); // <-- changed name here
 
 // Contact form submission
 document.getElementById("contact-form").addEventListener("submit", function (e) {
