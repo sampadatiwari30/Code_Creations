@@ -13,7 +13,9 @@
     .gradient-text { 
       background: linear-gradient(135deg,#6c5ce7,#00c6ff,#ff6ec7);
       -webkit-background-clip: text;
+      background-clip: text;  
       -webkit-text-fill-color: transparent;
+
     }
 
     /* Projects Grid */
@@ -51,7 +53,7 @@
 
     .modal-close { position:absolute; top:1rem; right:1rem; font-size:1.5rem; color:#fff; cursor:pointer; }
     .modal-content img { width:100%; border-radius:1rem; margin-bottom:1rem; }
-    .modal-content h2 { font-size:2rem; background: linear-gradient(135deg,#6c5ce7,#00c6ff,#ff6ec7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:1rem; }
+    .modal-content h2 { font-size:2rem; background: linear-gradient(135deg,#6c5ce7,#00c6ff,#ff6ec7); -webkit-background-clip:text; background-clip: text;   -webkit-text-fill-color:transparent; margin-bottom:1rem; }
     .modal-content p { color:#c0c0c0; line-height:1.6; margin-bottom:1rem; }
     .modal-content .buttons a { display:inline-block; margin-right:1rem; padding:0.5rem 1rem; border-radius:9999px; background:linear-gradient(135deg,#6c5ce7,#00c6ff); color:#fff; font-weight:600; transition:transform 0.3s ease; }
     .modal-content .buttons a:hover { transform:scale(1.05); }
@@ -60,6 +62,34 @@
     #scrollTop { position:fixed; bottom:30px; right:30px; background:linear-gradient(135deg,#6c5ce7,#00c6ff); width:50px; height:50px; border-radius:9999px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform 0.3s ease, box-shadow 0.3s ease; opacity:0; visibility:hidden; z-index:50; }
     #scrollTop.visible { opacity:1; visibility:visible; }
     #scrollTop:hover { transform: translateY(-4px) scale(1.1); box-shadow:0 8px 30px rgba(108,92,231,0.5); }
+html {
+  scroll-behavior: smooth;
+}
+.project-card h3 {
+  text-shadow: 0 0 10px rgba(108, 92, 231, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+.project-card:hover h3 {
+  text-shadow: 0 0 5px rgba(192, 255, 236, 0.599);
+}
+.modal-content .buttons a {
+  background-image:
+    linear-gradient(#1e293b, #1e293b),
+    linear-gradient(135deg, #6c5ce7, #00c6ff, #ff6ec7);
+}
+.project-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.project-card:hover {
+  box-shadow: 0 25px 60px rgba(108,92,231,0.35);
+}
+.project-card img {
+  filter: brightness(0.9);
+}
+.project-card:hover img {
+  filter: brightness(1.05) blur(0.5px);
+}
+
   </style>
 </head>
 <body>
@@ -74,7 +104,7 @@
       <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
       <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
       <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
-      <a href="expierence.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
+      <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
       <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
       <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
       <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
@@ -157,7 +187,7 @@
 <!-- NASA Space Challenge -->
 <div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
   <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/nasa-space_project.jpeg" alt="NASA Space Challenge" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+    <img src="https://sites.uwasa.fi/vaasaspaceavenue/wp-content/blogs.dir/4/files/sites/188/2025/07/nasa-space-apps-kuva-jollaan-1080x500.png" alt="NASA Space Challenge" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
   </div>
   <div class="p-5 bg-[#0f172a]">
@@ -203,7 +233,7 @@
 <div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
   <!-- Image with overlay -->
   <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/spam-mail-project.png" alt="spam-mail-classification" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+    <img src="https://griddb-pro-ewemahawekgyd8bs.a03.azurefd.net/en/wp-content/uploads/2021/11/email-spam-1160x650.png" alt="spam-mail-classification" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
   </div>
 
@@ -230,7 +260,7 @@
 <!-- DeFi Trading Platform Card -->
 <div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
   <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/defi-platform-project.jpeg" alt="DeFi Trading Platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+    <img src="https://www.solulab.com/wp-content/uploads/2023/08/Best-Defi-Trading-Platforms.jpg" alt="DeFi Trading Platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
   </div>
 
@@ -255,7 +285,7 @@
 <!-- Contract Auditing Tool -->
 <div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
   <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/contract-project.jpeg" alt="Contract Auditing Tool" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+    <img src="https://101blockchains.com/wp-content/uploads/2023/12/top-smart-contracts-auditing-tools.png" alt="Contract Auditing Tool" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
   </div>
   <div class="p-5 bg-[#0f172a]">
@@ -278,7 +308,7 @@
 <!-- HearMe Platform -->
 <div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
   <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/hearme-project.jpeg" alt="HearMe Platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+    <img src="https://i.ytimg.com/vi/crAHR64_C48/maxresdefault.jpg" alt="HearMe Platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
   </div>
   <div class="p-5 bg-[#0f172a]">
