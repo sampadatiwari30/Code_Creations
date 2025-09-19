@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+
+:root {
+  --primary: #38bdf8;
+  --secondary: #a855f7;
+  --dark: #0f172a;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--dark);
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* SKILLS SECTION */
+#skills {
+  padding: 6rem 8%;
+  background: #111827;
+  color: #fff;
+  text-align: center;
+}
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.section-title span {
+  color: #38bdf8;
+}
+.section-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  color: #9ca3af;
+}
+
+/* Tabs */
+.skill-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+.skill-tabs .tab {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+.skill-tabs .tab.active,
+.skill-tabs .tab:hover {
+  background: linear-gradient(45deg, #38bdf8, #a855f7);
+  color: #000;
+}
+
+/* Skill Cards */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: left;
+  transition: transform 0.3s, background 0.3s;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.skill-card:hover {
+  transform: translateY(-5px);
+  background: rgba(56, 189, 248, 0.08);
+}
+.skill-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Progress Bars */
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  height: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  width: 0;
+  transition: width 2s ease;
+}
+.skill-card.visible .progress-bar {
+  width: var(--value);
+}
+
+/* Hidden state */
+.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-grid {
+    gap: 1.2rem;
+  }
+}
+
+/* Projects Section */
+.projects {
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  text-align: center;
+}
+
+.projects .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #527dff, #fefcfd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects .section-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #cfd8dc;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg, #ff6a00, #ee0979, #00c6ff, #ff6a00);
+  animation: rotate 6s linear infinite;
+  opacity: 0.15;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0px 10px 30px rgba(0, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.project-link {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00e5ff;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #ff4081;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: #e0f7fa;
+  line-height: 1.5;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 10s ease-in-out infinite;
+}
+.delay-2000 {
+  animation-delay: 2s;
+}
+
+
+/*Tailwind Custom Animations*/
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
