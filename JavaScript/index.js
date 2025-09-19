@@ -90,44 +90,40 @@ const testimonialCards = document.querySelectorAll(".testimonial-card");
 const dots = document.querySelectorAll(".dot");
 
 let currentIndex = 0;
+let autoSlideTimer;
 
 // Function to show the testimonial at a given index
 function showTestimonial(index) {
   testimonialCards.forEach((card, i) => {
-    if (i === index) {
-      card.classList.remove("hidden");
-      card.classList.add("block");
-    } else {
-      card.classList.remove("block");
-      card.classList.add("hidden");
-    }
+    card.classList.toggle("hidden", i !== index);
+    card.classList.toggle("block", i === index);
   });
 
   dots.forEach((dot, i) => {
-    if (i === index) {
-      dot.classList.add("bg-cyan-400");
-      dot.classList.remove("bg-gray-600");
-    } else {
-      dot.classList.add("bg-gray-600");
-      dot.classList.remove("bg-cyan-400");
-    }
+    dot.classList.toggle("bg-cyan-400", i === index);
+    dot.classList.toggle("bg-gray-600", i !== index);
   });
 
   currentIndex = index;
 }
 
-// Add click event to dots
+// Start or reset auto-slide
+function startAutoSlide() {
+  clearInterval(autoSlideTimer);
+  autoSlideTimer = setInterval(() => {
+    let nextIndex = (currentIndex + 1) % testimonialCards.length;
+    showTestimonial(nextIndex);
+  }, 5000);
+}
+
+// Add click event to dots (manual priority)
 dots.forEach((dot, i) => {
   dot.addEventListener("click", () => {
     showTestimonial(i);
+    startAutoSlide(); // Reset timer on manual click
   });
 });
 
-// Optional: Auto-slide testimonials every 5 seconds
-setInterval(() => {
-  let nextIndex = (currentIndex + 1) % testimonialCards.length;
-  showTestimonial(nextIndex);
-}, 5000);
-
-// Initialize first testimonial
+// Initialize first testimonial and auto-slide
 showTestimonial(currentIndex);
+startAutoSlide();

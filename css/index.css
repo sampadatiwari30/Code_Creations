@@ -116,6 +116,21 @@ body {
   }
 }
 
+/* Ensure testimonial cards have a consistent height */
+#testimonials .max-w-3xl {
+  min-height: 320px; /* Adjust as needed for your tallest card */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-card {
+  width: 100%;
+  /* Optionally, set a min-height for each card */
+  min-height: 250px; /* Adjust as needed */
+  transition: opacity 0.5s, transform 0.5s;
+}
+
 /* Projects Section */
 .projects {
   padding: 80px 10%;
@@ -228,7 +243,6 @@ body {
 .delay-2000 {
   animation-delay: 2s;
 }
-
 
 /*Tailwind Custom Animations*/
 @keyframes spin-slow {
