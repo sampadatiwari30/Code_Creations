@@ -1,947 +1,970 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sampada Tiwari — Portfolio</title>
-  <!-- Google Fonts -->
-   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Typed.js -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <style>
-    :root {
-      --primary: #38bdf8;
-      --secondary: #a855f7;
-      --dark: #0f172a;
-    }
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--dark);
-      color: #fff;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sampada Tiwari — Portfolio</title>
+    <!-- Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-   
-    /* SKILLS SECTION */
-#skills {
-  padding: 6rem 8%;
-  background: #111827;
-  color: #fff;
-  text-align: center;
-}
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: .5rem;
-}
-.section-title span { color: #38bdf8; }
-.section-subtitle {
-  font-size: 1.1rem;
-  margin-bottom: 2.5rem;
-  color: #9ca3af;
-}
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header
+      class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4"
+      >
+        <!-- Brand / Logo -->
+        <h1 class="text-white text-2xl font-bold">
+          Sampada <span class="text-cyan-400">Tiwari</span>
+        </h1>
 
-/* Tabs */
-.skill-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-.skill-tabs .tab {
-  padding: .7rem 1.5rem;
-  border: none;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  cursor: pointer;
-  transition: .3s;
-  font-weight: 600;
-}
-.skill-tabs .tab.active,
-.skill-tabs .tab:hover {
-  background: linear-gradient(45deg, #38bdf8, #a855f7);
-  color: #000;
-}
+        <!-- Navigation Links -->
+        <nav class="space-x-6 hidden md:flex">
+          <a
+            href="#hero"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >About</a
+          >
 
-/* Skill Cards */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-}
-.skill-card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 20px;
-  padding: 1.5rem;
-  text-align: left;
-  transition: transform .3s, background .3s;
-  box-shadow: 0 0 20px rgba(0,0,0,.3);
-}
-.skill-card:hover {
-  transform: translateY(-5px);
-  background: rgba(56,189,248,0.08);
-}
-.skill-card h3 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
+          <a
+            href="skills.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Skills</a
+          >
+          <a
+            href="expierence.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Experience</a
+          >
 
-/* Progress Bars */
-.progress {
-  background: rgba(255,255,255,0.1);
-  height: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg,#38bdf8,#a855f7);
-  width: 0;
-  transition: width 2s ease;
-}
-.skill-card.visible .progress-bar {
-  width: var(--value);
-}
+          <a
+            href="#skills"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Skills</a
+          >
+          <a
+            href="experience.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Experience</a
+          >
 
-/* Hidden state */
-.hidden { display: none; }
+          <a
+            href="project.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Projects</a
+          >
+          <a
+            href="#testimonials"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Testimonials</a
+          >
+          <a
+            href="contact.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Contact</a
+          >
+        </nav>
 
-/* Responsive */
-@media(max-width: 768px) {
-  .skills-grid { gap: 1.2rem; }
-}
-
-/* Projects Section */
-.projects {
-  padding: 80px 10%;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-  text-align: center;
-}
-
-.projects .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  background: linear-gradient(to right, #527dff, #fefcfd);
-  -webkit-background-clip: text;
-  background-clip: text;  
-  -webkit-text-fill-color: transparent;
-}
-
-.projects .section-subtitle {
-  font-size: 1.1rem;
-  margin-bottom: 40px;
-  color: #cfd8dc;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-.project-card {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 15px;
-  padding: 25px;
-  text-align: left;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.project-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(from 180deg, #ff6a00, #ee0979, #00c6ff, #ff6a00);
-  animation: rotate 6s linear infinite;
-  opacity: 0.15;
-}
-
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.project-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0px 10px 30px rgba(0, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.project-link {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #00e5ff;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 10px;
-  transition: color 0.3s ease;
-}
-
-.project-link:hover {
-  color: #ff4081;
-}
-
-.project-description {
-  font-size: 0.95rem;
-  color: #e0f7fa;
-  line-height: 1.5;
-}
-
- @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-  .animate-float { animation: float 4s ease-in-out infinite; }
-
-  @keyframes bounce-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-30px); }
-  }
-  .animate-bounce-slow { animation: bounce-slow 10s ease-in-out infinite; }
-  .delay-2000 { animation-delay: 2s; }
-
-
-
-
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-<header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-    <!-- Brand / Logo -->
-    <h1 class="text-white text-2xl font-bold">Sampada <span class="text-cyan-400">Tiwari</span></h1>
-
-    <!-- Navigation Links -->
-    <nav class="space-x-6 hidden md:flex">
-      <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
-      <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
-
-      <a href="skills.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
-      <a href="expierence.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
-
-      <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
-      <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
-
-      <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
-      <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
-      <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
-    </nav>
-
-    <!-- Mobile Menu Button -->
-    <div class="md:hidden">
-      <button id="menu-btn" class="text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
-    <nav class="flex flex-col px-6 py-4 space-y-4">
-      <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
-      <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
-
-      <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
-      <a href="expierence.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
-      <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
-      <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
-      <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<!-- Tailwind JS for Mobile Menu Toggle -->
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-</script>
-
- <!-- Hero Section -->
-<section id="hero" class="relative flex items-center justify-center h-screen px-6 md:px-12 overflow-hidden bg-[#0f172a]">
-  
-  <!-- Floating Background Shapes -->
-  <div class="absolute w-32 h-32 bg-[#38bdf8] rounded-full opacity-40 -top-15 -left-14 animate-bounce-slow"></div>
-  <div class="absolute w-24 h-24 bg-[#a855f7] rounded-full opacity-30 -bottom-88 -right-22 animate-bounce-slow delay-2000"></div>
-
-  <!-- Hero Content -->
-  <div class="flex flex-col-reverse md:flex-row items-center justify-between max-w-6xl w-full gap-8 md:gap-12">
-
-    <!-- Left Text -->
-    <div class="text-center md:text-left flex-1 space-y-6">
-      <h2 class="text-4xl md:text-5xl font-bold text-white">
-        Hi, I'm <span class="text-[#a855f7]">Sampada Tiwari</span>
-      </h2>
-      <p class="text-xl md:text-2xl text-gray-300">
-        I am a <span id="typed" class="font-semibold text-[#38bdf8]">Data Scientist & Web Developer</span>
-      </p>
-      <div class="flex justify-center md:justify-start gap-4">
-        <a href="#contact" class="px-6 py-3 bg-[#38bdf8] hover:bg-blue-400 text-black font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
-          Contact Me
-        </a>
-        <a href="resume.pdf" download class="px-6 py-3 border-2 border-[#38bdf8] text-[#38bdf8] hover:bg-[#38bdf8] hover:text-black font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
-          Download Resume
-        </a>
-      </div>
-    </div>
-
-    <!-- Right Image -->
-    <div class="flex-1 flex justify-center items-center relative">
-      <img src="./images/profile.jpeg" alt="Sampada Tiwari"
-        class="w-72 md:w-80 rounded-full border-4 border-[#38bdf8] shadow-[0_0_40px_rgba(56,189,248,0.5),0_0_80px_rgba(168,85,247,0.4)] animate-float">
-    </div>
-
-  </div>
-</section>
-<!-- ================= ABOUT SECTION ================= -->
-<section id="about" class="py-24 px-6 md:px-12 bg-[#0f172a] text-white">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-
-    <!-- Left: Image -->
-    <div class="flex-1 text-center">
-      <img src="./images/profile.jpeg" alt="Sampada Tiwari"
-        class="w-80 md:w-96 rounded-2xl border-4 border-[#38bdf8] shadow-[0_0_30px_rgba(56,189,248,0.6)] transform transition-transform duration-400 hover:scale-105">
-    </div>
-
-    <!-- Right: Content -->
-    <div class="flex-1 space-y-6">
-      <h2 class="text-3xl md:text-4xl font-bold">
-        About <span class="text-[#38bdf8]">Me</span>
-      </h2>
-      <p class="text-gray-300 text-lg md:text-xl leading-relaxed">
-        I'm <strong>Sampada Tiwari</strong> 🚀, a passionate <b>Data Science student</b> 
-        and <b>Web Developer</b> who loves solving real-world problems with 
-        <span class="text-[#a855f7] font-semibold">code, design, and data</span>.  
-        My journey blends creativity and technology, turning ideas into 
-        <b>interactive, functional, and meaningful experiences</b>.
-      </p>
-
-      <!-- Info Counters -->
-      <div class="flex flex-col sm:flex-row gap-6 md:gap-8 mb-8">
-        <div class="flex-1 text-center bg-white/5 p-6 rounded-xl transition-transform transform hover:-translate-y-1 hover:bg-[#38bdf8]/10">
-          <h3 class="text-3xl text-[#38bdf8] font-bold"><span class="counter" data-target="2">0</span>+</h3>
-          <p>Years Experience</p>
-        </div>
-        <div class="flex-1 text-center bg-white/5 p-6 rounded-xl transition-transform transform hover:-translate-y-1 hover:bg-[#38bdf8]/10">
-          <h3 class="text-3xl text-[#38bdf8] font-bold"><span class="counter" data-target="15">0</span>+</h3>
-          <p>Projects Completed</p>
-        </div>
-        <div class="flex-1 text-center bg-white/5 p-6 rounded-xl transition-transform transform hover:-translate-y-1 hover:bg-[#38bdf8]/10">
-          <h3 class="text-3xl text-[#38bdf8] font-bold"><span class="counter" data-target="5">0</span>+</h3>
-          <p>Certifications</p>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-white focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
         </div>
       </div>
-      <!-- Timeline -->
-<div class="relative border-l-2 border-[#38bdf8] ml-0 md:ml-6 pl-0 md:pl-8 space-y-10">
 
-  <!-- Timeline Item 1 -->
-  <div class="relative flex flex-col md:flex-row md:items-center">
-    <!-- Dot -->
-    <div class="absolute md:static -left-4 md:-left-6 top-0 md:top-auto w-4 h-4 bg-[#38bdf8] rounded-full border-2 border-white"></div>
-    <!-- Year Badge -->
-    <span class="absolute -left-16 md:-left-32 top-0 md:top-auto bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-sm md:text-base">
-      2023
-    </span>
-    <!-- Content -->
-    <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
-      Started journey in <b>Data Science & Web Development</b>.
-    </p>
-  </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md"
+      >
+        <nav class="flex flex-col px-6 py-4 space-y-4">
+          <a
+            href="#hero"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >About</a
+          >
 
-  <!-- Timeline Item 2 -->
-  <div class="relative flex flex-col md:flex-row md:items-center">
-    <div class="absolute md:static -left-4 md:-left-6 top-0 md:top-auto w-4 h-4 bg-[#38bdf8] rounded-full border-2 border-white"></div>
-    <span class="absolute -left-16 md:-left-32 top-0 md:top-auto bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-sm md:text-base">
-      2024
-    </span>
-    <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
-      Worked on multiple <b>frontend projects</b> & learned <b>AI/ML basics</b>.
-    </p>
-  </div>
-
-  <!-- Timeline Item 3 -->
-  <div class="relative flex flex-col md:flex-row md:items-center">
-    <div class="absolute md:static -left-4 md:-left-6 top-0 md:top-auto w-4 h-4 bg-[#38bdf8] rounded-full border-2 border-white"></div>
-    <span class="absolute -left-16 md:-left-32 top-0 md:top-auto bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-sm md:text-base">
-      2025
-    </span>
-    <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
-      Pursuing B.Tech, building <b>portfolio projects</b> & internships.
-    </p>
-  </div>
-</div>
-
-
-      <!-- Button -->
-      <a href="resume.pdf" download
-        class="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-[#38bdf8] to-[#a855f7] text-black font-semibold shadow-[0_0_20px_rgba(56,189,248,0.5)] transition-transform duration-300 hover:scale-105 hover:translate-y-[-3px] hover:shadow-[0_0_30px_rgba(168,85,247,0.7)]">
-        Download CV
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SKILLS SECTION ================= -->
-<section id="skills">
-  <div class="skills-container">
-    <h2 class="section-title">My <span>Skills</span></h2>
-    <p class="section-subtitle">A blend of <b>coding, design & data</b> that fuels my passion 🚀</p>
-
-    <!-- Skill Categories -->
-    <div class="skill-tabs">
-      <button class="tab active" data-tab="programming">Programming</button>
-      <button class="tab" data-tab="web">Web Development</button>
-      <button class="tab" data-tab="data">Data Science</button>
-      <button class="tab" data-tab="tools">Tools</button>
-    </div>
-
-    <!-- Skill Cards -->
-    <div class="skills-grid">
-
-      <!-- Programming -->
-      <div class="skill-card programming">
-        <h3>Python</h3>
-        <div class="progress"><div class="progress-bar" style="--value:90%"></div></div>
+          <a
+            href="#skills"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Skills</a
+          >
+          <a
+            href="expierence.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Experience</a
+          >
+          <a
+            href="project.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Projects</a
+          >
+          <a
+            href="#testimonials"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Testimonials</a
+          >
+          <a
+            href="contact.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Contact</a
+          >
+        </nav>
       </div>
-      <div class="skill-card programming">
-        <h3>C++</h3>
-        <div class="progress"><div class="progress-bar" style="--value:80%"></div></div>
-      </div>
-      <div class="skill-card programming">
-        <h3>Java</h3>
-        <div class="progress"><div class="progress-bar" style="--value:70%"></div></div>
-      </div>
+    </header>
 
-      <!-- Web Development -->
-      <div class="skill-card web hidden">
-        <h3>HTML5</h3>
-        <div class="progress"><div class="progress-bar" style="--value:95%"></div></div>
-      </div>
-      <div class="skill-card web hidden">
-        <h3>CSS3</h3>
-        <div class="progress"><div class="progress-bar" style="--value:90%"></div></div>
-      </div>
-      <div class="skill-card web hidden">
-        <h3>JavaScript</h3>
-        <div class="progress"><div class="progress-bar" style="--value:85%"></div></div>
-      </div>
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="relative flex items-center justify-center h-screen px-6 md:px-12 overflow-hidden bg-[#0f172a]"
+    >
+      <!-- Floating Background Shapes -->
+      <div
+        class="absolute w-32 h-32 bg-[#38bdf8] rounded-full opacity-40 -top-15 -left-14 animate-bounce-slow"
+      ></div>
+      <div
+        class="absolute w-24 h-24 bg-[#a855f7] rounded-full opacity-30 -bottom-88 -right-22 animate-bounce-slow delay-2000"
+      ></div>
 
-      <!-- Data Science -->
-      <div class="skill-card data hidden">
-        <h3>Machine Learning</h3>
-        <div class="progress"><div class="progress-bar" style="--value:70%"></div></div>
-      </div>
-      <div class="skill-card data hidden">
-        <h3>Data Visualization</h3>
-        <div class="progress"><div class="progress-bar" style="--value:75%"></div></div>
-      </div>
-      <div class="skill-card data hidden">
-        <h3>Pandas/Numpy</h3>
-        <div class="progress"><div class="progress-bar" style="--value:80%"></div></div>
-      </div>
+      <!-- Hero Content -->
+      <div
+        class="flex flex-col-reverse md:flex-row items-center justify-between max-w-6xl w-full gap-8 md:gap-12"
+      >
+        <!-- Left Text -->
+        <div class="text-center md:text-left flex-1 space-y-6">
+          <h2 class="text-4xl md:text-5xl font-bold text-white">
+            Hi, I'm <span class="text-[#a855f7]">Sampada Tiwari</span>
+          </h2>
+          <p class="text-xl md:text-2xl text-gray-300">
+            I am a
+            <span id="typed" class="font-semibold text-[#38bdf8]"
+              >Data Scientist & Web Developer</span
+            >
+          </p>
+          <div class="flex justify-center md:justify-start gap-4">
+            <a
+              href="#contact"
+              class="px-6 py-3 bg-[#38bdf8] hover:bg-blue-400 text-black font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Contact Me
+            </a>
+            <a
+              href="resume.pdf"
+              download
+              class="px-6 py-3 border-2 border-[#38bdf8] text-[#38bdf8] hover:bg-[#38bdf8] hover:text-black font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
 
-      <!-- Tools -->
-      <div class="skill-card tools hidden">
-        <h3>Git & GitHub</h3>
-        <div class="progress"><div class="progress-bar" style="--value:85%"></div></div>
-      </div>
-      <div class="skill-card tools hidden">
-        <h3>VS Code</h3>
-        <div class="progress"><div class="progress-bar" style="--value:95%"></div></div>
-      </div>
-      <div class="skill-card tools hidden">
-        <h3>Canva / Figma</h3>
-        <div class="progress"><div class="progress-bar" style="--value:90%"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= EXPERIENCE SECTION ================= -->
-<section id="experience" class="relative py-24 px-6 md:px-12 bg-gradient-radial from-slate-800 via-gray-900 to-[#0f172a] text-white">
-
-  <!-- Section Header -->
-  <div class="text-center mb-12">
-    <h2 class="text-4xl md:text-5xl font-bold text-[#38bdf8]">
-      My <span class="text-purple-400">Experience</span>
-    </h2>
-    <p class="text-gray-400 mt-2 text-lg md:text-xl">Some of my key roles & internships</p>
-  </div>
-
-  <!-- Grid Layout -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-
-    <!-- Card 1 -->
-    <div class="exp-card relative bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 overflow-hidden">
-      <h3 class="text-xl font-semibold mb-1">Gaming Network</h3>
-      <p class="role text-purple-400 font-medium mb-1">Fellowship – City Lead</p>
-      <p class="duration text-gray-400 text-sm mb-0">📅 May 2024 – Present · 1 yr 3 mos</p>
-      <p class="location text-gray-400 text-sm mb-3">🌍 India · Remote</p>
-      <ul class="list-disc pl-5 space-y-2 text-gray-200">
-        <li>Represented Kratos in city-based esports initiatives</li>
-        <li>Managed partnerships, events, and local campaigns</li>
-        <li>Tracked outreach stats with Excel</li>
-      </ul>
-      <!-- Hover Glow -->
-      <div class="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-r from-[#38bdf8] to-purple-400 opacity-0 hover:opacity-30 transition-opacity duration-400"></div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="exp-card relative bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 overflow-hidden">
-      <h3 class="text-xl font-semibold mb-1">Future baba</h3>
-      <p class="role text-purple-400 font-medium mb-1">Data Analytics & Data Science Intern</p>
-      <p class="duration text-gray-400 text-sm mb-0">📅 Apr 2025 · 1 mo</p>
-      <p class="location text-gray-400 text-sm mb-3">🌍 Remote</p>
-      <ul class="list-disc pl-5 space-y-2 text-gray-200">
-        <li>Used Python, Excel, Power BI for insights</li>
-        <li>Built interactive KPI dashboards</li>
-        <li>Contributed to modeling and reporting</li>
-      </ul>
-      <!-- Hover Glow -->
-      <div class="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-r from-[#38bdf8] to-purple-400 opacity-0 hover:opacity-30 transition-opacity duration-400"></div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="exp-card relative bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 overflow-hidden">
-      <h3 class="text-xl font-semibold mb-1">Algorithm</h3>
-      <p class="role text-purple-400 font-medium mb-1">CCP Lead</p>
-      <p class="duration text-gray-400 text-sm mb-3">📅 Jun 2024 – May 2025 · 1 month</p>
-      <ul class="list-disc pl-5 space-y-2 text-gray-200">
-        <li>Led 50+ coders for DSA and CP</li>
-        <li>Hosted coding contests and mentoring</li>
-        <li>Maintained community via GitHub/Discord</li>
-      </ul>
-      <!-- Hover Glow -->
-      <div class="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-r from-[#38bdf8] to-purple-400 opacity-0 hover:opacity-30 transition-opacity duration-400"></div>
-    </div>
-
-  </div>
-</section>
-<!-- ================= PROJECTS SECTION ================= -->
-<section id="projects" class="py-24 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
-
-  <!-- Section Header -->
-  <div class="mb-12">
-    <h2 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
-      🚀 Featured Projects
-    </h2>
-    <p class="text-gray-400 mt-2 text-lg md:text-xl">
-      Here are some of the exciting projects I've built
-    </p>
-  </div>
-
-  <!-- Projects Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-
-    <!-- Project Card 1 -->
-    <div class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl">
-      <!-- Gradient Glow Animation -->
-      <div class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"></div>
-      <div class="relative">
-        <a href="https://example.com/project2" target="_blank" class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors">
-          spam-mail-classification
-        </a>
-        <p class="mt-2 text-gray-200 text-sm md:text-base">
-          Automated email classification system to detect and filter spam emails in real-time. 
-          Uses NLP for feature extraction, continuously learning to identify new spam types, 
-          improving inbox security & productivity.
-        </p>
-      </div>
-    </div>
-
-    <!-- Project Card 2 -->
-    <div class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl">
-      <div class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"></div>
-      <div class="relative">
-        <a href="https://example.com/project3" target="_blank" class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors">
-          DeFi Trading Platform
-        </a>
-        <p class="mt-2 text-gray-200 text-sm md:text-base">
-          A decentralized finance platform for trading, staking, and liquidity. 
-          Features advanced analytics, automated trading, and wallet integration.
-        </p>
-      </div>
-    </div>
-
-    <!-- Project Card 3 -->
-    <div class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl">
-      <div class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"></div>
-      <div class="relative">
-        <a href="https://example.com/project3" target="_blank" class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors">
-          AI-Powered Analytics
-        </a>
-        <p class="mt-2 text-gray-200 text-sm md:text-base">
-          Intelligent analytics platform with real-time insights, predictive modeling, 
-          and automated reporting. Built for enterprise decision-making.
-        </p>
-      </div>
-    </div>
-
-    <!-- Project Card 4 -->
-    <div class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl">
-      <div class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"></div>
-      <div class="relative">
-        <a href="https://example.com/project4" target="_blank" class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors">
-          Identity Verification
-        </a>
-        <p class="mt-2 text-gray-200 text-sm md:text-base">
-          Blockchain-based decentralized identity verification system. 
-          Provides secure authentication while giving users control over personal data.
-        </p>
-      </div>
-    </div>
-
-    <!-- Project Card 5 -->
-    <div class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl">
-      <div class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"></div>
-      <div class="relative">
-        <a href="https://example.com/project5" target="_blank" class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors">
-          Contract Auditing Tool
-        </a>
-        <p class="mt-2 text-gray-200 text-sm md:text-base">
-          Automated smart contract auditing platform that finds vulnerabilities, 
-          optimizes gas, and ensures compliance with detailed reports.
-        </p>
-      </div>
-    </div>
-
-    <!-- Project Card 6 -->
-    <div class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl">
-      <div class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"></div>
-      <div class="relative">
-        <a href="https://example.com/project6" target="_blank" class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors">
-          Real Estate Platform
-        </a>
-        <p class="mt-2 text-gray-200 text-sm md:text-base">
-          Virtual real estate marketplace for buying, selling, and developing 
-          properties in the metaverse. Includes 3D tours & payment integration.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Tailwind Custom Animations -->
-<style>
-  @keyframes spin-slow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  .animate-spin-slow { animation: spin-slow 10s linear infinite; }
-</style>
-<!-- ================= TESTIMONIALS SECTION ================= -->
-<section id="testimonials" class="py-24 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
-
-  <!-- Section Header -->
-  <div class="mb-12">
-    <h2 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600">
-      🌟 Testimonials
-    </h2>
-    <p class="text-gray-400 mt-2 text-lg md:text-xl">What people say about me</p>
-  </div>
-
-  <!-- Testimonial Cards Container -->
-  <div class="relative max-w-3xl mx-auto overflow-hidden">
-
-    <!-- Testimonial 1 -->
-    <div class="testimonial-card bg-white/5 p-8 rounded-2xl shadow-lg mb-6 md:mb-0 transition-all duration-500">
-      <p class="text-gray-200 italic text-base md:text-lg mb-6">
-        "Sampada is an outstanding developer with a unique eye for design. 
-        Her problem-solving ability and innovative mindset make her a valuable 
-        team player in any project."
-      </p>
-      <div class="flex items-center justify-center gap-4">
-        <img src="https://i.pravatar.cc/80?img=12" alt="Client 1" class="w-16 h-16 rounded-full border-2 border-cyan-400">
-        <div class="text-left">
-          <h4 class="text-lg font-semibold text-white">Rohan Sharma</h4>
-          <span class="text-gray-400 text-sm">Project Manager @ TechLabs</span>
+        <!-- Right Image -->
+        <div class="flex-1 flex justify-center items-center relative">
+          <img
+            src="./images/profile.jpeg"
+            alt="Sampada Tiwari"
+            class="w-72 md:w-80 rounded-full border-4 border-[#38bdf8] shadow-[0_0_40px_rgba(56,189,248,0.5),0_0_80px_rgba(168,85,247,0.4)] animate-float"
+          />
         </div>
       </div>
-    </div>
+    </section>
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="py-24 px-6 md:px-12 bg-[#0f172a] text-white">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12"
+      >
+        <!-- Left: Image -->
+        <div class="flex-1 text-center">
+          <img
+            src="./images/profile.jpeg"
+            alt="Sampada Tiwari"
+            class="w-80 md:w-96 rounded-2xl border-4 border-[#38bdf8] shadow-[0_0_30px_rgba(56,189,248,0.6)] transform transition-transform duration-400 hover:scale-105"
+          />
+        </div>
 
-    <!-- Testimonial 2 -->
-    <div class="testimonial-card hidden bg-white/5 p-8 rounded-2xl shadow-lg transition-all duration-500">
-      <p class="text-gray-200 italic text-base md:text-lg mb-6">
-        "Working with Sampada was a fantastic experience. She combines 
-        technical expertise with creativity and delivers projects beyond expectations."
-      </p>
-      <div class="flex items-center justify-center gap-4">
-        <img src="https://i.pravatar.cc/80?img=32" alt="Client 2" class="w-16 h-16 rounded-full border-2 border-cyan-400">
-        <div class="text-left">
-          <h4 class="text-lg font-semibold text-white">Ananya Verma</h4>
-          <span class="text-gray-400 text-sm">UI/UX Designer @ CreativeHub</span>
+        <!-- Right: Content -->
+        <div class="flex-1 space-y-6">
+          <h2 class="text-3xl md:text-4xl font-bold">
+            About <span class="text-[#38bdf8]">Me</span>
+          </h2>
+          <p class="text-gray-300 text-lg md:text-xl leading-relaxed">
+            I'm <strong>Sampada Tiwari</strong> 🚀, a passionate
+            <b>Data Science student</b> and <b>Web Developer</b> who loves
+            solving real-world problems with
+            <span class="text-[#a855f7] font-semibold"
+              >code, design, and data</span
+            >. My journey blends creativity and technology, turning ideas into
+            <b>interactive, functional, and meaningful experiences</b>.
+          </p>
+
+          <!-- Info Counters -->
+          <div class="flex flex-col sm:flex-row gap-6 md:gap-8 mb-8">
+            <div
+              class="flex-1 text-center bg-white/5 p-6 rounded-xl transition-transform transform hover:-translate-y-1 hover:bg-[#38bdf8]/10"
+            >
+              <h3 class="text-3xl text-[#38bdf8] font-bold">
+                <span class="counter" data-target="2">0</span>+
+              </h3>
+              <p>Years Experience</p>
+            </div>
+            <div
+              class="flex-1 text-center bg-white/5 p-6 rounded-xl transition-transform transform hover:-translate-y-1 hover:bg-[#38bdf8]/10"
+            >
+              <h3 class="text-3xl text-[#38bdf8] font-bold">
+                <span class="counter" data-target="15">0</span>+
+              </h3>
+              <p>Projects Completed</p>
+            </div>
+            <div
+              class="flex-1 text-center bg-white/5 p-6 rounded-xl transition-transform transform hover:-translate-y-1 hover:bg-[#38bdf8]/10"
+            >
+              <h3 class="text-3xl text-[#38bdf8] font-bold">
+                <span class="counter" data-target="5">0</span>+
+              </h3>
+              <p>Certifications</p>
+            </div>
+          </div>
+          <!-- Timeline -->
+          <div
+            class="relative border-l-2 border-[#38bdf8] ml-0 md:ml-6 pl-0 md:pl-8 space-y-10"
+          >
+            <!-- Timeline Item 1 -->
+            <div class="relative flex flex-col md:flex-row md:items-center">
+              <!-- Dot -->
+              <div
+                class="absolute md:static -left-4 md:-left-6 top-0 md:top-auto w-4 h-4 bg-[#38bdf8] rounded-full border-2 border-white"
+              ></div>
+              <!-- Year Badge -->
+              <span
+                class="absolute -left-16 md:-left-32 top-0 md:top-auto bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-sm md:text-base"
+              >
+                2023
+              </span>
+              <!-- Content -->
+              <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
+                Started journey in <b>Data Science & Web Development</b>.
+              </p>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="relative flex flex-col md:flex-row md:items-center">
+              <div
+                class="absolute md:static -left-4 md:-left-6 top-0 md:top-auto w-4 h-4 bg-[#38bdf8] rounded-full border-2 border-white"
+              ></div>
+              <span
+                class="absolute -left-16 md:-left-32 top-0 md:top-auto bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-sm md:text-base"
+              >
+                2024
+              </span>
+              <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
+                Worked on multiple <b>frontend projects</b> & learned
+                <b>AI/ML basics</b>.
+              </p>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="relative flex flex-col md:flex-row md:items-center">
+              <div
+                class="absolute md:static -left-4 md:-left-6 top-0 md:top-auto w-4 h-4 bg-[#38bdf8] rounded-full border-2 border-white"
+              ></div>
+              <span
+                class="absolute -left-16 md:-left-32 top-0 md:top-auto bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-sm md:text-base"
+              >
+                2025
+              </span>
+              <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
+                Pursuing B.Tech, building <b>portfolio projects</b> &
+                internships.
+              </p>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <a
+            href="resume.pdf"
+            download
+            class="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-[#38bdf8] to-[#a855f7] text-black font-semibold shadow-[0_0_20px_rgba(56,189,248,0.5)] transition-transform duration-300 hover:scale-105 hover:translate-y-[-3px] hover:shadow-[0_0_30px_rgba(168,85,247,0.7)]"
+          >
+            Download CV
+          </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Testimonial 3 -->
-    <div class="testimonial-card hidden bg-white/5 p-8 rounded-2xl shadow-lg transition-all duration-500">
-      <p class="text-gray-200 italic text-base md:text-lg mb-6">
-        "Her ability to quickly adapt and learn new technologies is impressive. 
-        Sampada is highly reliable and brings a lot of positivity to the team."
-      </p>
-      <div class="flex items-center justify-center gap-4">
-        <img src="https://i.pravatar.cc/80?img=45" alt="Client 3" class="w-16 h-16 rounded-full border-2 border-cyan-400">
-        <div class="text-left">
-          <h4 class="text-lg font-semibold text-white">Aditya Mehra</h4>
-          <span class="text-gray-400 text-sm">Blockchain Engineer</span>
+    <!-- ================= SKILLS SECTION ================= -->
+    <section id="skills">
+      <div class="skills-container">
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <p class="section-subtitle">
+          A blend of <b>coding, design & data</b> that fuels my passion 🚀
+        </p>
+
+        <!-- Skill Categories -->
+        <div class="skill-tabs">
+          <button class="tab active" data-tab="programming">Programming</button>
+          <button class="tab" data-tab="web">Web Development</button>
+          <button class="tab" data-tab="data">Data Science</button>
+          <button class="tab" data-tab="tools">Tools</button>
+        </div>
+
+        <!-- Skill Cards -->
+        <div class="skills-grid">
+          <!-- Programming -->
+          <div class="skill-card programming">
+            <h3>Python</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-card programming">
+            <h3>C++</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 80%"></div>
+            </div>
+          </div>
+          <div class="skill-card programming">
+            <h3>Java</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 70%"></div>
+            </div>
+          </div>
+
+          <!-- Web Development -->
+          <div class="skill-card web hidden">
+            <h3>HTML5</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-card web hidden">
+            <h3>CSS3</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-card web hidden">
+            <h3>JavaScript</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 85%"></div>
+            </div>
+          </div>
+
+          <!-- Data Science -->
+          <div class="skill-card data hidden">
+            <h3>Machine Learning</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 70%"></div>
+            </div>
+          </div>
+          <div class="skill-card data hidden">
+            <h3>Data Visualization</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 75%"></div>
+            </div>
+          </div>
+          <div class="skill-card data hidden">
+            <h3>Pandas/Numpy</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 80%"></div>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-card tools hidden">
+            <h3>Git & GitHub</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-card tools hidden">
+            <h3>VS Code</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-card tools hidden">
+            <h3>Canva / Figma</h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 90%"></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-
-  <!-- Navigation Dots -->
-  <div class="flex justify-center mt-8 gap-3">
-    <span class="dot w-3 h-3 bg-gray-600 rounded-full cursor-pointer transition-colors active:bg-cyan-400"></span>
-    <span class="dot w-3 h-3 bg-gray-600 rounded-full cursor-pointer transition-colors"></span>
-    <span class="dot w-3 h-3 bg-gray-600 rounded-full cursor-pointer transition-colors"></span>
-  </div>
-
-</section>
-
-<!-- ================= CONTACT SECTION ================= -->
-<section id="contact" class="py-24 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
-
-  <!-- Section Header -->
-  <div class="mb-12">
-    <h2 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600">
-      📞 Contact Me
-    </h2>
-    <p class="text-gray-400 mt-2 text-lg md:text-xl">Let’s build something amazing together</p>
-  </div>
-
-  <!-- Contact Container -->
-  <div class="flex flex-col md:flex-row gap-12 justify-center items-start max-w-5xl mx-auto">
-
-    <!-- Contact Form -->
-    <form id="contact-form" class="flex-1 min-w-[300px] max-w-md bg-white/5 p-8 rounded-2xl shadow-lg backdrop-blur-md">
-      <div class="mb-5">
-        <input type="text" placeholder="Your Name" required class="w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"/>
+    <!-- ================= EXPERIENCE SECTION ================= -->
+    <section
+      id="experience"
+      class="relative py-24 px-6 md:px-12 bg-gradient-radial from-slate-800 via-gray-900 to-[#0f172a] text-white"
+    >
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-[#38bdf8]">
+          My <span class="text-purple-400">Experience</span>
+        </h2>
+        <p class="text-gray-400 mt-2 text-lg md:text-xl">
+          Some of my key roles & internships
+        </p>
       </div>
-      <div class="mb-5">
-        <input type="email" placeholder="Your Email" required class="w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"/>
+
+      <!-- Grid Layout -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+      >
+        <!-- Card 1 -->
+        <div
+          class="exp-card relative bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 overflow-hidden"
+        >
+          <h3 class="text-xl font-semibold mb-1">Gaming Network</h3>
+          <p class="role text-purple-400 font-medium mb-1">
+            Fellowship – City Lead
+          </p>
+          <p class="duration text-gray-400 text-sm mb-0">
+            📅 May 2024 – Present · 1 yr 3 mos
+          </p>
+          <p class="location text-gray-400 text-sm mb-3">🌍 India · Remote</p>
+          <ul class="list-disc pl-5 space-y-2 text-gray-200">
+            <li>Represented Kratos in city-based esports initiatives</li>
+            <li>Managed partnerships, events, and local campaigns</li>
+            <li>Tracked outreach stats with Excel</li>
+          </ul>
+          <!-- Hover Glow -->
+          <div
+            class="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-r from-[#38bdf8] to-purple-400 opacity-0 hover:opacity-30 transition-opacity duration-400"
+          ></div>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="exp-card relative bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 overflow-hidden"
+        >
+          <h3 class="text-xl font-semibold mb-1">Future baba</h3>
+          <p class="role text-purple-400 font-medium mb-1">
+            Data Analytics & Data Science Intern
+          </p>
+          <p class="duration text-gray-400 text-sm mb-0">📅 Apr 2025 · 1 mo</p>
+          <p class="location text-gray-400 text-sm mb-3">🌍 Remote</p>
+          <ul class="list-disc pl-5 space-y-2 text-gray-200">
+            <li>Used Python, Excel, Power BI for insights</li>
+            <li>Built interactive KPI dashboards</li>
+            <li>Contributed to modeling and reporting</li>
+          </ul>
+          <!-- Hover Glow -->
+          <div
+            class="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-r from-[#38bdf8] to-purple-400 opacity-0 hover:opacity-30 transition-opacity duration-400"
+          ></div>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="exp-card relative bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 overflow-hidden"
+        >
+          <h3 class="text-xl font-semibold mb-1">Algorithm</h3>
+          <p class="role text-purple-400 font-medium mb-1">CCP Lead</p>
+          <p class="duration text-gray-400 text-sm mb-3">
+            📅 Jun 2024 – May 2025 · 1 month
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-gray-200">
+            <li>Led 50+ coders for DSA and CP</li>
+            <li>Hosted coding contests and mentoring</li>
+            <li>Maintained community via GitHub/Discord</li>
+          </ul>
+          <!-- Hover Glow -->
+          <div
+            class="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-r from-[#38bdf8] to-purple-400 opacity-0 hover:opacity-30 transition-opacity duration-400"
+          ></div>
+        </div>
       </div>
-      <div class="mb-5">
-        <textarea placeholder="Your Message" rows="5" required class="w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"></textarea>
+    </section>
+    <!-- ================= PROJECTS SECTION ================= -->
+    <section
+      id="projects"
+      class="py-24 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center"
+    >
+      <!-- Section Header -->
+      <div class="mb-12">
+        <h2
+          class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400"
+        >
+          🚀 Featured Projects
+        </h2>
+        <p class="text-gray-400 mt-2 text-lg md:text-xl">
+          Here are some of the exciting projects I've built
+        </p>
       </div>
-      <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-lg font-semibold hover:scale-105 hover:shadow-xl transition-all duration-300">
-        Send Message
-      </button>
-    </form>
 
-    <!-- Contact Info -->
-    <div class="flex-1 min-w-[280px] max-w-sm text-left">
-      <h3 class="text-2xl font-bold text-cyan-400 mb-4">Connect with me</h3>
-      <p class="text-gray-300 mb-2">📍 Delhi, India</p>
-      <p class="text-gray-300 mb-4">📧 sampada@example.com</p>
-      <div class="flex gap-4 mt-4">
-        <a href="https://linkedin.com/in/sampada" target="_blank" class="text-white text-2xl hover:text-cyan-400 transition-transform transform hover:scale-125"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/sampada" target="_blank" class="text-white text-2xl hover:text-cyan-400 transition-transform transform hover:scale-125"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/sampada" target="_blank" class="text-white text-2xl hover:text-cyan-400 transition-transform transform hover:scale-125"><i class="fab fa-twitter"></i></a>
-        <a href="mailto:sampada@example.com" class="text-white text-2xl hover:text-cyan-400 transition-transform transform hover:scale-125"><i class="fas fa-envelope"></i></a>
+      <!-- Projects Grid -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+      >
+        <!-- Project Card 1 -->
+        <div
+          class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl"
+        >
+          <!-- Gradient Glow Animation -->
+          <div
+            class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"
+          ></div>
+          <div class="relative">
+            <a
+              href="https://example.com/project2"
+              target="_blank"
+              class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors"
+            >
+              spam-mail-classification
+            </a>
+            <p class="mt-2 text-gray-200 text-sm md:text-base">
+              Automated email classification system to detect and filter spam
+              emails in real-time. Uses NLP for feature extraction, continuously
+              learning to identify new spam types, improving inbox security &
+              productivity.
+            </p>
+          </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div
+          class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl"
+        >
+          <div
+            class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"
+          ></div>
+          <div class="relative">
+            <a
+              href="https://example.com/project3"
+              target="_blank"
+              class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors"
+            >
+              DeFi Trading Platform
+            </a>
+            <p class="mt-2 text-gray-200 text-sm md:text-base">
+              A decentralized finance platform for trading, staking, and
+              liquidity. Features advanced analytics, automated trading, and
+              wallet integration.
+            </p>
+          </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div
+          class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl"
+        >
+          <div
+            class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"
+          ></div>
+          <div class="relative">
+            <a
+              href="https://example.com/project3"
+              target="_blank"
+              class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors"
+            >
+              AI-Powered Analytics
+            </a>
+            <p class="mt-2 text-gray-200 text-sm md:text-base">
+              Intelligent analytics platform with real-time insights, predictive
+              modeling, and automated reporting. Built for enterprise
+              decision-making.
+            </p>
+          </div>
+        </div>
+
+        <!-- Project Card 4 -->
+        <div
+          class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl"
+        >
+          <div
+            class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"
+          ></div>
+          <div class="relative">
+            <a
+              href="https://example.com/project4"
+              target="_blank"
+              class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors"
+            >
+              Identity Verification
+            </a>
+            <p class="mt-2 text-gray-200 text-sm md:text-base">
+              Blockchain-based decentralized identity verification system.
+              Provides secure authentication while giving users control over
+              personal data.
+            </p>
+          </div>
+        </div>
+
+        <!-- Project Card 5 -->
+        <div
+          class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl"
+        >
+          <div
+            class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"
+          ></div>
+          <div class="relative">
+            <a
+              href="https://example.com/project5"
+              target="_blank"
+              class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors"
+            >
+              Contract Auditing Tool
+            </a>
+            <p class="mt-2 text-gray-200 text-sm md:text-base">
+              Automated smart contract auditing platform that finds
+              vulnerabilities, optimizes gas, and ensures compliance with
+              detailed reports.
+            </p>
+          </div>
+        </div>
+
+        <!-- Project Card 6 -->
+        <div
+          class="relative rounded-xl p-6 bg-white/5 border border-white/10 shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl"
+        >
+          <div
+            class="absolute -inset-1 bg-[conic-gradient(from_180deg,_#ff6a00,_#ee0979,_#00c6ff,_#ff6a00)] opacity-10 animate-spin-slow rounded-xl"
+          ></div>
+          <div class="relative">
+            <a
+              href="https://example.com/project6"
+              target="_blank"
+              class="text-lg font-bold text-cyan-400 hover:text-pink-500 transition-colors"
+            >
+              Real Estate Platform
+            </a>
+            <p class="mt-2 text-gray-200 text-sm md:text-base">
+              Virtual real estate marketplace for buying, selling, and
+              developing properties in the metaverse. Includes 3D tours &
+              payment integration.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
-<!-- ================= FOOTER SECTION ================= -->
-<footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12">
-
-  <!-- Footer Container -->
-  <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
-
-    <!-- Brand / Logo -->
-    <div class="text-center md:text-left">
-      <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
-        Sampada<span class="font-extrabold">Tiwari</span>
-      </h2>
-      <p class="text-gray-400 mt-1 text-sm md:text-base">Data Scientist • Leader • Creator</p>
-    </div>
-
-    <!-- Quick Links -->
-    <div class="text-center md:text-left">
-      <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
-      <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2">
-        <li><a href="#about" class="hover:text-cyan-400 transition-colors">About</a></li>
-        <li><a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a></li>
-        <li><a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a></li>
-        <li><a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a></li>
-        <li><a href="#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a></li>
-        <li><a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- Social Media -->
-    <div class="text-center md:text-left">
-      <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
-      <div class="flex justify-center md:justify-start gap-4 text-2xl">
-        <a href="https://linkedin.com/in/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-twitter"></i></a>
-        <a href="mailto:sampada@example.com" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fas fa-envelope"></i></a>
+    <!-- ================= TESTIMONIALS SECTION ================= -->
+    <section
+      id="testimonials"
+      class="py-24 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center"
+    >
+      <!-- Section Header -->
+      <div class="mb-12">
+        <h2
+          class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600"
+        >
+          🌟 Testimonials
+        </h2>
+        <p class="text-gray-400 mt-2 text-lg md:text-xl">
+          What people say about me
+        </p>
       </div>
-    </div>
 
-  </div>
+      <!-- Testimonial Cards Container -->
+      <div class="relative max-w-3xl mx-auto overflow-hidden">
+        <!-- Testimonial 1 -->
+        <div
+          class="testimonial-card bg-white/5 p-8 rounded-2xl shadow-lg mb-6 md:mb-0 transition-all duration-500"
+        >
+          <p class="text-gray-200 italic text-base md:text-lg mb-6">
+            "Sampada is an outstanding developer with a unique eye for design.
+            Her problem-solving ability and innovative mindset make her a
+            valuable team player in any project."
+          </p>
+          <div class="flex items-center justify-center gap-4">
+            <img
+              src="https://i.pravatar.cc/80?img=12"
+              alt="Client 1"
+              class="w-16 h-16 rounded-full border-2 border-cyan-400"
+            />
+            <div class="text-left">
+              <h4 class="text-lg font-semibold text-white">Rohan Sharma</h4>
+              <span class="text-gray-400 text-sm"
+                >Project Manager @ TechLabs</span
+              >
+            </div>
+          </div>
+        </div>
 
-  <!-- Bottom Bar -->
-  <div class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
-    © 2025 Sampada Tiwari • All Rights Reserved
-  </div>
+        <!-- Testimonial 2 -->
+        <div
+          class="testimonial-card hidden bg-white/5 p-8 rounded-2xl shadow-lg transition-all duration-500"
+        >
+          <p class="text-gray-200 italic text-base md:text-lg mb-6">
+            "Working with Sampada was a fantastic experience. She combines
+            technical expertise with creativity and delivers projects beyond
+            expectations."
+          </p>
+          <div class="flex items-center justify-center gap-4">
+            <img
+              src="https://i.pravatar.cc/80?img=32"
+              alt="Client 2"
+              class="w-16 h-16 rounded-full border-2 border-cyan-400"
+            />
+            <div class="text-left">
+              <h4 class="text-lg font-semibold text-white">Ananya Verma</h4>
+              <span class="text-gray-400 text-sm"
+                >UI/UX Designer @ CreativeHub</span
+              >
+            </div>
+          </div>
+        </div>
 
-</footer>
+        <!-- Testimonial 3 -->
+        <div
+          class="testimonial-card hidden bg-white/5 p-8 rounded-2xl shadow-lg transition-all duration-500"
+        >
+          <p class="text-gray-200 italic text-base md:text-lg mb-6">
+            "Her ability to quickly adapt and learn new technologies is
+            impressive. Sampada is highly reliable and brings a lot of
+            positivity to the team."
+          </p>
+          <div class="flex items-center justify-center gap-4">
+            <img
+              src="https://i.pravatar.cc/80?img=45"
+              alt="Client 3"
+              class="w-16 h-16 rounded-full border-2 border-cyan-400"
+            />
+            <div class="text-left">
+              <h4 class="text-lg font-semibold text-white">Aditya Mehra</h4>
+              <span class="text-gray-400 text-sm">Blockchain Engineer</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<script>
-// Tab Switching
-const tabs = document.querySelectorAll(".tab");
-const cards = document.querySelectorAll(".skill-card");
+      <!-- Navigation Dots -->
+      <div class="flex justify-center mt-8 gap-3">
+        <span
+          class="dot w-3 h-3 bg-gray-600 rounded-full cursor-pointer transition-colors active:bg-cyan-400"
+        ></span>
+        <span
+          class="dot w-3 h-3 bg-gray-600 rounded-full cursor-pointer transition-colors"
+        ></span>
+        <span
+          class="dot w-3 h-3 bg-gray-600 rounded-full cursor-pointer transition-colors"
+        ></span>
+      </div>
+    </section>
 
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
-    tabs.forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-    let category = tab.getAttribute("data-tab");
+    <!-- ================= CONTACT SECTION ================= -->
+    <section
+      id="contact"
+      class="py-24 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center"
+    >
+      <!-- Section Header -->
+      <div class="mb-12">
+        <h2
+          class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600"
+        >
+          📞 Contact Me
+        </h2>
+        <p class="text-gray-400 mt-2 text-lg md:text-xl">
+          Let’s build something amazing together
+        </p>
+      </div>
 
-    cards.forEach(card => {
-      if(card.classList.contains(category)){
-        card.classList.remove("hidden");
-      } else {
-        card.classList.add("hidden");
-      }
-    });
-  });
-});
+      <!-- Contact Container -->
+      <div
+        class="flex flex-col md:flex-row gap-12 justify-center items-start max-w-5xl mx-auto"
+      >
+        <!-- Contact Form -->
+        <form
+          id="contact-form"
+          class="flex-1 min-w-[300px] max-w-md bg-white/5 p-8 rounded-2xl shadow-lg backdrop-blur-md"
+        >
+          <div class="mb-5">
+            <input
+              type="text"
+              placeholder="Your Name"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            />
+          </div>
+          <div class="mb-5">
+            <input
+              type="email"
+              placeholder="Your Email"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            />
+          </div>
+          <div class="mb-5">
+            <textarea
+              placeholder="Your Message"
+              rows="5"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full py-3 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-lg font-semibold hover:scale-105 hover:shadow-xl transition-all duration-300"
+          >
+            Send Message
+          </button>
+        </form>
 
-// Animate progress bars on scroll
-const observer1 = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-    }
-  });
-},{threshold:0.5});
-cards.forEach(card => observer1.observe(card));
-</script>
+        <!-- Contact Info -->
+        <div class="flex-1 min-w-[280px] max-w-sm text-left">
+          <h3 class="text-2xl font-bold text-cyan-400 mb-4">Connect with me</h3>
+          <p class="text-gray-300 mb-2">📍 Delhi, India</p>
+          <p class="text-gray-300 mb-4">📧 sampada@example.com</p>
+          <div class="flex gap-4 mt-4">
+            <a
+              href="https://linkedin.com/in/sampada"
+              target="_blank"
+              class="text-white text-2xl hover:text-cyan-400 transition-transform transform hover:scale-125"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://github.com/sampada"
+              target="_blank"
+              class="text-white text-2xl hover:text-cyan-400 transition-transform transform hover:scale-125"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://twitter.com/sampada"
+              target="_blank"
+              class="text-white text-2xl hover:text-cyan-400 transition-transform transform hover:scale-125"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="mailto:sampada@example.com"
+              class="text-white text-2xl hover:text-cyan-400 transition-transform transform hover:scale-125"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================= FOOTER SECTION ================= -->
+    <footer
+      class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12"
+    >
+      <!-- Footer Container -->
+      <div
+        class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8"
+      >
+        <!-- Brand / Logo -->
+        <div class="text-center md:text-left">
+          <h2
+            class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500"
+          >
+            Sampada<span class="font-extrabold">Tiwari</span>
+          </h2>
+          <p class="text-gray-400 mt-1 text-sm md:text-base">
+            Data Scientist • Leader • Creator
+          </p>
+        </div>
 
+        <!-- Quick Links -->
+        <div class="text-center md:text-left">
+          <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
+          <ul
+            class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2"
+          >
+            <li>
+              <a href="#about" class="hover:text-cyan-400 transition-colors"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="#skills" class="hover:text-cyan-400 transition-colors"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a
+                href="#experience"
+                class="hover:text-cyan-400 transition-colors"
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a href="#projects" class="hover:text-cyan-400 transition-colors"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#testimonials"
+                class="hover:text-cyan-400 transition-colors"
+                >Testimonials</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-cyan-400 transition-colors"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
 
+        <!-- Social Media -->
+        <div class="text-center md:text-left">
+          <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
+          <div class="flex justify-center md:justify-start gap-4 text-2xl">
+            <a
+              href="https://linkedin.com/in/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://github.com/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://twitter.com/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="mailto:sampada@example.com"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
 
+      <!-- Bottom Bar -->
+      <div
+        class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500"
+      >
+        © 2025 Sampada Tiwari • All Rights Reserved
+      </div>
+    </footer>
 
-<script>
-// Animated counters
-const counters = document.querySelectorAll(".counter");
-const speed = 200;
-const counterObserver = new IntersectionObserver(entries => { // <-- changed name here
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      counters.forEach(counter => {
-        const updateCount = () => {
-          const target = +counter.getAttribute("data-target");
-          const count = +counter.innerText;
-          const inc = target / speed;
-          if(count < target){
-            counter.innerText = Math.ceil(count + inc);
-            setTimeout(updateCount, 20);
-          } else {
-            counter.innerText = target;
-          }
-        };
-        updateCount();
-      });
-    }
-  });
-},{threshold:0.5});
-counters.forEach(c => counterObserver.observe(c)); // <-- changed name here
-
-// Contact form submission
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  alert("✅ Thank you! Your message has been sent.");
-  this.reset();
-});
-
-</script>
-
-
-  <script>
-    // Typing effect
-    var typed = new Typed("#typed", {
-      strings: ["Data Science Student", "Web Developer", "Problem Solver"],
-      typeSpeed: 70,
-      backSpeed: 40,
-      loop: true
-    });
-
-   // Select all testimonial cards and dots
-const testimonialCards = document.querySelectorAll('.testimonial-card');
-const dots = document.querySelectorAll('.dot');
-
-let currentIndex = 0;
-
-// Function to show the testimonial at a given index
-function showTestimonial(index) {
-  testimonialCards.forEach((card, i) => {
-    if (i === index) {
-      card.classList.remove('hidden');
-      card.classList.add('block');
-    } else {
-      card.classList.remove('block');
-      card.classList.add('hidden');
-    }
-  });
-
-  dots.forEach((dot, i) => {
-    if (i === index) {
-      dot.classList.add('bg-cyan-400');
-      dot.classList.remove('bg-gray-600');
-    } else {
-      dot.classList.add('bg-gray-600');
-      dot.classList.remove('bg-cyan-400');
-    }
-  });
-
-  currentIndex = index;
-}
-
-// Add click event to dots
-dots.forEach((dot, i) => {
-  dot.addEventListener('click', () => {
-    showTestimonial(i);
-  });
-});
-
-// Optional: Auto-slide testimonials every 5 seconds
-setInterval(() => {
-  let nextIndex = (currentIndex + 1) % testimonialCards.length;
-  showTestimonial(nextIndex);
-}, 5000);
-
-// Initialize first testimonial
-showTestimonial(currentIndex);
-
-
-  </script>
-</body>
+    <script src="JavaScript/index.js"></script>
+  </body>
 </html>
