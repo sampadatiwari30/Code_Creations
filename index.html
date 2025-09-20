@@ -19,32 +19,51 @@
     }
     * {margin:0; padding:0; box-sizing:border-box;}
     body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--dark);
-      color: #fff;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a; /* dark mode background */
+    color: #fff;         /* dark mode text */
+    transition: background 0.3s, color 0.3s;
+  }
 
-   
+  /* 🌞 Light Mode (applied when body has class "light") */
+  body.light {
+    background: #f9fafb;   /* light background */
+    color: #111827;        /* dark text */
+    text-align: justify;   /* justified text in light mode */
+  }
     /* SKILLS SECTION */
 #skills {
   padding: 6rem 8%;
-  background: #111827;
+  background: #111827; /* dark background */
   color: #fff;
   text-align: center;
 }
+
 .section-title {
   font-size: 2.5rem;
   margin-bottom: .5rem;
 }
-.section-title span { color: #38bdf8; }
+
+.section-title span {
+  color: #38bdf8;
+}
+
 .section-subtitle {
   font-size: 1.1rem;
   margin-bottom: 2.5rem;
   color: #9ca3af;
 }
+
+/* 🌞 Light Mode Overrides */
+body.light #skills {
+  background: #f3f4f6;   /* light gray background */
+  color: #111827;        /* dark text */
+}
+
+body.light .section-subtitle {
+  color: #374151;        /* darker gray subtitle */
+}
+
 
 /* Tabs */
 .skill-tabs {
@@ -54,64 +73,97 @@
   margin-bottom: 3rem;
   flex-wrap: wrap;
 }
+
 .skill-tabs .tab {
   padding: .7rem 1.5rem;
   border: none;
   border-radius: 30px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.05); /* dark mode default */
   color: #fff;
   cursor: pointer;
   transition: .3s;
   font-weight: 600;
 }
+
 .skill-tabs .tab.active,
 .skill-tabs .tab:hover {
   background: linear-gradient(45deg, #38bdf8, #a855f7);
   color: #000;
 }
 
-/* Skill Cards */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+/* 🌞 Light Mode Overrides */
+body.light .skill-tabs .tab {
+  background: rgba(0,0,0,0.05);  /* subtle gray for light mode */
+  color: #111827;               /* dark text */
 }
+
+body.light .skill-tabs .tab.active,
+body.light .skill-tabs .tab:hover {
+  background: linear-gradient(45deg, #38bdf8, #a855f7);
+  color: #fff;                  /* white text for contrast */
+}
+
+/* Skill Cards */
+/* 🌑 Dark Mode (default) */
 .skill-card {
   background: rgba(255,255,255,0.05);
   border-radius: 20px;
   padding: 1.5rem;
   text-align: left;
-  transition: transform .3s, background .3s;
+  transition: transform .3s, background .3s, box-shadow .3s;
   box-shadow: 0 0 20px rgba(0,0,0,.3);
+  color: #fff;
 }
+
 .skill-card:hover {
   transform: translateY(-5px);
   background: rgba(56,189,248,0.08);
 }
-.skill-card h3 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+
+/* 🌞 Light Mode */
+body.light .skill-card {
+  background: rgba(0,0,0,0.05);
+  color: #111827;
+  box-shadow: 0 0 15px rgba(0,0,0,.1);
+}
+
+body.light .skill-card:hover {
+  background: rgba(56,189,248,0.15);
+}
+
+body.light .skill-card h3 {
+  color: #1f2937; /* dark gray */
 }
 
 /* Progress Bars */
+/* 🌑 Dark Mode (default) */
 .progress {
   background: rgba(255,255,255,0.1);
   height: 10px;
   border-radius: 10px;
   overflow: hidden;
 }
+
 .progress-bar {
   height: 100%;
   background: linear-gradient(90deg,#38bdf8,#a855f7);
   width: 0;
   transition: width 2s ease;
 }
+
 .skill-card.visible .progress-bar {
   width: var(--value);
 }
 
-/* Hidden state */
-.hidden { display: none; }
+/* 🌞 Light Mode */
+body.light .progress {
+  background: rgba(0,0,0,0.1);
+}
+
+body.light .progress-bar {
+  background: linear-gradient(90deg,#2563eb,#7c3aed); /* deeper blue → purple */
+}
+
 
 /* Responsive */
 @media(max-width: 768px) {
@@ -169,6 +221,36 @@
   animation: rotate 6s linear infinite;
   opacity: 0.15;
 }
+/* 🌞 Light Mode */
+body.light projects {
+  background: #f9fafb;
+  color: #111827;
+}
+
+body.light .projects .section-title {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;  
+  -webkit-text-fill-color: transparent;
+}
+
+body.light .projects .section-subtitle {
+  color: #4b5563;
+}
+
+body.light .projects-grid {
+  gap: 20px;
+}
+
+body.light .project-card {
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+body.light .project-card::before {
+  opacity: 0.08;
+}
+
 
 @keyframes rotate {
   100% {
@@ -201,6 +283,25 @@
   color: #e0f7fa;
   line-height: 1.5;
 }
+/* 🌞 Light Mode Hover & Text */
+body.light .project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0px 10px 30px rgba(56, 189, 248, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.light .project-link {
+  color: #2563eb; /* Dark blue for light mode */
+}
+
+body.light .project-link:hover {
+  color: #7c3aed; /* Purple hover for contrast */
+}
+
+body.light .project-description {
+  color: #374151; /* Dark gray text */
+}
+
 
  @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -215,11 +316,432 @@
   .animate-bounce-slow { animation: bounce-slow 10s ease-in-out infinite; }
   .delay-2000 { animation-delay: 2s; }
 
+/* Header Light Mode */
+body.light header {
+  background: rgba(249, 250, 251, 0.8); /* light semi-transparent */
+  color: #111827; /* dark text */
+  backdrop-blur: 5px;
+}
+
+/* Brand / Logo Light Mode */
+body.light header h1 {
+  color: #111827;
+}
+body.light header h1 span {
+  color: #3b82f6; /* cyan-like highlight for light mode */
+}
+
+/* Navigation Links Light Mode */
+body.light header nav a {
+  color: #111827;
+  transition: color 0.3s;
+}
+
+body.light header nav a:hover {
+  color: #3b82f6; /* cyan highlight on hover */
+}
+
+/* Theme Toggle Button Light Mode */
+body.light #theme-toggle {
+  color: #111827;
+}
+
+body.light #theme-toggle:hover {
+  color: #3b82f6;
+}
+/* Hero Section Light Mode */
+body.light #hero {
+  background: #f9fafb; /* light background */
+}
+
+/* Floating Background Shapes Light Mode */
+body.light #hero .bg-[#38bdf8] {
+  background: #38bdf8; /* keep same or lighten a bit */
+  opacity: 0.25;
+}
+body.light #hero .bg-[#a855f7] {
+  background: #a855f7;
+  opacity: 0.2;
+}
+
+/* Hero Text Light Mode */
+body.light #hero h2 {
+  color: #111827; /* dark text for light mode */
+}
+body.light #hero h2 span {
+  color: #7c3aed; /* slightly lighter purple for highlight */
+}
+
+body.light #hero p {
+  color: #374151; /* gray for subtitle */
+}
+body.light #typed {
+  color: #2563eb; /* bright blue highlight */
+}
+
+/* Buttons Light Mode */
+body.light #hero a.bg-[#38bdf8] {
+  background: #2563eb; /* darker blue for contrast */
+  color: #fff;
+}
+body.light #hero a.border-[#38bdf8] {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+body.light #hero a.border-[#38bdf8]:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Image Border Light Mode */
+body.light #hero img {
+  border-color: #2563eb;
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.3), 0 0 80px rgba(168, 85, 247, 0.2);
+}
+/* ========== ABOUT SECTION LIGHT MODE ========== */
+body.light #about {
+  background: #f9fafb;
+  color: #111827;
+}
+body.light #about h2 {
+  color: #111827;
+}
+body.light #about h2 span {
+  color: #2563eb;
+}
+body.light #about p {
+  color: #374151;
+}
+body.light #about .counter {
+  color: #2563eb;
+}
+/* ================= About Section Light Mode ================= */
+body.light #about {
+  background: #f3f4f6; /* light background */
+  color: #111827; /* main text color */
+}
+
+/* Info Counters & Cards */
+body.light #about .info-card {
+  background: rgba(0, 0, 0, 0.05); /* subtle card overlay */
+  border-color: #2563eb; /* border for light mode */
+}
+
+body.light #about .info-card:hover {
+  background: rgba(37, 99, 235, 0.1); /* hover effect in light mode */
+}
+
+/* Timeline Dot */
+body.light #about .timeline-dot {
+  background: #2563eb;
+  border-color: #111827; /* optional border for contrast */
+}
+
+/* Timeline Year Badge */
+body.light #about .timeline-year {
+  background: #2563eb;
+  color: #fff; /* text on badges */
+}
+
+/* Paragraph Text */
+body.light #about p {
+  color: #374151; /* dark gray for readability */
+}
+
+/* Heading Text */
+body.light #about h2,
+body.light #about h3 {
+  color: #1f2937; /* slightly darker heading for light mode */
+}
+
+
+/* ================= SKILLS SECTION LIGHT MODE ================= */
+body.light #skills {
+  background: #f9fafb;
+  color: #111827;
+}
+body.light #skills .section-title {
+  color: #111827;
+}
+body.light #skills .section-title span {
+  color: #2563eb;
+}
+body.light #skills .section-subtitle {
+  color: #4b5563; /* darker gray */
+}
+body.light .skill-card {
+  background: rgba(0,0,0,0.05);
+  color: #111827;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+body.light .skill-card:hover {
+  background: rgba(37,99,235,0.1);
+}
+body.light .progress {
+  background: rgba(0,0,0,0.1);
+}
+body.light .progress-bar {
+  background: linear-gradient(90deg,#38bdf8,#7c3aed);
+}
+
+/* ================= EXPERIENCE SECTION LIGHT MODE ================= */
+body.light #experience {
+  background: #f3f4f6;
+  color: #111827;
+}
+body.light #experience h2 {
+  color: #2563eb;
+}
+body.light #experience h2 span {
+  color: #7c3aed;
+}
+body.light #experience p {
+  color: #4b5563;
+}
+body.light .exp-card {
+  background: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.1);
+  color: #111827;
+}
+body.light .exp-card .role {
+  color: #2563eb;
+}
+body.light .exp-card .duration,
+body.light .exp-card .location,
+body.light .exp-card ul li {
+  color: #4b5563;
+}
+body.light .exp-card:hover .bg-gradient-to-r {
+  opacity: 0.2;
+}
+/* ================= Projects Section Light Mode ================= */
+body.light #projects {
+  background: #f3f4f6; /* light background */
+  color: #111827; /* main text color */
+}
+
+/* Section Header */
+body.light #projects h2 {
+  color: #1e40af; /* dark blue gradient fallback for light mode */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+body.light #projects p {
+  color: #4b5563; /* dark gray for subtitle */
+}
+
+/* Project Cards */
+body.light #projects .relative.rounded-xl {
+  background: rgba(0, 0, 0, 0.03); /* subtle card background */
+  border-color: rgba(0, 0, 0, 0.05); /* border for light mode */
+  color: #111827;
+}
+
+/* Project Card Hover Glow */
+body.light #projects .relative.rounded-xl:hover {
+  background: rgba(37, 99, 235, 0.05); /* subtle light blue hover */
+  box-shadow: 0px 10px 30px rgba(37, 99, 235, 0.2);
+}
+
+/* Project Links */
+body.light #projects a.text-cyan-400 {
+  color: #2563eb; /* link color in light mode */
+}
+
+body.light #projects a.text-cyan-400:hover {
+  color: #9333ea; /* hover link color in light mode */
+}
+
+/* Gradient Glow Animation */
+body.light #projects .absolute[-inset-1] {
+  opacity: 0.05; /* reduce glow intensity in light mode */
+}
+
+/* ================= Testimonials Light Mode ================= */
+body.light #testimonials {
+  background: #f3f4f6; /* light background */
+  color: #111827; /* main text color */
+}
+
+/* Section Header */
+body.light #testimonials h2 {
+  color: #1d4ed8; /* dark blue gradient fallback */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+body.light #testimonials p {
+  color: #4b5563; /* subtitle text in dark gray */
+}
+
+/* Testimonial Cards */
+body.light #testimonials .testimonial-card {
+  background: rgba(0, 0, 0, 0.03); /* subtle card background */
+  color: #111827; /* text inside cards */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* subtle border */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Card Hover */
+body.light #testimonials .testimonial-card:hover {
+  background: rgba(37, 99, 235, 0.05); /* subtle blue hover */
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+}
+
+/* Client Name and Role */
+body.light #testimonials h4 {
+  color: #1d4ed8; /* dark blue for client name */
+}
+
+body.light #testimonials span {
+  color: #6b7280; /* dark gray for role text */
+}
+
+/* Client Avatar Border */
+body.light #testimonials img {
+  border-color: #2563eb; /* blue avatar border in light mode */
+}
+
+/* Navigation Dots */
+body.light #testimonials .dot {
+  background: #9ca3af; /* gray dots */
+}
+
+body.light #testimonials .dot.active {
+  background: #2563eb; /* active dot in blue */
+}
+/* ================= Contact Light Mode ================= */
+body.light #contact {
+  background: #f3f4f6; /* light background */
+  color: #111827; /* main text color */
+}
+
+/* Section Header */
+body.light #contact h2 {
+  color: #1d4ed8; /* dark blue fallback */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+body.light #contact p {
+  color: #4b5563; /* subtitle text */
+}
+
+/* Contact Form */
+body.light #contact-form {
+  background: rgba(255, 255, 255, 0.85); /* light translucent form */
+  color: #111827;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  backdrop-blur: none; /* remove blur for light mode */
+}
+
+/* Form Inputs and Textarea */
+body.light #contact-form input,
+body.light #contact-form textarea {
+  background: #ffffff; /* light input fields */
+  color: #111827;
+  border: 1px solid #d1d5db; /* subtle gray border */
+}
+
+body.light #contact-form input::placeholder,
+body.light #contact-form textarea::placeholder {
+  color: #6b7280; /* darker placeholder */
+}
+
+body.light #contact-form input:focus,
+body.light #contact-form textarea:focus {
+  border-color: #2563eb; /* focus ring color */
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Send Button */
+body.light #contact-form button {
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  color: #fff;
+}
+
+body.light #contact-form button:hover {
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* Contact Info Section */
+body.light #contact .text-cyan-400 {
+  color: #2563eb; /* headings in dark blue */
+}
+
+body.light #contact p {
+  color: #4b5563; /* info text */
+}
+
+/* Social Icons */
+body.light #contact a {
+  color: #111827; /* icon color */
+}
+
+body.light #contact a:hover {
+  color: #2563eb; /* hover blue */
+}
+
+/* ================= Footer Light Mode ================= */
+body.light footer {
+  background: #f3f4f6; /* light background */
+  color: #1f2937; /* main text color */
+}
+
+/* Brand / Logo */
+body.light footer h2 {
+  color: #1d4ed8; /* dark blue text for brand */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+body.light footer p {
+  color: #4b5563; /* subtitle text */
+}
+
+/* Quick Links */
+body.light footer h3 {
+  color: #2563eb; /* heading color */
+}
+
+body.light footer ul li a {
+  color: #1f2937; /* link text color */
+}
+
+body.light footer ul li a:hover {
+  color: #2563eb; /* link hover color */
+}
+
+/* Social Media Icons */
+body.light footer .text-2xl a {
+  color: #1f2937; /* default icon color */
+}
+
+body.light footer .text-2xl a:hover {
+  color: #2563eb; /* icon hover color */
+}
+
+/* Bottom Bar */
+body.light footer .border-t {
+  border-color: #d1d5db; /* subtle border for light mode */
+}
+
+body.light footer .text-gray-500 {
+  color: #6b7280; /* bottom text color */
+}
+
 
 
 
   </style>
+
 </head>
+
 <body>
   <!-- Navbar -->
 <header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
@@ -227,6 +749,7 @@
     <!-- Brand / Logo -->
     <h1 class="text-white text-2xl font-bold">Sampada <span class="text-cyan-400">Tiwari</span></h1>
 
+ 
     <!-- Navigation Links -->
     <nav class="space-x-6 hidden md:flex">
       <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
@@ -242,6 +765,13 @@
       <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
       <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
     </nav>
+
+       <!-- Theme Toggle Button -->
+<button id="theme-toggle" class="ml-4 text-white hover:text-cyan-400 transition">
+  <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
+</button>
+    
+
 
     <!-- Mobile Menu Button -->
     <div class="md:hidden">
@@ -813,6 +1343,28 @@
   </div>
 
 </footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-toggle-icon');
+    const body = document.body;
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'light') {
+      body.classList.add('light');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light');
+      if (body.classList.contains('light')) {
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'light');
+      } else {
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
 
 <script>
 // Tab Switching
