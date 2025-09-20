@@ -103,14 +103,39 @@ body.light #scrollTop {
     }
 
     /* Projects Grid */
-    .projects-grid { display:grid; gap:2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); padding:2rem; }
+    /* --- Only for consistent card layout --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;          /* equal row height */
+}
 
-    /* Project Card */
-    .project-card {
-      position:relative; overflow:hidden; border-radius:1.5rem;
-      cursor:pointer; transition: transform 0.5s ease, box-shadow 0.5s ease;
-      background: linear-gradient(135deg,#6c5ce7,#00c6ff);
-    }
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;                  /* stretch to full grid cell */
+  padding: 1.5rem;               /* uniform internal spacing */
+  box-sizing: border-box;
+}
+
+.project-card p {
+  flex-grow: 1;                  /* pushes buttons to bottom */
+  margin-bottom: 1rem;
+}
+
+.project-card .actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between; /* align buttons evenly */
+}
+
+.project-card .actions a {
+  flex: 1;
+  text-align: center;
+}
+
     .project-card:hover { transform: scale(1.05) rotateZ(1deg); box-shadow: 0 20px 50px rgba(108,92,231,0.5); }
 
     .project-card img {
