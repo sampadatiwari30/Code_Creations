@@ -1262,6 +1262,22 @@ body.light footer .text-gray-500 {
     <span class="dot w-3 h-3 bg-gray-600 rounded-full cursor-pointer transition-colors"></span>
   </div>
 
+   <!-- ================= COMMUNITY FEEDBACK ================= -->
+  <div class="max-w-3xl mx-auto mt-16 text-left">
+    <h3 class="text-2xl font-bold mb-4 gradient-text">💬 Community Feedback</h3>
+
+    <!-- Comment Input -->
+    <div class="flex gap-2 mb-6">
+      <input type="text" id="commentInput" placeholder="Add a comment..." class="flex-1 px-4 py-2 rounded-xl text-gray-900 focus:outline-none">
+      <button id="addCommentBtn" class="px-4 py-2 bg-cyan-500 rounded-xl font-semibold hover:bg-cyan-400 transition">Post</button>
+    </div>
+
+    <!-- Comments List -->
+    <div id="commentsList" class="space-y-4">
+      <!-- Dynamic comments will appear here -->
+    </div>
+  </div>
+
 </section>
 
 <!-- ================= CONTACT SECTION ================= -->
@@ -1438,6 +1454,66 @@ const counterObserver = new IntersectionObserver(entries => { // <-- changed nam
   });
 },{threshold:0.5});
 counters.forEach(c => counterObserver.observe(c)); // <-- changed name here
+
+const commentInput = document.getElementById('commentInput');
+  const addCommentBtn = document.getElementById('addCommentBtn');
+  const commentsList = document.getElementById('commentsList');
+
+  // Function to create a comment element
+  function createCommentElement(text) {
+    const div = document.createElement('div');
+    div.className = 'bg-white/10 p-4 rounded-2xl flex justify-between items-start gap-4 transition-all';
+    
+    // Comment Text
+    const p = document.createElement('p');
+    p.className = 'text-gray-200 flex-1';
+    p.textContent = text;
+    div.appendChild(p);
+
+    // Action buttons
+    const actions = document.createElement('div');
+    actions.className = 'flex gap-2';
+
+    // Like button
+    const likeBtn = document.createElement('button');
+    likeBtn.innerHTML = '👍';
+    likeBtn.className = 'hover:scale-110 transition';
+    likeBtn.onclick = () => {
+      if (!likeBtn.dataset.liked) {
+        likeBtn.dataset.liked = 'true';
+        likeBtn.innerHTML = '💖';
+      } else {
+        likeBtn.dataset.liked = '';
+        likeBtn.innerHTML = '👍';
+      }
+    };
+    actions.appendChild(likeBtn);
+
+    // Delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerHTML = '🗑️';
+    deleteBtn.className = 'hover:scale-110 transition';
+    deleteBtn.onclick = () => div.remove();
+    actions.appendChild(deleteBtn);
+
+    div.appendChild(actions);
+    return div;
+  }
+
+  // Add comment on button click
+  addCommentBtn.addEventListener('click', () => {
+    const text = commentInput.value.trim();
+    if (text !== '') {
+      const commentEl = createCommentElement(text);
+      commentsList.prepend(commentEl);
+      commentInput.value = '';
+    }
+  });
+
+  // Allow Enter key to submit
+  commentInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') addCommentBtn.click();
+  });
 
 // Contact form submission
 document.getElementById("contact-form").addEventListener("submit", function (e) {
