@@ -485,6 +485,81 @@
                 height: 45px;
             }
         }
+
+        /* Tablets / Medium screens (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .contact-card {
+        padding: 2.5rem;
+        margin: 1.5rem;
+    }
+
+    .contact-heading h1 {
+        font-size: 2.5rem;
+    }
+
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+
+    .social-item {
+        padding: 1.1rem;
+    }
+
+    .social-icon {
+        font-size: 1.9rem;
+        margin-right: 0.9rem;
+    }
+
+    .social-text {
+        font-size: 1.05rem;
+    }
+
+    .email-address {
+        font-size: 1.3rem;
+    }
+
+    .scroll-top {
+        bottom: 25px;
+        right: 25px;
+    }
+}
+
+/* Large screens (1200px and above) */
+@media (min-width: 1200px) {
+    .contact-card {
+        max-width: 700px;
+        padding: 4rem;
+    }
+
+    .contact-heading h1 {
+        font-size: 3.5rem;
+    }
+
+    .social-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .social-item {
+        padding: 1.5rem;
+    }
+
+    .social-icon {
+        font-size: 2.2rem;
+        margin-right: 1.2rem;
+    }
+
+    .social-text {
+        font-size: 1.2rem;
+    }
+
+    .email-address {
+        font-size: 1.5rem;
+    }
+}
+
+
     </style>
 </head>
 <body>
