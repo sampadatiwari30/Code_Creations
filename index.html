@@ -4,13 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sampada Tiwari — Portfolio</title>
-  <!-- Google Fonts -->
-   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PWA links -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3167FF">
+  <link rel="icon" href="./assets/icons/icon-192.png">
+
+  <!-- Styles / Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Typed.js -->
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
   <style>
     :root {
       --primary: #38bdf8;
@@ -1582,6 +1589,13 @@ setInterval(() => {
 showTestimonial(currentIndex);
 
 
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker registered with scope:', reg.scope))
+        .catch(err => console.error('Service Worker registration failed:', err));
+    }
   </script>
 </body>
 </html>
