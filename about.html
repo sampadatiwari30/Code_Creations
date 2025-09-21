@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
             --dark-charcoal: #0d1117;
@@ -84,13 +85,12 @@
 
         /* Navbar Styles */
         .navbar {
-            background: transparent !important;
-            backdrop-filter: blur(0px);
+            background: rgba(13, 17, 23, 0.8) !important;
+            backdrop-filter: blur(10px);
             padding: 1.5rem 0;
             transition: all 0.4s ease;
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeInDown 1s ease-out 0.2s forwards;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .navbar.scrolled {
@@ -374,6 +374,60 @@
             border-color: var(--royal-purple);
         }
 
+        /* Light Mode Footer */
+        body.light footer {
+            background: #f9f9f9;
+            color: #1a1a1a;
+        }
+
+        body.light footer h2 {
+            background: linear-gradient(to right, #6c5ce7, #00c6ff); /* Gradient for name */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light footer p {
+            color: #555; /* Subtitle text */
+        }
+
+        body.light footer h3 {
+            color: #6c5ce7; /* Section headings like Quick Links, Follow Me */
+        }
+
+        body.light footer a {
+            color: #1a1a1a; /* Default link color */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        body.light footer a:hover {
+            color: #6c5ce7; /* Hover color */
+            transform: scale(1.1);
+        }
+
+        body.light footer .border-t {
+            border-color: #ddd; /* Bottom bar border */
+        }
+
+        body.light footer .text-gray-500 {
+            color: #555; /* Bottom bar text */
+        }
+
+        body.light footer .text-gray-400 {
+            color: #777; /* Subtitle small text */
+        }
+
+        body.light footer .fab,
+        body.light footer .fas {
+            color: #1a1a1a; /* Social icons default */
+        }
+
+        body.light footer .fab:hover,
+        body.light footer .fas:hover {
+            color: #6c5ce7; /* Social icons hover */
+        }
+        
+
         /* Animations */
         @keyframes fadeInDown {
             to {
@@ -503,33 +557,45 @@
     <div class="particles-bg"></div>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
-        <div class="container">
-            <a class="navbar-brand" href="#">sampada tiwari</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="project.html">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="experience.html">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Me</a>
-                    </li>
-                </ul>
-            </div>
+    <header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
+      <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        <!-- Brand / Logo -->
+        <h1 class="text-white text-2xl font-bold">Sampada <span class="text-cyan-400">Tiwari</span></h1>
+
+        <!-- Navigation Links -->
+        <nav class="space-x-6 hidden md:flex">
+          <a href="index.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
+          <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
+          <a href="skills.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
+          <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
+          <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
+          <a href="experience.html#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
+          <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
         </div>
-    </nav>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
+        <nav class="flex flex-col px-6 py-4 space-y-4">
+          <a href="index.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
+          <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
+          <a href="skills.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
+          <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
+          <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
+          <a href="experience.html#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
+          <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
+        </nav>
+      </div>
+    </header>
 
     <!-- Main Container -->
     <div class="main-container">
@@ -586,6 +652,53 @@
         </div>
     </div>
 
+    <!-- ================= FOOTER SECTION ================= -->
+    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12" style="margin-top: 4rem;">
+
+      <!-- Footer Container -->
+      <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
+
+        <!-- Brand / Logo -->
+        <div class="text-center md:text-left">
+          <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+            Sampada<span class="font-extrabold">Tiwari</span>
+          </h2>
+          <p class="text-gray-400 mt-1 text-sm md:text-base">Data Scientist • Leader • Creator</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="text-center md:text-left">
+          <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
+          <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2">
+            <li><a href="about.html" class="hover:text-cyan-400 transition-colors">About</a></li>
+            <li><a href="skills.html" class="hover:text-cyan-400 transition-colors">Skills</a></li>
+            <li><a href="experience.html" class="hover:text-cyan-400 transition-colors">Experience</a></li>
+            <li><a href="project.html" class="hover:text-cyan-400 transition-colors">Projects</a></li>
+            <li><a href="experience.html#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a></li>
+            <li><a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="text-center md:text-left">
+          <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
+          <div class="flex justify-center md:justify-start gap-4 text-2xl">
+            <a href="https://linkedin.com/in/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-twitter"></i></a>
+            <a href="mailto:sampada@example.com" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+        © 2025 Sampada Tiwari • All Rights Reserved
+      </div>
+
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
           // Theme Toggle with localStorage
@@ -604,14 +717,13 @@
             toggleBtn.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('mainNavbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
         // Smooth scrolling for navigation links
@@ -624,17 +736,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                }
-            });
-        });
-
-        // Mobile menu auto-close on link click
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
-                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-                    bsCollapse.hide();
                 }
             });
         });
