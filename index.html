@@ -4,13 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sampada Tiwari — Portfolio</title>
-  <!-- Google Fonts -->
-   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PWA links -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3167FF">
+  <link rel="icon" href="./assets/icons/icon-192.png">
+
+  <!-- Styles / Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Typed.js -->
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
   <style>
     :root {
       --primary: #38bdf8;
@@ -736,6 +743,143 @@ body.light footer .text-gray-500 {
 }
 
 
+/* ================= Responsive Design ================= */
+
+/* Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    padding: 1rem;
+  }
+
+  header nav {
+    display: none; /* hide nav links for mobile */
+  }
+
+  header .hamburger {
+    display: block; /* show hamburger */
+  }
+
+  #hero {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  #hero h2 {
+    font-size: 1.8rem;
+  }
+
+  #hero p {
+    font-size: 0.9rem;
+  }
+
+  #skills, #projects, #about, #experience, #testimonials, #contact {
+    padding: 4rem 2rem;
+  }
+
+  .skills-grid, .projects-grid {
+    grid-template-columns: 1fr; /* stack vertically */
+    gap: 1rem;
+  }
+
+  .skill-tabs {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .project-card, .skill-card, .exp-card, .testimonial-card {
+    padding: 1rem;
+  }
+
+  #contact-form input, #contact-form textarea {
+    width: 100%;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+}
+
+/* Tablets (481px – 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  header nav {
+    display: none;
+  }
+
+  header .hamburger {
+    display: block;
+  }
+
+  #hero {
+    padding: 5rem 3rem;
+  }
+
+  #hero h2 {
+    font-size: 2rem;
+  }
+
+  .skills-grid, .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Small Laptops (769px – 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  header nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  header .hamburger {
+    display: none;
+  }
+
+  #hero {
+    padding: 6rem 5%;
+  }
+
+  #hero h2 {
+    font-size: 2.2rem;
+  }
+
+  .skills-grid, .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Desktops (1025px+) */
+@media (min-width: 1025px) {
+  .skills-grid, .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  header nav {
+    display: flex;
+  }
+
+  header .hamburger {
+    display: none;
+  }
+}
 
 
   </style>
@@ -755,8 +899,6 @@ body.light footer .text-gray-500 {
       <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
       <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
 
-      <a href="#" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
-      <a href="#" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
 
       <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
       <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
@@ -1582,6 +1724,13 @@ setInterval(() => {
 showTestimonial(currentIndex);
 
 
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker registered with scope:', reg.scope))
+        .catch(err => console.error('Service Worker registration failed:', err));
+    }
   </script>
 </body>
 </html>
