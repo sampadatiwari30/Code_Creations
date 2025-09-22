@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Me</title>
+<<<<<<< HEAD
+    <link rel="stylesheet" href="css/contact.css" />
+  </head>
+  <body>
+=======
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -566,193 +571,79 @@
       <button class="theme-toggle" id="themeToggle">
     <i class="fas fa-moon"></i>
   </button>
+>>>>>>> upstream/main
     <!-- Background Animation -->
     <div class="background-animation">
-        <div class="floating-dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+      <div class="floating-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
     </div>
 
     <!-- Main Container -->
     <div class="main-container">
-        <div class="container">
-            <div class="contact-card">
-                <div class="home-logo">
-                    <a href="index.html">
-                        <i class=" social-item Home-logo ">
-                            <i class="fa-solid fa-house">
-                            </i>
-                        </i>
-                    </a>
-                </div>
-                <!-- Heading -->
-                <div class="contact-heading">
-                    <h1>Get in Touch</h1>
-                    <div class="heading-underline"></div>
-                </div>
+      <div class="container">
+        <div class="contact-card">
+          <div class="home-logo">
+            <a href="index.html">
+              <i class="social-item Home-logo">
+                <i class="fa-solid fa-house"> </i>
+              </i>
+            </a>
+          </div>
+          <!-- Heading -->
+          <div class="contact-heading">
+            <h1>Get in Touch</h1>
+            <div class="heading-underline"></div>
+          </div>
 
-                <!-- Email Section -->
-                <div class="email-section">
-                    <div class="email-label">Email ID:</div>
-                    <a href="mailto:harshanandi00000@gmail.com" class="email-address">
-                    sampada00000@gmail.com
-                    </a>
-                </div>
+          <!-- Email Section -->
+          <div class="email-section">
+            <div class="email-label">Email ID:</div>
+            <a href="mailto:harshanandi00000@gmail.com" class="email-address">
+              sampada00000@gmail.com
+            </a>
+          </div>
 
-                <!-- Social Media Section -->
-                <div class="social-section">
-                    <h3 class="social-title">Connect with me!</h3>
-                    <div class="social-grid">
-                        <a href="" target="_blank" class="social-item linkedin">
-                            <i class="fab fa-linkedin social-icon"></i>
-                            <span class="social-text">LinkedIn</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item instagram">
-                            <i class="fab fa-instagram social-icon"></i>
-                            <span class="social-text">Instagram</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item facebook">
-                            <i class="fab fa-facebook social-icon"></i>
-                            <span class="social-text">Facebook</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item twitter">
-                            <i class="fab fa-twitter social-icon"></i>
-                            <span class="social-text">Twitter</span>
-                        </a>
-                    </div>
-                </div>
+          <!-- Social Media Section -->
+          <div class="social-section">
+            <h3 class="social-title">Connect with me!</h3>
+            <div class="social-grid">
+              <a href="" target="_blank" class="social-item linkedin">
+                <i class="fab fa-linkedin social-icon"></i>
+                <span class="social-text">LinkedIn</span>
+              </a>
+
+              <a href="" target="_blank" class="social-item instagram">
+                <i class="fab fa-instagram social-icon"></i>
+                <span class="social-text">Instagram</span>
+              </a>
+
+              <a href="" target="_blank" class="social-item facebook">
+                <i class="fab fa-facebook social-icon"></i>
+                <span class="social-text">Facebook</span>
+              </a>
+
+              <a href="" target="_blank" class="social-item twitter">
+                <i class="fab fa-twitter social-icon"></i>
+                <span class="social-text">Twitter</span>
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
+      <i class="fas fa-arrow-up"></i>
     </button>
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-            // Theme Toggle
-    const toggleBtn = document.getElementById("themeToggle");
-    const body = document.body;
-    toggleBtn.addEventListener("click", () => {
-      body.classList.toggle("light");
-      toggleBtn.innerHTML = body.classList.contains("light")
-        ? '<i class="fas fa-sun"></i>'
-        : '<i class="fas fa-moon"></i>';
-    });
-        // Scroll to Top Button Functionality
-        const scrollTopBtn = document.getElementById('scrollTop');
-
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        });
-
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Enhanced hover effects for social items
-        document.querySelectorAll('.social-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Email click tracking (optional)
-        document.querySelector('.email-address').addEventListener('click', function() {
-            console.log('Email clicked - opening default email client');
-        });
-
-        // Add subtle parallax effect to background
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const backgroundAnimation = document.querySelector('.background-animation');
-            const rate = scrolled * -0.1;
-            
-            backgroundAnimation.style.transform = `translateY(${rate}px)`;
-        });
-
-        // Intersection Observer for additional animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.contact-card, .social-item').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add click ripple effect to social items
-        document.querySelectorAll('.social-item').forEach(item => {
-            item.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
-        // Add ripple effect styles dynamically
-        const style = document.createElement('style');
-        style.textContent = `
-            .ripple {
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(108, 92, 231, 0.3);
-                transform: scale(0);
-                animation: ripple-animation 0.6s linear;
-                pointer-events: none;
-            }
-            
-            @keyframes ripple-animation {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-</body>
+    <script src="JavaScript/contact.js"></script>
+  </body>
 </html>
