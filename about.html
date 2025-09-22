@@ -648,6 +648,111 @@
                 font-size: 0.85rem;
             }
         }
+
+        /* Medium screens (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .main-container {
+        padding: 7rem 0 3rem;
+    }
+
+    .section-heading h1 {
+        font-size: 3rem;
+    }
+
+    .education-card {
+        padding: 2.5rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .education-header {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .education-icon {
+        font-size: 3rem;
+        margin-right: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .education-title {
+        font-size: 1.7rem;
+    }
+
+    .education-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .education-details li {
+        font-size: 1.05rem;
+        padding-left: 1.8rem;
+    }
+
+    .skills-heading h2 {
+        font-size: 2.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.2rem;
+    }
+
+    .skill-badge {
+        padding: 1rem 1.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Large screens (1200px and above) */
+@media (min-width: 1200px) {
+    .main-container {
+        padding: 8rem 0 4rem;
+    }
+
+    .section-heading h1 {
+        font-size: 4.5rem;
+    }
+
+    .education-card {
+        padding: 3rem;
+        margin-bottom: 4.5rem;
+    }
+
+    .education-icon {
+        font-size: 4rem;
+        margin-right: 2rem;
+    }
+
+    .education-title {
+        font-size: 2rem;
+    }
+
+    .education-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .education-details li {
+        font-size: 1.2rem;
+        padding-left: 2rem;
+    }
+
+    .skills-heading h2 {
+        font-size: 3.2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .skill-badge {
+        padding: 1.2rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+
+
     </style>
 </head>
 <body>
@@ -668,6 +773,9 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">Skills</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About Me</a>
