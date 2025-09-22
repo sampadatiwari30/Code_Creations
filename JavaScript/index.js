@@ -127,3 +127,70 @@ dots.forEach((dot, i) => {
 // Initialize first testimonial and auto-slide
 showTestimonial(currentIndex);
 startAutoSlide();
+
+const commentInput = document.getElementById('commentInput');
+  const addCommentBtn = document.getElementById('addCommentBtn');
+  const commentsList = document.getElementById('commentsList');
+
+  // Function to create a comment element
+  function createCommentElement(text) {
+    const div = document.createElement('div');
+    div.className = 'bg-white/10 p-4 rounded-2xl flex justify-between items-start gap-4 transition-all';
+    
+    // Comment Text
+    const p = document.createElement('p');
+    p.className = 'text-gray-200 flex-1';
+    p.textContent = text;
+    div.appendChild(p);
+
+    // Action buttons
+    const actions = document.createElement('div');
+    actions.className = 'flex gap-2';
+
+    // Like button
+    const likeBtn = document.createElement('button');
+    likeBtn.innerHTML = '👍';
+    likeBtn.className = 'hover:scale-110 transition';
+    likeBtn.onclick = () => {
+      if (!likeBtn.dataset.liked) {
+        likeBtn.dataset.liked = 'true';
+        likeBtn.innerHTML = '💖';
+      } else {
+        likeBtn.dataset.liked = '';
+        likeBtn.innerHTML = '👍';
+      }
+    };
+    actions.appendChild(likeBtn);
+
+    // Delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerHTML = '🗑️';
+    deleteBtn.className = 'hover:scale-110 transition';
+    deleteBtn.onclick = () => div.remove();
+    actions.appendChild(deleteBtn);
+
+    div.appendChild(actions);
+    return div;
+  }
+
+  // Add comment on button click
+  addCommentBtn.addEventListener('click', () => {
+    const text = commentInput.value.trim();
+    if (text !== '') {
+      const commentEl = createCommentElement(text);
+      commentsList.prepend(commentEl);
+      commentInput.value = '';
+    }
+  });
+
+  // Allow Enter key to submit
+  commentInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') addCommentBtn.click();
+  });
+
+// Contact form submission
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert("✅ Thank you! Your message has been sent.");
+  this.reset();
+});

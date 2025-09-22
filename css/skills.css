@@ -103,3 +103,84 @@ body {
     gap: 1.2rem;
   }
 }
+
+/* Small tablets and large phones: 577px - 768px */
+@media (min-width: 577px) and (max-width: 768px) {
+  #skills {
+    padding: 5rem 6%;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .skill-tabs .tab {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .skill-card {
+    padding: 1.2rem;
+  }
+  .skill-card h3 {
+    font-size: 1rem;
+  }
+  .progress {
+    height: 8px;
+  }
+}
+
+/* Mobile devices: up to 576px */
+@media (max-width: 576px) {
+  #skills {
+    padding: 4rem 4%;
+  }
+  .section-title {
+    font-size: 1.7rem;
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  .skill-tabs {
+    gap: 0.6rem;
+  }
+  .skill-tabs .tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .skill-card {
+    padding: 1rem;
+  }
+  .skill-card h3 {
+    font-size: 0.95rem;
+  }
+  .progress {
+    height: 7px;
+  }
+}
+
+/* Extra large screens: 1200px and above */
+@media (min-width: 1200px) {
+  #skills {
+    padding: 7rem 10%;
+  }
+  .section-title {
+    font-size: 3rem;
+  }
+  .section-subtitle {
+    font-size: 1.2rem;
+  }
+  .skills-grid {
+    gap: 2.5rem;
+  }
+}

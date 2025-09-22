@@ -12,10 +12,48 @@
   --shadow-color: rgba(108, 92, 231, 0.2);
 }
 
+/* Light Mode Overrides */
+body.light {
+  --dark-bg: #f9f9f9;
+  --card-bg: #ffffff;
+  --soft-white: #1a1a1a;
+  --royal-purple: #4a3ce5;
+  --deep-navy: #003366;
+  --text-secondary: #444;
+  --shadow-color: rgba(74, 60, 229, 0.2);
+  background: var(--dark-bg);
+  color: var(--soft-white);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, var(--royal-purple), var(--deep-navy));
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  z-index: 2000;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
 }
 
 body {
@@ -236,7 +274,6 @@ html {
   transform: scale(1.3);
   background: linear-gradient(45deg, #33e0f0, #52879f, #2791dc, #2364cc);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .social-grid {
@@ -498,5 +535,78 @@ html {
     right: 20px;
     width: 45px;
     height: 45px;
+  }
+}
+
+/* Tablets / Medium screens (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contact-card {
+    padding: 2.5rem;
+    margin: 1.5rem;
+  }
+
+  .contact-heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .social-item {
+    padding: 1.1rem;
+  }
+
+  .social-icon {
+    font-size: 1.9rem;
+    margin-right: 0.9rem;
+  }
+
+  .social-text {
+    font-size: 1.05rem;
+  }
+
+  .email-address {
+    font-size: 1.3rem;
+  }
+
+  .scroll-top {
+    bottom: 25px;
+    right: 25px;
+  }
+}
+
+/* Large screens (1200px and above) */
+@media (min-width: 1200px) {
+  .contact-card {
+    max-width: 700px;
+    padding: 4rem;
+  }
+
+  .contact-heading h1 {
+    font-size: 3.5rem;
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .social-item {
+    padding: 1.5rem;
+  }
+
+  .social-icon {
+    font-size: 2.2rem;
+    margin-right: 1.2rem;
+  }
+
+  .social-text {
+    font-size: 1.2rem;
+  }
+
+  .email-address {
+    font-size: 1.5rem;
   }
 }

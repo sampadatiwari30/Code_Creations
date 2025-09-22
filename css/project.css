@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 
-
 body {
   font-family: "Space Grotesk", sans-serif;
   background: #0f172a;
@@ -198,4 +197,145 @@ html {
 }
 .project-card:hover img {
   filter: brightness(1.05) blur(0.5px);
+}
+
+/* Medium screens: 769px - 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .project-card img {
+    height: 220px;
+  }
+
+  .project-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .project-info p {
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+    max-width: 700px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .comment-input input {
+    padding: 0.45rem 0.9rem;
+  }
+
+  .comment-input button {
+    padding: 0.45rem 0.9rem;
+  }
+}
+
+/* Tablets and small laptops: 577px - 768px */
+@media (min-width: 577px) and (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .project-card img {
+    height: 180px;
+  }
+
+  .project-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-info p {
+    font-size: 0.85rem;
+  }
+
+  .modal-content {
+    padding: 1.2rem;
+    max-width: 600px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile devices: up to 576px */
+@media (max-width: 576px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .project-card img {
+    height: 160px;
+  }
+
+  .project-info h3 {
+    font-size: 1rem;
+  }
+
+  .project-info p {
+    font-size: 0.8rem;
+  }
+
+  .modal-content {
+    padding: 1rem;
+    max-width: 90%;
+  }
+
+  .modal-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .comment-input input {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .comment-input button {
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Extra large screens: 1200px and above */
+@media (min-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card img {
+    height: 280px;
+  }
+
+  .project-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .project-info p {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    max-width: 900px;
+    padding: 2.5rem;
+  }
+
+  .modal-content h2 {
+    font-size: 2.2rem;
+  }
 }

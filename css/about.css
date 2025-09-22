@@ -17,6 +17,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+body.light {
+  --dark-charcoal: #f9f9f9;
+  --card-bg: #ffffff;
+  --card-gradient: linear-gradient(145deg, #ffffff, #f0f0f0);
+  --white: #1a1a1a;
+  --royal-purple: #6c5ce7;
+  --deep-navy: #3b3bff;
+  --text-secondary: #555;
+  background: var(--dark-charcoal);
+  color: var(--white);
+}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -30,6 +41,30 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, var(--royal-purple), var(--deep-navy));
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  z-index: 2000;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.2);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
 /* Background Particles Effect */
 .particles-bg {
   position: fixed;
@@ -503,5 +538,107 @@ html {
   .skill-badge {
     padding: 0.8rem 1.2rem;
     font-size: 0.85rem;
+  }
+}
+
+/* Medium screens (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main-container {
+    padding: 7rem 0 3rem;
+  }
+
+  .section-heading h1 {
+    font-size: 3rem;
+  }
+
+  .education-card {
+    padding: 2.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .education-header {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .education-icon {
+    font-size: 3rem;
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .education-title {
+    font-size: 1.7rem;
+  }
+
+  .education-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .education-details li {
+    font-size: 1.05rem;
+    padding-left: 1.8rem;
+  }
+
+  .skills-heading h2 {
+    font-size: 2.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .skill-badge {
+    padding: 1rem 1.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Large screens (1200px and above) */
+@media (min-width: 1200px) {
+  .main-container {
+    padding: 8rem 0 4rem;
+  }
+
+  .section-heading h1 {
+    font-size: 4.5rem;
+  }
+
+  .education-card {
+    padding: 3rem;
+    margin-bottom: 4.5rem;
+  }
+
+  .education-icon {
+    font-size: 4rem;
+    margin-right: 2rem;
+  }
+
+  .education-title {
+    font-size: 2rem;
+  }
+
+  .education-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .education-details li {
+    font-size: 1.2rem;
+    padding-left: 2rem;
+  }
+
+  .skills-heading h2 {
+    font-size: 3.2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-badge {
+    padding: 1.2rem 2rem;
+    font-size: 1rem;
   }
 }
