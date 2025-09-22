@@ -84,13 +84,12 @@
 
         /* Navbar Styles */
         .navbar {
-            background: transparent !important;
-            backdrop-filter: blur(0px);
+            background: rgba(13, 17, 23, 0.8) !important;
+            backdrop-filter: blur(10px);
             padding: 1.5rem 0;
             transition: all 0.4s ease;
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeInDown 1s ease-out 0.2s forwards;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .navbar.scrolled {
@@ -373,6 +372,162 @@
             box-shadow: 0 15px 35px rgba(108, 92, 231, 0.4);
             border-color: var(--royal-purple);
         }
+
+        /* Light Mode Footer */
+        body.light footer {
+            background: #f9f9f9;
+            color: #1a1a1a;
+        }
+
+        body.light footer h2 {
+            background: linear-gradient(to right, #6c5ce7, #00c6ff); /* Gradient for name */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light footer p {
+            color: #555; /* Subtitle text */
+        }
+
+        body.light footer h3 {
+            color: #6c5ce7; /* Section headings like Quick Links, Follow Me */
+        }
+
+        body.light footer a {
+            color: #1a1a1a; /* Default link color */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        body.light footer a:hover {
+            color: #6c5ce7; /* Hover color */
+            transform: scale(1.1);
+        }
+
+        body.light footer .border-top {
+            border-color: #ddd; /* Bottom bar border */
+        }
+
+        body.light footer .footer-copyright {
+            color: #555; /* Bottom bar text */
+        }
+
+        body.light footer .fab,
+        body.light footer .fas {
+            color: #1a1a1a; /* Social icons default */
+        }
+
+        body.light footer .fab:hover,
+        body.light footer .fas:hover {
+            color: #6c5ce7; /* Social icons hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+            color: #e0e0e0;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .footer-brand h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #00c6ff, #6c5ce7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand p {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        .footer-section h3 {
+            color: #00c6ff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00c6ff;
+            transform: scale(1.1);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-social a {
+            color: #e0e0e0;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #00c6ff;
+            transform: scale(1.25);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .footer-brand,
+            .footer-section {
+                text-align: left;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+
+            .footer-social {
+                justify-content: flex-start;
+            }
+        }
+        
 
         /* Animations */
         @keyframes fadeInDown {
@@ -694,6 +849,48 @@
         </div>
     </div>
 
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <!-- Brand / Logo -->
+          <div class="footer-brand text-center">
+            <h2>Sampada<span style="font-weight: 800;">Tiwari</span></h2>
+            <p>Data Scientist • Leader • Creator</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-section text-center">
+            <h3>Quick Links</h3>
+            <div class="footer-links">
+              <a href="about.html">About</a>
+              <a href="skills.html">Skills</a>
+              <a href="experience.html">Experience</a>
+              <a href="project.html">Projects</a>
+              <a href="experience.html#testimonials">Testimonials</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="footer-section text-center">
+            <h3>Follow Me</h3>
+            <div class="footer-social">
+              <a href="https://linkedin.com/in/sampada" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://github.com/sampada" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://twitter.com/sampada" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="mailto:sampada@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-copyright border-top">
+          © 2025 Sampada Tiwari • All Rights Reserved
+        </div>
+      </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
           // Theme Toggle with localStorage
@@ -712,6 +909,7 @@
             toggleBtn.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
+        
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('mainNavbar');
