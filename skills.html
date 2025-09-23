@@ -100,6 +100,89 @@
     @media(max-width: 768px) {
       .skills-grid { gap: 1.2rem; }
     }
+
+    /* Small tablets and large phones: 577px - 768px */
+@media (min-width: 577px) and (max-width: 768px) {
+    #skills {
+        padding: 5rem 6%;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    .skill-tabs .tab {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+    }
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+    .skill-card {
+        padding: 1.2rem;
+    }
+    .skill-card h3 {
+        font-size: 1rem;
+    }
+    .progress {
+        height: 8px;
+    }
+}
+
+/* Mobile devices: up to 576px */
+@media (max-width: 576px) {
+    #skills {
+        padding: 4rem 4%;
+    }
+    .section-title {
+        font-size: 1.7rem;
+    }
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    .skill-tabs {
+        gap: 0.6rem;
+    }
+    .skill-tabs .tab {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    .skill-card {
+        padding: 1rem;
+    }
+    .skill-card h3 {
+        font-size: 0.95rem;
+    }
+    .progress {
+        height: 7px;
+    }
+}
+
+/* Extra large screens: 1200px and above */
+@media (min-width: 1200px) {
+    #skills {
+        padding: 7rem 10%;
+    }
+    .section-title {
+        font-size: 3rem;
+    }
+    .section-subtitle {
+        font-size: 1.2rem;
+    }
+    .skills-grid {
+        gap: 2.5rem;
+    }
+}
+
+
   </style>
 </head>
 <body>
@@ -128,7 +211,7 @@
       <nav class="flex flex-col px-6 py-4 space-y-4">
         <a href="index.html#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
         <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
-        <a href="skills.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
+        <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
         <a href="expierence.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
         <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
         <a href="index.html#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
@@ -144,178 +227,242 @@
     });
   </script>
 
-  <!-- Skills Section -->
+    <!-- Skills Section -->
 
-<section id="skills" class="pt-32">
-  <div class="skills-container">
-    <h2 class="section-title">My <span>Skills</span></h2>
-    <p class="section-subtitle">A blend of <b>coding, design & data</b> that fuels my passion 🚀</p>
-    <div class="skills-grid">
-      <!-- Programming -->
-      <div class="skill-card programming">
-        <h3 class="flex items-center gap-2">
-          <i class="fab fa-python text-3xl text-[#3776AB]"></i>
-          <span class="text-sm font-medium">Python</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:90%"></div></div>
-      </div>
-      <div class="skill-card programming">
-        <h3 class="flex items-center gap-2">
-          <i class="fas fa-code text-3xl text-gray-300"></i>
-          <span class="text-sm font-medium">C++</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:80%"></div></div>
-      </div>
-      <div class="skill-card programming">
-        <h3 class="flex items-center gap-2">
-          <i class="fab fa-java text-3xl text-[#007396]"></i>
-          <span class="text-sm font-medium">Java</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:70%"></div></div>
-      </div>
-      <!-- Web Development -->
-      <div class="skill-card web">
-        <h3 class="flex items-center gap-2">
-          <i class="fab fa-html5 text-3xl text-[#E34F26]"></i>
-          <span class="text-sm font-medium">HTML5</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:95%"></div></div>
-      </div>
-      <div class="skill-card web">
-        <h3 class="flex items-center gap-2">
-          <i class="fab fa-css3-alt text-3xl text-[#1572B6]"></i>
-          <span class="text-sm font-medium">CSS3</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:90%"></div></div>
-      </div>
-      <div class="skill-card web">
-        <h3 class="flex items-center gap-2">
-          <i class="fab fa-js-square text-3xl text-[#F7DF1E]"></i>
-          <span class="text-sm font-medium">JavaScript</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:85%"></div></div>
-      </div>
-      <div class="skill-card web">
-        <h3 class="flex items-center gap-2">
-          <i class="fab fa-react text-3xl text-[#61DAFB]"></i>
-          <span class="text-sm font-medium">React</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:80%"></div></div>
-      </div>
-      <!-- Data Science -->
-      <div class="skill-card data">
-        <h3 class="flex items-center gap-2">
-          <i class="fas fa-robot text-3xl text-[#38bdf8]"></i>
-          <span class="text-sm font-medium">Machine Learning</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:70%"></div></div>
-      </div>
-      <div class="skill-card data">
-        <h3 class="flex items-center gap-2">
-          <i class="fas fa-chart-bar text-3xl text-[#a855f7]"></i>
-          <span class="text-sm font-medium">Data Visualization</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:75%"></div></div>
-      </div>
-      <div class="skill-card data">
-        <h3 class="flex items-center gap-2">
-          <i class="fas fa-database text-3xl text-[#38bdf8]"></i>
-          <span class="text-sm font-medium">Pandas / Numpy</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:80%"></div></div>
-      </div>
-      <!-- Tools -->
-      <div class="skill-card tools">
-        <h3 class="flex items-center gap-2">
-          <i class="fab fa-git-alt text-3xl text-[#F05032]"></i>
-          <i class="fab fa-github text-3xl text-[#fff]"></i>
-          <span class="text-sm font-medium">Git & GitHub</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:85%"></div></div>
-      </div>
-      <div class="skill-card tools">
-        <h3 class="flex items-center gap-2">
-          <i class="fas fa-code text-3xl text-[#38bdf8]"></i>
-          <span class="text-sm font-medium">VS Code</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:95%"></div></div>
-      </div>
-      <div class="skill-card tools">
-        <h3 class="flex items-center gap-2">
-          <i class="fab fa-figma text-3xl text-[#F24E1E]"></i>
-          <i class="fas fa-paint-brush text-3xl text-[#38bdf8]"></i>
-          <span class="text-sm font-medium">Canva / Figma</span>
-        </h3>
-        <div class="progress"><div class="progress-bar" style="--value:90%"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-  <!-- Footer -->
-  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12 mt-16">
-    <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
-      <div class="text-center md:text-left">
-        <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
-          Sampada<span class="font-extrabold">Tiwari</span>
-        </h2>
-        <p class="text-gray-400 mt-1 text-sm md:text-base">Data Scientist • Leader • Creator</p>
-      </div>
-      <div class="text-center md:text-left">
-        <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
-        <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2">
-          <li><a href="about.html" class="hover:text-cyan-400 transition-colors">About</a></li>
-          <li><a href="skills.html" class="hover:text-cyan-400 transition-colors">Skills</a></li>
-          <li><a href="expierence.html" class="hover:text-cyan-400 transition-colors">Experience</a></li>
-          <li><a href="project.html" class="hover:text-cyan-400 transition-colors">Projects</a></li>
-          <li><a href="index.html#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a></li>
-          <li><a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a></li>
-        </ul>
-      </div>
-      <div class="text-center md:text-left">
-        <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
-        <div class="flex justify-center md:justify-start gap-4 text-2xl">
-          <a href="https://linkedin.com/in/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-github"></i></a>
-          <a href="https://twitter.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-twitter"></i></a>
-          <a href="mailto:sampada@example.com" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fas fa-envelope"></i></a>
+    <section id="skills" class="pt-32">
+      <div class="skills-container">
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <p class="section-subtitle">
+          A blend of <b>coding, design & data</b> that fuels my passion 🚀
+        </p>
+        <div class="skills-grid">
+          <!-- Programming -->
+          <div class="skill-card programming">
+            <h3 class="flex items-center gap-2">
+              <i class="fab fa-python text-3xl text-[#3776AB]"></i>
+              <span class="text-sm font-medium">Python</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-card programming">
+            <h3 class="flex items-center gap-2">
+              <i class="fas fa-code text-3xl text-gray-300"></i>
+              <span class="text-sm font-medium">C++</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 80%"></div>
+            </div>
+          </div>
+          <div class="skill-card programming">
+            <h3 class="flex items-center gap-2">
+              <i class="fab fa-java text-3xl text-[#007396]"></i>
+              <span class="text-sm font-medium">Java</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 70%"></div>
+            </div>
+          </div>
+          <!-- Web Development -->
+          <div class="skill-card web">
+            <h3 class="flex items-center gap-2">
+              <i class="fab fa-html5 text-3xl text-[#E34F26]"></i>
+              <span class="text-sm font-medium">HTML5</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-card web">
+            <h3 class="flex items-center gap-2">
+              <i class="fab fa-css3-alt text-3xl text-[#1572B6]"></i>
+              <span class="text-sm font-medium">CSS3</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-card web">
+            <h3 class="flex items-center gap-2">
+              <i class="fab fa-js-square text-3xl text-[#F7DF1E]"></i>
+              <span class="text-sm font-medium">JavaScript</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-card web">
+            <h3 class="flex items-center gap-2">
+              <i class="fab fa-react text-3xl text-[#61DAFB]"></i>
+              <span class="text-sm font-medium">React</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 80%"></div>
+            </div>
+          </div>
+          <!-- Data Science -->
+          <div class="skill-card data">
+            <h3 class="flex items-center gap-2">
+              <i class="fas fa-robot text-3xl text-[#38bdf8]"></i>
+              <span class="text-sm font-medium">Machine Learning</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 70%"></div>
+            </div>
+          </div>
+          <div class="skill-card data">
+            <h3 class="flex items-center gap-2">
+              <i class="fas fa-chart-bar text-3xl text-[#a855f7]"></i>
+              <span class="text-sm font-medium">Data Visualization</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 75%"></div>
+            </div>
+          </div>
+          <div class="skill-card data">
+            <h3 class="flex items-center gap-2">
+              <i class="fas fa-database text-3xl text-[#38bdf8]"></i>
+              <span class="text-sm font-medium">Pandas / Numpy</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 80%"></div>
+            </div>
+          </div>
+          <!-- Tools -->
+          <div class="skill-card tools">
+            <h3 class="flex items-center gap-2">
+              <i class="fab fa-git-alt text-3xl text-[#F05032]"></i>
+              <i class="fab fa-github text-3xl text-[#fff]"></i>
+              <span class="text-sm font-medium">Git & GitHub</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-card tools">
+            <h3 class="flex items-center gap-2">
+              <i class="fas fa-code text-3xl text-[#38bdf8]"></i>
+              <span class="text-sm font-medium">VS Code</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-card tools">
+            <h3 class="flex items-center gap-2">
+              <i class="fab fa-figma text-3xl text-[#F24E1E]"></i>
+              <i class="fas fa-paint-brush text-3xl text-[#38bdf8]"></i>
+              <span class="text-sm font-medium">Canva / Figma</span>
+            </h3>
+            <div class="progress">
+              <div class="progress-bar" style="--value: 90%"></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
-      © 2025 Sampada Tiwari • All Rights Reserved
-    </div>
-  </footer>
+    </section>
 
-  <script>
-    // Tab Switching
-    const tabs = document.querySelectorAll(".tab");
-    const cards = document.querySelectorAll(".skill-card");
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-        let category = tab.getAttribute("data-tab");
-        cards.forEach(card => {
-          if(card.classList.contains(category)){
-            card.classList.remove("hidden");
-          } else {
-            card.classList.add("hidden");
-          }
-        });
-      });
-    });
-    // Animate progress bars on scroll
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add("visible");
-        }
-      });
-    },{threshold:0.5});
-    cards.forEach(card => observer.observe(card));
-  </script>
-</body>
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12 mt-16"
+    >
+      <div
+        class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8"
+      >
+        <div class="text-center md:text-left">
+          <h2
+            class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500"
+          >
+            Sampada<span class="font-extrabold">Tiwari</span>
+          </h2>
+          <p class="text-gray-400 mt-1 text-sm md:text-base">
+            Data Scientist • Leader • Creator
+          </p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
+          <ul
+            class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2"
+          >
+            <li>
+              <a href="about.html" class="hover:text-cyan-400 transition-colors"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="skills.html"
+                class="hover:text-cyan-400 transition-colors"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a
+                href="expierence.html"
+                class="hover:text-cyan-400 transition-colors"
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a
+                href="project.html"
+                class="hover:text-cyan-400 transition-colors"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#testimonials"
+                class="hover:text-cyan-400 transition-colors"
+                >Testimonials</a
+              >
+            </li>
+            <li>
+              <a
+                href="contact.html"
+                class="hover:text-cyan-400 transition-colors"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
+          <div class="flex justify-center md:justify-start gap-4 text-2xl">
+            <a
+              href="https://linkedin.com/in/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://github.com/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://twitter.com/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="mailto:sampada@example.com"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500"
+      >
+        © 2025 Sampada Tiwari • All Rights Reserved
+      </div>
+    </footer>
+
+    <script src="js/skills.js"></script>
+  </body>
 </html>
