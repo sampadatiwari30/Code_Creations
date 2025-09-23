@@ -4,221 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sampada Tiwari — Portfolio</title>
-  <!-- Google Fonts -->
-   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PWA links -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3167FF">
+  <link rel="icon" href="./assets/icons/icon-192.png">
+
+  <!-- Styles / Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Typed.js -->
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <style>
-    :root {
-      --primary: #38bdf8;
-      --secondary: #a855f7;
-      --dark: #0f172a;
-    }
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--dark);
-      color: #fff;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
 
-   
-    /* SKILLS SECTION */
-#skills {
-  padding: 6rem 8%;
-  background: #111827;
-  color: #fff;
-  text-align: center;
-}
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: .5rem;
-}
-.section-title span { color: #38bdf8; }
-.section-subtitle {
-  font-size: 1.1rem;
-  margin-bottom: 2.5rem;
-  color: #9ca3af;
-}
+  <link rel="stylesheet" href="css/index.css" />
 
-/* Tabs */
-.skill-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-.skill-tabs .tab {
-  padding: .7rem 1.5rem;
-  border: none;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  cursor: pointer;
-  transition: .3s;
-  font-weight: 600;
-}
-.skill-tabs .tab.active,
-.skill-tabs .tab:hover {
-  background: linear-gradient(45deg, #38bdf8, #a855f7);
-  color: #000;
-}
-
-/* Skill Cards */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-}
-.skill-card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 20px;
-  padding: 1.5rem;
-  text-align: left;
-  transition: transform .3s, background .3s;
-  box-shadow: 0 0 20px rgba(0,0,0,.3);
-}
-.skill-card:hover {
-  transform: translateY(-5px);
-  background: rgba(56,189,248,0.08);
-}
-.skill-card h3 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-/* Progress Bars */
-.progress {
-  background: rgba(255,255,255,0.1);
-  height: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg,#38bdf8,#a855f7);
-  width: 0;
-  transition: width 2s ease;
-}
-.skill-card.visible .progress-bar {
-  width: var(--value);
-}
-
-/* Hidden state */
-.hidden { display: none; }
-
-/* Responsive */
-@media(max-width: 768px) {
-  .skills-grid { gap: 1.2rem; }
-}
-
-/* Projects Section */
-.projects {
-  padding: 80px 10%;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-  text-align: center;
-}
-
-.projects .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  background: linear-gradient(to right, #527dff, #fefcfd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.projects .section-subtitle {
-  font-size: 1.1rem;
-  margin-bottom: 40px;
-  color: #cfd8dc;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-.project-card {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 15px;
-  padding: 25px;
-  text-align: left;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.project-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(from 180deg, #ff6a00, #ee0979, #00c6ff, #ff6a00);
-  animation: rotate 6s linear infinite;
-  opacity: 0.15;
-}
-
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.project-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0px 10px 30px rgba(0, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.project-link {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #00e5ff;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 10px;
-  transition: color 0.3s ease;
-}
-
-.project-link:hover {
-  color: #ff4081;
-}
-
-.project-description {
-  font-size: 0.95rem;
-  color: #e0f7fa;
-  line-height: 1.5;
-}
-
- @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-  .animate-float { animation: float 4s ease-in-out infinite; }
-
-  @keyframes bounce-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-30px); }
-  }
-  .animate-bounce-slow { animation: bounce-slow 10s ease-in-out infinite; }
-  .delay-2000 { animation-delay: 2s; }
-
-
-
-
-  </style>
 </head>
+
 <body>
   <!-- Navbar -->
 <header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
@@ -226,16 +29,27 @@
     <!-- Brand / Logo -->
     <h1 class="text-white text-2xl font-bold">Sampada <span class="text-cyan-400">Tiwari</span></h1>
 
+ 
     <!-- Navigation Links -->
     <nav class="space-x-6 hidden md:flex">
       <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
       <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
+
+
       <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
-      <a href="expierence.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
+      <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
+
       <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
       <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
       <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
     </nav>
+
+       <!-- Theme Toggle Button -->
+<button id="theme-toggle" class="ml-4 text-white hover:text-cyan-400 transition">
+  <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
+</button>
+    
+
 
     <!-- Mobile Menu Button -->
     <div class="md:hidden">
@@ -262,15 +76,6 @@
   </div>
 </header>
 
-<!-- Tailwind JS for Mobile Menu Toggle -->
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-</script>
 
  <!-- Hero Section -->
 <section id="hero" class="relative flex items-center justify-center h-screen px-6 md:px-12 overflow-hidden bg-[#0f172a]">
@@ -537,9 +342,21 @@
 
   <!-- Section Header -->
   <div class="mb-12">
-    <h2 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
-      🚀 Featured Projects
-    </h2>
+  <h2 class="text-4xl md:text-5xl font-bold">
+  <span style="background: linear-gradient(90deg,#6366f1,#d946ef,#fb7185);
+               -webkit-background-clip:text; background-clip:text;
+               -webkit-text-fill-color:transparent;
+               display:inline-block;
+               -webkit-font-smoothing:antialiased;
+               -webkit-text-stroke:0.01px transparent;
+               line-height: 1.3;
+               padding-bottom: 0.35rem;">
+    🚀 Featured Projects
+  </span>
+</h2>
+
+
+
     <p class="text-gray-400 mt-2 text-lg md:text-xl">
       Here are some of the exciting projects I've built
     </p>
@@ -637,14 +454,7 @@
   </div>
 </section>
 
-<!-- Tailwind Custom Animations -->
-<style>
-  @keyframes spin-slow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  .animate-spin-slow { animation: spin-slow 10s linear infinite; }
-</style>
+
 <!-- ================= TESTIMONIALS SECTION ================= -->
 <section id="testimonials" class="py-24 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
 
@@ -712,6 +522,22 @@
     <span class="dot w-3 h-3 bg-gray-600 rounded-full cursor-pointer transition-colors active:bg-cyan-400"></span>
     <span class="dot w-3 h-3 bg-gray-600 rounded-full cursor-pointer transition-colors"></span>
     <span class="dot w-3 h-3 bg-gray-600 rounded-full cursor-pointer transition-colors"></span>
+  </div>
+
+   <!-- ================= COMMUNITY FEEDBACK ================= -->
+  <div class="max-w-3xl mx-auto mt-16 text-left">
+    <h3 class="text-2xl font-bold mb-4 gradient-text">💬 Community Feedback</h3>
+
+    <!-- Comment Input -->
+    <div class="flex gap-2 mb-6">
+      <input type="text" id="commentInput" placeholder="Add a comment..." class="flex-1 px-4 py-2 rounded-xl text-gray-900 focus:outline-none">
+      <button id="addCommentBtn" class="px-4 py-2 bg-cyan-500 rounded-xl font-semibold hover:bg-cyan-400 transition">Post</button>
+    </div>
+
+    <!-- Comments List -->
+    <div id="commentsList" class="space-y-4">
+      <!-- Dynamic comments will appear here -->
+    </div>
   </div>
 
 </section>
@@ -808,134 +634,7 @@
 
 </footer>
 
-<script>
-// Tab Switching
-const tabs = document.querySelectorAll(".tab");
-const cards = document.querySelectorAll(".skill-card");
+<script src="js/index.js"></script>
 
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
-    tabs.forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-    let category = tab.getAttribute("data-tab");
-
-    cards.forEach(card => {
-      if(card.classList.contains(category)){
-        card.classList.remove("hidden");
-      } else {
-        card.classList.add("hidden");
-      }
-    });
-  });
-});
-
-// Animate progress bars on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-    }
-  });
-},{threshold:0.5});
-cards.forEach(card => observer.observe(card));
-</script>
-
-
-
-
-<script>
-// Animated counters
-const counters = document.querySelectorAll(".counter");
-const speed = 200;
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      counters.forEach(counter => {
-        const updateCount = () => {
-          const target = +counter.getAttribute("data-target");
-          const count = +counter.innerText;
-          const inc = target / speed;
-          if(count < target){
-            counter.innerText = Math.ceil(count + inc);
-            setTimeout(updateCount, 20);
-          } else {
-            counter.innerText = target;
-          }
-        };
-        updateCount();
-      });
-    }
-  });
-},{threshold:0.5});
-counters.forEach(c => observer.observe(c));
-
-// Contact form submission
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  alert("✅ Thank you! Your message has been sent.");
-  this.reset();
-});
-
-</script>
-
-
-  <script>
-    // Typing effect
-    var typed = new Typed("#typed", {
-      strings: ["Data Science Student", "Web Developer", "Problem Solver"],
-      typeSpeed: 70,
-      backSpeed: 40,
-      loop: true
-    });
-
-   // Select all testimonial cards and dots
-const testimonialCards = document.querySelectorAll('.testimonial-card');
-const dots = document.querySelectorAll('.dot');
-
-let currentIndex = 0;
-
-// Function to show the testimonial at a given index
-function showTestimonial(index) {
-  testimonialCards.forEach((card, i) => {
-    if (i === index) {
-      card.classList.remove('hidden');
-      card.classList.add('block');
-    } else {
-      card.classList.remove('block');
-      card.classList.add('hidden');
-    }
-  });
-
-  dots.forEach((dot, i) => {
-    if (i === index) {
-      dot.classList.add('bg-cyan-400');
-      dot.classList.remove('bg-gray-600');
-    } else {
-      dot.classList.add('bg-gray-600');
-      dot.classList.remove('bg-cyan-400');
-    }
-  });
-
-  currentIndex = index;
-}
-
-// Add click event to dots
-dots.forEach((dot, i) => {
-  dot.addEventListener('click', () => {
-    showTestimonial(i);
-  });
-});
-
-// Optional: Auto-slide testimonials every 5 seconds
-setInterval(() => {
-  let nextIndex = (currentIndex + 1) % testimonialCards.length;
-  showTestimonial(nextIndex);
-}, 5000);
-
-// Initialize first testimonial
-showTestimonial(currentIndex);
-
-
-  </script>
 </body>
 </html>

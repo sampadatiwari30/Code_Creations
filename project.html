@@ -1,358 +1,717 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects — Sampada Tiwari</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body { font-family: 'Space Grotesk', sans-serif; background: #0f172a; color: #e0e0e0; overflow-x:hidden; }
-
-    .gradient-text { 
-      background: linear-gradient(135deg,#6c5ce7,#00c6ff,#ff6ec7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Projects Grid */
-    .projects-grid { display:grid; gap:2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); padding:2rem; }
-
-    /* Project Card */
-    .project-card {
-      position:relative; overflow:hidden; border-radius:1.5rem;
-      cursor:pointer; transition: transform 0.5s ease, box-shadow 0.5s ease;
-      background: linear-gradient(135deg,#6c5ce7,#00c6ff);
-    }
-    .project-card:hover { transform: scale(1.05) rotateZ(1deg); box-shadow: 0 20px 50px rgba(108,92,231,0.5); }
-
-    .project-card img {
-      width:100%; height:250px; object-fit:cover; transition: transform 0.5s ease;
-    }
-    .project-card:hover img { transform: scale(1.15); }
-
-    .project-info {
-      position:absolute; bottom:0; left:0; width:100%;
-      background: linear-gradient(to top, rgba(15,23,42,0.9), transparent);
-      padding:1rem; color:#fff; transition: transform 0.5s ease;
-      transform: translateY(100%);
-    }
-    .project-card:hover .project-info { transform: translateY(0); }
-
-    .project-info h3 { font-size:1.4rem; font-weight:700; margin-bottom:0.5rem; }
-    .project-info p { font-size:0.95rem; color:#e0e0e0; }
-
-    /* Fullscreen Project Modal */
-    .project-modal { display:none; position:fixed; inset:0; background: rgba(0,0,0,0.95); justify-content:center; align-items:center; z-index:50; overflow:auto; }
-    .project-modal.active { display:flex; }
-    .modal-content { background:#1e293b; border-radius:1.5rem; max-width:800px; width:90%; padding:2rem; position:relative; animation:fadeIn 0.4s ease forwards; }
-    @keyframes fadeIn { from { transform: scale(0.8); opacity:0 } to { transform: scale(1); opacity:1 } }
-
-    .modal-close { position:absolute; top:1rem; right:1rem; font-size:1.5rem; color:#fff; cursor:pointer; }
-    .modal-content img { width:100%; border-radius:1rem; margin-bottom:1rem; }
-    .modal-content h2 { font-size:2rem; background: linear-gradient(135deg,#6c5ce7,#00c6ff,#ff6ec7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:1rem; }
-    .modal-content p { color:#c0c0c0; line-height:1.6; margin-bottom:1rem; }
-    .modal-content .buttons a { display:inline-block; margin-right:1rem; padding:0.5rem 1rem; border-radius:9999px; background:linear-gradient(135deg,#6c5ce7,#00c6ff); color:#fff; font-weight:600; transition:transform 0.3s ease; }
-    .modal-content .buttons a:hover { transform:scale(1.05); }
-
-    /* Scroll to top */
-    #scrollTop { position:fixed; bottom:30px; right:30px; background:linear-gradient(135deg,#6c5ce7,#00c6ff); width:50px; height:50px; border-radius:9999px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform 0.3s ease, box-shadow 0.3s ease; opacity:0; visibility:hidden; z-index:50; }
-    #scrollTop.visible { opacity:1; visibility:visible; }
-    #scrollTop:hover { transform: translateY(-4px) scale(1.1); box-shadow:0 8px 30px rgba(108,92,231,0.5); }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-<header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-    <!-- Brand / Logo -->
-    <h1 class="text-white text-2xl font-bold">Sampada <span class="text-cyan-400">Tiwari</span></h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects — Sampada Tiwari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/project.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header
+      class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4"
+      >
+        <!-- Brand / Logo -->
+        <h1 class="text-white text-2xl font-bold">
+          Sampada <span class="text-cyan-400">Tiwari</span>
+        </h1>
 
     <!-- Navigation Links -->
     <nav class="space-x-6 hidden md:flex">
-      <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
+      <a href="index.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
       <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
-      <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
-      <a href="expierence.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
-      <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
-      <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
-      <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
-    </nav>
-
-    <!-- Mobile Menu Button -->
-    <div class="md:hidden">
-      <button id="menu-btn" class="text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
-    <nav class="flex flex-col px-6 py-4 space-y-4">
-      <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
-      <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
-
-      <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
+      <a href="skills.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
       <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
       <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
-      <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
+      <a href="index.html#testimonial" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
       <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
     </nav>
-  </div>
-</header>
-<section class="py-20 text-center" style="margin-top: 4rem;">
-  <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-4">Projects</h1>
-  <p class="text-gray-400 max-w-xl mx-auto text-lg">Modern interactive showcase with hover animations, gradients, and detailed content below each project.</p>
-</section>
+      <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
 
-<!-- Projects Grid -->
-<div class="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6">
-    <!-- Real Estate Platform -->
-<div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-  <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Real Estate Platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
-  </div>
-  <div class="p-5 bg-[#0f172a]">
-    <h3 class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400">Real Estate Platform</h3>
-    <p class="text-gray-400 mb-3 line-clamp-3">Virtual real estate marketplace in metaverse environments with 3D visualization and virtual tours.</p>
-    <div class="text-gray-300 text-sm space-y-1">
-      <p><strong>Technologies:</strong> Unity, Three.js, Web3.js</p>
-      <p><strong>Key Features:</strong> 3D visualization, Virtual tours, Integrated payments</p>
-      <p><strong>Role:</strong> Full Stack Developer</p>
-      <p><strong>Outcome:</strong> Immersive virtual real estate platform</p>
-    </div>
-    <div class="mt-4 flex gap-4">
-      <a href="#" target="_blank" class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"><i class="fab fa-github"></i> GitHub</a>
-      <a href="#" target="_blank" class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    </div>
-  </div>
-</div>
-<!-- कला.ficial -->
-<div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-  <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/kala.ficial.png" alt="कला.ficial" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
-  </div>
-  <div class="p-5 bg-[#0f172a]">
-    <h3 class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400">कला.ficial</h3>
-    <p class="text-gray-400 mb-3 line-clamp-3">Virtual art exhibition platform with modern UI, fluid animations, and real-time global notifications.</p>
-    <div class="text-gray-300 text-sm space-y-1">
-      <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Leaflet.js</p>
-      <p><strong>Key Features:</strong> Virtual exhibition, Real-time notifications</p>
-      <p><strong>Role:</strong> Frontend Developer</p>
-      <p><strong>Outcome:</strong> Engaging virtual art platform</p>
-    </div>
-    <div class="mt-4 flex gap-4">
-      <a href="#" target="_blank" class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://example.com/kala-ficial" target="_blank" class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    </div>
-  </div>
-</div>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-white focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
 
-<!-- NASA Space Challenge -->
-<div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-  <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/nasa-space_project.jpeg" alt="NASA Space Challenge" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
-  </div>
-  <div class="p-5 bg-[#0f172a]">
-    <h3 class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400">NASA Space Challenge (Hack Celestia)</h3>
-    <p class="text-gray-400 mb-3 line-clamp-3">Collaborative task manager for exploring planetary data and solar system exploration during NASA Space Apps Challenge.</p>
-    <div class="text-gray-300 text-sm space-y-1">
-      <p><strong>Technologies:</strong> React, Node.js, APIs</p>
-      <p><strong>Key Features:</strong> Collaborative data management, Planetary exploration</p>
-      <p><strong>Role:</strong> Full Stack Developer</p>
-      <p><strong>Outcome:</strong> Efficient task management for NASA challenge</p>
-    </div>
-    <div class="mt-4 flex gap-4">
-      <a href="#" target="_blank" class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://example.com/nasa-hack" target="_blank" class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    </div>
-  </div>
-</div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md"
+      >
+        <nav class="flex flex-col px-6 py-4 space-y-4">
+          <a
+            href="#hero"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >About</a
+          >
 
-<!-- DeshDarshan -->
-<div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-  <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/desh-darshan.png" alt="DeshDarshan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
-  </div>
-  <div class="p-5 bg-[#0f172a]">
-    <h3 class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400">DeshDarshan (Ongoing)</h3>
-    <p class="text-gray-400 mb-3 line-clamp-3">Platform showcasing India’s heritage, festivals, food, art, and famous places for immersive exploration across all states.</p>
-    <div class="text-gray-300 text-sm space-y-1">
-      <p><strong>Technologies:</strong> React, Tailwind CSS, APIs</p>
-      <p><strong>Key Features:</strong> Cultural exploration, State-wise content</p>
-      <p><strong>Role:</strong> Frontend Developer</p>
-      <p><strong>Outcome:</strong> Interactive cultural discovery platform</p>
-    </div>
-    <div class="mt-4 flex gap-4">
-      <a href="#" target="_blank" class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://example.com/deshdarshan" target="_blank" class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    </div>
-  </div>
-</div>
+          <a
+            href="#skills"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Skills</a
+          >
+          <a
+            href="experience.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Experience</a
+          >
+          <a
+            href="project.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Projects</a
+          >
+          <a
+            href="#testimonials"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Testimonials</a
+          >
+          <a
+            href="contact.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </header>
+    <section class="py-20 text-center" style="margin-top: 4rem">
+      <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-4">
+        Projects
+      </h1>
+      <p class="text-gray-400 max-w-xl mx-auto text-lg">
+        Modern interactive showcase with hover animations, gradients, and
+        detailed content below each project.
+      </p>
+    </section>
 
+    <!-- Projects Grid -->
+    <div
+      class="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6"
+    >
+      <!-- Real Estate Platform -->
+      <div
+        class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+      >
+        <div class="relative h-48 overflow-hidden rounded-t-2xl">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+            alt="Real Estate Platform"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"
+          ></div>
+        </div>
+        <div class="p-5 bg-[#0f172a]">
+          <h3
+            class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400"
+          >
+            Real Estate Platform
+          </h3>
+          <p class="text-gray-400 mb-3 line-clamp-3">
+            Virtual real estate marketplace in metaverse environments with 3D
+            visualization and virtual tours.
+          </p>
+          <div class="text-gray-300 text-sm space-y-1">
+            <p><strong>Technologies:</strong> Unity, Three.js, Web3.js</p>
+            <p>
+              <strong>Key Features:</strong> 3D visualization, Virtual tours,
+              Integrated payments
+            </p>
+            <p><strong>Role:</strong> Full Stack Developer</p>
+            <p>
+              <strong>Outcome:</strong> Immersive virtual real estate platform
+            </p>
+          </div>
+          <div class="mt-4 flex gap-4">
+            <a
+              href="#"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a
+              href="#"
+              target="_blank"
+              class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+          <!-- Comment Section -->
+          <div class="comment-section">
+            <div class="comment-list"></div>
+            <div class="comment-input">
+              <input type="text" placeholder="Add a comment..." />
+              <button>Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- कला.ficial -->
+      <div
+        class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+      >
+        <div class="relative h-48 overflow-hidden rounded-t-2xl">
+          <img
+            src="./images/kala.ficial.png"
+            alt="कला.ficial"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"
+          ></div>
+        </div>
+        <div class="p-5 bg-[#0f172a]">
+          <h3
+            class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400"
+          >
+            कला.ficial
+          </h3>
+          <p class="text-gray-400 mb-3 line-clamp-3">
+            Virtual art exhibition platform with modern UI, fluid animations,
+            and real-time global notifications.
+          </p>
+          <div class="text-gray-300 text-sm space-y-1">
+            <p>
+              <strong>Technologies:</strong> HTML, CSS, JavaScript, Leaflet.js
+            </p>
+            <p>
+              <strong>Key Features:</strong> Virtual exhibition, Real-time
+              notifications
+            </p>
+            <p><strong>Role:</strong> Frontend Developer</p>
+            <p><strong>Outcome:</strong> Engaging virtual art platform</p>
+          </div>
+          <div class="mt-4 flex gap-4">
+            <a
+              href="#"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a
+              href="https://example.com/kala-ficial"
+              target="_blank"
+              class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+          <!-- Comment Section -->
+          <div class="comment-section">
+            <div class="comment-list"></div>
+            <div class="comment-input">
+              <input type="text" placeholder="Add a comment..." />
+              <button>Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!-- Project Card -->
-<div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-  <!-- Image with overlay -->
-  <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/spam-mail-project.png" alt="spam-mail-classification" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
-  </div>
+      <!-- NASA Space Challenge -->
+      <div
+        class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+      >
+        <div class="relative h-48 overflow-hidden rounded-t-2xl">
+          <img
+            src="https://sites.uwasa.fi/vaasaspaceavenue/wp-content/blogs.dir/4/files/sites/188/2025/07/nasa-space-apps-kuva-jollaan-1080x500.png"
+            alt="NASA Space Challenge"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"
+          ></div>
+        </div>
+        <div class="p-5 bg-[#0f172a]">
+          <h3
+            class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400"
+          >
+            NASA Space Challenge (Hack Celestia)
+          </h3>
+          <p class="text-gray-400 mb-3 line-clamp-3">
+            Collaborative task manager for exploring planetary data and solar
+            system exploration during NASA Space Apps Challenge.
+          </p>
+          <div class="text-gray-300 text-sm space-y-1">
+            <p><strong>Technologies:</strong> React, Node.js, APIs</p>
+            <p>
+              <strong>Key Features:</strong> Collaborative data management,
+              Planetary exploration
+            </p>
+            <p><strong>Role:</strong> Full Stack Developer</p>
+            <p>
+              <strong>Outcome:</strong> Efficient task management for NASA
+              challenge
+            </p>
+          </div>
+          <div class="mt-4 flex gap-4">
+            <a
+              href="#"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a
+              href="https://example.com/nasa-hack"
+              target="_blank"
+              class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+          <!-- Comment Section -->
+          <div class="comment-section">
+            <div class="comment-list"></div>
+            <div class="comment-input">
+              <input type="text" placeholder="Add a comment..." />
+              <button>Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- Content -->
-  <div class="p-5 bg-[#0f172a]">
-    <h3 class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400">spam-mail-classification</h3>
-    <p class="text-gray-400 mb-3 line-clamp-3">Automated email classifier using NLP techniques for real-time spam detection...</p>
+      <!-- DeshDarshan -->
+      <div
+        class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+      >
+        <div class="relative h-48 overflow-hidden rounded-t-2xl">
+          <img
+            src="./images/desh-darshan.png"
+            alt="DeshDarshan"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"
+          ></div>
+        </div>
+        <div class="p-5 bg-[#0f172a]">
+          <h3
+            class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400"
+          >
+            DeshDarshan (Ongoing)
+          </h3>
+          <p class="text-gray-400 mb-3 line-clamp-3">
+            Platform showcasing India’s heritage, festivals, food, art, and
+            famous places for immersive exploration across all states.
+          </p>
+          <div class="text-gray-300 text-sm space-y-1">
+            <p><strong>Technologies:</strong> React, Tailwind CSS, APIs</p>
+            <p>
+              <strong>Key Features:</strong> Cultural exploration, State-wise
+              content
+            </p>
+            <p><strong>Role:</strong> Frontend Developer</p>
+            <p>
+              <strong>Outcome:</strong> Interactive cultural discovery platform
+            </p>
+          </div>
+          <div class="mt-4 flex gap-4">
+            <a
+              href="#"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a
+              href="https://example.com/deshdarshan"
+              target="_blank"
+              class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+          <!-- Comment Section -->
+          <div class="comment-section">
+            <div class="comment-list"></div>
+            <div class="comment-input">
+              <input type="text" placeholder="Add a comment..." />
+              <button>Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="text-gray-300 text-sm space-y-1">
-      <p><strong>Technologies:</strong> Python, NLP, scikit-learn</p>
-      <p><strong>Key Features:</strong> Real-time spam detection, learning model</p>
-      <p><strong>Role:</strong> Developer & Designer</p>
-      <p><strong>Outcome:</strong> Scalable email classification system</p>
-    </div>
+      <!-- Project Card -->
+      <div
+        class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+      >
+        <!-- Image with overlay -->
+        <div class="relative h-48 overflow-hidden rounded-t-2xl">
+          <img
+            src="https://griddb-pro-ewemahawekgyd8bs.a03.azurefd.net/en/wp-content/uploads/2021/11/email-spam-1160x650.png"
+            alt="spam-mail-classification"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"
+          ></div>
+        </div>
 
-    <!-- Links -->
-    <div class="mt-4 flex gap-4">
-      <a href="#" target="_blank" class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"><i class="fab fa-github"></i> GitHub</a>
-      <a href="#" target="_blank" class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    </div>
-  </div>
-</div>
+        <!-- Content -->
+        <div class="p-5 bg-[#0f172a]">
+          <h3
+            class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400"
+          >
+            spam-mail-classification
+          </h3>
+          <p class="text-gray-400 mb-3 line-clamp-3">
+            Automated email classifier using NLP techniques for real-time spam
+            detection...
+          </p>
 
-<!-- DeFi Trading Platform Card -->
-<div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-  <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/defi-platform-project.jpeg" alt="DeFi Trading Platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
-  </div>
+          <div class="text-gray-300 text-sm space-y-1">
+            <p><strong>Technologies:</strong> Python, NLP, scikit-learn</p>
+            <p>
+              <strong>Key Features:</strong> Real-time spam detection, learning
+              model
+            </p>
+            <p><strong>Role:</strong> Developer & Designer</p>
+            <p>
+              <strong>Outcome:</strong> Scalable email classification system
+            </p>
+          </div>
 
-  <div class="p-5 bg-[#0f172a]">
-    <h3 class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400">DeFi Trading Platform</h3>
-    <p class="text-gray-400 mb-3 line-clamp-3">Decentralized finance platform for trading, staking, and liquidity across multiple blockchains...</p>
+          <!-- Links -->
+          <div class="mt-4 flex gap-4">
+            <a
+              href="#"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a
+              href="#"
+              target="_blank"
+              class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+          <!-- Comment Section -->
+          <div class="comment-section">
+            <div class="comment-list"></div>
+            <div class="comment-input">
+              <input type="text" placeholder="Add a comment..." />
+              <button>Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="text-gray-300 text-sm space-y-1">
-      <p><strong>Technologies:</strong> Solidity, React, Web3.js</p>
-      <p><strong>Key Features:</strong> Multi-chain trading, staking, analytics</p>
-      <p><strong>Role:</strong> Full Stack Developer</p>
-      <p><strong>Outcome:</strong> DeFi platform with automated strategies</p>
-    </div>
+      <!-- DeFi Trading Platform Card -->
+      <div
+        class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+      >
+        <div class="relative h-48 overflow-hidden rounded-t-2xl">
+          <img
+            src="https://www.solulab.com/wp-content/uploads/2023/08/Best-Defi-Trading-Platforms.jpg"
+            alt="DeFi Trading Platform"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"
+          ></div>
+        </div>
 
-    <div class="mt-4 flex gap-4">
-      <a href="#" target="_blank" class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"><i class="fab fa-github"></i> GitHub</a>
-      <a href="#" target="_blank" class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    </div>
-  </div>
-</div>
+        <div class="p-5 bg-[#0f172a]">
+          <h3
+            class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400"
+          >
+            DeFi Trading Platform
+          </h3>
+          <p class="text-gray-400 mb-3 line-clamp-3">
+            Decentralized finance platform for trading, staking, and liquidity
+            across multiple blockchains...
+          </p>
 
-<!-- Contract Auditing Tool -->
-<div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-  <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/contract-project.jpeg" alt="Contract Auditing Tool" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
-  </div>
-  <div class="p-5 bg-[#0f172a]">
-    <h3 class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400">Contract Auditing Tool</h3>
-    <p class="text-gray-400 mb-3 line-clamp-3">Automated smart contract auditing platform identifying vulnerabilities and optimizing gas usage.</p>
-    <div class="text-gray-300 text-sm space-y-1">
-      <p><strong>Technologies:</strong> Solidity, Hardhat, Ethers.js</p>
-      <p><strong>Key Features:</strong> Security auditing, Gas optimization, Compliance check</p>
-      <p><strong>Role:</strong> Smart Contract Developer</p>
-      <p><strong>Outcome:</strong> Safer and optimized contracts</p>
-    </div>
-    <div class="mt-4 flex gap-4">
-      <a href="#" target="_blank" class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"><i class="fab fa-github"></i> GitHub</a>
-      <a href="#" target="_blank" class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    </div>
-  </div>
-</div>
+          <div class="text-gray-300 text-sm space-y-1">
+            <p><strong>Technologies:</strong> Solidity, React, Web3.js</p>
+            <p>
+              <strong>Key Features:</strong> Multi-chain trading, staking,
+              analytics
+            </p>
+            <p><strong>Role:</strong> Full Stack Developer</p>
+            <p>
+              <strong>Outcome:</strong> DeFi platform with automated strategies
+            </p>
+          </div>
 
+          <div class="mt-4 flex gap-4">
+            <a
+              href="#"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a
+              href="#"
+              target="_blank"
+              class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+          <!-- Comment Section -->
+          <div class="comment-section">
+            <div class="comment-list"></div>
+            <div class="comment-input">
+              <input type="text" placeholder="Add a comment..." />
+              <button>Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!-- HearMe Platform -->
-<div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-  <div class="relative h-48 overflow-hidden rounded-t-2xl">
-    <img src="./images/hearme-project.jpeg" alt="HearMe Platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"></div>
-  </div>
-  <div class="p-5 bg-[#0f172a]">
-    <h3 class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400">HearMe Platform</h3>
-    <p class="text-gray-400 mb-3 line-clamp-3">Responsive e-commerce platform for the deaf and mute community, designed with accessibility and intuitive navigation.</p>
-    <div class="text-gray-300 text-sm space-y-1">
-      <p><strong>Technologies:</strong> React, Tailwind CSS, Accessibility API</p>
-      <p><strong>Key Features:</strong> Accessibility-focused, Intuitive navigation</p>
-      <p><strong>Role:</strong> Frontend Developer</p>
-      <p><strong>Outcome:</strong> Inclusive e-commerce platform</p>
-    </div>
-    <div class="mt-4 flex gap-4">
-      <a href="#" target="_blank" class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://example.com/hearme" target="_blank" class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    </div>
-  </div>
-</div>
+      <!-- Contract Auditing Tool -->
+      <div
+        class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+      >
+        <div class="relative h-48 overflow-hidden rounded-t-2xl">
+          <img
+            src="https://101blockchains.com/wp-content/uploads/2023/12/top-smart-contracts-auditing-tools.png"
+            alt="Contract Auditing Tool"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"
+          ></div>
+        </div>
+        <div class="p-5 bg-[#0f172a]">
+          <h3
+            class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400"
+          >
+            Contract Auditing Tool
+          </h3>
+          <p class="text-gray-400 mb-3 line-clamp-3">
+            Automated smart contract auditing platform identifying
+            vulnerabilities and optimizing gas usage.
+          </p>
+          <div class="text-gray-300 text-sm space-y-1">
+            <p><strong>Technologies:</strong> Solidity, Hardhat, Ethers.js</p>
+            <p>
+              <strong>Key Features:</strong> Security auditing, Gas
+              optimization, Compliance check
+            </p>
+            <p><strong>Role:</strong> Smart Contract Developer</p>
+            <p><strong>Outcome:</strong> Safer and optimized contracts</p>
+          </div>
+          <div class="mt-4 flex gap-4">
+            <a
+              href="#"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a
+              href="#"
+              target="_blank"
+              class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+          <!-- Comment Section -->
+          <div class="comment-section">
+            <div class="comment-list"></div>
+            <div class="comment-input">
+              <input type="text" placeholder="Add a comment..." />
+              <button>Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-</div>
-<!-- ================= FOOTER SECTION ================= -->
-<footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12" style="margin-top: 4rem;">
-
-  <!-- Footer Container -->
-  <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
-
-    <!-- Brand / Logo -->
-    <div class="text-center md:text-left">
-      <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
-        Sampada<span class="font-extrabold">Tiwari</span>
-      </h2>
-      <p class="text-gray-400 mt-1 text-sm md:text-base">Data Scientist • Leader • Creator</p>
-    </div>
-
-    <!-- Quick Links -->
-    <div class="text-center md:text-left">
-      <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
-      <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2">
-        <li><a href="#about" class="hover:text-cyan-400 transition-colors">About</a></li>
-        <li><a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a></li>
-        <li><a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a></li>
-        <li><a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a></li>
-        <li><a href="#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a></li>
-        <li><a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- Social Media -->
-    <div class="text-center md:text-left">
-      <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
-      <div class="flex justify-center md:justify-start gap-4 text-2xl">
-        <a href="https://linkedin.com/in/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-twitter"></i></a>
-        <a href="mailto:sampada@example.com" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fas fa-envelope"></i></a>
+      <!-- HearMe Platform -->
+      <div
+        class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+      >
+        <div class="relative h-48 overflow-hidden rounded-t-2xl">
+          <img
+            src="https://i.ytimg.com/vi/crAHR64_C48/maxresdefault.jpg"
+            alt="HearMe Platform"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 group-hover:opacity-70"
+          ></div>
+        </div>
+        <div class="p-5 bg-[#0f172a]">
+          <h3
+            class="text-2xl font-bold gradient-text mb-2 transition-colors duration-500 group-hover:text-pink-400"
+          >
+            HearMe Platform
+          </h3>
+          <p class="text-gray-400 mb-3 line-clamp-3">
+            Responsive e-commerce platform for the deaf and mute community,
+            designed with accessibility and intuitive navigation.
+          </p>
+          <div class="text-gray-300 text-sm space-y-1">
+            <p>
+              <strong>Technologies:</strong> React, Tailwind CSS, Accessibility
+              API
+            </p>
+            <p>
+              <strong>Key Features:</strong> Accessibility-focused, Intuitive
+              navigation
+            </p>
+            <p><strong>Role:</strong> Frontend Developer</p>
+            <p><strong>Outcome:</strong> Inclusive e-commerce platform</p>
+          </div>
+          <div class="mt-4 flex gap-4">
+            <a
+              href="#"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-600 flex items-center gap-1 transition-colors"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a
+              href="https://example.com/hearme"
+              target="_blank"
+              class="text-green-400 hover:text-green-600 flex items-center gap-1 transition-colors"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+          <!-- Comment Section -->
+          <div class="comment-section">
+            <div class="comment-list"></div>
+            <div class="comment-input">
+              <input type="text" placeholder="Add a comment..." />
+              <button>Add</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- ================= FOOTER SECTION ================= -->
+    <footer
+      class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12"
+      style="margin-top: 4rem"
+    >
+      <!-- Footer Container -->
+      <div
+        class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8"
+      >
+        <!-- Brand / Logo -->
+        <div class="text-center md:text-left">
+          <h2
+            class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500"
+          >
+            Sampada<span class="font-extrabold">Tiwari</span>
+          </h2>
+          <p class="text-gray-400 mt-1 text-sm md:text-base">
+            Data Scientist • Leader • Creator
+          </p>
+        </div>
 
-  </div>
+        <!-- Quick Links -->
+        <div class="text-center md:text-left">
+          <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
+          <ul
+            class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2"
+          >
+            <li>
+              <a href="#about" class="hover:text-cyan-400 transition-colors"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="#skills" class="hover:text-cyan-400 transition-colors"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a
+                href="#experience"
+                class="hover:text-cyan-400 transition-colors"
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a href="#projects" class="hover:text-cyan-400 transition-colors"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#testimonials"
+                class="hover:text-cyan-400 transition-colors"
+                >Testimonials</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-cyan-400 transition-colors"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
 
-  <!-- Bottom Bar -->
-  <div class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
-    © 2025 Sampada Tiwari • All Rights Reserved
-  </div>
+        <!-- Social Media -->
+        <div class="text-center md:text-left">
+          <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
+          <div class="flex justify-center md:justify-start gap-4 text-2xl">
+            <a
+              href="https://linkedin.com/in/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://github.com/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://twitter.com/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="mailto:sampada@example.com"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
 
-</footer>
-<!-- Tailwind JS for Mobile Menu Toggle -->
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-</script>
-
-</body>
+      <!-- Bottom Bar -->
+      <div
+        class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500"
+      >
+        © 2025 Sampada Tiwari • All Rights Reserved
+      </div>
+    </footer>
+    <!-- Tailwind JS for Mobile Menu Toggle -->
+  <script src="js/project.js"></script>
+  </body>
 </html>
