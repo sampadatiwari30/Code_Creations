@@ -1,758 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --dark-bg: #1a1a1a;
-            --card-bg: #2a2a2a;
-            --soft-white: #f0f0f0;
-            --royal-purple: #6c5ce7;
-            --deep-navy: #001f3f;
-            --text-secondary: #b0b0b0;
-            --shadow-color: rgba(108, 92, 231, 0.2);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-            /* Light Mode Overrides */
-    body.light {
-      --dark-bg: #f9f9f9;
-      --card-bg: #ffffff;
-      --soft-white: #1a1a1a;
-      --royal-purple: #4a3ce5;
-      --deep-navy: #003366;
-      --text-secondary: #444;
-      --shadow-color: rgba(74, 60, 229, 0.2);
-      background: var(--dark-bg);
-      color: var(--soft-white);
+  <style>
+    :root {
+      --bg-dark: #0f0f1a;
+      --bg-light: #f9f9f9;
+      --card-dark: rgba(255,255,255,0.05);
+      --card-light: #ffffff;
+      --primary: #6c5ce7;
+      --accent: #00eaff;
+      --text-dark: #222;
+      --text-light: #f5f5f5;
+      --text-muted-dark: #a0a0a0;
+      --text-muted-light: #555;
     }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-    /* Toggle Button */
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: linear-gradient(45deg, var(--royal-purple), var(--deep-navy));
-      border: none;
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 3rem 1rem; /* top spacing added */
+      background: radial-gradient(circle at top left, #1e1e2f, var(--bg-dark));
+      color: var(--text-light);
+      transition: all 0.4s ease;
+    }
+
+    body.light {
+      background: radial-gradient(circle at top left, #ffffff, var(--bg-light));
+      color: var(--text-dark);
+    }
+
+    .contact-wrapper {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2.5rem;
+      border-radius: 25px;
+      background: var(--card-dark);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    body.light .contact-wrapper {
+      background: var(--card-light);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    }
+
+    /* Floating blobs */
+    .blob {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--primary), transparent 70%);
       border-radius: 50%;
-      width: 45px;
-      height: 45px;
+      filter: blur(90px);
+      animation: float 12s ease-in-out infinite alternate;
+      opacity: 0.6;
+      z-index: -1;
+    }
+    .blob:nth-child(1){ top: -50px; left: -80px; }
+    .blob:nth-child(2){ bottom: -60px; right: -100px; background: radial-gradient(circle, var(--accent), transparent 70%); }
+
+    @keyframes float {
+      0%{ transform: translateY(0) translateX(0);}
+      100%{ transform: translateY(-40px) translateX(40px);}
+    }
+
+    /* Headings */
+    .contact-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .contact-heading h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .contact-heading p {
+      color: var(--text-muted-dark);
+      font-size: 1.1rem;
+    }
+    body.light .contact-heading p { color: var(--text-muted-light); }
+
+    /* Intro */
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Info cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .info-card {
+      padding: 1rem;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    body.light .info-card {
+      background: #fafafa;
+      border: 1px solid #ddd;
+    }
+    .info-card i {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    .info-card p { margin: 0; }
+
+    /* Email */
+    .email-box {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .email-box a {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.7rem 1.4rem;
+      border-radius: 12px;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    body.light .email-box a { color: #fff; }
+    .email-box a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 234, 255, 0.3);
+    }
+
+    /* Social */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      text-decoration: none;
+      color: var(--text-light);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    body.light .social-card {
+      background: #fafafa;
+      color: var(--text-dark);
+      border: 1px solid #ddd;
+    }
+    .social-card i { font-size: 1.6rem; }
+    .social-card span {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .social-card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s ease;
+    }
+    .social-card:hover::after { left: 100%; }
+    .social-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    /* Form */
+    .contact-form {
+      margin-bottom: 2.5rem;
+    }
+    .contact-form h3 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .contact-form .form-control {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text-light);
+    }
+    .contact-form .form-control::placeholder {
+      color: #ccc; /* visible in dark mode */
+    }
+    body.light .contact-form .form-control {
+      background: #fff;
+      color: var(--text-dark);
+      border: 1px solid #ccc;
+    }
+    .contact-form .btn {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .contact-form .btn:hover { transform: scale(1.02); }
+
+    /* Scroll top */
+    .scroll-top {
+      position: fixed;
+      bottom: 25px; right: 25px;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .scroll-top.show { opacity: 1; visibility: visible; }
+
+    /* Theme toggle */
+    .theme-toggle {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: none;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      border-radius: 50%;
+      width: 42px; height: 42px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      color: #fff;
-      font-size: 1.2rem;
-      z-index: 2000;
-      box-shadow: 0 4px 15px var(--shadow-color);
       transition: all 0.3s ease;
     }
-
     .theme-toggle:hover {
-      transform: scale(1.1);
+      background: var(--accent);
+      color: #fff;
     }
-
-
-        
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--dark-bg);
-            color: var(--soft-white);
-            overflow-x: hidden;
-            line-height: 1.6;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Background Animation */
-        .background-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(108, 92, 231, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(0, 31, 63, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(108, 92, 231, 0.05) 0%, transparent 50%);
-            animation: backgroundPulse 8s ease-in-out infinite alternate;
-        }
-
-        .floating-dots {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .dot {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--royal-purple);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .dot:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .dot:nth-child(2) { top: 60%; left: 20%; animation-delay: 1s; }
-        .dot:nth-child(3) { top: 40%; left: 80%; animation-delay: 2s; }
-        .dot:nth-child(4) { top: 80%; left: 70%; animation-delay: 3s; }
-        .dot:nth-child(5) { top: 10%; left: 60%; animation-delay: 4s; }
-
-        /* Main Container */
-        .main-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 0;
-        }
-        /* Home Logo */
-        .Home-logo{
-            display: flex;
-            justify-content: center;
-            height:3.8rem;
-            width:3.8rem;
-            left:27.5rem;
-        }
-        .Home-logo i{
-            font-size: 1.3rem;
-            text-decoration: none;
-        }
-        
-        /* Contact Card */
-        .contact-card {
-            background: var(--card-bg);
-            border-radius: 25px;
-            padding: 3rem;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.3),
-                0 0 40px var(--shadow-color);
-            border: 1px solid rgba(108, 92, 231, 0.2);
-            max-width: 600px;
-            width: 100%;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s ease-out 0.3s forwards;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(108, 92, 231, 0.05), rgba(0, 31, 63, 0.05));
-            border-radius: 25px;
-            z-index: -1;
-        }
-       
-
-        /* Heading */
-        .contact-heading {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out 0.6s forwards;
-        }
-
-        .contact-heading h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--soft-white);
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, rgb(0, 229, 255), rgb(59, 59, 253));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(108, 92, 231, 0.3);
-        }
-
-        .heading-underline {
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--royal-purple), var(--deep-navy));
-            margin: 0 auto;
-            border-radius: 2px;
-            animation: glowPulse 2s ease-in-out infinite alternate;
-        }
-
-        /* Email Section */
-        .email-section {
-            text-align: center;
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out 0.9s forwards;
-        }
-
-        .email-label {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .email-address {
-            font-size: 1.4rem;
-            color: var(--royal-purple);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            border: 1px solid transparent;
-        }
-
-        .email-address:hover {
-            color: var(--soft-white);
-            background: linear-gradient(45deg, var(--royal-purple), var(--deep-navy));
-            box-shadow: 0 5px 20px var(--shadow-color);
-            transform: translateY(-2px);
-        }
-
-        /* Social Media Section */
-        .social-section {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out 1.2s forwards;
-        }
-
-        .social-title {
-            text-align: center;
-            font-size: 1.5rem;
-            color: var(--soft-white);
-            margin-bottom: 2rem;
-            font-weight: 600;
-            transition: transform 0.3s ease-in-out;
-        }
-        .social-title:hover{
-            transform: scale(1.3);
-             background: linear-gradient(45deg, #33e0f0, #52879f, #2791dc, #2364cc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .social-item {
-            display: flex;
-            align-items: center;
-            padding: 1.2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(108, 92, 231, 0.1);
-            transition: all 0.4s ease;
-            text-decoration: none;
-            color: var(--soft-white);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: scale(0.9);
-            animation: scaleIn 0.6s ease-out forwards;
-        }
-
-        .social-item:nth-child(1) { animation-delay: 1.5s; }
-        .social-item:nth-child(2) { animation-delay: 1.7s; }
-        .social-item:nth-child(3) { animation-delay: 1.9s; }
-        .social-item:nth-child(4) { animation-delay: 2.1s; }
-
-        .social-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(108, 92, 231, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .social-item:hover::before {
-            left: 100%;
-        }
-
-        .social-item:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 
-                0 10px 30px var(--shadow-color),
-                0 0 20px rgba(108, 92, 231, 0.3);
-            border-color: var(--royal-purple);
-            color: var(--soft-white);
-        }
-
-        .social-icon {
-            font-size: 2rem;
-            margin-right: 1rem;
-            transition: all 0.3s ease;
-            width: 50px;
-            text-align: center;
-        }
-
-        .social-item:hover .social-icon {
-            transform: scale(1.1);
-            color: var(--royal-purple);
-        }
-
-        .social-text {
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .social-item:hover .social-text {
-            transform: translateX(5px);
-        }
-
-        /* LinkedIn */
-        .linkedin:hover .social-icon { color: #0077b5; }
-        .linkedin:hover { border-color: #0077b5; }
-
-        /* Instagram */
-        .instagram:hover .social-icon { 
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .instagram:hover { border-color: #e63cbe; }
-
-        /* Facebook */
-        .facebook:hover .social-icon { color: #1877f2; }
-        .facebook:hover { border-color: #1877f2; }
-
-        /* Twitter */
-        .twitter:hover .social-icon { color: #1df239; }
-        .twitter:hover { border-color: #1df236; }
-
-        /* Scroll to Top Button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, var(--royal-purple), var(--deep-navy));
-            border: none;
-            border-radius: 50%;
-            color: var(--soft-white);
-            font-size: 1.2rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            box-shadow: 0 5px 20px var(--shadow-color);
-        }
-
-        .scroll-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px var(--shadow-color);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes glowPulse {
-            0% {
-                box-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
-            }
-            100% {
-                box-shadow: 0 0 20px rgba(108, 92, 231, 0.8);
-            }
-        }
-
-        @keyframes backgroundPulse {
-            0% {
-                opacity: 0.3;
-            }
-            100% {
-                opacity: 0.6;
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateY(-20px);
-                opacity: 0.6;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .contact-card {
-                padding: 2rem;
-                margin: 1rem;
-            }
-
-            .contact-heading h1 {
-                font-size: 2.2rem;
-            }
-
-            .social-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .social-item {
-                padding: 1rem;
-            }
-
-            .social-icon {
-                font-size: 1.8rem;
-                margin-right: 0.8rem;
-            }
-
-            .social-text {
-                font-size: 1rem;
-            }
-
-            .email-address {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .contact-card {
-                padding: 1.5rem;
-            }
-
-            .contact-heading h1 {
-                font-size: 1.8rem;
-            }
-
-            .email-address {
-                font-size: 1.1rem;
-            }
-
-            .social-icon {
-                font-size: 1.6rem;
-            }
-
-            .scroll-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        /* Tablets / Medium screens (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .contact-card {
-        padding: 2.5rem;
-        margin: 1.5rem;
-    }
-
-    .contact-heading h1 {
-        font-size: 2.5rem;
-    }
-
-    .social-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.2rem;
-    }
-
-    .social-item {
-        padding: 1.1rem;
-    }
-
-    .social-icon {
-        font-size: 1.9rem;
-        margin-right: 0.9rem;
-    }
-
-    .social-text {
-        font-size: 1.05rem;
-    }
-
-    .email-address {
-        font-size: 1.3rem;
-    }
-
-    .scroll-top {
-        bottom: 25px;
-        right: 25px;
-    }
-}
-
-/* Large screens (1200px and above) */
-@media (min-width: 1200px) {
-    .contact-card {
-        max-width: 700px;
-        padding: 4rem;
-    }
-
-    .contact-heading h1 {
-        font-size: 3.5rem;
-    }
-
-    .social-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
-    }
-
-    .social-item {
-        padding: 1.5rem;
-    }
-
-    .social-icon {
-        font-size: 2.2rem;
-        margin-right: 1.2rem;
-    }
-
-    .social-text {
-        font-size: 1.2rem;
-    }
-
-    .email-address {
-        font-size: 1.5rem;
-    }
-}
-
-
-    </style>
+  </style>
 </head>
 <body>
-      <button class="theme-toggle" id="themeToggle">
-    <i class="fas fa-moon"></i>
-  </button>
-    <!-- Background Animation -->
-    <div class="background-animation">
-        <div class="floating-dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+  <div class="contact-wrapper">
+    <div class="blob"></div>
+    <div class="blob"></div>
+
+    <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+
+    <div class="contact-heading">
+      <h1>Let’s Connect</h1>
+      <p>Collaboration, ideas, or questions — I’m always open to meaningful conversations.</p>
     </div>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <div class="container">
-            <div class="contact-card">
-                <div class="home-logo">
-                    <a href="index.html">
-                        <i class=" social-item Home-logo ">
-                            <i class="fa-solid fa-house">
-                            </i>
-                        </i>
-                    </a>
-                </div>
-                <!-- Heading -->
-                <div class="contact-heading">
-                    <h1>Get in Touch</h1>
-                    <div class="heading-underline"></div>
-                </div>
-
-                <!-- Email Section -->
-                <div class="email-section">
-                    <div class="email-label">Email ID:</div>
-                    <a href="mailto:harshanandi00000@gmail.com" class="email-address">
-                    sampada00000@gmail.com
-                    </a>
-                </div>
-
-                <!-- Social Media Section -->
-                <div class="social-section">
-                    <h3 class="social-title">Connect with me!</h3>
-                    <div class="social-grid">
-                        <a href="" target="_blank" class="social-item linkedin">
-                            <i class="fab fa-linkedin social-icon"></i>
-                            <span class="social-text">LinkedIn</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item instagram">
-                            <i class="fab fa-instagram social-icon"></i>
-                            <span class="social-text">Instagram</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item facebook">
-                            <i class="fab fa-facebook social-icon"></i>
-                            <span class="social-text">Facebook</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item twitter">
-                            <i class="fab fa-twitter social-icon"></i>
-                            <span class="social-text">Twitter</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="intro">
+      <p>
+        Hi 👋 I’m <strong>Your Name</strong>, a passionate developer & designer.  
+        I enjoy building digital products that blend creativity with functionality.  
+        If you’d like to discuss a project, share feedback, or just say hello, feel free to reach out below.
+      </p>
     </div>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
+    <!-- Info cards -->
+    <div class="info-grid">
+      <div class="info-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>New Delhi, India</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-phone"></i>
+        <p>+91 98765 43210</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-clock"></i>
+        <p>Mon - Fri (10AM - 6PM)</p>
+      </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-            // Theme Toggle
-    const toggleBtn = document.getElementById("themeToggle");
+    <!-- Email -->
+    <div class="email-box">
+      <a href="mailto:youremail@example.com">
+        <i class="fa-solid fa-envelope"></i> youremail@example.com
+      </a>
+    </div>
+
+    <!-- Social links -->
+    <div class="social-grid">
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a>
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-github"></i> <span>GitHub</span></a>
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-twitter"></i> <span>Twitter</span></a>
+    </div>
+
+    <!-- Contact form -->
+    <div class="contact-form">
+      <h3>Send Me a Message</h3>
+      <form>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn w-100">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    const scrollBtn = document.getElementById('scrollTop');
+    const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
-    toggleBtn.addEventListener("click", () => {
-      body.classList.toggle("light");
-      toggleBtn.innerHTML = body.classList.contains("light")
-        ? '<i class="fas fa-sun"></i>'
-        : '<i class="fas fa-moon"></i>';
+
+    // Scroll top
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('show', window.scrollY > 200);
     });
-        // Scroll to Top Button Functionality
-        const scrollTopBtn = document.getElementById('scrollTop');
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
 
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        });
-
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Enhanced hover effects for social items
-        document.querySelectorAll('.social-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Email click tracking (optional)
-        document.querySelector('.email-address').addEventListener('click', function() {
-            console.log('Email clicked - opening default email client');
-        });
-
-        // Add subtle parallax effect to background
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const backgroundAnimation = document.querySelector('.background-animation');
-            const rate = scrolled * -0.1;
-            
-            backgroundAnimation.style.transform = `translateY(${rate}px)`;
-        });
-
-        // Intersection Observer for additional animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.contact-card, .social-item').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add click ripple effect to social items
-        document.querySelectorAll('.social-item').forEach(item => {
-            item.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
-        // Add ripple effect styles dynamically
-        const style = document.createElement('style');
-        style.textContent = `
-            .ripple {
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(108, 92, 231, 0.3);
-                transform: scale(0);
-                animation: ripple-animation 0.6s linear;
-                pointer-events: none;
-            }
-            
-            @keyframes ripple-animation {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+    // Theme toggle
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light');
+      const icon = themeToggle.querySelector("i");
+      icon.classList.toggle("fa-sun", body.classList.contains("light"));
+      icon.classList.toggle("fa-moon", !body.classList.contains("light"));
+    });
+  </script>
 </body>
 </html>
