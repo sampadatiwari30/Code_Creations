@@ -4,88 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
+
+    <!-- Tailwind (needed for navbar styles) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Existing Bootstrap + fonts + icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Extra font used by original navbar (keeps visual parity) -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
+  <!-- Navbar (copied from your project.html) -->
+  <header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <!-- Brand / Logo -->
+      <h1 class="text-white text-2xl font-bold">
+        Sampada <span class="text-cyan-400">Tiwari</span>
+      </h1>
+
+      <!-- Navigation Links -->
+      <nav class="space-x-6 hidden md:flex">
+        <a href="index.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
+        <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
+        <a href="skills.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
+        <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
+        <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
+        <a href="index.html#testimonial" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
+        <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
+      </nav>
+
+      <!-- Theme toggle (keeps same icon as your project page) -->
       <button class="theme-toggle" id="themeToggle">
-    <i class="fas fa-moon"></i>
+        <i class="fas fa-moon"></i>
+      </button>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
+      <nav class="flex flex-col px-6 py-4 space-y-4">
+        <a href="#hero" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
+        <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
+        <a href="#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
+        <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
+        <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
+        <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
+        <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <!-- End Navbar -->
+
+  <!-- NOTE: I removed the standalone theme-toggle that was previously at the top of your original contact.html
+       because the navbar already includes a theme toggle. This avoids duplicate toggles. -->
+
+  <!-- Background Animation -->
+  <div class="background-animation" style="padding-top:4.5rem;"> <!-- add top padding so content sits below fixed navbar -->
+      <div class="floating-dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+      </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="main-container">
+      <div class="container">
+          <div class="contact-card">
+              <div class="home-logo">
+                  <a href="index.html">
+                      <i class=" social-item Home-logo ">
+                          <i class="fa-solid fa-house">
+                          </i>
+                      </i>
+                  </a>
+              </div>
+              <!-- Heading -->
+              <div class="contact-heading">
+                  <h1>Get in Touch</h1>
+                  <div class="heading-underline"></div>
+              </div>
+
+              <!-- Email Section -->
+              <div class="email-section">
+                  <div class="email-label">Email ID:</div>
+                  <a href="mailto:harshanandi00000@gmail.com" class="email-address">
+                  sampada00000@gmail.com
+                  </a>
+              </div>
+
+              <!-- Social Media Section -->
+              <div class="social-section">
+                  <h3 class="social-title">Connect with me!</h3>
+                  <div class="social-grid">
+                      <a href="" target="_blank" class="social-item linkedin">
+                          <i class="fab fa-linkedin social-icon"></i>
+                          <span class="social-text">LinkedIn</span>
+                      </a>
+
+                      <a href="" target="_blank" class="social-item instagram">
+                          <i class="fab fa-instagram social-icon"></i>
+                          <span class="social-text">Instagram</span>
+                      </a>
+
+                      <a href="" target="_blank" class="social-item facebook">
+                          <i class="fab fa-facebook social-icon"></i>
+                          <span class="social-text">Facebook</span>
+                      </a>
+
+                      <a href="" target="_blank" class="social-item twitter">
+                          <i class="fab fa-twitter social-icon"></i>
+                          <span class="social-text">Twitter</span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" id="scrollTop">
+      <i class="fas fa-arrow-up"></i>
   </button>
-    <!-- Background Animation -->
-    <div class="background-animation">
-        <div class="floating-dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-    </div>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <div class="container">
-            <div class="contact-card">
-                <div class="home-logo">
-                    <a href="index.html">
-                        <i class=" social-item Home-logo ">
-                            <i class="fa-solid fa-house">
-                            </i>
-                        </i>
-                    </a>
-                </div>
-                <!-- Heading -->
-                <div class="contact-heading">
-                    <h1>Get in Touch</h1>
-                    <div class="heading-underline"></div>
-                </div>
-
-                <!-- Email Section -->
-                <div class="email-section">
-                    <div class="email-label">Email ID:</div>
-                    <a href="mailto:harshanandi00000@gmail.com" class="email-address">
-                    sampada00000@gmail.com
-                    </a>
-                </div>
-
-                <!-- Social Media Section -->
-                <div class="social-section">
-                    <h3 class="social-title">Connect with me!</h3>
-                    <div class="social-grid">
-                        <a href="" target="_blank" class="social-item linkedin">
-                            <i class="fab fa-linkedin social-icon"></i>
-                            <span class="social-text">LinkedIn</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item instagram">
-                            <i class="fab fa-instagram social-icon"></i>
-                            <span class="social-text">Instagram</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item facebook">
-                            <i class="fab fa-facebook social-icon"></i>
-                            <span class="social-text">Facebook</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item twitter">
-                            <i class="fab fa-twitter social-icon"></i>
-                            <span class="social-text">Twitter</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/contact.js"></script>
+  <!-- Scripts: keep your contact.js and Bootstrap; add project.js so navbar scripts work -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/project.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>
