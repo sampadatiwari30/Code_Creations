@@ -1,204 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Experience | Portfolio</title>
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience | Portfolio</title>
 
-  <style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/experience.css" />
+  </head>
+  <body class="font-sans">
+    <button class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+    <!-- Navbar -->
+    <header
+      class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4"
+      >
+        <!-- Brand / Logo -->
+        <h1 class="text-white text-2xl font-bold">
+          Sampada <span class="text-cyan-400">Tiwari</span>
+        </h1>
 
-    body {
-      background: linear-gradient(to right, #0f172a, #1e293b, #0f172a);
-      color: white;
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    /* Animated glowing marker */
-    .glow-marker {
-      box-shadow: 0 0 15px rgba(255,255,255,0.8), 0 0 30px currentColor;
-      animation: pulse 2s infinite alternate;
-    }
-    @keyframes pulse {
-      from { transform: scale(1); opacity: 0.9; }
-      to { transform: scale(1.2); opacity: 0.6; }
-    }
-    /* ===================== LIGHT MODE ===================== */
-    body.light {
-      background: linear-gradient(to right, #f9f9f9, #e0e0e0, #f9f9f9);
-      color: #1a1a1a;
-    }
-    body.light .glass {
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      color: #1a1a1a;
-    }
-    body.light .glow-marker {
-      box-shadow: 0 0 15px rgba(108,92,231,0.8), 0 0 30px currentColor;
-    }
-    body.light header, 
-    body.light #mobile-menu {
-      background: rgba(255, 255, 255, 0.8) !important;
-      color: #1a1a1a !important;
-      backdrop-filter: blur(14px);
-    }
-    body.light a {
-      color: #1a1a1a;
-    }
-    body.light a:hover {
-      color: #6c5ce7; /* dark purple hover for links in light mode */
-    }
-    body.light footer {
-      background: #f0f0f0;
-      color: #1a1a1a;
-    }
-    body.light footer .text-gray-400,
-    body.light footer .text-gray-500 {
-      color: #555;
-    }
+        <!-- Navigation Links -->
+        <nav class="space-x-6 hidden md:flex">
+          <a
+            href="index.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >About</a
+          >
+          <a
+            href="about.html#skills"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Skills</a
+          >
+          <a
+            href="experience.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Experience</a
+          >
+          <a
+            href="project.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Projects</a
+          >
+          <a
+            href="#testimonials"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Testimonials</a
+          >
+          <a
+            href="contact.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Contact</a
+          >
+        </nav>
 
-/* ===================== TOGGLE BUTTON ===================== */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #6c5ce7; /* dark mode background */
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #fff;
-  font-size: 1.25rem;
-  z-index: 2000;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-}
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-white focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
 
-.theme-toggle:hover {
-  transform: scale(1.1);
-}
-
-/* Light mode toggle button */
-body.light .theme-toggle {
-  background: #f0f0f0; /* light mode background */
-  color: #1a1a1a; /* icon color */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-/* ===================== RESPONSIVE MEDIA QUERIES ===================== */
-
-/* Mobile devices (max-width: 768px) */
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-
-  .theme-toggle {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-    top: 15px;
-    right: 15px;
-  }
-
-  .glass {
-    padding: 1rem;
-    border-radius: 15px;
-  }
-
-  header, #mobile-menu {
-    padding: 0.5rem 1rem;
-  }
-
-  footer {
-    padding: 1.5rem 1rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Tablets (max-width: 1024px) */
-@media (max-width: 1024px) {
-  body {
-    font-size: 15px;
-  }
-
-  .glass {
-    padding: 1.2rem;
-    border-radius: 18px;
-  }
-
-  .theme-toggle {
-    width: 45px;
-    height: 45px;
-    font-size: 1.1rem;
-  }
-}
-
-/* Small screens adjustments for glowing markers */
-@media (max-width: 480px) {
-  .glow-marker {
-    box-shadow: 0 0 10px rgba(255,255,255,0.7), 0 0 20px currentColor;
-  }
-}
-
-  </style>
-</head>
-<body class="font-sans">
-  <button class="theme-toggle" id="themeToggle">
-    <i class="fas fa-moon" id="theme-icon"></i>
-  </button>
-      <!-- Navbar -->
-<header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-    <!-- Brand / Logo -->
-    <h1 class="text-white text-2xl font-bold">Sampada <span class="text-cyan-400">Tiwari</span></h1>
-
-    <!-- Navigation Links -->
-    <nav class="space-x-6 hidden md:flex">
-      <a href="index.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
-      <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
-      <a href="about.html#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
-      <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
-      <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
-      <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
-      <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
-    </nav>
-    
-
-
-    <!-- Mobile Menu Button -->
-    <div class="md:hidden">
-      <button id="menu-btn" class="text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
-    <nav class="flex flex-col px-6 py-4 space-y-4">
-      <a href="index.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Home</a>
-      <a href="about.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">About</a>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md"
+      >
+        <nav class="flex flex-col px-6 py-4 space-y-4">
+          <a
+            href="index.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-white font-medium hover:text-cyan-400 transition-colors duration-300"
+            >About</a
+          >
 
       <a href="about.html#skills" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Skills</a>
-      <a href="experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
+      <a href="../experience.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Experience</a>
       <a href="project.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Projects</a>
       <a href="#testimonials" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Testimonials</a>
       <a href="contact.html" class="text-white font-medium hover:text-cyan-400 transition-colors duration-300">Contact</a>
@@ -206,285 +115,430 @@ body.light .theme-toggle {
   </div>
 </header>
 
-<!-- Tailwind JS for Mobile Menu Toggle -->
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
+    <!-- Header -->
+    <header class="text-center py-10" style="margin-top: 6rem">
+      <h1
+        class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500"
+      >
+        My Experience
+      </h1>
+      <p class="mt-4 text-gray-300 text-lg">
+        A timeline of my professional journey 🚀
+      </p>
+    </header>
 
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-  </script>
-  <!-- Header -->
-  <header class="text-center py-10" style="margin-top: 6rem;">
-    <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
-      My Experience
-    </h1>
-    <p class="mt-4 text-gray-300 text-lg">A timeline of my professional journey 🚀</p>
-  </header>
+    <!-- Timeline Section -->
+    <section class="relative max-w-5xl mx-auto px-6">
+      <div class="border-l-4 border-purple-500">
+        <!-- Example Timeline Card -->
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-purple-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2025
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-purple-500/40 hover:border-purple-400/70 transition-all transform hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-purple-400">
+              GirlScript Summer of Code
+            </h3>
+            <p class="text-gray-300">
+              Project Admin & Discord Moderator · Jul 2025 – Present
+            </p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>Selected as Project Admin</li>
+              <li>Full-time Discord Moderator</li>
+              <li>
+                Managed projects, mentored contributors & coordinated events
+              </li>
+            </ul>
+          </div>
+        </div>
 
-  <!-- Timeline Section -->
-  <section class="relative max-w-5xl mx-auto px-6">
-    <div class="border-l-4 border-purple-500">
-
-      <!-- Example Timeline Card -->
-      <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-purple-500 glow-marker flex items-center justify-center text-xs font-bold">2025</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-purple-500/40 hover:border-purple-400/70 transition-all transform hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-purple-400">GirlScript Summer of Code</h3>
-          <p class="text-gray-300">Project Admin & Discord Moderator · Jul 2025 – Present</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-            <li>Selected as Project Admin</li>
-            <li>Full-time Discord Moderator</li>
-            <li>Managed projects, mentored contributors & coordinated events</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Gaming Network -->
-      <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-pink-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-pink-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-pink-400">Gaming Network</h3>
-          <p class="text-gray-300">Fellowship – City Lead · May 2024 – Present</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-            <li>Represented Kratos in city-based esports initiatives</li>
-            <li>Managed partnerships, events & campaigns</li>
-            <li>Tracked outreach stats with Excel</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Future Baba -->
-      <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-red-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-red-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-red-400">Future Baba</h3>
-          <p class="text-gray-300">Data Analytics & Data Science Intern · Apr 2025</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-             <li>Used Python, Excel, Power BI for insights</li>
-            <li>Built interactive KPI dashboards</li>
-            <li>Contributed to modeling & reporting</li>
-          </ul>
-        </div>
-      </div>
-       <!-- Gaming Network -->
-      <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-gray-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-gray-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-gray-400">Algorithm</h3>
-          <p class="text-gray-300">CCP Lead · Jun 2024 – May 2025</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-             <li>Led 50+ coders in DSA & CP</li>
-            <li>Hosted contests and mentoring sessions</li>
-            <li>Maintained community on GitHub/Discord</li>
-          </ul>
-        </div>
-      </div>
-       <!-- Gaming Network -->
-      <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-cyan-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-cyan-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-cyan-400">Palmolive (India) Ltd</h3>
-          <p class="text-gray-300">Content Creator · May 2024</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-            <li>Created content aligned to brand voice</li>
-            <li>Supported marketing campaigns</li>
-            <li>Drove engagement via storytelling</li>
-          </ul>
-        </div>
-      </div>
-       <!-- Gaming Network -->
-      <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-indigo-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-indigo-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-indigo-400">GirlScript Summer of Code</h3>
-          <p class="text-gray-300">Mentor & Campus Ambassador · Sep – Nov 2024</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-            <li>Guided contributors, hosted sessions & secured <span class="text-white font-bold">8th rank</span>.</li>
-          </ul>
-        </div>
-      </div>
-       <!-- Gaming Network -->
-      <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-teal-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-teal-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-teal-400">French Quiz</h3>
-          <p class="text-gray-300">Banasthali Vidyapith · Oct 2024</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-            <li>Participated in "Le Grand Concours '24" in collaboration with Uzbekistan State World Language University & French Embassy in India.</li>
-          </ul>
-        </div>
-      </div>
-       <!-- Gaming Network -->
-      <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-orange-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-orange-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-orange-400">Nasa Space Apps Challenge</h3>
-          <p class="text-gray-300">Cusco · Remote · Oct 2024</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-            <li>Built innovative solutions for planetary exploration during NASA Hackathon.</li>
-          </ul>
-        </div>
-      </div>
         <!-- Gaming Network -->
-      <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-blue-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-blue-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-blue-400">Campus Ambassador</h3>
-          <p class="text-gray-300">Techkriti, IIT Kanpur · Sep 2023 – Apr 2024</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-            <li>Represented IIT Kanpur’s Techkriti Fest. Skills gained: <span class="font-bold text-white">Team Management, Time Management</span>.</li>
-          </ul>
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-pink-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2024
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-pink-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-pink-400">Gaming Network</h3>
+            <p class="text-gray-300">
+              Fellowship – City Lead · May 2024 – Present
+            </p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>Represented Kratos in city-based esports initiatives</li>
+              <li>Managed partnerships, events & campaigns</li>
+              <li>Tracked outreach stats with Excel</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Future Baba -->
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-red-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2024
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-red-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-red-400">Future Baba</h3>
+            <p class="text-gray-300">
+              Data Analytics & Data Science Intern · Apr 2025
+            </p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>Used Python, Excel, Power BI for insights</li>
+              <li>Built interactive KPI dashboards</li>
+              <li>Contributed to modeling & reporting</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Gaming Network -->
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-gray-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2024
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-gray-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-gray-400">Algorithm</h3>
+            <p class="text-gray-300">CCP Lead · Jun 2024 – May 2025</p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>Led 50+ coders in DSA & CP</li>
+              <li>Hosted contests and mentoring sessions</li>
+              <li>Maintained community on GitHub/Discord</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Gaming Network -->
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-cyan-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2024
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-cyan-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-cyan-400">
+              Palmolive (India) Ltd
+            </h3>
+            <p class="text-gray-300">Content Creator · May 2024</p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>Created content aligned to brand voice</li>
+              <li>Supported marketing campaigns</li>
+              <li>Drove engagement via storytelling</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Gaming Network -->
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-indigo-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2024
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-indigo-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-indigo-400">
+              GirlScript Summer of Code
+            </h3>
+            <p class="text-gray-300">
+              Mentor & Campus Ambassador · Sep – Nov 2024
+            </p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>
+                Guided contributors, hosted sessions & secured
+                <span class="text-white font-bold">8th rank</span>.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Gaming Network -->
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-teal-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2024
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-teal-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-teal-400">French Quiz</h3>
+            <p class="text-gray-300">Banasthali Vidyapith · Oct 2024</p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>
+                Participated in "Le Grand Concours '24" in collaboration with
+                Uzbekistan State World Language University & French Embassy in
+                India.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Gaming Network -->
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-orange-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2024
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-orange-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-orange-400">
+              Nasa Space Apps Challenge
+            </h3>
+            <p class="text-gray-300">Cusco · Remote · Oct 2024</p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>
+                Built innovative solutions for planetary exploration during NASA
+                Hackathon.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Gaming Network -->
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-blue-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2024
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-blue-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-blue-400">
+              Campus Ambassador
+            </h3>
+            <p class="text-gray-300">
+              Techkriti, IIT Kanpur · Sep 2023 – Apr 2024
+            </p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>
+                Represented IIT Kanpur’s Techkriti Fest. Skills gained:
+                <span class="font-bold text-white"
+                  >Team Management, Time Management</span
+                >.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-red-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2024
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-red-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-red-400">
+              Web Development Intern
+            </h3>
+            <p class="text-gray-300">CLUMOSS · Aug – Sep 2023</p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>Worked remotely on frontend development projects.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="relative mb-12 pl-10" data-tilt>
+          <div
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-indigo-500 glow-marker flex items-center justify-center text-xs font-bold"
+          >
+            2024
+          </div>
+          <div
+            class="glass rounded-3xl p-6 shadow-2xl border border-indigo-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
+          >
+            <h3 class="text-2xl font-semibold text-indigo-400">
+              Tata Group Hackathon
+            </h3>
+            <p class="text-gray-300">Participant · May 2023</p>
+            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+              <li>Contributed ideas & prototypes in Tata Group challenge.</li>
+            </ul>
+          </div>
         </div>
       </div>
-            <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-red-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-red-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-red-400">Web Development Intern </h3>
-          <p class="text-gray-300">CLUMOSS · Aug – Sep 2023</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-            <li>Worked remotely on frontend development projects.</li>
-          </ul>
-        </div>
-      </div>
-       <div class="relative mb-12 pl-10" data-tilt>
-        <div class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-indigo-500 glow-marker flex items-center justify-center text-xs font-bold">2024</div>
-        <div class="glass rounded-3xl p-6 shadow-2xl border border-indigo-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]">
-          <h3 class="text-2xl font-semibold text-indigo-400">Tata Group Hackathon </h3>
-          <p class="text-gray-300">Participant · May 2023</p>
-          <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
-            <li>Contributed ideas & prototypes in Tata Group challenge.</li>
-          </ul>
-        </div>
-      </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="max-w-6xl mx-auto px-6 py-20" id="testimonials">
-    <h2 class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-14">
-      Testimonials
-    </h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Card 1 -->
-      <div class="glass p-8 rounded-3xl shadow-2xl border border-green-400/40 hover:border-green-400/70 transition transform hover:scale-[1.05]" data-tilt>
-        <div class="flex items-start gap-3">
-          <span class="text-green-400 text-3xl">❝</span>
-          <p class="italic">Community building efforts have been transformative, fostering belonging and driving engagement. His passion shines through.</p>
-        </div>
-        <p class="mt-5 font-semibold text-gray-300">— Sandeep Jain, CEO GeeksforGeeks</p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="glass p-8 rounded-3xl shadow-2xl border border-blue-400/40 hover:border-blue-400/70 transition transform hover:scale-[1.05]" data-tilt>
-        <div class="flex items-start gap-3">
-          <span class="text-blue-400 text-3xl">❝</span>
-          <p class="italic">Ability to connect us with the right gaming influencers and opportunities has been impressive. Helped us reach loyal audiences.</p>
-        </div>
-        <p class="mt-5 font-semibold text-gray-300">— Abhishek Aggarwal, CEO Trinity Gaming</p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="glass p-8 rounded-3xl shadow-2xl border border-purple-400/40 hover:border-purple-400/70 transition transform hover:scale-[1.05]" data-tilt>
-        <div class="flex items-start gap-3">
-          <span class="text-purple-400 text-3xl">❝</span>
-          <p class="italic">Gaming sponsorship expertise has been a game-changer. Delivered partnerships that boosted visibility in the gaming community.</p>
-        </div>
-        <p class="mt-5 font-semibold text-gray-300">— Manish Agarwal, CEO KGeN</p>
-      </div>
-    </div>
-  </section>
-  <!-- ================= FOOTER SECTION ================= -->
-<footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12">
-
-  <!-- Footer Container -->
-  <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
-
-    <!-- Brand / Logo -->
-    <div class="text-center md:text-left">
-      <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
-        Sampada<span class="font-extrabold">Tiwari</span>
+    <!-- Testimonials Section -->
+    <section class="max-w-6xl mx-auto px-6 py-20" id="testimonials">
+      <h2
+        class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-14"
+      >
+        Testimonials
       </h2>
-      <p class="text-gray-400 mt-1 text-sm md:text-base">Data Scientist • Leader • Creator</p>
-    </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div
+          class="glass p-8 rounded-3xl shadow-2xl border border-green-400/40 hover:border-green-400/70 transition transform hover:scale-[1.05]"
+          data-tilt
+        >
+          <div class="flex items-start gap-3">
+            <span class="text-green-400 text-3xl">❝</span>
+            <p class="italic">
+              Community building efforts have been transformative, fostering
+              belonging and driving engagement. His passion shines through.
+            </p>
+          </div>
+          <p class="mt-5 font-semibold text-gray-300">
+            — Sandeep Jain, CEO GeeksforGeeks
+          </p>
+        </div>
 
-    <!-- Quick Links -->
-    <div class="text-center md:text-left">
-      <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
-      <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2">
-        <li><a href="about.html" class="hover:text-cyan-400 transition-colors">About</a></li>
-        <li><a href="about.html#skills" class="hover:text-cyan-400 transition-colors">Skills</a></li>
-        <li><a href="experience.html" class="hover:text-cyan-400 transition-colors">Experience</a></li>
-        <li><a href="project.html" class="hover:text-cyan-400 transition-colors">Projects</a></li>
-        <li><a href="#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a></li>
-        <li><a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a></li>
-      </ul>
-    </div>
+        <!-- Card 2 -->
+        <div
+          class="glass p-8 rounded-3xl shadow-2xl border border-blue-400/40 hover:border-blue-400/70 transition transform hover:scale-[1.05]"
+          data-tilt
+        >
+          <div class="flex items-start gap-3">
+            <span class="text-blue-400 text-3xl">❝</span>
+            <p class="italic">
+              Ability to connect us with the right gaming influencers and
+              opportunities has been impressive. Helped us reach loyal
+              audiences.
+            </p>
+          </div>
+          <p class="mt-5 font-semibold text-gray-300">
+            — Abhishek Aggarwal, CEO Trinity Gaming
+          </p>
+        </div>
 
-    <!-- Social Media -->
-    <div class="text-center md:text-left">
-      <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
-      <div class="flex justify-center md:justify-start gap-4 text-2xl">
-        <a href="https://linkedin.com/in/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-twitter"></i></a>
-        <a href="mailto:sampada@example.com" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fas fa-envelope"></i></a>
+        <!-- Card 3 -->
+        <div
+          class="glass p-8 rounded-3xl shadow-2xl border border-purple-400/40 hover:border-purple-400/70 transition transform hover:scale-[1.05]"
+          data-tilt
+        >
+          <div class="flex items-start gap-3">
+            <span class="text-purple-400 text-3xl">❝</span>
+            <p class="italic">
+              Gaming sponsorship expertise has been a game-changer. Delivered
+              partnerships that boosted visibility in the gaming community.
+            </p>
+          </div>
+          <p class="mt-5 font-semibold text-gray-300">
+            — Manish Agarwal, CEO KGeN
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
+    <!-- ================= FOOTER SECTION ================= -->
+    <footer
+      class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12"
+    >
+      <!-- Footer Container -->
+      <div
+        class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8"
+      >
+        <!-- Brand / Logo -->
+        <div class="text-center md:text-left">
+          <h2
+            class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500"
+          >
+            Sampada<span class="font-extrabold">Tiwari</span>
+          </h2>
+          <p class="text-gray-400 mt-1 text-sm md:text-base">
+            Data Scientist • Leader • Creator
+          </p>
+        </div>
 
-  </div>
+        <!-- Quick Links -->
+        <div class="text-center md:text-left">
+          <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
+          <ul
+            class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2"
+          >
+            <li>
+              <a href="about.html" class="hover:text-cyan-400 transition-colors"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="about.html#skills"
+                class="hover:text-cyan-400 transition-colors"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a
+                href="experience.html"
+                class="hover:text-cyan-400 transition-colors"
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a
+                href="project.html"
+                class="hover:text-cyan-400 transition-colors"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#testimonials"
+                class="hover:text-cyan-400 transition-colors"
+                >Testimonials</a
+              >
+            </li>
+            <li>
+              <a
+                href="contact.html"
+                class="hover:text-cyan-400 transition-colors"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
 
-  <!-- Bottom Bar -->
-  <div class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
-    © 2025 Sampada Tiwari • All Rights Reserved
-  </div>
+        <!-- Social Media -->
+        <div class="text-center md:text-left">
+          <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
+          <div class="flex justify-center md:justify-start gap-4 text-2xl">
+            <a
+              href="https://linkedin.com/in/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://github.com/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://twitter.com/sampada"
+              target="_blank"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="mailto:sampada@example.com"
+              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
 
-</footer>
-
-  <script>
- 
-
-  // Dark/Light Mode Toggle
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('theme-icon');
-  const body = document.body;
-
-  // Load theme from localStorage if available
-  if (localStorage.getItem('theme') === 'light') {
-    body.classList.add('light');
-    themeIcon.classList.replace('fa-moon','fa-sun');
-  }
-
-  themeToggle.addEventListener('click', () => {
-    body.classList.toggle('light');
-    if (body.classList.contains('light')) {
-      themeIcon.classList.replace('fa-moon','fa-sun');
-      localStorage.setItem('theme','light');
-    } else {
-      themeIcon.classList.replace('fa-sun','fa-moon');
-      localStorage.setItem('theme','dark');
-    }
-  });
-    // Scroll reveal
-    ScrollReveal().reveal('.glass', {
-      delay: 150,
-      distance: '60px',
-      origin: 'bottom',
-      opacity: 0,
-      duration: 1000,
-      easing: 'ease-in-out',
-      interval: 200
-    });
-
-    // Tilt effect
-    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-      max: 10,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.2
-    });
-  </script>
-</body>
+      <!-- Bottom Bar -->
+      <div
+        class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500"
+      >
+        © 2025 Sampada Tiwari • All Rights Reserved
+      </div>
+    </footer>
+    <script src="js/experience.js"></script>
+  </body>
 </html>
