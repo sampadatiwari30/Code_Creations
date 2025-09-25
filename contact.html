@@ -1,91 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/contact.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0f0f1a;
+      --bg-light: #f9f9f9;
+      --card-dark: rgba(255,255,255,0.05);
+      --card-light: #ffffff;
+      --primary: #6c5ce7;
+      --accent: #00eaff;
+      --text-dark: #222;
+      --text-light: #f5f5f5;
+      --text-muted-dark: #a0a0a0;
+      --text-muted-light: #555;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 3rem 1rem; /* top spacing added */
+      background: radial-gradient(circle at top left, #1e1e2f, var(--bg-dark));
+      color: var(--text-light);
+      transition: all 0.4s ease;
+    }
+
+    body.light {
+      background: radial-gradient(circle at top left, #ffffff, var(--bg-light));
+      color: var(--text-dark);
+    }
+
+    .contact-wrapper {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2.5rem;
+      border-radius: 25px;
+      background: var(--card-dark);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    body.light .contact-wrapper {
+      background: var(--card-light);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    }
+
+    /* Floating blobs */
+    .blob {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--primary), transparent 70%);
+      border-radius: 50%;
+      filter: blur(90px);
+      animation: float 12s ease-in-out infinite alternate;
+      opacity: 0.6;
+      z-index: -1;
+    }
+    .blob:nth-child(1){ top: -50px; left: -80px; }
+    .blob:nth-child(2){ bottom: -60px; right: -100px; background: radial-gradient(circle, var(--accent), transparent 70%); }
+
+    @keyframes float {
+      0%{ transform: translateY(0) translateX(0);}
+      100%{ transform: translateY(-40px) translateX(40px);}
+    }
+
+    /* Headings */
+    .contact-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .contact-heading h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .contact-heading p {
+      color: var(--text-muted-dark);
+      font-size: 1.1rem;
+    }
+    body.light .contact-heading p { color: var(--text-muted-light); }
+
+    /* Intro */
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Info cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .info-card {
+      padding: 1rem;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    body.light .info-card {
+      background: #fafafa;
+      border: 1px solid #ddd;
+    }
+    .info-card i {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    .info-card p { margin: 0; }
+
+    /* Email */
+    .email-box {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .email-box a {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.7rem 1.4rem;
+      border-radius: 12px;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    body.light .email-box a { color: #fff; }
+    .email-box a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 234, 255, 0.3);
+    }
+
+    /* Social */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      text-decoration: none;
+      color: var(--text-light);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    body.light .social-card {
+      background: #fafafa;
+      color: var(--text-dark);
+      border: 1px solid #ddd;
+    }
+    .social-card i { font-size: 1.6rem; }
+    .social-card span {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .social-card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s ease;
+    }
+    .social-card:hover::after { left: 100%; }
+    .social-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    /* Form */
+    .contact-form {
+      margin-bottom: 2.5rem;
+    }
+    .contact-form h3 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .contact-form .form-control {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text-light);
+    }
+    .contact-form .form-control::placeholder {
+      color: #ccc; /* visible in dark mode */
+    }
+    body.light .contact-form .form-control {
+      background: #fff;
+      color: var(--text-dark);
+      border: 1px solid #ccc;
+    }
+    .contact-form .btn {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .contact-form .btn:hover { transform: scale(1.02); }
+
+    /* Scroll top */
+    .scroll-top {
+      position: fixed;
+      bottom: 25px; right: 25px;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .scroll-top.show { opacity: 1; visibility: visible; }
+
+    /* Theme toggle */
+    .theme-toggle {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: none;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      border-radius: 50%;
+      width: 42px; height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-      <button class="theme-toggle" id="themeToggle">
-    <i class="fas fa-moon"></i>
-  </button>
-    <!-- Background Animation -->
-    <div class="background-animation">
-        <div class="floating-dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+  <div class="contact-wrapper">
+    <div class="blob"></div>
+    <div class="blob"></div>
+
+    <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+
+    <div class="contact-heading">
+      <h1>Let’s Connect</h1>
+      <p>Collaboration, ideas, or questions — I’m always open to meaningful conversations.</p>
     </div>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <div class="container">
-            <div class="contact-card">
-                <div class="home-logo">
-                    <a href="index.html">
-                        <i class=" social-item Home-logo ">
-                            <i class="fa-solid fa-house">
-                            </i>
-                        </i>
-                    </a>
-                </div>
-                <!-- Heading -->
-                <div class="contact-heading">
-                    <h1>Get in Touch</h1>
-                    <div class="heading-underline"></div>
-                </div>
-
-                <!-- Email Section -->
-                <div class="email-section">
-                    <div class="email-label">Email ID:</div>
-                    <a href="mailto:harshanandi00000@gmail.com" class="email-address">
-                    sampada00000@gmail.com
-                    </a>
-                </div>
-
-                <!-- Social Media Section -->
-                <div class="social-section">
-                    <h3 class="social-title">Connect with me!</h3>
-                    <div class="social-grid">
-                        <a href="" target="_blank" class="social-item linkedin">
-                            <i class="fab fa-linkedin social-icon"></i>
-                            <span class="social-text">LinkedIn</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item instagram">
-                            <i class="fab fa-instagram social-icon"></i>
-                            <span class="social-text">Instagram</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item facebook">
-                            <i class="fab fa-facebook social-icon"></i>
-                            <span class="social-text">Facebook</span>
-                        </a>
-                        
-                        <a href="" target="_blank" class="social-item twitter">
-                            <i class="fab fa-twitter social-icon"></i>
-                            <span class="social-text">Twitter</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="intro">
+      <p>
+        Hi 👋 I’m <strong>Sampada Tiwari</strong>, a passionate developer & designer.  
+        I enjoy building digital products that blend creativity with functionality.  
+        If you’d like to discuss a project, share feedback, or just say hello, feel free to reach out below.
+      </p>
     </div>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
+    <!-- Info cards -->
+    <div class="info-grid">
+      <div class="info-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>New Delhi, India</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-phone"></i>
+        <p>+91 98765 XXXXX</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-clock"></i>
+        <p>Mon - Fri (10AM - 6PM)</p>
+      </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/contact.js"></script>
+    <!-- Email -->
+    <div class="email-box">
+      <a href="mailto:youremail@example.com">
+        <i class="fa-solid fa-envelope"></i> sampada@example.com
+      </a>
+    </div>
+
+    <!-- Social links -->
+    <div class="social-grid">
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a>
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-github"></i> <span>GitHub</span></a>
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-twitter"></i> <span>Twitter</span></a>
+    </div>
+
+    <!-- Contact form -->
+    <div class="contact-form">
+      <h3>Send Me a Message</h3>
+      <form>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn w-100">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    const scrollBtn = document.getElementById('scrollTop');
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Scroll top
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('show', window.scrollY > 200);
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+
+    // Theme toggle
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light');
+      const icon = themeToggle.querySelector("i");
+      icon.classList.toggle("fa-sun", body.classList.contains("light"));
+      icon.classList.toggle("fa-moon", !body.classList.contains("light"));
+    });
+  </script>
 </body>
 </html>
