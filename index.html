@@ -633,6 +633,30 @@
   </div>
 
 </footer>
+<!-- Back to Top Button -->
+<button id="backToTopBtn" 
+  class="hidden fixed bottom-6 right-6 bg-white/80 backdrop-blur-md text-indigo-600 p-5 rounded-full shadow-lg border border-indigo-200 hover:bg-indigo-600 hover:text-white transition transform hover:scale-110">
+  ⬆️
+</button>
+
+<script>
+  const backToTopBtn = document.getElementById("backToTopBtn");
+
+  // Show button when scrolling down
+  window.addEventListener("scroll", () => {
+    if (document.documentElement.scrollTop > 200) {
+      backToTopBtn.classList.remove("hidden");
+    } else {
+      backToTopBtn.classList.add("hidden");
+    }
+  });
+
+  // Smooth scroll
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
 
 <script src="js/index.js"></script>
 
