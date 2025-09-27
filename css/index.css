@@ -27,7 +27,7 @@ body.light {
 /* SKILLS SECTION */
 #skills {
   padding: 6rem 8%;
-  background: #111827; /* dark background */
+  background: #0f172a; /* consistent navy blue background */
   color: #fff;
   text-align: center;
 }
@@ -170,7 +170,7 @@ body.light .progress-bar {
 /* Projects Section */
 .projects {
   padding: 80px 10%;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: #0f172a; /* consistent navy blue background */
   color: #fff;
   text-align: center;
 }
@@ -365,16 +365,6 @@ body.light #hero {
   background: #f9fafb; /* light background */
 }
 
-/* Floating Background Shapes Light Mode */
-body.light #hero .bg-[#38bdf8] {
-  background: #38bdf8; /* keep same or lighten a bit */
-  opacity: 0.25;
-}
-body.light #hero .bg-[#a855f7] {
-  background: #a855f7;
-  opacity: 0.2;
-}
-
 /* Hero Text Light Mode */
 body.light #hero h2 {
   color: #111827; /* dark text for light mode */
@@ -388,20 +378,6 @@ body.light #hero p {
 }
 body.light #typed {
   color: #2563eb; /* bright blue highlight */
-}
-
-/* Buttons Light Mode */
-body.light #hero a.bg-[#38bdf8] {
-  background: #2563eb; /* darker blue for contrast */
-  color: #fff;
-}
-body.light #hero a.border-[#38bdf8] {
-  border-color: #2563eb;
-  color: #2563eb;
-}
-body.light #hero a.border-[#38bdf8]:hover {
-  background: #2563eb;
-  color: #fff;
 }
 
 /* Image Border Light Mode */
@@ -646,14 +622,25 @@ body.light #contact-form {
   background: rgba(255, 255, 255, 0.85); /* light translucent form */
   color: #111827;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  backdrop-blur: none; /* remove blur for light mode */
+  backdrop-filter: none; /* remove blur for light mode */
+  border: 1px solid #e5e7eb;
+}
+
+/* Form Labels */
+body.light #contact-form label {
+  color: #374151 !important; /* dark gray for labels */
+}
+
+/* Form Headings */
+body.light #contact-form h3 {
+  color: #2563eb !important; /* blue heading */
 }
 
 /* Form Inputs and Textarea */
 body.light #contact-form input,
 body.light #contact-form textarea {
   background: #ffffff; /* light input fields */
-  color: #111827;
+  color: #111827 !important;
   border: 1px solid #d1d5db; /* subtle gray border */
 }
 
@@ -678,22 +665,74 @@ body.light #contact-form button:hover {
   box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
 }
 
-/* Contact Info Section */
+/* Contact Info Section Background */
+body.light #contact .bg-white\/5 {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Contact Info Section Headings */
+body.light #contact h3 {
+  color: #2563eb !important; /* headings in dark blue */
+}
+
+/* All Contact Section Text */
+body.light #contact .text-gray-400 {
+  color: #6b7280 !important; /* gray labels */
+}
+
+body.light #contact .text-white {
+  color: #111827 !important; /* main text to dark */
+}
+
+body.light #contact .text-gray-300 {
+  color: #4b5563 !important; /* description text */
+}
+
+/* Contact Info Icons */
 body.light #contact .text-cyan-400 {
-  color: #2563eb; /* headings in dark blue */
+  color: #2563eb !important; /* icons in dark blue */
 }
 
-body.light #contact p {
-  color: #4b5563; /* info text */
+body.light #contact .bg-cyan-500\/20 {
+  background: rgba(37, 99, 235, 0.1) !important; /* icon backgrounds */
 }
 
-/* Social Icons */
+body.light #contact .group:hover .bg-cyan-500\/30 {
+  background: rgba(37, 99, 235, 0.2) !important; /* icon hover backgrounds */
+}
+
+/* Social Media Links */
 body.light #contact a {
-  color: #111827; /* icon color */
+  color: #111827; /* default link color */
 }
 
 body.light #contact a:hover {
   color: #2563eb; /* hover blue */
+}
+
+body.light #contact a span {
+  color: #111827 !important; /* social media text */
+}
+
+body.light #contact a:hover span {
+  color: #2563eb !important; /* hover color for social text */
+}
+
+/* Social Icons */
+body.light #contact .fab {
+  color: #2563eb !important; /* social media icons */
+}
+
+body.light #contact a:hover .fab {
+  color: #1d4ed8 !important; /* darker blue on hover */
+}
+
+/* Success Message */
+body.light #success-message {
+  background: #059669; /* green success background */
+  color: #fff;
 }
 
 /* ================= Footer Light Mode ================= */
