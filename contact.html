@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Me</title>
+  <title>Contact — Sampada Tiwari</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -25,7 +26,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 3rem 1rem; /* top spacing added */
+      padding: 5rem 1rem 3rem; /* increased top padding for navbar */
       background: radial-gradient(circle at top left, #1e1e2f, var(--bg-dark));
       color: var(--text-light);
       transition: all 0.4s ease;
@@ -34,6 +35,70 @@
     body.light {
       background: radial-gradient(circle at top left, #ffffff, var(--bg-light));
       color: var(--text-dark);
+    }
+
+    /* Navbar Styles */
+    .nav-link {
+      position: relative;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #22d3ee;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #22d3ee;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Light mode navbar */
+    body.light .nav-link {
+      color: #1a1a1a;
+    }
+    body.light .nav-link:hover {
+      color: #6c5ce7;
+    }
+    body.light .nav-link::after {
+      background-color: #6c5ce7;
+    }
+    body.light header {
+      background: rgba(249, 249, 249, 0.8) !important;
+    }
+    body.light header h1 {
+      color: #1a1a1a !important;
+    }
+    body.light header h1 span {
+      color: #6c5ce7 !important;
+    }
+    body.light #menu-btn svg {
+      stroke: #1a1a1a;
+    }
+    body.light #mobile-menu {
+      background: rgba(249, 249, 249, 0.95) !important;
+    }
+    /* Fix navbar theme toggle visibility in light mode - keep original styling */
+    body.light #theme-toggle {
+      color: #6c5ce7 !important;
+    }
+    body.light #theme-toggle:hover {
+      color: #22d3ee !important;
+    }
+    body.light #theme-toggle i,
+    body.light #theme-toggle-icon {
+      color: #6c5ce7 !important;
+    }
+    body.light #theme-toggle:hover i,
+    body.light #theme-toggle:hover #theme-toggle-icon {
+      color: #22d3ee !important;
     }
 
     .contact-wrapper {
@@ -207,7 +272,7 @@
       color: var(--text-light);
     }
     .contact-form .form-control::placeholder {
-      color: #ccc; /* visible in dark mode */
+      color: #ccc;
     }
     body.light .contact-form .form-control {
       background: #fff;
@@ -260,9 +325,78 @@
       background: var(--accent);
       color: #fff;
     }
+
+    /* Light mode theme toggle visibility */
+    body.light .theme-toggle {
+      border: 3px solid var(--primary);
+      color: var(--primary);
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(108, 92, 231, 0.5);
+      font-weight: bold;
+    }
+    body.light .theme-toggle:hover {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 6px 25px rgba(108, 92, 231, 0.6);
+      transform: scale(1.1);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding: 5rem 1rem 2rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      
+      <!-- Brand / Logo -->
+      <h1 class="text-2xl font-bold text-white">
+        Sampada <span class="text-cyan-400">Tiwari</span>
+      </h1>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-6 font-medium">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="project.html" class="nav-link">Projects</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="ml-4 text-white hover:text-cyan-400 transition">
+          <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
+      <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="project.html" class="nav-link">Projects</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
   <div class="contact-wrapper">
     <div class="blob"></div>
     <div class="blob"></div>
@@ -270,15 +404,15 @@
     <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
 
     <div class="contact-heading">
-      <h1>Let’s Connect</h1>
-      <p>Collaboration, ideas, or questions — I’m always open to meaningful conversations.</p>
+      <h1>Let's Connect</h1>
+      <p>Collaboration, ideas, or questions — I'm always open to meaningful conversations.</p>
     </div>
 
     <div class="intro">
       <p>
-        Hi 👋 I’m <strong>Sampada Tiwari</strong>, a passionate developer & designer.  
+        Hi 👋 I'm <strong>Sampada Tiwari</strong>, a passionate developer & designer.  
         I enjoy building digital products that blend creativity with functionality.  
-        If you’d like to discuss a project, share feedback, or just say hello, feel free to reach out below.
+        If you'd like to discuss a project, share feedback, or just say hello, feel free to reach out below.
       </p>
     </div>
 
@@ -300,7 +434,7 @@
 
     <!-- Email -->
     <div class="email-box">
-      <a href="mailto:youremail@example.com">
+      <a href="mailto:sampada@example.com">
         <i class="fa-solid fa-envelope"></i> sampada@example.com
       </a>
     </div>
@@ -333,26 +467,138 @@
 
   <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
 
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // Theme Toggle functionality (dual toggles working together)
     const scrollBtn = document.getElementById('scrollTop');
-    const themeToggle = document.getElementById('themeToggle');
+    const themeToggleMain = document.getElementById('theme-toggle');
+    const themeToggleContact = document.getElementById('themeToggle');
     const body = document.body;
 
-    // Scroll top
+    // Function to sync both toggle buttons
+    function syncThemeToggles(isLight) {
+      const moonIcon = '<i class="fas fa-moon"></i>';
+      const sunIcon = '<i class="fas fa-sun"></i>';
+      
+      if (themeToggleMain) {
+        const mainIcon = themeToggleMain.querySelector('i');
+        if (mainIcon) {
+          mainIcon.className = isLight ? 'fas fa-sun text-xl' : 'fas fa-moon text-xl';
+        }
+      }
+      
+      if (themeToggleContact) {
+        themeToggleContact.innerHTML = isLight ? sunIcon : moonIcon;
+      }
+    }
+
+    // Function to toggle theme
+    function toggleTheme() {
+      body.classList.toggle('light');
+      const isLight = body.classList.contains('light');
+      syncThemeToggles(isLight);
+    }
+
+    // Event listeners for both toggle buttons
+    if (themeToggleMain) {
+      themeToggleMain.addEventListener('click', toggleTheme);
+    }
+    
+    if (themeToggleContact) {
+      themeToggleContact.addEventListener('click', toggleTheme);
+    }
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Scroll top functionality
     window.addEventListener('scroll', () => {
       scrollBtn.classList.toggle('show', window.scrollY > 200);
     });
+    
     scrollBtn.addEventListener('click', () => {
       window.scrollTo({top:0, behavior:'smooth'});
     });
 
-    // Theme toggle
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('light');
-      const icon = themeToggle.querySelector("i");
-      icon.classList.toggle("fa-sun", body.classList.contains("light"));
-      icon.classList.toggle("fa-moon", !body.classList.contains("light"));
+    // Enhanced hover effects for social items
+    document.querySelectorAll(".social-card").forEach((item) => {
+      item.addEventListener("mouseenter", function () {
+        this.style.transform = "translateY(-5px) scale(1.02)";
+      });
+
+      item.addEventListener("mouseleave", function () {
+        this.style.transform = "translateY(0) scale(1)";
+      });
     });
+
+    // Email click tracking
+    const emailLink = document.querySelector(".email-box a");
+    if (emailLink) {
+      emailLink.addEventListener("click", function () {
+        console.log("Email clicked - opening default email client");
+      });
+    }
+
+    // Add subtle parallax effect to background
+    window.addEventListener("scroll", function () {
+      const scrolled = window.pageYOffset;
+      const blobs = document.querySelectorAll('.blob');
+      const rate = scrolled * -0.1;
+      
+      blobs.forEach(blob => {
+        blob.style.transform = `translateY(${rate}px)`;
+      });
+    });
+
+    // Add click ripple effect to social items
+    document.querySelectorAll(".social-card").forEach((item) => {
+      item.addEventListener("click", function (e) {
+        const ripple = document.createElement("span");
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.width = ripple.style.height = size + "px";
+        ripple.style.left = x + "px";
+        ripple.style.top = y + "px";
+        ripple.classList.add("ripple");
+
+        this.appendChild(ripple);
+
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // Add ripple effect styles dynamically
+    const style = document.createElement("style");
+    style.textContent = `
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(108, 92, 231, 0.3);
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        pointer-events: none;
+      }
+      
+      @keyframes ripple-animation {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </body>
 </html>
