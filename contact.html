@@ -1,358 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact Me</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/contact.css">
 
   <style>
     :root {
-      --bg-dark: #0f0f1a;
-      --bg-light: #f9f9f9;
-      --card-dark: rgba(255,255,255,0.05);
-      --card-light: #ffffff;
-      --primary: #6c5ce7;
-      --accent: #00eaff;
-      --text-dark: #222;
-      --text-light: #f5f5f5;
-      --text-muted-dark: #a0a0a0;
-      --text-muted-light: #555;
+      --nav-link-color: #111827;
+      --nav-link-hover: #6c5ce7;
+      --header-bg: rgba(255,255,255,0.95);
+      --toggle-icon-color: #111827;
+    }
+
+    body.dark {
+      --nav-link-color: #e6eef6;
+      --nav-link-hover: #6c5ce7;
+      --header-bg: rgba(2,6,23,0.95);
+      --toggle-icon-color: #e6eef6;
     }
 
     body {
+      padding-top: 74px;
+      transition: background-color .2s ease, color .2s ease;
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 3rem 1rem; /* top spacing added */
-      background: radial-gradient(circle at top left, #1e1e2f, var(--bg-dark));
-      color: var(--text-light);
-      transition: all 0.4s ease;
+      background: #1a1a1a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
     }
 
-    body.light {
-      background: radial-gradient(circle at top left, #ffffff, var(--bg-light));
-      color: var(--text-dark);
+    #site-header {
+      background-color: var(--header-bg);
+      transition: background-color .3s ease, color .3s ease;
     }
 
-    .contact-wrapper {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2.5rem;
+    nav .nav-link {
+      color: var(--nav-link-color) !important;
+      text-decoration: none !important;
+      font-weight: 500;
+      transition: color .3s ease;
+    }
+
+    nav .nav-link:hover {
+      color: var(--nav-link-hover) !important;
+    }
+
+    .nav-name { font-size: 1.5rem; font-weight:700; letter-spacing:1px; }
+
+    #themeIcon, #menu-open-icon, #menu-close-icon { color: var(--toggle-icon-color); transition: color .3s ease; }
+
+    #mobile-menu {
+      transition: max-height .25s ease, background-color .3s ease;
+      overflow: hidden;
+      background-color: var(--header-bg);
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: #2a2a2a;
       border-radius: 25px;
-      background: var(--card-dark);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(108,92,231,0.2);
+      border: 1px solid rgba(108, 92, 231, 0.2);
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
       position: relative;
       overflow: hidden;
-      transition: all 0.4s ease;
-    }
-    body.light .contact-wrapper {
-      background: var(--card-light);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
     }
 
-    /* Floating blobs */
-    .blob {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, var(--primary), transparent 70%);
-      border-radius: 50%;
-      filter: blur(90px);
-      animation: float 12s ease-in-out infinite alternate;
-      opacity: 0.6;
-      z-index: -1;
-    }
-    .blob:nth-child(1){ top: -50px; left: -80px; }
-    .blob:nth-child(2){ bottom: -60px; right: -100px; background: radial-gradient(circle, var(--accent), transparent 70%); }
-
-    @keyframes float {
-      0%{ transform: translateY(0) translateX(0);}
-      100%{ transform: translateY(-40px) translateX(40px);}
-    }
-
-    /* Headings */
-    .contact-heading {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
     .contact-heading h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
       font-weight: 700;
-      font-size: 2.8rem;
-      background: linear-gradient(90deg, var(--accent), var(--primary));
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, rgb(0, 229, 255), rgb(59, 59, 253));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }
-    .contact-heading p {
-      color: var(--text-muted-dark);
-      font-size: 1.1rem;
-    }
-    body.light .contact-heading p { color: var(--text-muted-light); }
-
-    /* Intro */
-    .intro {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1.05rem;
-      line-height: 1.6;
+      text-shadow: 0 0 30px rgba(108, 92, 231, 0.3);
     }
 
-    /* Info cards */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-    .info-card {
-      padding: 1rem;
-      border-radius: 15px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      text-align: center;
-    }
-    body.light .info-card {
-      background: #fafafa;
-      border: 1px solid #ddd;
-    }
-    .info-card i {
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
-    .info-card p { margin: 0; }
+    .social-title, .social-text, .email-address { color: var(--royal-purple); }
 
-    /* Email */
-    .email-box {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    .email-box a {
-      font-size: 1.2rem;
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.7rem 1.4rem;
-      border-radius: 12px;
-      background: linear-gradient(45deg, var(--primary), var(--accent));
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    body.light .email-box a { color: #fff; }
-    .email-box a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 234, 255, 0.3);
-    }
-
-    /* Social */
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-    .social-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
-      border-radius: 15px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      text-decoration: none;
-      color: var(--text-light);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    body.light .social-card {
-      background: #fafafa;
-      color: var(--text-dark);
-      border: 1px solid #ddd;
-    }
-    .social-card i { font-size: 1.6rem; }
-    .social-card span {
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-    .social-card::after {
-      content: "";
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.6s ease;
-    }
-    .social-card:hover::after { left: 100%; }
-    .social-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-    }
-
-    /* Form */
-    .contact-form {
-      margin-bottom: 2.5rem;
-    }
-    .contact-form h3 {
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    .contact-form .form-control {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: var(--text-light);
-    }
-    .contact-form .form-control::placeholder {
-      color: #ccc; /* visible in dark mode */
-    }
-    body.light .contact-form .form-control {
-      background: #fff;
-      color: var(--text-dark);
-      border: 1px solid #ccc;
-    }
-    .contact-form .btn {
-      background: linear-gradient(45deg, var(--primary), var(--accent));
-      border: none;
-      color: #fff;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    .contact-form .btn:hover { transform: scale(1.02); }
-
-    /* Scroll top */
-    .scroll-top {
+    .background-animation {
       position: fixed;
-      bottom: 25px; right: 25px;
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      border: none;
-      background: linear-gradient(45deg, var(--primary), var(--accent));
-      color: #fff;
-      font-size: 1.2rem;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at 20% 30%, rgba(108, 92, 231, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 70%, rgba(0, 31, 63, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 80%, rgba(108, 92, 231, 0.05) 0%, transparent 50%);
     }
-    .scroll-top.show { opacity: 1; visibility: visible; }
 
-    /* Theme toggle */
-    .theme-toggle {
+    .dot {
       position: absolute;
-      top: 20px; right: 20px;
-      background: none;
-      border: 2px solid var(--accent);
-      color: var(--accent);
+      width: 4px;
+      height: 4px;
+      background: #6c5ce7;
       border-radius: 50%;
-      width: 42px; height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .theme-toggle:hover {
-      background: var(--accent);
-      color: #fff;
+      opacity: 0.3;
     }
   </style>
 </head>
 <body>
-  <div class="contact-wrapper">
-    <div class="blob"></div>
-    <div class="blob"></div>
 
-    <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+  <header id="site-header" class="fixed top-0 left-0 w-full backdrop-blur-md z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 style="font-family: 'Space Grotesk', sans-serif; margin:0; font-weight:700;">
+        <span class="nav-name" id="brand-first">Sampada</span> <span id="brand-last" style="color:#06b6d4">Tiwari</span>
+      </h1>
 
-    <div class="contact-heading">
-      <h1>Let’s Connect</h1>
-      <p>Collaboration, ideas, or questions — I’m always open to meaningful conversations.</p>
-    </div>
+      <nav class="space-x-6 hidden md:flex items-center" aria-label="Primary">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="project.html" class="nav-link">Projects</a>
+        <a href="index.html#testimonial" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
 
-    <div class="intro">
-      <p>
-        Hi 👋 I’m <strong>Sampada Tiwari</strong>, a passionate developer & designer.  
-        I enjoy building digital products that blend creativity with functionality.  
-        If you’d like to discuss a project, share feedback, or just say hello, feel free to reach out below.
-      </p>
-    </div>
-
-    <!-- Info cards -->
-    <div class="info-grid">
-      <div class="info-card">
-        <i class="fas fa-map-marker-alt"></i>
-        <p>New Delhi, India</p>
-      </div>
-      <div class="info-card">
-        <i class="fas fa-phone"></i>
-        <p>+91 98765 XXXXX</p>
-      </div>
-      <div class="info-card">
-        <i class="fas fa-clock"></i>
-        <p>Mon - Fri (10AM - 6PM)</p>
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" aria-label="Toggle theme" class="p-2 rounded-md hover:bg-white/5 transition">
+          <i id="themeIcon" class="fas fa-moon"></i>
+        </button>
+        <button id="menu-btn" class="md:hidden p-2 rounded-md focus:outline-none" aria-label="Open menu" aria-expanded="false">
+          <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
       </div>
     </div>
 
-    <!-- Email -->
-    <div class="email-box">
-      <a href="mailto:youremail@example.com">
-        <i class="fa-solid fa-envelope"></i> sampada@example.com
-      </a>
+    <div id="mobile-menu" class="md:hidden">
+      <nav class="flex flex-col px-6 py-4 space-y-3" aria-label="Mobile primary">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="project.html" class="nav-link">Projects</a>
+        <a href="index.html#testimonial" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Social links -->
-    <div class="social-grid">
-      <a href="#" target="_blank" class="social-card"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a>
-      <a href="#" target="_blank" class="social-card"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
-      <a href="#" target="_blank" class="social-card"><i class="fab fa-github"></i> <span>GitHub</span></a>
-      <a href="#" target="_blank" class="social-card"><i class="fab fa-twitter"></i> <span>Twitter</span></a>
-    </div>
-
-    <!-- Contact form -->
-    <div class="contact-form">
-      <h3>Send Me a Message</h3>
-      <form>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Your Name" required>
-        </div>
-        <div class="mb-3">
-          <input type="email" class="form-control" placeholder="Your Email" required>
-        </div>
-        <div class="mb-3">
-          <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
-        </div>
-        <button type="submit" class="btn w-100">Send Message</button>
-      </form>
+  <!-- Background Animation -->
+  <div class="background-animation">
+    <div class="floating-dots">
+      <div class="dot" style="top:20%;left:10%;"></div>
+      <div class="dot" style="top:60%;left:20%;"></div>
+      <div class="dot" style="top:40%;left:80%;"></div>
+      <div class="dot" style="top:80%;left:70%;"></div>
+      <div class="dot" style="top:10%;left:60%;"></div>
     </div>
   </div>
 
-  <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+  <!-- Main Content -->
+  <div class="main-container">
+    <div class="container">
+      <div class="contact-card">
+        <div class="home-logo">
+          <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+
+        <div class="contact-heading">
+          <h1>Get in Touch</h1>
+        </div>
+
+        <div class="email-section">
+          <div class="email-label">Email ID:</div>
+          <a href="mailto:sampada00000@gmail.com" class="email-address">sampada00000@gmail.com</a>
+        </div>
+
+        <div class="social-section">
+          <h3 class="social-title">Connect with me!</h3>
+          <div class="social-grid">
+            <a href="#" class="social-item linkedin" target="_blank"><i class="fab fa-linkedin social-icon"></i><span class="social-text">LinkedIn</span></a>
+            <a href="#" class="social-item instagram" target="_blank"><i class="fab fa-instagram social-icon"></i><span class="social-text">Instagram</span></a>
+            <a href="#" class="social-item facebook" target="_blank"><i class="fab fa-facebook social-icon"></i><span class="social-text">Facebook</span></a>
+            <a href="#" class="social-item twitter" target="_blank"><i class="fab fa-twitter social-icon"></i><span class="social-text">Twitter</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="scroll-top btn btn-dark" id="scrollTop" aria-label="Scroll to top" title="Scroll to top" style="display:none">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    const scrollBtn = document.getElementById('scrollTop');
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOpenIcon = document.getElementById('menu-open-icon');
+    const menuCloseIcon = document.getElementById('menu-close-icon');
+    let menuOpen = false;
 
-    // Scroll top
+    function setMobileMenu(open) {
+      menuOpen = open;
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) {
+        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+        menuOpenIcon.classList.add('hidden');
+        menuCloseIcon.classList.remove('hidden');
+      } else {
+        mobileMenu.style.maxHeight = '0px';
+        menuOpenIcon.classList.remove('hidden');
+        menuCloseIcon.classList.add('hidden');
+      }
+    }
+    mobileMenu.style.maxHeight = '0px';
+    menuCloseIcon.classList.add('hidden');
+    menuBtn.addEventListener('click', () => setMobileMenu(!menuOpen));
+    mobileMenu.addEventListener('click', (e) => { if (e.target.tagName === 'A') setMobileMenu(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth >= 768) setMobileMenu(false); });
+
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const siteHeader = document.getElementById('site-header');
+    const NAV_LINKS = document.querySelectorAll('.nav-link');
+
+    function applyTheme(theme) {
+      theme = (theme === 'dark') ? 'dark' : 'light';
+      if (theme === 'dark') {
+        document.body.classList.add('dark');
+        document.body.style.backgroundColor = '#071221';
+        document.body.style.color = '#e6eef6';
+        siteHeader.style.backgroundColor = 'rgba(2,6,23,0.95)';
+        NAV_LINKS.forEach(a => a.style.color = '#e6eef6');
+        document.getElementById('brand-first').style.color = '#e6eef6';
+        document.getElementById('brand-last').style.color = '#06b6d4';
+        document.querySelectorAll('.contact-card').forEach(c => { c.style.backgroundColor='#071b2a'; c.style.color='#e6eef6'; });
+        document.querySelectorAll('.social-title, .social-text').forEach(el => el.style.color='#e6eef6');
+        document.querySelectorAll('.social-icon').forEach(icon=>icon.style.color='#e6eef6');
+        themeIcon.className='fas fa-sun';
+        themeIcon.style.color='#e6eef6';
+        menuOpenIcon.style.color='#e6eef6';
+        menuCloseIcon.style.color='#e6eef6';
+        mobileMenu.style.backgroundColor='rgba(2,6,23,0.95)';
+      } else {
+        document.body.classList.remove('dark');
+        document.body.style.backgroundColor='#ffffff';
+        document.body.style.color='#071221';
+        siteHeader.style.backgroundColor='rgba(255,255,255,0.95)';
+        NAV_LINKS.forEach(a => a.style.color='#071221');
+        document.getElementById('brand-first').style.color='#071221';
+        document.getElementById('brand-last').style.color='#06b6d4';
+        document.querySelectorAll('.contact-card').forEach(c => { c.style.backgroundColor='#ffffff'; c.style.color='#071221'; });
+        document.querySelectorAll('.social-title, .social-text').forEach(el => el.style.color='#071221');
+        document.querySelectorAll('.social-icon').forEach(icon=>icon.style.color='#071221');
+        themeIcon.className='fas fa-moon';
+        themeIcon.style.color='#071221';
+        menuOpenIcon.style.color='#071221';
+        menuCloseIcon.style.color='#071221';
+        mobileMenu.style.backgroundColor='rgba(255,255,255,0.95)';
+      }
+      localStorage.setItem('theme', theme);
+    }
+
+    // Apply saved theme from localStorage
+    applyTheme(localStorage.getItem('theme') || 'light');
+
+    // Toggle theme correctly
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
+
+    const scrollTopBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
-      scrollBtn.classList.toggle('show', window.scrollY > 200);
+      if (window.scrollY > 300) {
+        scrollTopBtn.style.display='block';
+      } else {
+        scrollTopBtn.style.display='none';
+      }
     });
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({top:0, behavior:'smooth'});
-    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-    // Theme toggle
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('light');
-      const icon = themeToggle.querySelector("i");
-      icon.classList.toggle("fa-sun", body.classList.contains("light"));
-      icon.classList.toggle("fa-moon", !body.classList.contains("light"));
-    });
   </script>
 </body>
 </html>
