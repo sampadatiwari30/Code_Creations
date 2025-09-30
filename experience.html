@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,74 +19,93 @@
       <i class="fas fa-moon" id="theme-icon"></i>
     </button>
     <!-- Navbar -->
-<header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-    
-    <!-- Brand / Logo -->
-    <h1 class="text-2xl font-bold text-white">
-      Sampada <span class="text-cyan-400">Tiwari</span>
-    </h1>
+    <header
+      class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <!-- Brand / Logo -->
+        <h1 class="text-2xl font-bold text-white">
+          Sampada <span class="text-cyan-400">Tiwari</span>
+        </h1>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center space-x-6 font-medium">
-      <a href="#hero" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="experience.html" class="nav-link">Experience</a>
-      <a href="project.html" class="nav-link">Projects</a>
-      <a href="#testimonials" class="nav-link">Testimonials</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-6 font-medium">
+          <a href="#hero" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="experience.html" class="nav-link">Experience</a>
+          <a href="project.html" class="nav-link">Projects</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="contact.html" class="nav-link">Contact</a>
 
-      <!-- Theme Toggle -->
-      <button id="theme-toggle" class="ml-4 text-white hover:text-cyan-400 transition">
-        <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
-      </button>
-    </nav>
+          <!-- Theme Toggle -->
+          <button
+            id="theme-toggle"
+            class="ml-4 text-white hover:text-cyan-400 transition"
+          >
+            <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
+          </button>
+        </nav>
 
-    <!-- Mobile Menu Button -->
-    <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
-    <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
-      <a href="#hero" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="skills.html" class="nav-link">Skills</a>
-      <a href="experience.html" class="nav-link">Experience</a>
-      <a href="project.html" class="nav-link">Projects</a>
-      <a href="#testimonials" class="nav-link">Testimonials</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-  </div>
-</header>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md"
+      >
+        <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
+          <a href="#hero" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="skills.html" class="nav-link">Skills</a>
+          <a href="experience.html" class="nav-link">Experience</a>
+          <a href="project.html" class="nav-link">Projects</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-<!-- Tailwind Nav Link Styling -->
-<style>
-  .nav-link {
-    @apply relative text-white transition duration-300;
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #22d3ee; /* cyan-400 */
-    transition: width 0.3s ease;
-  }
-  .nav-link:hover {
-    color: #22d3ee; /* cyan-400 */
-  }
-  .nav-link:hover::after {
-    width: 100%;
-  }
-</style>
+    <!-- Tailwind Nav Link Styling -->
+    <style>
+      .nav-link {
+        @apply relative text-white transition duration-300;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #22d3ee; /* cyan-400 */
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover {
+        color: #22d3ee; /* cyan-400 */
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+    </style>
 
     <!-- Header -->
     <header class="text-center py-10" style="margin-top: 6rem">
@@ -431,10 +450,12 @@
           <ul
             class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2"
           >
-          <li>
+            <li>
               <a href="index.html" class="hover:text-cyan-400 transition-colors"
                 >Home</a
               >
+            </li>
+
             <li>
               <a href="about.html" class="hover:text-cyan-400 transition-colors"
                 >About</a
