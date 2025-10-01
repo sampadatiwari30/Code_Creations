@@ -26,7 +26,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 5rem 1rem 3rem; /* increased top padding for navbar */
+      padding: 5rem 1rem 0;
       background: radial-gradient(circle at top left, #1e1e2f, var(--bg-dark));
       color: var(--text-light);
       transition: all 0.4s ease;
@@ -103,7 +103,7 @@
 
     .contact-wrapper {
       max-width: 1000px;
-      margin: auto;
+      margin: 2rem auto;
       padding: 2.5rem;
       border-radius: 25px;
       background: var(--card-dark);
@@ -341,10 +341,68 @@
       transform: scale(1.1);
     }
 
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      margin-top: 4rem;
+    }
+    
+    body.light footer {
+      background: linear-gradient(135deg, #f9f9f9 0%, #e8e8e8 100%);
+      color: #1a1a1a;
+    }
+
+    body.light footer h2 {
+      background: linear-gradient(to right, #6c5ce7, #00c6ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    body.light footer p {
+      color: #555;
+    }
+
+    body.light footer h3 {
+      color: #6c5ce7;
+    }
+
+    body.light footer a {
+      color: #1a1a1a;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    body.light footer a:hover {
+      color: #6c5ce7;
+      transform: scale(1.1);
+    }
+
+    body.light footer .border-t {
+      border-color: #ddd;
+    }
+
+    body.light footer .text-gray-500 {
+      color: #555;
+    }
+
+    body.light footer .text-gray-400 {
+      color: #777;
+    }
+
+    body.light footer .fab,
+    body.light footer .fas {
+      color: #1a1a1a;
+    }
+
+    body.light footer .fab:hover,
+    body.light footer .fas:hover {
+      color: #6c5ce7;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
       body {
-        padding: 5rem 1rem 2rem;
+        padding: 5rem 1rem 0;
       }
     }
   </style>
@@ -464,6 +522,74 @@
       </form>
     </div>
   </div>
+
+  <!-- Footer Section -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12">
+    <!-- Footer Container -->
+    <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
+      <!-- Brand / Logo -->
+      <div class="text-center md:text-left">
+        <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+          Sampada<span class="font-extrabold">Tiwari</span>
+        </h2>
+        <p class="text-gray-400 mt-1 text-sm md:text-base">
+          Data Scientist • Leader • Creator
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="text-center md:text-left">
+        <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
+        <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2">
+          <li>
+            <a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a>
+          </li>
+          <li>
+            <a href="about.html" class="hover:text-cyan-400 transition-colors">About</a>
+          </li>
+          <li>
+            <a href="skills.html" class="hover:text-cyan-400 transition-colors">Skills</a>
+          </li>
+          <li>
+            <a href="experience.html" class="hover:text-cyan-400 transition-colors">Experience</a>
+          </li>
+          <li>
+            <a href="project.html" class="hover:text-cyan-400 transition-colors">Projects</a>
+          </li>
+          <li>
+            <a href="index.html#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a>
+          </li>
+          <li>
+            <a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="text-center md:text-left">
+        <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
+        <div class="flex justify-center md:justify-start gap-4 text-2xl">
+          <a href="https://linkedin.com/in/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="mailto:sampada@example.com" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+      © 2025 Sampada Tiwari • All Rights Reserved
+    </div>
+  </footer>
 
   <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
 
