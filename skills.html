@@ -1,268 +1,303 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Skills — Sampada Tiwari</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #38bdf8;
-      --secondary: #a855f7;
-      --dark: #0f172a;
-    }
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--dark);
-      color: #fff;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
-    #skills {
-      padding: 6rem 8%;
-      background: #111827;
-      color: #fff;
-      text-align: center;
-    }
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: .5rem;
-    }
-    .section-title span { color: #38bdf8; }
-    .section-subtitle {
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
-      color: #9ca3af;
-    }
-    .skill-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-    }
-    .skill-tabs .tab {
-      padding: .7rem 1.5rem;
-      border: none;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      cursor: pointer;
-      transition: .3s;
-      font-weight: 600;
-    }
-    .skill-tabs .tab.active,
-    .skill-tabs .tab:hover {
-      background: linear-gradient(45deg, #38bdf8, #a855f7);
-      color: #000;
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-    }
-    .skill-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      padding: 1.5rem;
-      text-align: left;
-      transition: transform .3s, background .3s;
-      box-shadow: 0 0 20px rgba(0,0,0,.3);
-    }
-    .skill-card:hover {
-      transform: translateY(-5px);
-      background: rgba(56,189,248,0.08);
-    }
-    .skill-card h3 {
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-    .progress {
-      background: rgba(255,255,255,0.1);
-      height: 10px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 100%;
-      background: linear-gradient(90deg,#38bdf8,#a855f7);
-      width: 0;
-      transition: width 2s ease;
-    }
-    .skill-card.visible .progress-bar {
-      width: var(--value);
-    }
-    .hidden { display: none; }
-    @media(max-width: 768px) {
-      .skills-grid { gap: 1.2rem; }
-    }
-
-    /* Small tablets and large phones: 577px - 768px */
-@media (min-width: 577px) and (max-width: 768px) {
-    #skills {
-        padding: 5rem 6%;
-    }
-    .section-title {
-        font-size: 2rem;
-    }
-    .section-subtitle {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-    }
-    .skill-tabs .tab {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.95rem;
-    }
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills — Sampada Tiwari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #38bdf8;
+        --secondary: #a855f7;
+        --dark: #0f172a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: var(--dark);
+        color: #fff;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      #skills {
+        padding: 6rem 8%;
+        background: #111827;
+        color: #fff;
+        text-align: center;
+      }
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .section-title span {
+        color: #38bdf8;
+      }
+      .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+        color: #9ca3af;
+      }
+      .skill-tabs {
+        display: flex;
+        justify-content: center;
         gap: 1rem;
-    }
-    .skill-card {
-        padding: 1.2rem;
-    }
-    .skill-card h3 {
-        font-size: 1rem;
-    }
-    .progress {
-        height: 8px;
-    }
-}
-
-/* Mobile devices: up to 576px */
-@media (max-width: 576px) {
-    #skills {
-        padding: 4rem 4%;
-    }
-    .section-title {
-        font-size: 1.7rem;
-    }
-    .section-subtitle {
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-    }
-    .skill-tabs {
-        gap: 0.6rem;
-    }
-    .skill-tabs .tab {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-    }
-    .skill-card {
-        padding: 1rem;
-    }
-    .skill-card h3 {
-        font-size: 0.95rem;
-    }
-    .progress {
-        height: 7px;
-    }
-}
-
-/* Extra large screens: 1200px and above */
-@media (min-width: 1200px) {
-    #skills {
-        padding: 7rem 10%;
-    }
-    .section-title {
-        font-size: 3rem;
-    }
-    .section-subtitle {
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+      .skill-tabs .tab {
+        padding: 0.7rem 1.5rem;
+        border: none;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: 600;
+      }
+      .skill-tabs .tab.active,
+      .skill-tabs .tab:hover {
+        background: linear-gradient(45deg, #38bdf8, #a855f7);
+        color: #000;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+      }
+      .skill-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 1.5rem;
+        text-align: left;
+        transition:
+          transform 0.3s,
+          background 0.3s;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      }
+      .skill-card:hover {
+        transform: translateY(-5px);
+        background: rgba(56, 189, 248, 0.08);
+      }
+      .skill-card h3 {
+        margin-bottom: 1rem;
         font-size: 1.2rem;
-    }
-    .skills-grid {
-        gap: 2.5rem;
-    }
-}
+      }
+      .progress {
+        background: rgba(255, 255, 255, 0.1);
+        height: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #38bdf8, #a855f7);
+        width: 0;
+        transition: width 2s ease;
+      }
+      .skill-card.visible .progress-bar {
+        width: var(--value);
+      }
+      .hidden {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .skills-grid {
+          gap: 1.2rem;
+        }
+      }
 
+      /* Small tablets and large phones: 577px - 768px */
+      @media (min-width: 577px) and (max-width: 768px) {
+        #skills {
+          padding: 5rem 6%;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+        .section-subtitle {
+          font-size: 1rem;
+          margin-bottom: 2rem;
+        }
+        .skill-tabs .tab {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.95rem;
+        }
+        .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 1rem;
+        }
+        .skill-card {
+          padding: 1.2rem;
+        }
+        .skill-card h3 {
+          font-size: 1rem;
+        }
+        .progress {
+          height: 8px;
+        }
+      }
 
-  </style>
-</head>
-<body>
- <!-- Navbar -->
-<header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-    
-    <!-- Brand / Logo -->
-    <h1 class="text-2xl font-bold text-white">
-      Sampada <span class="text-cyan-400">Tiwari</span>
-    </h1>
+      /* Mobile devices: up to 576px */
+      @media (max-width: 576px) {
+        #skills {
+          padding: 4rem 4%;
+        }
+        .section-title {
+          font-size: 1.7rem;
+        }
+        .section-subtitle {
+          font-size: 0.95rem;
+          margin-bottom: 1.5rem;
+        }
+        .skill-tabs {
+          gap: 0.6rem;
+        }
+        .skill-tabs .tab {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr;
+          gap: 0.8rem;
+        }
+        .skill-card {
+          padding: 1rem;
+        }
+        .skill-card h3 {
+          font-size: 0.95rem;
+        }
+        .progress {
+          height: 7px;
+        }
+      }
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center space-x-6 font-medium">
-      <a href="#hero" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="experience.html" class="nav-link">Experience</a>
-      <a href="project.html" class="nav-link">Projects</a>
-      <a href="#testimonials" class="nav-link">Testimonials</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+      /* Extra large screens: 1200px and above */
+      @media (min-width: 1200px) {
+        #skills {
+          padding: 7rem 10%;
+        }
+        .section-title {
+          font-size: 3rem;
+        }
+        .section-subtitle {
+          font-size: 1.2rem;
+        }
+        .skills-grid {
+          gap: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header
+      class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <!-- Brand / Logo -->
+        <h1 class="text-2xl font-bold text-white">
+          Sampada <span class="text-cyan-400">Tiwari</span>
+        </h1>
 
-      <!-- Theme Toggle -->
-      <button id="theme-toggle" class="ml-4 text-white hover:text-cyan-400 transition">
-        <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
-      </button>
-    </nav>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-6 font-medium">
+          <a href="#hero" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="experience.html" class="nav-link">Experience</a>
+          <a href="project.html" class="nav-link">Projects</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="contact.html" class="nav-link">Contact</a>
 
-    <!-- Mobile Menu Button -->
-    <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
+          <!-- Theme Toggle -->
+          <button
+            id="theme-toggle"
+            class="ml-4 text-white hover:text-cyan-400 transition"
+          >
+            <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
+          </button>
+        </nav>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
-    <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
-      <a href="#hero" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="experience.html" class="nav-link">Experience</a>
-      <a href="project.html" class="nav-link">Projects</a>
-      <a href="#testimonials" class="nav-link">Testimonials</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-  </div>
-</header>
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
 
-<!-- Tailwind Nav Link Styling -->
-<style>
-  .nav-link {
-    @apply relative text-white transition duration-300;
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #22d3ee; /* cyan-400 */
-    transition: width 0.3s ease;
-  }
-  .nav-link:hover {
-    color: #22d3ee; /* cyan-400 */
-  }
-  .nav-link:hover::after {
-    width: 100%;
-  }
-</style>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md"
+      >
+        <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
+          <a href="#hero" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="experience.html" class="nav-link">Experience</a>
+          <a href="project.html" class="nav-link">Projects</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
+    <!-- Tailwind Nav Link Styling -->
+    <style>
+      .nav-link {
+        @apply relative text-white transition duration-300;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #22d3ee; /* cyan-400 */
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover {
+        color: #22d3ee; /* cyan-400 */
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+    </style>
+
+    <script>
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
 
     <!-- Skills Section -->
 
@@ -422,10 +457,12 @@
           <ul
             class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2"
           >
-          <li>
+            <li>
               <a href="index.html" class="hover:text-cyan-400 transition-colors"
                 >Home</a
               >
+            </li>
+
             <li>
               <a href="about.html" class="hover:text-cyan-400 transition-colors"
                 >About</a

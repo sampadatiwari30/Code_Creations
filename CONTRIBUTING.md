@@ -12,6 +12,7 @@ This guide will walk you through the entire contribution process—from setting 
 > **New to Open Source?** No worries! This guide is beginner-friendly. If you get stuck, feel free to open an issue or ask for help.
 
 ---
+
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## 📋 Table of Contents
@@ -48,6 +49,7 @@ By contributing to this project, you agree that your contributions will be licen
 ## 🤝 Ways to Contribute
 
 You can contribute in many valuable ways:
+
 - 🐞 **Report Bugs**: Submit detailed, reproducible bug reports.
 - 💡 **Suggest Features**: Share ideas to enhance the project.
 - 📖 **Improve Documentation**: Clarify, correct, or update content.
@@ -55,22 +57,23 @@ You can contribute in many valuable ways:
 - 🧪 **Test**: Help test across browsers and devices.
 
 ---
-![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
+![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## 🎯 Points & Difficulty Levels
 
 If you're participating in GSSoC’25, you’ll earn points based on the complexity of your contribution:
 
 | Difficulty | Points |
-|------------|--------|
+| ---------- | ------ |
 | Level 1    | 3      |
 | Level 2    | 7      |
 | Level 3    | 10     |
 
-> 📝 *Note: Point tracking is applicable only for GSSoC contributors.*
+> 📝 _Note: Point tracking is applicable only for GSSoC contributors._
 
 ---
+
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## 💡 Contribution Guidelines
@@ -81,33 +84,34 @@ If you're participating in GSSoC’25, you’ll earn points based on the complex
 - 📌 **Commit Messages**: Write concise, descriptive commit messages (e.g., `fix: correct navbar link`, `feat: add dark mode toggle`).
 
 ---
+
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## ✅ PR Review Process
 
 We aim to keep things smooth and transparent:
 
-* Once your PR is submitted, a maintainer will review it.
-* You may be asked to:
- * Fix styling issues.
- * Add missing documentation/tests.
- * Break large PRs into smaller pieces.
-* After approval:
- * Your PR will be merged with a squash merge to keep history clean.
- * You’ll receive feedback, even if the PR isn’t merged immediately.
-* ⌛ Reviews may take **24–72 hours** depending on activity. Thanks for your patience!
+- Once your PR is submitted, a maintainer will review it.
+- You may be asked to:
+- Fix styling issues.
+- Add missing documentation/tests.
+- Break large PRs into smaller pieces.
+- After approval:
+- Your PR will be merged with a squash merge to keep history clean.
+- You’ll receive feedback, even if the PR isn’t merged immediately.
+- ⌛ Reviews may take **24–72 hours** depending on activity. Thanks for your patience!
 
- > For Any Query, Send DM on LinkedIn [Sampada Tiwari](https://www.linkedin.com/in/sampada-tiwari-217123257).
+> For Any Query, Send DM on LinkedIn [Sampada Tiwari](https://www.linkedin.com/in/sampada-tiwari-217123257).
 
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## How To Contribute
 
 - Drop a Star ⭐ in this repo
-- Take a look at the existing [Issues](https://github.com/sampadatiwari30/Code_Creations/issues). 
+- Take a look at the existing [Issues](https://github.com/sampadatiwari30/Code_Creations/issues).
 - Fork the Repo & create a branch for any issue that you are working on and commit your work.
 - At first raise an issue in which you want to work
-- Then after assigning only then work on that issue & make a PR 
+- Then after assigning only then work on that issue & make a PR
 - Create a [**Pull Request**](https://github.com/sampadatiwari30/Code_Creations/pulls), which will be promptly reviewed and given suggestions for improvements by the community.
 - **REMINDER: Don't raise more than 2 `Issue` at a time**
 - **IMPORTANT: Don't make any type of `Pull Request` until & unless you get assigned to an `Issue`**

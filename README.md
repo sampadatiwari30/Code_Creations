@@ -11,7 +11,7 @@
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-<h2>📖 Table of Contents</h2> 
+<h2>📖 Table of Contents</h2>
 
 - <a href="#overview"> Overview </a>
 - <a href="#project-insights"> Project Insights </a>
@@ -36,7 +36,7 @@
 
 <h2 id="overview">🔍 Overview</h2>
 
-> This website serves as an interactive portfolio showcasing a variety of front-end web development projects. The design is modern and minimalist, featuring a grid of visually distinct cards, each representing a different interactive application.  The portfolio effectively highlights practical skills in creating dynamic user interfaces and experiences using core **web technologies like HTML, CSS, and JavaScript.** Each project is functional and can be interacted with directly from the main page, providing immediate evidence of their implementation.
+> This website serves as an interactive portfolio showcasing a variety of front-end web development projects. The design is modern and minimalist, featuring a grid of visually distinct cards, each representing a different interactive application. The portfolio effectively highlights practical skills in creating dynamic user interfaces and experiences using core **web technologies like HTML, CSS, and JavaScript.** Each project is functional and can be interacted with directly from the main page, providing immediate evidence of their implementation.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
@@ -106,7 +106,7 @@ Experience kala.ficial live here:
 
 🌟 **Exciting News...**
 
-🚀 This project is now an official part of GirlScript Summer of Code – GSSoC'25! 💃🎉💻 We're thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow *Code_Creations!* Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
+🚀 This project is now an official part of GirlScript Summer of Code – GSSoC'25! 💃🎉💻 We're thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow _Code_Creations!_ Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
 
 👩‍💻 GSSoC is one of India’s **largest 3-month-long open-source programs** that encourages developers of all levels to contribute to real-world projects 🌍 while learning, collaborating, and growing together. 🌱
 
@@ -126,8 +126,8 @@ Experience kala.ficial live here:
 ```bash
 Code_Creations/
 │
-├── CODE_OF_CONDUCT.md 
-├── CONTRIBUTING.md 
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
 ├── LICENSE
 ├── images /
 ├── about.html
@@ -140,7 +140,7 @@ Code_Creations/
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-<h2 id="contribution-guidelines">Contribution Guidelines📑</h2> 
+<h2 id="contribution-guidelines">Contribution Guidelines📑</h2>
 
 - Firstly Star (⭐) the Repository
 - Fork the Repository and create a new branch for any updates/changes/issue you are working on.
@@ -162,7 +162,7 @@ Your insights are invaluable to us. Reach out to us team for any inquiries, feed
 
 <h2 id="acknowledgments">🙏 Acknowledgments</h2>
 
-- Thanks to all contributors of this project 
+- Thanks to all contributors of this project
 - Special shoutout to **GirlScript Summer of Code (GSSoC’25)** for the amazing community and support!
 - Built with dedication, collaboration, and lots of chai
 
@@ -172,56 +172,56 @@ Your insights are invaluable to us. Reach out to us team for any inquiries, feed
 
 Follow these steps to contribute your changes to **Code_Creations**:
 
-**1. 🌟 Star & Fork the Repository**  
+**1. 🌟 Star & Fork the Repository**
 
-   Click the **“Star”** button to support the project, then **“Fork”** the repo to create your own copy:  
-   <br>
-   👉 [https://github.com/sampadatiwari30/Code_Creations](https://github.com/sampadatiwari30/Code_Creations)
+Click the **“Star”** button to support the project, then **“Fork”** the repo to create your own copy:  
+ <br>
+👉 [https://github.com/sampadatiwari30/Code_Creations](https://github.com/sampadatiwari30/Code_Creations)
 
 **2. 📥 Clone Your Fork**  
 <br>
-   Use the following command to clone your forked repository to your local machine:
+Use the following command to clone your forked repository to your local machine:
 
 ```bash
 git clone https://github.com/Your-Username/Code_Creations.git
 ```
 
- **3. Create a Branch**
- <br>
- Navigate to the project directory and create a new branch for your changes:
- 
+**3. Create a Branch**
+<br>
+Navigate to the project directory and create a new branch for your changes:
+
 ```bash
 cd Code_Creations
 git checkout -b my-feature-branch
 ```
 
- **4. Make Changes**
- 
- - Add your new ML projects, games, websites, or enhancements. Fix bugs or improve UI/UX as needed.
+**4. Make Changes**
 
- **5. Commit Your Changes**
- <br>
- Use a meaningful commit message:
- 
- ```bash
+- Add your new ML projects, games, websites, or enhancements. Fix bugs or improve UI/UX as needed.
+
+**5. Commit Your Changes**
+<br>
+Use a meaningful commit message:
+
+```bash
 git add .
 git commit -m "📦 [Feature Add] Add XYZ website project"
 ```
 
- **6. Push Your Changes**
- <br>
- Push your branch to your GitHub fork:
- 
- ```bash
+**6. Push Your Changes**
+<br>
+Push your branch to your GitHub fork:
+
+```bash
 git push origin my-feature-branch
 ```
-    
- **7. Submit a Pull Request**
- 
- - Go to your fork on GitHub.
- - Click "Compare & pull request".
- - Add a descriptive title using one of the prefixes: [UI], [UX], [Feature Add].
- - Link the related issue (if any) and clearly describe your changes.
+
+**7. Submit a Pull Request**
+
+- Go to your fork on GitHub.
+- Click "Compare & pull request".
+- Add a descriptive title using one of the prefixes: [UI], [UX], [Feature Add].
+- Link the related issue (if any) and clearly describe your changes.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
@@ -229,27 +229,27 @@ git push origin my-feature-branch
 
 - **GitHub Issues**: [Report bugs or request features](https://github.com/sampadatiwari30/Code_Creations/issues)
 - **Email**: Contact the maintainers for collaboration opportunities
-  
+
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
 <h2 id="how-to-contribute">🤝How to Contribute</h2>
 
 We love contributions from the community! Whether it's a bug report, a new feature, or a documentation improvement, we appreciate your help.
 
-***How to Contribute***
+**_How to Contribute_**
 
 1.  **Fork the repository** and create a new branch for your changes.
 2.  **Make your changes** and ensure everything is working as expected.
 3.  **Submit a pull request** with a clear description of your changes.
 
-***Found a Bug?***
+**_Found a Bug?_**
 
--   Check the [issue tracker](https://github.com/sampadatiwari30/Code_Creations/issues) to see if the bug has already been reported.
--   If not, open a new issue and provide as much detail as possible.
+- Check the [issue tracker](https://github.com/sampadatiwari30/Code_Creations/issues) to see if the bug has already been reported.
+- If not, open a new issue and provide as much detail as possible.
 
-***Have a Feature Idea?***
+**_Have a Feature Idea?_**
 
--   We'd love to hear it! Open an issue to discuss your idea.
+- We'd love to hear it! Open an issue to discuss your idea.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
@@ -267,7 +267,7 @@ We welcome contributions from developers of all skill levels! Here are some ways
 - 📱 **Mobile responsiveness** - Improve the mobile experience
 - 🔒 **Security enhancements** - Help keep user data safe
 
-*Thank you to everyone who has made Code_Creations better! 💚*
+_Thank you to everyone who has made Code_Creations better! 💚_
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
@@ -281,7 +281,7 @@ Please refer to the [`Code of Conduct`](https://github.com/sampadatiwari30/Code_
 
 We love our contributors! If you'd like to help, please check out our [`CONTRIBUTE.md`](https://github.com/sampadatiwari30/Code_Creations/blob/main/CONTRIBUTING.md) file for guidelines.
 
->Thank you once again to all our contributors who has contributed to **Code_Creations!** Your efforts are truly appreciated. 💖👏
+> Thank you once again to all our contributors who has contributed to **Code_Creations!** Your efforts are truly appreciated. 💖👏
 
 <!-- Contributors badge (auto-updating) -->
 
@@ -313,7 +313,7 @@ Feel free to open issues or discussions if you have any feedback, feature sugges
 
 <h2 id="show-your-support">🙌 Show Your Support</h2>
 
-*If you find Code_Creations project helpful, give it a star! ⭐ to support more such educational initiatives:*
+_If you find Code_Creations project helpful, give it a star! ⭐ to support more such educational initiatives:_
 
 - ⭐ **Starring the repository**
 - 🐦 **Sharing on social media**
@@ -362,9 +362,9 @@ This project is licensed under the MIT License - see the [`License`](https://git
 
 <h2 align="center">👨‍🏫Mentors – Code_Creations (GSSoC'25)</h2>
 
-| Role          | Name               | GitHub Profile                                      | LinkedIn Profile                                                        |
-| ------------- | ------------------ | --------------------------------------------------- | ----------------------------------------------------------------------- |
-| Mentor 1 | Gaincy Sharma |  [gaincyst](https://github.com/gaincyst) | [gaincy-sharma](https://www.linkedin.com/in/gaincy-sharma-33b38132a/) |
+| Role     | Name          | GitHub Profile                          | LinkedIn Profile                                                      |
+| -------- | ------------- | --------------------------------------- | --------------------------------------------------------------------- |
+| Mentor 1 | Gaincy Sharma | [gaincyst](https://github.com/gaincyst) | [gaincy-sharma](https://www.linkedin.com/in/gaincy-sharma-33b38132a/) |
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 

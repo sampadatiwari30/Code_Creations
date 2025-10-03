@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
-@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
 
 :root {
   --dark-charcoal: #0d1117;
@@ -31,7 +31,7 @@ body.light {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: var(--dark-charcoal);
   color: var(--white);
   overflow-x: hidden;
@@ -75,13 +75,22 @@ html {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: radial-gradient(circle at 20% 50%,
+  background:
+    radial-gradient(
+      circle at 20% 50%,
       rgba(108, 92, 231, 0.1) 0%,
-      transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(0, 31, 63, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(0, 31, 63, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
       rgba(108, 92, 231, 0.05) 0%,
-      transparent 50%);
+      transparent 50%
+    );
 }
 
 /* Navbar Styles */
@@ -125,7 +134,7 @@ html {
 }
 
 .navbar-nav .nav-link::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 2px;
@@ -204,15 +213,17 @@ html {
 }
 
 .education-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(145deg,
-      rgba(108, 92, 231, 0.05),
-      rgba(0, 31, 63, 0.05));
+  background: linear-gradient(
+    145deg,
+    rgba(108, 92, 231, 0.05),
+    rgba(0, 31, 63, 0.05)
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: 16px;
@@ -224,7 +235,9 @@ html {
 
 .education-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(108, 92, 231, 0.2), 0 0 30px rgba(0, 31, 63, 0.1);
+  box-shadow:
+    0 20px 50px rgba(108, 92, 231, 0.2),
+    0 0 30px rgba(0, 31, 63, 0.1);
   border-color: var(--royal-purple);
 }
 
@@ -293,7 +306,7 @@ html {
 }
 
 .education-details li::before {
-  content: "•";
+  content: '•';
   position: absolute;
   left: 0;
   color: var(--royal-purple);
@@ -358,16 +371,18 @@ html {
 }
 
 .skill-badge::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(108, 92, 231, 0.2),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(108, 92, 231, 0.2),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
@@ -653,7 +668,6 @@ html {
   }
 }
 
-
 /* Enhanced Styles */
 .profile-section {
   text-align: center;
@@ -665,7 +679,7 @@ html {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 4px solid #8B5CF6;
+  border: 4px solid #8b5cf6;
   box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
   margin-bottom: 1rem;
   transition: transform 0.3s ease;
@@ -688,7 +702,7 @@ html {
   right: 10px;
   width: 20px;
   height: 20px;
-  background: #10B981;
+  background: #10b981;
   border-radius: 50%;
   border: 3px solid white;
 }
@@ -696,7 +710,7 @@ html {
 .personal-intro {
   max-width: 600px;
   margin: 0 auto;
-  color: #E5E7EB;
+  color: #e5e7eb;
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
@@ -729,12 +743,12 @@ html {
 .stat-number {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #8B5CF6;
+  color: #8b5cf6;
   display: block;
 }
 
 .stat-label {
-  color: #D1D5DB;
+  color: #d1d5db;
   font-size: 0.9rem;
   margin-top: 0.25rem;
 }
@@ -750,7 +764,7 @@ html {
   top: 60px;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, #8B5CF6, #3B82F6);
+  background: linear-gradient(180deg, #8b5cf6, #3b82f6);
 }
 
 .timeline-dot {
@@ -759,7 +773,7 @@ html {
   top: 30px;
   width: 18px;
   height: 18px;
-  background: #8B5CF6;
+  background: #8b5cf6;
   border-radius: 50%;
   border: 3px solid white;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
@@ -782,14 +796,14 @@ html {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 20px;
-  color: #D1D5DB;
+  color: #d1d5db;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.9rem;
 }
 
 .category-btn.active {
-  background: #8B5CF6;
+  background: #8b5cf6;
   color: white;
   transform: scale(1.05);
 }
@@ -807,12 +821,12 @@ html {
 }
 
 .skill-name {
-  color: #F9FAFB;
+  color: #f9fafb;
   font-weight: 500;
 }
 
 .skill-percentage {
-  color: #8B5CF6;
+  color: #8b5cf6;
   font-weight: 600;
 }
 
@@ -826,7 +840,7 @@ html {
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #8B5CF6, #3B82F6);
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
   border-radius: 4px;
   transition: width 2s ease-out;
   width: 0%;
@@ -845,13 +859,17 @@ html {
   text-align: center;
   margin: 3rem 0;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.1),
+    rgba(59, 130, 246, 0.1)
+  );
   border-radius: 15px;
   border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .btn-download {
-  background: linear-gradient(90deg, #8B5CF6, #3B82F6);
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
   border: none;
   padding: 0.75rem 2rem;
   border-radius: 25px;
@@ -868,17 +886,17 @@ html {
 
 .btn-contact {
   background: transparent;
-  border: 2px solid #8B5CF6;
+  border: 2px solid #8b5cf6;
   padding: 0.75rem 2rem;
   border-radius: 25px;
-  color: #8B5CF6;
+  color: #8b5cf6;
   font-weight: 600;
   transition: all 0.3s ease;
   margin: 0 0.5rem;
 }
 
 .btn-contact:hover {
-  background: #8B5CF6;
+  background: #8b5cf6;
   color: white;
   transform: translateY(-2px);
 }
