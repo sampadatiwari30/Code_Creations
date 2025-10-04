@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificates & Achievements | Sampada Tiwari</title>
+
+  <!-- PWA links -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3167FF">
+  <link rel="icon" href="./assets/icons/icon-192.png">
+
+  <!-- Styles / Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Single bounce animation */
+    @keyframes bounce-once {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .animate-bounce-once {
+      animation: bounce-once 0.6s ease-in-out;
+    }
+
+    /* Glowing pulse effect */
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 10px rgba(139, 92, 246, 0.6), 0 0 20px rgba(139, 92, 246, 0.4); }
+      50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 30px rgba(139, 92, 246, 0.6); }
+    }
+    .animate-glow {
+      animation: glow 1.5s infinite ease-in-out;
+    }
+
+    /* Nav Link Styling */
+    .nav-link {
+      @apply relative text-white transition duration-300;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #22d3ee; /* cyan-400 */
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #22d3ee; /* cyan-400 */
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Certificate Card Hover Effects */
+    .cert-card {
+      transition: all 0.3s ease;
+    }
+    .cert-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Modal Animation */
+    .modal-overlay {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      transform: scale(0.9);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+    
+    /* Custom gradient text */
+    .gradient-text {
+      background: linear-gradient(90deg, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0f172a] text-white">
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      
+      <!-- Brand / Logo -->
+      <h1 class="text-2xl font-bold text-white">
+        Sampada <span class="text-cyan-400">Tiwari</span>
+      </h1>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-6 font-medium">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="project.html" class="nav-link">Projects</a>
+        <a href="certificates.html" class="nav-link text-cyan-400">Certificates</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="ml-4 text-white hover:text-cyan-400 transition">
+          <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
+      <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="project.html" class="nav-link">Projects</a>
+        <a href="certificates.html" class="nav-link text-cyan-400">Certificates</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= CERTIFICATES & ACHIEVEMENTS SECTION ================= -->
+  <section class="pt-32 pb-24 px-6 md:px-12">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        <span class="gradient-text">
+          Certificates & Achievements
+        </span>
+      </h2>
+      <p class="text-gray-400 mt-4 text-lg md:text-xl max-w-2xl mx-auto">
+        Showcasing my certifications, awards, and competition accomplishments that highlight my skills and dedication.
+      </p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <button class="filter-btn px-4 py-2 bg-cyan-500 text-black font-semibold rounded-full transition-all duration-300" data-filter="all">
+        All
+      </button>
+      <button class="filter-btn px-4 py-2 bg-white/10 text-white font-medium rounded-full hover:bg-cyan-500 hover:text-black transition-all duration-300" data-filter="certification">
+        Certifications
+      </button>
+      <button class="filter-btn px-4 py-2 bg-white/10 text-white font-medium rounded-full hover:bg-cyan-500 hover:text-black transition-all duration-300" data-filter="award">
+        Awards
+      </button>
+      <button class="filter-btn px-4 py-2 bg-white/10 text-white font-medium rounded-full hover:bg-cyan-500 hover:text-black transition-all duration-300" data-filter="competition">
+        Competitions
+      </button>
+      <button class="filter-btn px-4 py-2 bg-white/10 text-white font-medium rounded-full hover:bg-cyan-500 hover:text-black transition-all duration-300" data-filter="hackathon">
+        Hackathons
+      </button>
+    </div>
+
+    <!-- Certificates Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      
+      <!-- Certification 1 -->
+      <div class="cert-card certification bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg overflow-hidden">
+        <div class="relative mb-4 rounded-lg overflow-hidden">
+          <img src="./images/certificates/google-data-analytics.jpg" alt="Google Data Analytics Certificate" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+          <div class="absolute top-2 right-2 bg-cyan-500 text-black px-2 py-1 rounded-md text-xs font-bold">
+            Certification
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Google Data Analytics Professional Certificate</h3>
+        <p class="text-gray-400 text-sm mb-4">Google • Issued Jan 2024</p>
+        <p class="text-gray-300 mb-4">Comprehensive data analytics training covering data cleaning, analysis, visualization, and R programming.</p>
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center gap-1">
+            <i class="fas fa-external-link-alt"></i> Verify Credential
+          </a>
+          <button class="view-cert-btn text-purple-400 hover:text-purple-300 text-sm font-medium" data-cert="cert1">
+            <i class="fas fa-expand-alt"></i> View Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- Award 1 -->
+      <div class="cert-card award bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg overflow-hidden">
+        <div class="relative mb-4 rounded-lg overflow-hidden">
+          <img src="./images/certificates/best-project-award.jpg" alt="Best Project Award" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+          <div class="absolute top-2 right-2 bg-purple-500 text-white px-2 py-1 rounded-md text-xs font-bold">
+            Award
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Best Project Award</h3>
+        <p class="text-gray-400 text-sm mb-4">University Tech Fest • Awarded Mar 2024</p>
+        <p class="text-gray-300 mb-4">Recognized for developing an innovative spam email classification system with 95% accuracy.</p>
+        <div class="flex justify-between items-center">
+          <span class="text-gray-500 text-sm">Physical Award</span>
+          <button class="view-cert-btn text-purple-400 hover:text-purple-300 text-sm font-medium" data-cert="cert2">
+            <i class="fas fa-expand-alt"></i> View Award
+          </button>
+        </div>
+      </div>
+
+      <!-- Competition 1 -->
+      <div class="cert-card competition bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg overflow-hidden">
+        <div class="relative mb-4 rounded-lg overflow-hidden">
+          <img src="./images/certificates/hackathon-winner.jpg" alt="Hackathon Winner" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+          <div class="absolute top-2 right-2 bg-yellow-500 text-black px-2 py-1 rounded-md text-xs font-bold">
+            Competition
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">CodeHack 2024 - 1st Place</h3>
+        <p class="text-gray-400 text-sm mb-4">National Coding Competition • Apr 2024</p>
+        <p class="text-gray-300 mb-4">Led a team to develop a blockchain-based identity verification system in 48 hours.</p>
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center gap-1">
+            <i class="fab fa-github"></i> Project Code
+          </a>
+          <button class="view-cert-btn text-purple-400 hover:text-purple-300 text-sm font-medium" data-cert="cert3">
+            <i class="fas fa-expand-alt"></i> View Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- Certification 2 -->
+      <div class="cert-card certification bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg overflow-hidden">
+        <div class="relative mb-4 rounded-lg overflow-hidden">
+          <img src="./images/certificates/aws-certified.jpg" alt="AWS Certified Cloud Practitioner" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+          <div class="absolute top-2 right-2 bg-cyan-500 text-black px-2 py-1 rounded-md text-xs font-bold">
+            Certification
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">AWS Certified Cloud Practitioner</h3>
+        <p class="text-gray-400 text-sm mb-4">Amazon Web Services • Issued Feb 2024</p>
+        <p class="text-gray-300 mb-4">Demonstrated foundational understanding of AWS Cloud, services, and architecture.</p>
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center gap-1">
+            <i class="fas fa-external-link-alt"></i> Verify Credential
+          </a>
+          <button class="view-cert-btn text-purple-400 hover:text-purple-300 text-sm font-medium" data-cert="cert4">
+            <i class="fas fa-expand-alt"></i> View Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- Hackathon 1 -->
+      <div class="cert-card hackathon bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg overflow-hidden">
+        <div class="relative mb-4 rounded-lg overflow-hidden">
+          <img src="./images/certificates/nasa-space-apps.jpg" alt="NASA Space Apps Challenge" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+          <div class="absolute top-2 right-2 bg-green-500 text-black px-2 py-1 rounded-md text-xs font-bold">
+            Hackathon
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">NASA Space Apps Challenge</h3>
+        <p class="text-gray-400 text-sm mb-4">Cusco • Remote • Oct 2024</p>
+        <p class="text-gray-300 mb-4">Built innovative solutions for planetary exploration during NASA Hackathon.</p>
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center gap-1">
+            <i class="fab fa-github"></i> Project Code
+          </a>
+          <button class="view-cert-btn text-purple-400 hover:text-purple-300 text-sm font-medium" data-cert="cert5">
+            <i class="fas fa-expand-alt"></i> View Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- Award 2 -->
+      <div class="cert-card award bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg overflow-hidden">
+        <div class="relative mb-4 rounded-lg overflow-hidden">
+          <img src="./images/certificates/leadership-award.jpg" alt="Leadership Excellence Award" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+          <div class="absolute top-2 right-2 bg-purple-500 text-white px-2 py-1 rounded-md text-xs font-bold">
+            Award
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Leadership Excellence Award</h3>
+        <p class="text-gray-400 text-sm mb-4">Algorithm Club • Awarded Dec 2024</p>
+        <p class="text-gray-300 mb-4">Recognized for outstanding leadership in guiding 50+ members in competitive programming.</p>
+        <div class="flex justify-between items-center">
+          <span class="text-gray-500 text-sm">Physical Award</span>
+          <button class="view-cert-btn text-purple-400 hover:text-purple-300 text-sm font-medium" data-cert="cert6">
+            <i class="fas fa-expand-alt"></i> View Award
+          </button>
+        </div>
+      </div>
+
+      <!-- Hackathon 2 -->
+      <div class="cert-card hackathon bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg overflow-hidden">
+        <div class="relative mb-4 rounded-lg overflow-hidden">
+          <img src="./images/certificates/tata-hackathon.jpg" alt="Tata Group Hackathon" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+          <div class="absolute top-2 right-2 bg-green-500 text-black px-2 py-1 rounded-md text-xs font-bold">
+            Hackathon
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Tata Group Hackathon</h3>
+        <p class="text-gray-400 text-sm mb-4">Participant • May 2023</p>
+        <p class="text-gray-300 mb-4">Contributed ideas & prototypes in Tata Group challenge.</p>
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center gap-1">
+            <i class="fab fa-github"></i> Project Code
+          </a>
+          <button class="view-cert-btn text-purple-400 hover:text-purple-300 text-sm font-medium" data-cert="cert7">
+            <i class="fas fa-expand-alt"></i> View Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- Competition 2 -->
+      <div class="cert-card competition bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg overflow-hidden">
+        <div class="relative mb-4 rounded-lg overflow-hidden">
+          <img src="./images/certificates/french-quiz.jpg" alt="French Quiz Competition" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+          <div class="absolute top-2 right-2 bg-yellow-500 text-black px-2 py-1 rounded-md text-xs font-bold">
+            Competition
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">French Quiz Competition</h3>
+        <p class="text-gray-400 text-sm mb-4">Banasthali Vidyapith • Oct 2024</p>
+        <p class="text-gray-300 mb-4">Participated in "Le Grand Concours '24" in collaboration with Uzbekistan State World Language University & French Embassy in India.</p>
+        <div class="flex justify-between items-center">
+          <span class="text-gray-500 text-sm">Language Competition</span>
+          <button class="view-cert-btn text-purple-400 hover:text-purple-300 text-sm font-medium" data-cert="cert8">
+            <i class="fas fa-expand-alt"></i> View Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- Certification 3 -->
+      <div class="cert-card certification bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg overflow-hidden">
+        <div class="relative mb-4 rounded-lg overflow-hidden">
+          <img src="./images/certificates/python-certification.jpg" alt="Python Programming Certificate" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+          <div class="absolute top-2 right-2 bg-cyan-500 text-black px-2 py-1 rounded-md text-xs font-bold">
+            Certification
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Advanced Python Programming</h3>
+        <p class="text-gray-400 text-sm mb-4">Coursera • Issued Mar 2024</p>
+        <p class="text-gray-300 mb-4">Mastered advanced Python concepts including OOP, data structures, and algorithm implementation.</p>
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center gap-1">
+            <i class="fas fa-external-link-alt"></i> Verify Credential
+          </a>
+          <button class="view-cert-btn text-purple-400 hover:text-purple-300 text-sm font-medium" data-cert="cert9">
+            <i class="fas fa-expand-alt"></i> View Certificate
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificate Modal -->
+  <div id="cert-modal" class="modal-overlay fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+    <div class="modal-content bg-[#0f172a] rounded-xl max-w-4xl w-full max-h-[90vh] overflow-auto">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h3 id="modal-title" class="text-2xl font-bold text-cyan-400">Certificate Details</h3>
+          <button id="close-modal" class="text-white hover:text-cyan-400 text-2xl">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div id="modal-body" class="space-y-4">
+          <!-- Content will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER SECTION ================= -->
+  <footer class="bg-[#0f172a] text-gray-200 py-16 px-6 md:px-12">
+
+    <!-- Footer Container -->
+    <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
+
+      <!-- Brand / Logo -->
+      <div class="text-center md:text-left">
+        <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+          Sampada<span class="font-extrabold">Tiwari</span>
+        </h2>
+        <p class="text-gray-400 mt-1 text-sm md:text-base">Data Scientist • Leader • Creator</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="text-center md:text-left">
+        <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
+        <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2">
+          <li><a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a></li>
+          <li><a href="about.html" class="hover:text-cyan-400 transition-colors">About</a></li>
+          <li><a href="skills.html" class="hover:text-cyan-400 transition-colors">Skills</a></li>
+          <li><a href="experience.html" class="hover:text-cyan-400 transition-colors">Experience</a></li>
+          <li><a href="project.html" class="hover:text-cyan-400 transition-colors">Projects</a></li>
+          <li><a href="certificates.html" class="hover:text-cyan-400 transition-colors">Certificates</a></li>
+          <li><a href="testimonials.html" class="hover:text-cyan-400 transition-colors">Testimonials</a></li>
+          <li><a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="text-center md:text-left">
+        <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
+        <div class="flex justify-center md:justify-start gap-4 text-2xl">
+          <a href="https://linkedin.com/in/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-github"></i></a>
+          <a href="https://twitter.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fab fa-twitter"></i></a>
+          <a href="mailto:sampada@example.com" class="hover:text-cyan-400 transform hover:scale-125 transition-all"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+      © 2025 Sampada Tiwari • All Rights Reserved
+    </div>
+
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn"
+    class="hidden fixed bottom-6 right-6 w-14 h-14 flex items-center justify-center 
+           bg-gradient-to-br from-indigo-500 to-purple-500 text-white rounded-full 
+           shadow-2xl border border-indigo-300 
+           hover:from-indigo-600 hover:to-purple-600 hover:scale-110 
+           transition-transform duration-300 ease-in-out 
+           focus:outline-none focus:ring-4 focus:ring-purple-300
+           animate-bounce-once animate-glow">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <script>
+    // Certificate data for modal content
+    const certificates = {
+      cert1: {
+        title: "Google Data Analytics Professional Certificate",
+        image: "./images/certificates/google-data-analytics.jpg",
+        issuer: "Google",
+        date: "January 2024",
+        description: "This comprehensive certificate program covered the entire data analytics process including data cleaning, analysis, visualization, and R programming. The curriculum included hands-on projects using real-world datasets.",
+        skills: ["Data Analysis", "R Programming", "Data Visualization", "SQL", "Statistical Analysis"],
+        verifyUrl: "#"
+      },
+      cert2: {
+        title: "Best Project Award",
+        image: "./images/certificates/best-project-award.jpg",
+        issuer: "University Tech Fest",
+        date: "March 2024",
+        description: "Awarded for developing an innovative spam email classification system that achieved 95% accuracy using machine learning algorithms and natural language processing techniques.",
+        skills: ["Machine Learning", "NLP", "Python", "Classification Algorithms"],
+        verifyUrl: null
+      },
+      cert3: {
+        title: "CodeHack 2024 - 1st Place",
+        image: "./images/certificates/hackathon-winner.jpg",
+        issuer: "National Coding Competition",
+        date: "April 2024",
+        description: "Led a team of 3 developers to create a blockchain-based identity verification system in 48 hours. The solution included smart contracts for verification and a user-friendly interface for identity management.",
+        skills: ["Blockchain", "Smart Contracts", "Team Leadership", "Web3", "Solidity"],
+        verifyUrl: "#"
+      },
+      cert4: {
+        title: "AWS Certified Cloud Practitioner",
+        image: "./images/certificates/aws-certified.jpg",
+        issuer: "Amazon Web Services",
+        date: "February 2024",
+        description: "Earned this foundational certification demonstrating understanding of AWS Cloud concepts, services, security, architecture, pricing, and support.",
+        skills: ["AWS", "Cloud Computing", "Cloud Architecture", "Cloud Security"],
+        verifyUrl: "#"
+      },
+      cert5: {
+        title: "NASA Space Apps Challenge",
+        image: "./images/certificates/nasa-space-apps.jpg",
+        issuer: "NASA",
+        date: "October 2024",
+        description: "Participated in the NASA Space Apps Challenge, building innovative solutions for planetary exploration. Worked on data visualization and analysis tools for space mission planning.",
+        skills: ["Data Visualization", "Problem Solving", "Team Collaboration", "Space Technology"],
+        verifyUrl: "#"
+      },
+      cert6: {
+        title: "Leadership Excellence Award",
+        image: "./images/certificates/leadership-award.jpg",
+        issuer: "Algorithm Club",
+        date: "December 2024",
+        description: "Recognized for outstanding leadership in guiding 50+ members through competitive programming challenges, organizing coding contests, and fostering a collaborative learning environment.",
+        skills: ["Leadership", "Mentoring", "Community Building", "Event Organization"],
+        verifyUrl: null
+      },
+      cert7: {
+        title: "Tata Group Hackathon",
+        image: "./images/certificates/tata-hackathon.jpg",
+        issuer: "Tata Group",
+        date: "May 2023",
+        description: "Participated in the Tata Group Hackathon, contributing innovative ideas and prototypes for solving real-world business challenges using technology.",
+        skills: ["Problem Solving", "Innovation", "Prototyping", "Business Acumen"],
+        verifyUrl: "#"
+      },
+      cert8: {
+        title: "French Quiz Competition",
+        image: "./images/certificates/french-quiz.jpg",
+        issuer: "Banasthali Vidyapith",
+        date: "October 2024",
+        description: "Participated in 'Le Grand Concours '24' French language competition in collaboration with Uzbekistan State World Language University and the French Embassy in India.",
+        skills: ["French Language", "Cultural Knowledge", "Communication"],
+        verifyUrl: null
+      },
+      cert9: {
+        title: "Advanced Python Programming",
+        image: "./images/certificates/python-certification.jpg",
+        issuer: "Coursera",
+        date: "March 2024",
+        description: "Completed advanced Python programming course covering object-oriented programming, data structures, algorithms, and best practices for software development.",
+        skills: ["Python", "OOP", "Data Structures", "Algorithms", "Software Development"],
+        verifyUrl: "#"
+      }
+    };
+
+    // Filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const certCards = document.querySelectorAll('.cert-card');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          
+          // Update active button
+          filterBtns.forEach(b => {
+            if (b === this) {
+              b.classList.remove('bg-white/10', 'text-white');
+              b.classList.add('bg-cyan-500', 'text-black');
+            } else {
+              b.classList.remove('bg-cyan-500', 'text-black');
+              b.classList.add('bg-white/10', 'text-white');
+            }
+          });
+          
+          // Filter cards
+          certCards.forEach(card => {
+            if (filter === 'all' || card.classList.contains(filter)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Modal functionality
+      const modal = document.getElementById('cert-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalBody = document.getElementById('modal-body');
+      const closeModal = document.getElementById('close-modal');
+      const viewCertBtns = document.querySelectorAll('.view-cert-btn');
+      
+      viewCertBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const certId = this.getAttribute('data-cert');
+          const cert = certificates[certId];
+          
+          if (cert) {
+            modalTitle.textContent = cert.title;
+            
+            let skillsHtml = '';
+            if (cert.skills && cert.skills.length > 0) {
+              skillsHtml = `
+                <div class="flex flex-wrap gap-2 mt-2">
+                  ${cert.skills.map(skill => `<span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm">${skill}</span>`).join('')}
+                </div>
+              `;
+            }
+            
+            let verifyHtml = '';
+            if (cert.verifyUrl) {
+              verifyHtml = `
+                <a href="${cert.verifyUrl}" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500 text-black rounded-lg font-medium hover:bg-cyan-400 transition-colors">
+                  <i class="fas fa-external-link-alt"></i> Verify Credential
+                </a>
+              `;
+            }
+            
+            modalBody.innerHTML = `
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                  <img src="${cert.image}" alt="${cert.title}" class="w-full rounded-lg shadow-lg">
+                </div>
+                <div class="space-y-4">
+                  <div>
+                    <h4 class="text-lg font-semibold text-white">Issuer</h4>
+                    <p class="text-gray-300">${cert.issuer}</p>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white">Date Issued</h4>
+                    <p class="text-gray-300">${cert.date}</p>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white">Description</h4>
+                    <p class="text-gray-300">${cert.description}</p>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white">Skills Demonstrated</h4>
+                    ${skillsHtml}
+                  </div>
+                  <div class="pt-4">
+                    ${verifyHtml}
+                  </div>
+                </div>
+              </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+      
+      closeModal.addEventListener('click', function() {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+      
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // Back to top button
+      const backToTopBtn = document.getElementById("backToTopBtn");
+
+      window.addEventListener("scroll", () => {
+        if (document.documentElement.scrollTop > 200) {
+          backToTopBtn.classList.remove("hidden");
+        } else {
+          backToTopBtn.classList.add("hidden");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+  </script>
+</body>
+</html>
