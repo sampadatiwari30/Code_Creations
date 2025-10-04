@@ -1,544 +1,538 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Sampada Tiwari</title>
-    <meta
-      name="description"
-      content="Learn about Sampada Tiwari - Data Scientist and Web Developer passionate about machine learning and data analytics"
-    />
+    <meta name="description" content="Learn about Sampada Tiwari - Data Scientist and Web Developer passionate about machine learning and data analytics">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/about.css">
+    <style>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/about.css" />
-  </head>
-  <body>
+.footer {
+  background: #0b1324;
+  color: #cfd3e0;
+  text-align: center;
+  padding: 40px 0 20px;
+  position: relative;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.footer-section h2 {
+  color: #00d8ff;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.footer-section.about h2 {
+  font-size: 1.8rem;
+}
+
+.footer-section.about h2 {
+  background: linear-gradient(90deg, #00d8ff, #b56aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.footer-section.about p {
+  color: #b8bfc9;
+  font-size: 1.1rem;
+}
+
+/* 🟦 Quick Links in single line */
+.footer-section.links ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section.links li {
+  display: inline;
+}
+
+.footer-section.links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.footer-section.links a:hover {
+  color: #00d8ff;
+}
+
+/* Social icons */
+.social-icons a {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00d8ff;
+}
+
+hr {
+  margin: 30px auto;
+  width: 90%;
+  border: 0.5px solid #222;
+}
+
+.footer-bottom {
+  color: #b8bfc9;
+  font-size: 0.95rem;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #00d8ff, #b56aff);
+  color: white;
+  font-size: 1.2rem;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0, 216, 255, 0.4);
+}
+
+.scroll-top:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+    </style>
+</head>
+<body>
     <button class="theme-toggle" id="themeToggle">
-      <i class="fas fa-moon"></i>
+        <i class="fas fa-moon"></i>
     </button>
-
+    
     <!-- Background Particles -->
     <div class="particles-bg"></div>
+    
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
-      <div class="container">
-        <a class="navbar-brand" href="#">sampada tiwari</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="skills.html">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="about.html" aria-current="page"
-                >About Me</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="project.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="experience.html">Experience</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Me</a>
-            </li>
-          </ul>
+        <div class="container">
+            <a class="navbar-brand" href="#">sampada tiwari</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html" aria-current="page">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="project.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Me</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
     <!-- Main Container -->
     <div class="main-container">
-      <div class="container">
-        <!-- Profile Introduction Section -->
-        <div class="profile-section">
-          <div class="status-indicator">
-            <img
-              src="./images/profile.jpeg"
-              alt="Sampada Tiwari - Data Scientist and Web Developer"
-              class="profile-image"
-            />
-          </div>
-          <h1 class="section-heading mb-3">Sampada Tiwari</h1>
-          <p class="text-muted mb-3">Data Scientist & Web Developer</p>
+        <div class="container">
+            <!-- Profile Introduction Section -->
+            <div class="profile-section">
+                <div class="status-indicator">
+                    <img src="./images/profile.jpeg" alt="Sampada Tiwari - Data Scientist and Web Developer" class="profile-image">
+                </div>
+                <h1 class="section-heading mb-3">Sampada Tiwari</h1>
+                <p class="text-muted mb-3">Data Scientist & Web Developer</p>
+                
+                <!-- Quick Stats -->
+                <div class="stat-cards">
+                    <div class="stat-card">
+                        <span class="stat-number" id="projectsCount">15</span>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="experienceCount">2</span>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="skillsCount">12</span>
+                        <div class="stat-label">Skills</div>
+                    </div>
+                </div>
 
-          <!-- Quick Stats -->
-          <div class="stat-cards">
-            <div class="stat-card">
-              <span class="stat-number" id="projectsCount">15</span>
-              <div class="stat-label">Projects</div>
+                <!-- Personal Introduction -->
+                <div class="personal-intro">
+                    My passion for data science began during my first year of college when I discovered 
+                    how data could tell compelling stories and drive meaningful decisions. I believe in 
+                    making data accessible and actionable for everyone, bridging the gap between complex 
+                    technical concepts and practical business solutions.
+                </div>
             </div>
-            <div class="stat-card">
-              <span class="stat-number" id="experienceCount">2</span>
-              <div class="stat-label">Years Experience</div>
+
+            <!-- Enhanced Education Section -->
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="enhanced-education">
+                        <div class="section-heading">
+                            <h2>Education Journey</h2>
+                            <div class="underline"></div>
+                        </div>
+                        
+                        <div class="education-card position-relative">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                            
+                            <div class="education-header">
+                                <i class="fas fa-graduation-cap education-icon"></i>
+                                <div>
+                                    <h3 class="education-title">Bachelor of Computer Application</h3>
+                                    <p class="education-subtitle">Banasthali University | July 2021 – July 2025</p>
+                                </div>
+                            </div>
+                            <ul class="education-details">
+                                <li>Specialized in Data Science, focusing on machine learning, data analytics, and statistical modeling using real-world datasets.</li>
+                                <li>Proficient in tools and technologies including Python, Microsoft Excel, Power BI, and data visualization libraries.</li>
+                                <li>Gained practical experience in data preprocessing, analysis, and interpretation for business decision-making.</li>
+                                <li>Developed strong engineering fundamentals combined with a data-driven problem-solving mindset.</li>
+                                <li>Demonstrated excellent communication and community building skills through academic and collaborative projects.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="stat-card">
-              <span class="stat-number" id="skillsCount">12</span>
-              <div class="stat-label">Skills</div>
+
+            <!-- Enhanced Skills Section -->
+            <div class="enhanced-skills">
+                <div class="skills-heading text-center">
+                    <h2>Skills & Expertise</h2>
+                    <div class="underline"></div>
+                </div>
+
+                <!-- Skill Categories -->
+                <div class="skills-categories">
+                    <button class="category-btn active" data-category="programming" tabindex="0">Programming</button>
+                    <button class="category-btn" data-category="data" tabindex="0">Data Science</button>
+                    <button class="category-btn" data-category="tools" tabindex="0">Tools</button>
+                    <button class="category-btn" data-category="management" tabindex="0">Management</button>
+                </div>
+
+                <!-- Skills Progress Bars -->
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <!-- Programming Skills -->
+                        <div class="skills-group" data-group="programming">
+                            <div class="skill-progress">
+                                <div class="skill-header">
+                                    <span class="skill-name">Python (Programming Language)</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" data-width="90" role="progressbar" aria-label="Python skill level" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress">
+                                <div class="skill-header">
+                                    <span class="skill-name">Data Visualization</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" data-width="85" role="progressbar" aria-label="Data Visualization skill level" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Science Skills -->
+                        <div class="skills-group hidden" data-group="data">
+                            <div class="skill-progress">
+                                <div class="skill-header">
+                                    <span class="skill-name">Data Science</span>
+                                    <span class="skill-percentage">88%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" data-width="88" role="progressbar" aria-label="Data Science skill level" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress">
+                                <div class="skill-header">
+                                    <span class="skill-name">Statistical Data Analysis</span>
+                                    <span class="skill-percentage">82%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" data-width="82" role="progressbar" aria-label="Statistical Analysis skill level" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tools Skills -->
+                        <div class="skills-group hidden" data-group="tools">
+                            <div class="skill-progress">
+                                <div class="skill-header">
+                                    <span class="skill-name">Microsoft Excel</span>
+                                    <span class="skill-percentage">92%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" data-width="92" role="progressbar" aria-label="Excel skill level" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress">
+                                <div class="skill-header">
+                                    <span class="skill-name">Power BI</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" data-width="80" role="progressbar" aria-label="Power BI skill level" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress">
+                                <div class="skill-header">
+                                    <span class="skill-name">Google Workspace</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" data-width="85" role="progressbar" aria-label="Google Workspace skill level" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Management Skills -->
+                        <div class="skills-group hidden" data-group="management">
+                            <div class="skill-progress">
+                                <div class="skill-header">
+                                    <span class="skill-name">Leadership</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" data-width="90" role="progressbar" aria-label="Leadership skill level" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress">
+                                <div class="skill-header">
+                                    <span class="skill-name">Team Management</span>
+                                    <span class="skill-percentage">87%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" data-width="87" role="progressbar" aria-label="Team Management skill level" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress">
+                                <div class="skill-header">
+                                    <span class="skill-name">Operation Management</span>
+                                    <span class="skill-percentage">83%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" data-width="83" role="progressbar" aria-label="Operation Management skill level" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <!-- Personal Introduction -->
-          <div class="personal-intro">
-            My passion for data science began during my first year of college
-            when I discovered how data could tell compelling stories and drive
-            meaningful decisions. I believe in making data accessible and
-            actionable for everyone, bridging the gap between complex technical
-            concepts and practical business solutions.
-          </div>
-        </div>
-
-        <!-- Enhanced Education Section -->
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="enhanced-education">
-              <div class="section-heading">
-                <h2>Education Journey</h2>
-                <div class="underline"></div>
-              </div>
-
-              <div class="education-card position-relative">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-
-                <div class="education-header">
-                  <i class="fas fa-graduation-cap education-icon"></i>
-                  <div>
-                    <h3 class="education-title">
-                      Bachelor of Computer Application
-                    </h3>
-                    <p class="education-subtitle">
-                      Banasthali University | July 2021 – July 2025
-                    </p>
-                  </div>
-                </div>
-                <ul class="education-details">
-                  <li>
-                    Specialized in Data Science, focusing on machine learning,
-                    data analytics, and statistical modeling using real-world
-                    datasets.
-                  </li>
-                  <li>
-                    Proficient in tools and technologies including Python,
-                    Microsoft Excel, Power BI, and data visualization libraries.
-                  </li>
-                  <li>
-                    Gained practical experience in data preprocessing, analysis,
-                    and interpretation for business decision-making.
-                  </li>
-                  <li>
-                    Developed strong engineering fundamentals combined with a
-                    data-driven problem-solving mindset.
-                  </li>
-                  <li>
-                    Demonstrated excellent communication and community building
-                    skills through academic and collaborative projects.
-                  </li>
-                </ul>
-              </div>
+            <!-- Personal Story Section -->
+            <div class="personal-story">
+                <h3 style="color: #8B5CF6; margin-bottom: 1rem;">My Journey</h3>
+                <p style="color: #E5E7EB; line-height: 1.6; margin-bottom: 1rem;">
+                    What started as curiosity about numbers quickly evolved into a deep fascination with 
+                    machine learning and statistical modeling. Through hands-on projects and internships, 
+                    I've learned to bridge the gap between complex technical concepts and practical business solutions.
+                </p>
+                <p style="color: #E5E7EB; line-height: 1.6;">
+                    I'm passionate about using data to drive meaningful change and help organizations make 
+                    informed decisions. My goal is to contribute to projects that have real-world impact 
+                    while continuously learning and growing in this dynamic field.
+                </p>
             </div>
-          </div>
-        </div>
 
-        <!-- Enhanced Skills Section -->
-        <div class="enhanced-skills">
-          <div class="skills-heading text-center">
-            <h2>Skills & Expertise</h2>
-            <div class="underline"></div>
-          </div>
-
-          <!-- Skill Categories -->
-          <div class="skills-categories">
-            <button
-              class="category-btn active"
-              data-category="programming"
-              tabindex="0"
-            >
-              Programming
-            </button>
-            <button class="category-btn" data-category="data" tabindex="0">
-              Data Science
-            </button>
-            <button class="category-btn" data-category="tools" tabindex="0">
-              Tools
-            </button>
-            <button
-              class="category-btn"
-              data-category="management"
-              tabindex="0"
-            >
-              Management
-            </button>
-          </div>
-
-          <!-- Skills Progress Bars -->
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <!-- Programming Skills -->
-              <div class="skills-group" data-group="programming">
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name"
-                      >Python (Programming Language)</span
-                    >
-                    <span class="skill-percentage">90%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="90"
-                      role="progressbar"
-                      aria-label="Python skill level"
-                      aria-valuenow="90"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
+            <!-- Resume Download Section -->
+            <div class="resume-section">
+                <h3 style="color: white; margin-bottom: 1rem;">Want to know more about my journey?</h3>
+                <p style="color: #D1D5DB; margin-bottom: 2rem;">
+                    Download my detailed resume to see my complete experience and projects, or get in touch to discuss opportunities.
+                </p>
+                <div>
+                    <button class="btn-download" onclick="downloadResume()">
+                        <i class="fas fa-download me-2"></i>Download Resume
+                    </button>
+                    <a href="contact.html" class="btn-contact">
+                        <i class="fas fa-envelope me-2"></i>Contact Me
+                    </a>
                 </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Data Visualization</span>
-                    <span class="skill-percentage">85%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="85"
-                      role="progressbar"
-                      aria-label="Data Visualization skill level"
-                      aria-valuenow="85"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Data Science Skills -->
-              <div class="skills-group hidden" data-group="data">
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Data Science</span>
-                    <span class="skill-percentage">88%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="88"
-                      role="progressbar"
-                      aria-label="Data Science skill level"
-                      aria-valuenow="88"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Statistical Data Analysis</span>
-                    <span class="skill-percentage">82%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="82"
-                      role="progressbar"
-                      aria-label="Statistical Analysis skill level"
-                      aria-valuenow="82"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Tools Skills -->
-              <div class="skills-group hidden" data-group="tools">
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Microsoft Excel</span>
-                    <span class="skill-percentage">92%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="92"
-                      role="progressbar"
-                      aria-label="Excel skill level"
-                      aria-valuenow="92"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Power BI</span>
-                    <span class="skill-percentage">80%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="80"
-                      role="progressbar"
-                      aria-label="Power BI skill level"
-                      aria-valuenow="80"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Google Workspace</span>
-                    <span class="skill-percentage">85%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="85"
-                      role="progressbar"
-                      aria-label="Google Workspace skill level"
-                      aria-valuenow="85"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Management Skills -->
-              <div class="skills-group hidden" data-group="management">
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Leadership</span>
-                    <span class="skill-percentage">90%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="90"
-                      role="progressbar"
-                      aria-label="Leadership skill level"
-                      aria-valuenow="90"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Team Management</span>
-                    <span class="skill-percentage">87%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="87"
-                      role="progressbar"
-                      aria-label="Team Management skill level"
-                      aria-valuenow="87"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Operation Management</span>
-                    <span class="skill-percentage">83%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="83"
-                      role="progressbar"
-                      aria-label="Operation Management skill level"
-                      aria-valuenow="83"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-
-        <!-- Personal Story Section -->
-        <div class="personal-story">
-          <h3 style="color: #8b5cf6; margin-bottom: 1rem">My Journey</h3>
-          <p style="color: #e5e7eb; line-height: 1.6; margin-bottom: 1rem">
-            What started as curiosity about numbers quickly evolved into a deep
-            fascination with machine learning and statistical modeling. Through
-            hands-on projects and internships, I've learned to bridge the gap
-            between complex technical concepts and practical business solutions.
-          </p>
-          <p style="color: #e5e7eb; line-height: 1.6">
-            I'm passionate about using data to drive meaningful change and help
-            organizations make informed decisions. My goal is to contribute to
-            projects that have real-world impact while continuously learning and
-            growing in this dynamic field.
-          </p>
-        </div>
-
-        <!-- Resume Download Section -->
-        <div class="resume-section">
-          <h3 style="color: white; margin-bottom: 1rem">
-            Want to know more about my journey?
-          </h3>
-          <p style="color: #d1d5db; margin-bottom: 2rem">
-            Download my detailed resume to see my complete experience and
-            projects, or get in touch to discuss opportunities.
-          </p>
-          <div>
-            <button class="btn-download" onclick="downloadResume()">
-              <i class="fas fa-download me-2"></i>Download Resume
-            </button>
-            <a href="contact.html" class="btn-contact">
-              <i class="fas fa-envelope me-2"></i>Contact Me
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
 
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section about">
+      <h2><span class="name-highlight">Sampada</span>Tiwari</h2>
+      <p>Data Scientist • Leader • Creator</p>
+    </div>
+
+    <div class="footer-section links">
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Experience</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section follow">
+      <h2>Follow Me</h2>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <p class="footer-bottom">© 2025 Sampada Tiwari • All Rights Reserved</p>
+
+  <a href="#" class="scroll-top"><i class="fas fa-arrow-up"></i></a>
+</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/index.js"></script>
-
+    
     <script>
-      // Skills category switching
-      document.querySelectorAll('.category-btn').forEach((btn) => {
-        btn.addEventListener('click', function () {
-          // Remove active class from all buttons
-          document
-            .querySelectorAll('.category-btn')
-            .forEach((b) => b.classList.remove('active'));
-          // Add active class to clicked button
-          this.classList.add('active');
+        // Skills category switching
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Hide all skill groups
+                document.querySelectorAll('.skills-group').forEach(group => {
+                    group.classList.add('hidden');
+                });
+                
+                // Show selected group
+                const targetGroup = this.dataset.category;
+                const targetElement = document.querySelector(`[data-group="${targetGroup}"]`);
+                if (targetElement) {
+                    targetElement.classList.remove('hidden');
+                    // Animate progress bars
+                    animateProgressBars(targetElement);
+                }
+            });
 
-          // Hide all skill groups
-          document.querySelectorAll('.skills-group').forEach((group) => {
-            group.classList.add('hidden');
-          });
-
-          // Show selected group
-          const targetGroup = this.dataset.category;
-          const targetElement = document.querySelector(
-            `[data-group="${targetGroup}"]`
-          );
-          if (targetElement) {
-            targetElement.classList.remove('hidden');
-            // Animate progress bars
-            animateProgressBars(targetElement);
-          }
+            // Add keyboard support
+            btn.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
         });
 
-        // Add keyboard support
-        btn.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            this.click();
-          }
-        });
-      });
+        // Animate progress bars
+        function animateProgressBars(container = document) {
+            const progressBars = container.querySelectorAll('.progress-bar-fill');
+            progressBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    const width = bar.dataset.width;
+                    bar.style.width = width + '%';
+                }, index * 200);
+            });
+        }
 
-      // Animate progress bars
-      function animateProgressBars(container = document) {
-        const progressBars = container.querySelectorAll('.progress-bar-fill');
-        progressBars.forEach((bar, index) => {
-          setTimeout(() => {
-            const width = bar.dataset.width;
-            bar.style.width = width + '%';
-          }, index * 200);
-        });
-      }
-
-      // Animate counters
-      function animateCounters() {
-        const counters = document.querySelectorAll('.stat-number');
-        counters.forEach((counter) => {
-          const target = parseInt(counter.textContent);
-          let current = 0;
-          const increment = target / 50;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              current = target;
-              clearInterval(timer);
-            }
-            counter.textContent = Math.floor(current);
-          }, 40);
-        });
-      }
-
-      // Download resume function
-      function downloadResume() {
-        // Add your resume download logic here
-        const link = document.createElement('a');
-        link.href = './resume.pdf'; // Update path to your resume
-        link.download = 'Sampada_Tiwari_Resume.pdf';
-        link.click();
-      }
-
-      // Initialize on page load
-      document.addEventListener('DOMContentLoaded', function () {
-        // Animate initial progress bars
-        animateProgressBars();
         // Animate counters
-        animateCounters();
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current);
+                }, 40);
+            });
+        }
 
-        // Intersection Observer for animations
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '50px 0px',
-        };
+        // Download resume function
+        function downloadResume() {
+            // Add your resume download logic here
+            const link = document.createElement('a');
+            link.href = './resume.pdf'; // Update path to your resume
+            link.download = 'Sampada_Tiwari_Resume.pdf';
+            link.click();
+        }
 
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.style.animationPlayState = 'running';
-            }
-          });
-        }, observerOptions);
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate initial progress bars
+            animateProgressBars();
+            // Animate counters
+            animateCounters();
+            
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '50px 0px'
+            };
 
-        // Observe elements for animation
-        document
-          .querySelectorAll('.skill-progress, .stat-card, .personal-story')
-          .forEach((el) => {
-            observer.observe(el);
-          });
-      });
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.skill-progress, .stat-card, .personal-story').forEach(el => {
+                observer.observe(el);
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
