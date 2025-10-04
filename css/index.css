@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 :root {
   --primary: #38bdf8;
@@ -12,10 +12,12 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: #0f172a; /* dark mode background */
   color: #fff; /* dark mode text */
-  transition: background 0.3s, color 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s;
 }
 
 /* 🌞 Light Mode (applied when body has class "light") */
@@ -102,7 +104,10 @@ body.light .skill-tabs .tab:hover {
   border-radius: 20px;
   padding: 1.5rem;
   text-align: left;
-  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    background 0.3s,
+    box-shadow 0.3s;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   color: #fff;
 }
@@ -201,14 +206,17 @@ body.light .progress-bar {
   border-radius: 15px;
   padding: 25px;
   text-align: left;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -50%;
   left: -50%;
@@ -383,7 +391,9 @@ body.light #typed {
 /* Image Border Light Mode */
 body.light #hero img {
   border-color: #2563eb;
-  box-shadow: 0 0 40px rgba(56, 189, 248, 0.3), 0 0 80px rgba(168, 85, 247, 0.2);
+  box-shadow:
+    0 0 40px rgba(56, 189, 248, 0.3),
+    0 0 80px rgba(168, 85, 247, 0.2);
 }
 /* ========== ABOUT SECTION LIGHT MODE ========== */
 body.light #about {
