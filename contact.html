@@ -1,696 +1,713 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — Sampada Tiwari</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Sampada Tiwari</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-      :root {
-        --bg-dark: #0f0f1a;
-        --bg-light: #f9f9f9;
-        --card-dark: rgba(255, 255, 255, 0.05);
-        --card-light: #ffffff;
-        --primary: #6c5ce7;
-        --accent: #00eaff;
-        --text-dark: #222;
-        --text-light: #f5f5f5;
-        --text-muted-dark: #a0a0a0;
-        --text-muted-light: #555;
-      }
+  <style>
+    :root {
+      --bg-dark: #0f0f1a;
+      --bg-light: #f9f9f9;
+      --card-dark: rgba(255,255,255,0.05);
+      --card-light: #ffffff;
+      --primary: #6c5ce7;
+      --accent: #00eaff;
+      --text-dark: #222;
+      --text-light: #f5f5f5;
+      --text-muted-dark: #a0a0a0;
+      --text-muted-light: #555;
+    }
 
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 5rem 1rem 0;
+      background: radial-gradient(circle at top left, #1e1e2f, var(--bg-dark));
+      color: var(--text-light);
+      transition: all 0.4s ease;
+    }
+
+    body.light {
+      background: radial-gradient(circle at top left, #ffffff, var(--bg-light));
+      color: var(--text-dark);
+    }
+
+    /* Navbar Styles */
+    .nav-link {
+      position: relative;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #22d3ee;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #22d3ee;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Light mode navbar */
+    body.light .nav-link {
+      color: #1a1a1a;
+    }
+    body.light .nav-link:hover {
+      color: #6c5ce7;
+    }
+    body.light .nav-link::after {
+      background-color: #6c5ce7;
+    }
+    body.light header {
+      background: rgba(249, 249, 249, 0.8) !important;
+    }
+    body.light header h1 {
+      color: #1a1a1a !important;
+    }
+    body.light header h1 span {
+      color: #6c5ce7 !important;
+    }
+    body.light #menu-btn svg {
+      stroke: #1a1a1a;
+    }
+    body.light #mobile-menu {
+      background: rgba(249, 249, 249, 0.95) !important;
+    }
+    /* Fix navbar theme toggle visibility in light mode - keep original styling */
+    body.light #theme-toggle {
+      color: #6c5ce7 !important;
+    }
+    body.light #theme-toggle:hover {
+      color: #22d3ee !important;
+    }
+    body.light #theme-toggle i,
+    body.light #theme-toggle-icon {
+      color: #6c5ce7 !important;
+    }
+    body.light #theme-toggle:hover i,
+    body.light #theme-toggle:hover #theme-toggle-icon {
+      color: #22d3ee !important;
+    }
+
+    .contact-wrapper {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2.5rem;
+      border-radius: 25px;
+      background: var(--card-dark);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    body.light .contact-wrapper {
+      background: var(--card-light);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    }
+
+    /* Floating blobs */
+    .blob {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--primary), transparent 70%);
+      border-radius: 50%;
+      filter: blur(90px);
+      animation: float 12s ease-in-out infinite alternate;
+      opacity: 0.6;
+      z-index: -1;
+    }
+    .blob:nth-child(1){ top: -50px; left: -80px; }
+    .blob:nth-child(2){ bottom: -60px; right: -100px; background: radial-gradient(circle, var(--accent), transparent 70%); }
+
+    @keyframes float {
+      0%{ transform: translateY(0) translateX(0);}
+      100%{ transform: translateY(-40px) translateX(40px);}
+    }
+
+    /* Headings */
+    .contact-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .contact-heading h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .contact-heading p {
+      color: var(--text-muted-dark);
+      font-size: 1.1rem;
+    }
+    body.light .contact-heading p { color: var(--text-muted-light); }
+
+    /* Intro */
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Info cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .info-card {
+      padding: 1rem;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    body.light .info-card {
+      background: #fafafa;
+      border: 1px solid #ddd;
+    }
+    .info-card i {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    .info-card p { margin: 0; }
+
+    /* Email */
+    .email-box {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .email-box a {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.7rem 1.4rem;
+      border-radius: 12px;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    body.light .email-box a { color: #fff; }
+    .email-box a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 234, 255, 0.3);
+    }
+
+    /* Social */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      text-decoration: none;
+      color: var(--text-light);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    body.light .social-card {
+      background: #fafafa;
+      color: var(--text-dark);
+      border: 1px solid #ddd;
+    }
+    .social-card i { font-size: 1.6rem; }
+    .social-card span {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .social-card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s ease;
+    }
+    .social-card:hover::after { left: 100%; }
+    .social-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    /* Form */
+    .contact-form {
+      margin-bottom: 2.5rem;
+    }
+    .contact-form h3 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .contact-form .form-control {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text-light);
+    }
+    .contact-form .form-control::placeholder {
+      color: #ccc;
+    }
+    body.light .contact-form .form-control {
+      background: #fff;
+      color: var(--text-dark);
+      border: 1px solid #ccc;
+    }
+    .contact-form .btn {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .contact-form .btn:hover { transform: scale(1.02); }
+
+    /* Scroll top */
+    .scroll-top {
+      position: fixed;
+      bottom: 25px; right: 25px;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .scroll-top.show { opacity: 1; visibility: visible; }
+
+    /* Theme toggle */
+    .theme-toggle {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: none;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      border-radius: 50%;
+      width: 42px; height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* Light mode theme toggle visibility */
+    body.light .theme-toggle {
+      border: 3px solid var(--primary);
+      color: var(--primary);
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(108, 92, 231, 0.5);
+      font-weight: bold;
+    }
+    body.light .theme-toggle:hover {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 6px 25px rgba(108, 92, 231, 0.6);
+      transform: scale(1.1);
+    }
+
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      margin-top: 4rem;
+    }
+    
+    body.light footer {
+      background: linear-gradient(135deg, #f9f9f9 0%, #e8e8e8 100%);
+      color: #1a1a1a;
+    }
+
+    body.light footer h2 {
+      background: linear-gradient(to right, #6c5ce7, #00c6ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    body.light footer p {
+      color: #555;
+    }
+
+    body.light footer h3 {
+      color: #6c5ce7;
+    }
+
+    body.light footer a {
+      color: #1a1a1a;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    body.light footer a:hover {
+      color: #6c5ce7;
+      transform: scale(1.1);
+    }
+
+    body.light footer .border-t {
+      border-color: #ddd;
+    }
+
+    body.light footer .text-gray-500 {
+      color: #555;
+    }
+
+    body.light footer .text-gray-400 {
+      color: #777;
+    }
+
+    body.light footer .fab,
+    body.light footer .fas {
+      color: #1a1a1a;
+    }
+
+    body.light footer .fab:hover,
+    body.light footer .fas:hover {
+      color: #6c5ce7;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
       body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 5rem 1rem 3rem; /* increased top padding for navbar */
-        background: radial-gradient(
-          circle at top left,
-          #1e1e2f,
-          var(--bg-dark)
-        );
-        color: var(--text-light);
-        transition: all 0.4s ease;
+        padding: 5rem 1rem 0;
       }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      
+      <!-- Brand / Logo -->
+      <h1 class="text-2xl font-bold text-white">
+        Sampada <span class="text-cyan-400">Tiwari</span>
+      </h1>
 
-      body.light {
-        background: radial-gradient(
-          circle at top left,
-          #ffffff,
-          var(--bg-light)
-        );
-        color: var(--text-dark);
-      }
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-6 font-medium">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="project.html" class="nav-link">Projects</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
 
-      /* Navbar Styles */
-      .nav-link {
-        position: relative;
-        color: white;
-        transition: all 0.3s ease;
-      }
-      .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: #22d3ee;
-        transition: width 0.3s ease;
-      }
-      .nav-link:hover {
-        color: #22d3ee;
-      }
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
-      /* Light mode navbar */
-      body.light .nav-link {
-        color: #1a1a1a;
-      }
-      body.light .nav-link:hover {
-        color: #6c5ce7;
-      }
-      body.light .nav-link::after {
-        background-color: #6c5ce7;
-      }
-      body.light header {
-        background: rgba(249, 249, 249, 0.8) !important;
-      }
-      body.light header h1 {
-        color: #1a1a1a !important;
-      }
-      body.light header h1 span {
-        color: #6c5ce7 !important;
-      }
-      body.light #menu-btn svg {
-        stroke: #1a1a1a;
-      }
-      body.light #mobile-menu {
-        background: rgba(249, 249, 249, 0.95) !important;
-      }
-      /* Fix navbar theme toggle visibility in light mode - keep original styling */
-      body.light #theme-toggle {
-        color: #6c5ce7 !important;
-      }
-      body.light #theme-toggle:hover {
-        color: #22d3ee !important;
-      }
-      body.light #theme-toggle i,
-      body.light #theme-toggle-icon {
-        color: #6c5ce7 !important;
-      }
-      body.light #theme-toggle:hover i,
-      body.light #theme-toggle:hover #theme-toggle-icon {
-        color: #22d3ee !important;
-      }
-
-      .contact-wrapper {
-        max-width: 1000px;
-        margin: auto;
-        padding: 2.5rem;
-        border-radius: 25px;
-        background: var(--card-dark);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-        position: relative;
-        overflow: hidden;
-        transition: all 0.4s ease;
-      }
-      body.light .contact-wrapper {
-        background: var(--card-light);
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-      }
-
-      /* Floating blobs */
-      .blob {
-        position: absolute;
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(circle, var(--primary), transparent 70%);
-        border-radius: 50%;
-        filter: blur(90px);
-        animation: float 12s ease-in-out infinite alternate;
-        opacity: 0.6;
-        z-index: -1;
-      }
-      .blob:nth-child(1) {
-        top: -50px;
-        left: -80px;
-      }
-      .blob:nth-child(2) {
-        bottom: -60px;
-        right: -100px;
-        background: radial-gradient(circle, var(--accent), transparent 70%);
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(0) translateX(0);
-        }
-        100% {
-          transform: translateY(-40px) translateX(40px);
-        }
-      }
-
-      /* Headings */
-      .contact-heading {
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-      .contact-heading h1 {
-        font-weight: 700;
-        font-size: 2.8rem;
-        background: linear-gradient(90deg, var(--accent), var(--primary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .contact-heading p {
-        color: var(--text-muted-dark);
-        font-size: 1.1rem;
-      }
-      body.light .contact-heading p {
-        color: var(--text-muted-light);
-      }
-
-      /* Intro */
-      .intro {
-        text-align: center;
-        margin-bottom: 2rem;
-        font-size: 1.05rem;
-        line-height: 1.6;
-      }
-
-      /* Info cards */
-      .info-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 2.5rem;
-      }
-      .info-card {
-        padding: 1rem;
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: center;
-      }
-      body.light .info-card {
-        background: #fafafa;
-        border: 1px solid #ddd;
-      }
-      .info-card i {
-        font-size: 1.6rem;
-        margin-bottom: 0.5rem;
-        color: var(--accent);
-      }
-      .info-card p {
-        margin: 0;
-      }
-
-      /* Email */
-      .email-box {
-        text-align: center;
-        margin-bottom: 2.5rem;
-      }
-      .email-box a {
-        font-size: 1.2rem;
-        color: var(--text-light);
-        text-decoration: none;
-        font-weight: 600;
-        padding: 0.7rem 1.4rem;
-        border-radius: 12px;
-        background: linear-gradient(45deg, var(--primary), var(--accent));
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.6rem;
-      }
-      body.light .email-box a {
-        color: #fff;
-      }
-      .email-box a:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 25px rgba(0, 234, 255, 0.3);
-      }
-
-      /* Social */
-      .social-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 2.5rem;
-      }
-      .social-card {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem 1.2rem;
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        text-decoration: none;
-        color: var(--text-light);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-      body.light .social-card {
-        background: #fafafa;
-        color: var(--text-dark);
-        border: 1px solid #ddd;
-      }
-      .social-card i {
-        font-size: 1.6rem;
-      }
-      .social-card span {
-        font-size: 1.1rem;
-        font-weight: 500;
-      }
-      .social-card::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          120deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        transition: left 0.6s ease;
-      }
-      .social-card:hover::after {
-        left: 100%;
-      }
-      .social-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-      }
-
-      /* Form */
-      .contact-form {
-        margin-bottom: 2.5rem;
-      }
-      .contact-form h3 {
-        margin-bottom: 1rem;
-        font-weight: 600;
-      }
-      .contact-form .form-control {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: var(--text-light);
-      }
-      .contact-form .form-control::placeholder {
-        color: #ccc;
-      }
-      body.light .contact-form .form-control {
-        background: #fff;
-        color: var(--text-dark);
-        border: 1px solid #ccc;
-      }
-      .contact-form .btn {
-        background: linear-gradient(45deg, var(--primary), var(--accent));
-        border: none;
-        color: #fff;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-      .contact-form .btn:hover {
-        transform: scale(1.02);
-      }
-
-      /* Scroll top */
-      .scroll-top {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        border: none;
-        background: linear-gradient(45deg, var(--primary), var(--accent));
-        color: #fff;
-        font-size: 1.2rem;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1000;
-      }
-      .scroll-top.show {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      /* Theme toggle */
-      .theme-toggle {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background: none;
-        border: 2px solid var(--accent);
-        color: var(--accent);
-        border-radius: 50%;
-        width: 42px;
-        height: 42px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      .theme-toggle:hover {
-        background: var(--accent);
-        color: #fff;
-      }
-
-      /* Light mode theme toggle visibility */
-      body.light .theme-toggle {
-        border: 3px solid var(--primary);
-        color: var(--primary);
-        background: #ffffff;
-        box-shadow: 0 4px 20px rgba(108, 92, 231, 0.5);
-        font-weight: bold;
-      }
-      body.light .theme-toggle:hover {
-        background: var(--primary);
-        color: #fff;
-        box-shadow: 0 6px 25px rgba(108, 92, 231, 0.6);
-        transform: scale(1.1);
-      }
-
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        body {
-          padding: 5rem 1rem 2rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <header
-      class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50"
-    >
-      <div
-        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
-      >
-        <!-- Brand / Logo -->
-        <h1 class="text-2xl font-bold text-white">
-          Sampada <span class="text-cyan-400">Tiwari</span>
-        </h1>
-
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-6 font-medium">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="experience.html" class="nav-link">Experience</a>
-          <a href="project.html" class="nav-link">Projects</a>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-
-          <!-- Theme Toggle -->
-          <button
-            id="theme-toggle"
-            class="ml-4 text-white hover:text-cyan-400 transition"
-          >
-            <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
-          </button>
-        </nav>
-
-        <!-- Mobile Menu Button -->
-        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="ml-4 text-white hover:text-cyan-400 transition">
+          <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
         </button>
-      </div>
+      </nav>
 
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md"
-      >
-        <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="skills.html" class="nav-link">Skills</a>
-          <a href="experience.html" class="nav-link">Experience</a>
-          <a href="project.html" class="nav-link">Projects</a>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <div class="contact-wrapper">
-      <div class="blob"></div>
-      <div class="blob"></div>
-
-      <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
       </button>
+    </div>
 
-      <div class="contact-heading">
-        <h1>Let's Connect</h1>
-        <p>
-          Collaboration, ideas, or questions — I'm always open to meaningful
-          conversations.
-        </p>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
+      <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="project.html" class="nav-link">Projects</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="contact-wrapper">
+    <div class="blob"></div>
+    <div class="blob"></div>
+
+    <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+
+    <div class="contact-heading">
+      <h1>Let's Connect</h1>
+      <p>Collaboration, ideas, or questions — I'm always open to meaningful conversations.</p>
+    </div>
+
+    <div class="intro">
+      <p>
+        Hi 👋 I'm <strong>Sampada Tiwari</strong>, a passionate developer & designer.  
+        I enjoy building digital products that blend creativity with functionality.  
+        If you'd like to discuss a project, share feedback, or just say hello, feel free to reach out below.
+      </p>
+    </div>
+
+    <!-- Info cards -->
+    <div class="info-grid">
+      <div class="info-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>New Delhi, India</p>
       </div>
-
-      <div class="intro">
-        <p>
-          Hi 👋 I'm <strong>Sampada Tiwari</strong>, a passionate developer &
-          designer. I enjoy building digital products that blend creativity with
-          functionality. If you'd like to discuss a project, share feedback, or
-          just say hello, feel free to reach out below.
-        </p>
+      <div class="info-card">
+        <i class="fas fa-phone"></i>
+        <p>+91 98765 XXXXX</p>
       </div>
-
-      <!-- Info cards -->
-      <div class="info-grid">
-        <div class="info-card">
-          <i class="fas fa-map-marker-alt"></i>
-          <p>New Delhi, India</p>
-        </div>
-        <div class="info-card">
-          <i class="fas fa-phone"></i>
-          <p>+91 98765 XXXXX</p>
-        </div>
-        <div class="info-card">
-          <i class="fas fa-clock"></i>
-          <p>Mon - Fri (10AM - 6PM)</p>
-        </div>
-      </div>
-
-      <!-- Email -->
-      <div class="email-box">
-        <a href="mailto:sampada@example.com">
-          <i class="fa-solid fa-envelope"></i> sampada@example.com
-        </a>
-      </div>
-
-      <!-- Social links -->
-      <div class="social-grid">
-        <a href="#" target="_blank" class="social-card"
-          ><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a
-        >
-        <a href="#" target="_blank" class="social-card"
-          ><i class="fab fa-instagram"></i> <span>Instagram</span></a
-        >
-        <a href="#" target="_blank" class="social-card"
-          ><i class="fab fa-github"></i> <span>GitHub</span></a
-        >
-        <a href="#" target="_blank" class="social-card"
-          ><i class="fab fa-twitter"></i> <span>Twitter</span></a
-        >
-      </div>
-
-      <!-- Contact form -->
-      <div class="contact-form">
-        <h3>Send Me a Message</h3>
-        <form>
-          <div class="mb-3">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Your Name"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <input
-              type="email"
-              class="form-control"
-              placeholder="Your Email"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <textarea
-              class="form-control"
-              rows="4"
-              placeholder="Your Message"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="btn w-100">Send Message</button>
-        </form>
+      <div class="info-card">
+        <i class="fas fa-clock"></i>
+        <p>Mon - Fri (10AM - 6PM)</p>
       </div>
     </div>
 
-    <button class="scroll-top" id="scrollTop">
-      <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- Email -->
+    <div class="email-box">
+      <a href="mailto:sampada@example.com">
+        <i class="fa-solid fa-envelope"></i> sampada@example.com
+      </a>
+    </div>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      // Theme Toggle functionality (dual toggles working together)
-      const scrollBtn = document.getElementById('scrollTop');
-      const themeToggleMain = document.getElementById('theme-toggle');
-      const themeToggleContact = document.getElementById('themeToggle');
-      const body = document.body;
+    <!-- Social links -->
+    <div class="social-grid">
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a>
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-github"></i> <span>GitHub</span></a>
+      <a href="#" target="_blank" class="social-card"><i class="fab fa-twitter"></i> <span>Twitter</span></a>
+    </div>
 
-      // Function to sync both toggle buttons
-      function syncThemeToggles(isLight) {
-        const moonIcon = '<i class="fas fa-moon"></i>';
-        const sunIcon = '<i class="fas fa-sun"></i>';
+    <!-- Contact form -->
+    <div class="contact-form">
+      <h3>Send Me a Message</h3>
+      <form>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn w-100">Send Message</button>
+      </form>
+    </div>
+  </div>
 
-        if (themeToggleMain) {
-          const mainIcon = themeToggleMain.querySelector('i');
-          if (mainIcon) {
-            mainIcon.className = isLight
-              ? 'fas fa-sun text-xl'
-              : 'fas fa-moon text-xl';
-          }
-        }
+  <!-- Footer Section -->
+  <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12">
+    <!-- Footer Container -->
+    <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
+      <!-- Brand / Logo -->
+      <div class="text-center md:text-left">
+        <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+          Sampada<span class="font-extrabold">Tiwari</span>
+        </h2>
+        <p class="text-gray-400 mt-1 text-sm md:text-base">
+          Data Scientist • Leader • Creator
+        </p>
+      </div>
 
-        if (themeToggleContact) {
-          themeToggleContact.innerHTML = isLight ? sunIcon : moonIcon;
-        }
-      }
+      <!-- Quick Links -->
+      <div class="text-center md:text-left">
+        <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
+        <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2">
+          <li>
+            <a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a>
+          </li>
+          <li>
+            <a href="about.html" class="hover:text-cyan-400 transition-colors">About</a>
+          </li>
+          <li>
+            <a href="skills.html" class="hover:text-cyan-400 transition-colors">Skills</a>
+          </li>
+          <li>
+            <a href="experience.html" class="hover:text-cyan-400 transition-colors">Experience</a>
+          </li>
+          <li>
+            <a href="project.html" class="hover:text-cyan-400 transition-colors">Projects</a>
+          </li>
+          <li>
+            <a href="index.html#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a>
+          </li>
+          <li>
+            <a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a>
+          </li>
+        </ul>
+      </div>
 
-      // Function to toggle theme
-      function toggleTheme() {
-        body.classList.toggle('light');
-        const isLight = body.classList.contains('light');
-        syncThemeToggles(isLight);
-      }
+      <!-- Social Media -->
+      <div class="text-center md:text-left">
+        <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
+        <div class="flex justify-center md:justify-start gap-4 text-2xl">
+          <a href="https://linkedin.com/in/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="mailto:sampada@example.com" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
 
-      // Event listeners for both toggle buttons
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+      © 2025 Sampada Tiwari • All Rights Reserved
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Theme Toggle functionality (dual toggles working together)
+    const scrollBtn = document.getElementById('scrollTop');
+    const themeToggleMain = document.getElementById('theme-toggle');
+    const themeToggleContact = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Function to sync both toggle buttons
+    function syncThemeToggles(isLight) {
+      const moonIcon = '<i class="fas fa-moon"></i>';
+      const sunIcon = '<i class="fas fa-sun"></i>';
+      
       if (themeToggleMain) {
-        themeToggleMain.addEventListener('click', toggleTheme);
+        const mainIcon = themeToggleMain.querySelector('i');
+        if (mainIcon) {
+          mainIcon.className = isLight ? 'fas fa-sun text-xl' : 'fas fa-moon text-xl';
+        }
       }
-
+      
       if (themeToggleContact) {
-        themeToggleContact.addEventListener('click', toggleTheme);
+        themeToggleContact.innerHTML = isLight ? sunIcon : moonIcon;
       }
+    }
 
-      // Mobile menu toggle
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
+    // Function to toggle theme
+    function toggleTheme() {
+      body.classList.toggle('light');
+      const isLight = body.classList.contains('light');
+      syncThemeToggles(isLight);
+    }
 
-      if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-        });
-      }
+    // Event listeners for both toggle buttons
+    if (themeToggleMain) {
+      themeToggleMain.addEventListener('click', toggleTheme);
+    }
+    
+    if (themeToggleContact) {
+      themeToggleContact.addEventListener('click', toggleTheme);
+    }
 
-      // Scroll top functionality
-      window.addEventListener('scroll', () => {
-        scrollBtn.classList.toggle('show', window.scrollY > 200);
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Scroll top functionality
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('show', window.scrollY > 200);
+    });
+    
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+
+    // Enhanced hover effects for social items
+    document.querySelectorAll(".social-card").forEach((item) => {
+      item.addEventListener("mouseenter", function () {
+        this.style.transform = "translateY(-5px) scale(1.02)";
       });
 
-      scrollBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      item.addEventListener("mouseleave", function () {
+        this.style.transform = "translateY(0) scale(1)";
       });
+    });
 
-      // Enhanced hover effects for social items
-      document.querySelectorAll('.social-card').forEach((item) => {
-        item.addEventListener('mouseenter', function () {
-          this.style.transform = 'translateY(-5px) scale(1.02)';
-        });
-
-        item.addEventListener('mouseleave', function () {
-          this.style.transform = 'translateY(0) scale(1)';
-        });
+    // Email click tracking
+    const emailLink = document.querySelector(".email-box a");
+    if (emailLink) {
+      emailLink.addEventListener("click", function () {
+        console.log("Email clicked - opening default email client");
       });
+    }
 
-      // Email click tracking
-      const emailLink = document.querySelector('.email-box a');
-      if (emailLink) {
-        emailLink.addEventListener('click', function () {
-          console.log('Email clicked - opening default email client');
-        });
-      }
-
-      // Add subtle parallax effect to background
-      window.addEventListener('scroll', function () {
-        const scrolled = window.pageYOffset;
-        const blobs = document.querySelectorAll('.blob');
-        const rate = scrolled * -0.1;
-
-        blobs.forEach((blob) => {
-          blob.style.transform = `translateY(${rate}px)`;
-        });
+    // Add subtle parallax effect to background
+    window.addEventListener("scroll", function () {
+      const scrolled = window.pageYOffset;
+      const blobs = document.querySelectorAll('.blob');
+      const rate = scrolled * -0.1;
+      
+      blobs.forEach(blob => {
+        blob.style.transform = `translateY(${rate}px)`;
       });
+    });
 
-      // Add click ripple effect to social items
-      document.querySelectorAll('.social-card').forEach((item) => {
-        item.addEventListener('click', function (e) {
-          const ripple = document.createElement('span');
-          const rect = this.getBoundingClientRect();
-          const size = Math.max(rect.width, rect.height);
-          const x = e.clientX - rect.left - size / 2;
-          const y = e.clientY - rect.top - size / 2;
+    // Add click ripple effect to social items
+    document.querySelectorAll(".social-card").forEach((item) => {
+      item.addEventListener("click", function (e) {
+        const ripple = document.createElement("span");
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
 
-          ripple.style.width = ripple.style.height = size + 'px';
-          ripple.style.left = x + 'px';
-          ripple.style.top = y + 'px';
-          ripple.classList.add('ripple');
+        ripple.style.width = ripple.style.height = size + "px";
+        ripple.style.left = x + "px";
+        ripple.style.top = y + "px";
+        ripple.classList.add("ripple");
 
-          this.appendChild(ripple);
+        this.appendChild(ripple);
 
-          setTimeout(() => {
-            ripple.remove();
-          }, 600);
-        });
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
       });
+    });
 
-      // Add ripple effect styles dynamically
-      const style = document.createElement('style');
-      style.textContent = `
+    // Add ripple effect styles dynamically
+    const style = document.createElement("style");
+    style.textContent = `
       .ripple {
         position: absolute;
         border-radius: 50%;
@@ -707,7 +724,7 @@
         }
       }
     `;
-      document.head.appendChild(style);
-    </script>
-  </body>
+    document.head.appendChild(style);
+  </script>
+</body>
 </html>
