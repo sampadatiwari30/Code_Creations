@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 body {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   background: #0f172a;
   color: #e0e0e0;
   overflow-x: hidden;
@@ -64,8 +64,8 @@ body.light .modal-content p {
 }
 
 body.light .modal-content .buttons a {
-  background-image: linear-gradient(var(--card-bg), var(--card-bg)),
-    var(--gradient-accent);
+  background-image:
+    linear-gradient(var(--card-bg), var(--card-bg)), var(--gradient-accent);
   color: #fff;
 }
 
@@ -261,7 +261,9 @@ body.light #scrollTop {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   opacity: 0;
   visibility: hidden;
   z-index: 50;
@@ -285,7 +287,8 @@ html {
   text-shadow: 0 0 5px rgba(192, 255, 236, 0.599);
 }
 .modal-content .buttons a {
-  background-image: linear-gradient(#1e293b, #1e293b),
+  background-image:
+    linear-gradient(#1e293b, #1e293b),
     linear-gradient(135deg, #6c5ce7, #00c6ff, #ff6ec7);
 }
 .project-card {
@@ -327,7 +330,9 @@ body.light footer h3 {
 
 body.light footer a {
   color: #1a1a1a; /* Default link color */
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 body.light footer a:hover {
