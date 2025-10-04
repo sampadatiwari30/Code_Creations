@@ -1,56 +1,66 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 body {
-      background: linear-gradient(to right, #0f172a, #1e293b, #0f172a);
-      color: white;
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    /* Animated glowing marker */
-    .glow-marker {
-      box-shadow: 0 0 15px rgba(255,255,255,0.8), 0 0 30px currentColor;
-      animation: pulse 2s infinite alternate;
-    }
-    @keyframes pulse {
-      from { transform: scale(1); opacity: 0.9; }
-      to { transform: scale(1.2); opacity: 0.6; }
-    }
-    /* ===================== LIGHT MODE ===================== */
-    body.light {
-      background: linear-gradient(to right, #f9f9f9, #e0e0e0, #f9f9f9);
-      color: #1a1a1a;
-    }
-    body.light .glass {
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      color: #1a1a1a;
-    }
-    body.light .glow-marker {
-      box-shadow: 0 0 15px rgba(108,92,231,0.8), 0 0 30px currentColor;
-    }
-    body.light header, 
-    body.light #mobile-menu {
-      background: rgba(255, 255, 255, 0.8) !important;
-      color: #1a1a1a !important;
-      backdrop-filter: blur(14px);
-    }
-    body.light a {
-      color: #1a1a1a;
-    }
-    body.light a:hover {
-      color: #6c5ce7; /* dark purple hover for links in light mode */
-    }
-    body.light footer {
-      background: #f0f0f0;
-      color: #1a1a1a;
-    }
-    body.light footer .text-gray-400,
-    body.light footer .text-gray-500 {
-      color: #555;
-    }
+  background: linear-gradient(to right, #0f172a, #1e293b, #0f172a);
+  color: white;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+/* Animated glowing marker */
+.glow-marker {
+  box-shadow:
+    0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 30px currentColor;
+  animation: pulse 2s infinite alternate;
+}
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+}
+/* ===================== LIGHT MODE ===================== */
+body.light {
+  background: linear-gradient(to right, #f9f9f9, #e0e0e0, #f9f9f9);
+  color: #1a1a1a;
+}
+body.light .glass {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1a1a1a;
+}
+body.light .glow-marker {
+  box-shadow:
+    0 0 15px rgba(108, 92, 231, 0.8),
+    0 0 30px currentColor;
+}
+body.light header,
+body.light #mobile-menu {
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: #1a1a1a !important;
+  backdrop-filter: blur(14px);
+}
+body.light a {
+  color: #1a1a1a;
+}
+body.light a:hover {
+  color: #6c5ce7; /* dark purple hover for links in light mode */
+}
+body.light footer {
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+body.light footer .text-gray-400,
+body.light footer .text-gray-500 {
+  color: #555;
+}
 
 /* ===================== TOGGLE BUTTON ===================== */
 .theme-toggle {
@@ -69,7 +79,7 @@ body {
   color: #fff;
   font-size: 1.25rem;
   z-index: 2000;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
@@ -81,7 +91,7 @@ body {
 body.light .theme-toggle {
   background: #f0f0f0; /* light mode background */
   color: #1a1a1a; /* icon color */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* ===================== RESPONSIVE MEDIA QUERIES ===================== */
@@ -105,7 +115,8 @@ body.light .theme-toggle {
     border-radius: 15px;
   }
 
-  header, #mobile-menu {
+  header,
+  #mobile-menu {
     padding: 0.5rem 1rem;
   }
 
@@ -136,6 +147,8 @@ body.light .theme-toggle {
 /* Small screens adjustments for glowing markers */
 @media (max-width: 480px) {
   .glow-marker {
-    box-shadow: 0 0 10px rgba(255,255,255,0.7), 0 0 20px currentColor;
+    box-shadow:
+      0 0 10px rgba(255, 255, 255, 0.7),
+      0 0 20px currentColor;
   }
 }
