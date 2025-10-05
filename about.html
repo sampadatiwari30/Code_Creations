@@ -8,7 +8,7 @@
       name="description"
       content="Learn about Sampada Tiwari - Data Scientist and Web Developer passionate about machine learning and data analytics"
     />
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,53 +24,61 @@
     <link rel="stylesheet" href="css/about.css" />
   </head>
   <body>
-    <button class="theme-toggle" id="themeToggle">
-      <i class="fas fa-moon"></i>
-    </button>
-
+   
     <!-- Background Particles -->
     <div class="particles-bg"></div>
+ <!-- Header -->
+<header class="fixed top-0 left-0 w-full bg-[#0f172a]/90 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    
+    <!-- Brand / Logo -->
+    <h1 class="text-2xl font-bold text-white">
+      Sampada <span class="text-cyan-400">Tiwari</span>
+    </h1>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
-      <div class="container">
-        <a class="navbar-brand" href="#">sampada tiwari</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="skills.html">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="about.html" aria-current="page"
-                >About Me</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="project.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="experience.html">Experience</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Me</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-6 font-medium">
+      <a href="#hero" class="nav-link hover:text-cyan-400 transition">Home</a>
+      <a href="about.html" class="nav-link hover:text-cyan-400 transition">About</a>
+      <a href="#skills" class="nav-link hover:text-cyan-400 transition">Skills</a>
+      <a href="experience.html" class="nav-link hover:text-cyan-400 transition">Experience</a>
+      <a href="project.html" class="nav-link hover:text-cyan-400 transition">Projects</a>
+      <a href="#testimonials" class="nav-link hover:text-cyan-400 transition">Testimonials</a>
+      <a href="contact.html" class="nav-link hover:text-cyan-400 transition">Contact</a>
+
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="ml-4 text-white hover:text-cyan-400 transition">
+        <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
+      </button>
     </nav>
 
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+      <svg id="menu-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+ <!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
+  <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
+    <a href="#hero" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Home</a>
+    <a href="about.html" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">About</a>
+    <a href="skills.html" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Skills</a>
+    <a href="experience.html" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Experience</a>
+    <a href="project.html" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Projects</a>
+    <a href="#testimonials" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Testimonials</a>
+    <a href="contact.html" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Contact</a>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle-mobile" class="mt-4 text-white hover:text-cyan-400 transition">
+      <i class="fas fa-moon text-xl"></i>
+    </button>
+  </nav>
+</div>
+
+</header>
     <!-- Main Container -->
     <div class="main-container">
       <div class="container">
@@ -434,6 +442,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script src="js/index.js"></script>
 
     <script>
