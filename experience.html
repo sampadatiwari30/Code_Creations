@@ -15,76 +15,58 @@
     <link rel="stylesheet" href="css/experience.css" />
   </head>
   <body class="font-sans">
-    <button class="theme-toggle" id="themeToggle">
-      <i class="fas fa-moon" id="theme-icon"></i>
+    <header class="fixed top-0 left-0 w-full backdrop-blur-md z-50 transition-colors duration-300" id="main-header">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <!-- Brand / Logo -->
+    <h1 class="text-2xl font-bold" id="brand">
+      Sampada <span class="text-cyan-500">Tiwari</span>
+    </h1>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-6 font-medium" id="desktop-nav">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="project.html" class="nav-link">Projects</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+
+      <!-- Theme Toggle (Desktop) -->
+      <button class="theme-toggle ml-4 transition">
+        <i class="theme-toggle-icon fas fa-moon text-xl"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
     </button>
-    <!-- Navbar -->
-    <header
-      class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50"
-    >
-      <div
-        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
-      >
-        <!-- Brand / Logo -->
-        <h1 class="text-2xl font-bold text-white">
-          Sampada <span class="text-cyan-400">Tiwari</span>
-        </h1>
+  </div>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-6 font-medium">
-          <a href="#hero" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="experience.html" class="nav-link">Experience</a>
-          <a href="project.html" class="nav-link">Projects</a>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
-          <a href="contact.html" class="nav-link">Contact</a>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden backdrop-blur-md transition-colors duration-300">
+    <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="project.html" class="nav-link">Projects</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
 
-          <!-- Theme Toggle -->
-          <button
-            id="theme-toggle"
-            class="ml-4 text-white hover:text-cyan-400 transition"
-          >
-            <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
-          </button>
-        </nav>
+    <!-- Theme Toggle (Mobile) -->
+    <button class="theme-toggle ml-4 px-4 py-2 transition">
+      <i class="theme-toggle-icon fas fa-moon text-xl"></i>
+    </button>
+  </div>
+</header>
 
-        <!-- Mobile Menu Button -->
-        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
 
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md"
-      >
-        <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
-          <a href="#hero" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="skills.html" class="nav-link">Skills</a>
-          <a href="experience.html" class="nav-link">Experience</a>
-          <a href="project.html" class="nav-link">Projects</a>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Tailwind Nav Link Styling -->
+  <!-- Tailwind Nav Link Styling -->
     <style>
       .nav-link {
         @apply relative text-white transition duration-300;
@@ -135,10 +117,10 @@
             <h3 class="text-2xl font-semibold text-purple-400">
               GirlScript Summer of Code
             </h3>
-            <p class="text-gray-300">
+            <p class="text-white-300">
               Project Admin & Discord Moderator · Jul 2025 – Present
             </p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>Selected as Project Admin</li>
               <li>Full-time Discord Moderator</li>
               <li>
@@ -159,10 +141,10 @@
             class="glass rounded-3xl p-6 shadow-2xl border border-pink-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
           >
             <h3 class="text-2xl font-semibold text-pink-400">Gaming Network</h3>
-            <p class="text-gray-300">
+            <p class="text-white-300">
               Fellowship – City Lead · May 2024 – Present
             </p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>Represented Kratos in city-based esports initiatives</li>
               <li>Managed partnerships, events & campaigns</li>
               <li>Tracked outreach stats with Excel</li>
@@ -181,10 +163,10 @@
             class="glass rounded-3xl p-6 shadow-2xl border border-red-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
           >
             <h3 class="text-2xl font-semibold text-red-400">Future Baba</h3>
-            <p class="text-gray-300">
+            <p class="text-white-300">
               Data Analytics & Data Science Intern · Apr 2025
             </p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>Used Python, Excel, Power BI for insights</li>
               <li>Built interactive KPI dashboards</li>
               <li>Contributed to modeling & reporting</li>
@@ -202,8 +184,8 @@
             class="glass rounded-3xl p-6 shadow-2xl border border-gray-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
           >
             <h3 class="text-2xl font-semibold text-gray-400">Algorithm</h3>
-            <p class="text-gray-300">CCP Lead · Jun 2024 – May 2025</p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <p class="text-white-300">CCP Lead · Jun 2024 – May 2025</p>
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>Led 50+ coders in DSA & CP</li>
               <li>Hosted contests and mentoring sessions</li>
               <li>Maintained community on GitHub/Discord</li>
@@ -223,8 +205,8 @@
             <h3 class="text-2xl font-semibold text-cyan-400">
               Palmolive (India) Ltd
             </h3>
-            <p class="text-gray-300">Content Creator · May 2024</p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <p class="text-white-300">Content Creator · May 2024</p>
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>Created content aligned to brand voice</li>
               <li>Supported marketing campaigns</li>
               <li>Drove engagement via storytelling</li>
@@ -244,10 +226,10 @@
             <h3 class="text-2xl font-semibold text-indigo-400">
               GirlScript Summer of Code
             </h3>
-            <p class="text-gray-300">
+            <p class="text-white-300">
               Mentor & Campus Ambassador · Sep – Nov 2024
             </p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>
                 Guided contributors, hosted sessions & secured
                 <span class="text-white font-bold">8th rank</span>.
@@ -266,8 +248,8 @@
             class="glass rounded-3xl p-6 shadow-2xl border border-teal-500/40 hover:border-pink-400/70 transition-all hover:scale-[1.03]"
           >
             <h3 class="text-2xl font-semibold text-teal-400">French Quiz</h3>
-            <p class="text-gray-300">Banasthali Vidyapith · Oct 2024</p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <p class="text-white-300">Banasthali Vidyapith · Oct 2024</p>
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>
                 Participated in "Le Grand Concours '24" in collaboration with
                 Uzbekistan State World Language University & French Embassy in
@@ -289,8 +271,8 @@
             <h3 class="text-2xl font-semibold text-orange-400">
               Nasa Space Apps Challenge
             </h3>
-            <p class="text-gray-300">Cusco · Remote · Oct 2024</p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <p class="text-white-300">Cusco · Remote · Oct 2024</p>
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>
                 Built innovative solutions for planetary exploration during NASA
                 Hackathon.
@@ -311,10 +293,10 @@
             <h3 class="text-2xl font-semibold text-blue-400">
               Campus Ambassador
             </h3>
-            <p class="text-gray-300">
+            <p class="text-white-300">
               Techkriti, IIT Kanpur · Sep 2023 – Apr 2024
             </p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>
                 Represented IIT Kanpur’s Techkriti Fest. Skills gained:
                 <span class="font-bold text-white"
@@ -336,15 +318,15 @@
             <h3 class="text-2xl font-semibold text-red-400">
               Web Development Intern
             </h3>
-            <p class="text-gray-300">CLUMOSS · Aug – Sep 2023</p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <p class="text-white-300">CLUMOSS · Aug – Sep 2023</p>
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>Worked remotely on frontend development projects.</li>
             </ul>
           </div>
         </div>
         <div class="relative mb-12 pl-10" data-tilt>
           <div
-            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-indigo-500 glow-marker flex items-center justify-center text-xs font-bold"
+            class="absolute -left-5 top-2 w-10 h-10 rounded-full bg-indigo-500 glow-marker flex justify-center text-xs font-bold "
           >
             2024
           </div>
@@ -354,8 +336,8 @@
             <h3 class="text-2xl font-semibold text-indigo-400">
               Tata Group Hackathon
             </h3>
-            <p class="text-gray-300">Participant · May 2023</p>
-            <ul class="mt-3 text-gray-400 list-disc list-inside space-y-1">
+            <p class="text-white-300">Participant · May 2023</p>
+            <ul class="mt-3 text-white-400 list-disc list-inside space-y-1">
               <li>Contributed ideas & prototypes in Tata Group challenge.</li>
             </ul>
           </div>
