@@ -58,76 +58,64 @@
     .animate-glow {
       animation: glow 1.5s infinite ease-in-out;
     }
+    
   </style>
 
   <body>
-    <!-- Navbar -->
-    <header
-      class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50"
-    >
-      <div
-        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
-      >
-        <!-- Brand / Logo -->
-        <h1 class="text-2xl font-bold text-white">
-          Sampada <span class="text-cyan-400">Tiwari</span>
-        </h1>
+   <!-- Navbar -->
+<!-- ===== Responsive Navbar with Dark/Light Mode ===== -->
+<header class="fixed top-0 left-0 w-full backdrop-blur-md z-50 transition-colors duration-300" id="main-header">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <!-- Brand / Logo -->
+    <h1 class="text-2xl font-bold" id="brand">
+      Sampada <span class="text-cyan-500">Tiwari</span>
+    </h1>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-6 font-medium">
-          <a href="#hero" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="experience.html" class="nav-link">Experience</a>
-          <a href="project.html" class="nav-link">Projects</a>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
-          <a href="contact.html" class="nav-link">Contact</a>
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-6 font-medium" id="desktop-nav">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="project.html" class="nav-link">Projects</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="contact.html" class="nav-link">Contact</a>
 
-          <!-- Theme Toggle -->
-          <button
-            id="theme-toggle"
-            class="ml-4 text-white hover:text-cyan-400 transition"
-          >
-            <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
-          </button>
-        </nav>
+      <!-- Theme Toggle (Desktop) -->
+      <button class="theme-toggle ml-4 transition">
+        <i class="theme-toggle-icon fas fa-moon text-xl"></i>
+      </button>
+    </nav>
 
-        <!-- Mobile Menu Button -->
-        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
 
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md"
-      >
-        <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
-          <a href="#hero" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="skills.html" class="nav-link">Skills</a>
-          <a href="experience.html" class="nav-link">Experience</a>
-          <a href="project.html" class="nav-link">Projects</a>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-        </nav>
-      </div>
-    </header>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden backdrop-blur-md transition-colors duration-300">
+    <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="project.html" class="nav-link">Projects</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
 
-    <!-- Tailwind Nav Link Styling -->
+    <!-- Theme Toggle (Mobile) -->
+    <button class="theme-toggle ml-4 px-4 py-2 transition">
+      <i class="theme-toggle-icon fas fa-moon text-xl"></i>
+    </button>
+  </div>
+</header>
+
+
+  <!-- Tailwind Nav Link Styling -->
     <style>
       .nav-link {
         @apply relative text-white transition duration-300;
@@ -151,60 +139,61 @@
     </style>
 
     <!-- Hero Section -->
-    <section
-      id="hero"
-      class="relative flex items-center justify-center h-screen px-6 md:px-12 overflow-hidden bg-[#0f172a]"
-    >
-      <!-- Floating Background Shapes -->
-      <div
-        class="absolute w-32 h-32 bg-[#38bdf8] rounded-full opacity-40 -top-15 -left-14 animate-bounce-slow"
-      ></div>
-      <div
-        class="absolute w-24 h-24 bg-[#a855f7] rounded-full opacity-30 -bottom-88 -right-22 animate-bounce-slow delay-2000"
-      ></div>
+<section
+  id="hero"
+  class="relative flex items-center justify-center min-h-screen px-6 md:px-12 pt-24 md:pt-28 overflow-hidden bg-[#0f172a]"
+>
+  <!-- Floating Background Shapes -->
+  <div
+    class="absolute w-32 h-32 bg-[#38bdf8] rounded-full opacity-40 -top-10 -left-10 animate-bounce-slow"
+  ></div>
+  <div
+    class="absolute w-24 h-24 bg-[#a855f7] rounded-full opacity-30 -bottom-12 -right-10 animate-bounce-slow delay-2000"
+  ></div>
 
-      <!-- Hero Content -->
-      <div
-        class="flex flex-col-reverse md:flex-row items-center justify-between max-w-6xl w-full gap-8 md:gap-12"
-      >
-        <!-- Left Text -->
-        <div class="text-center md:text-left flex-1 space-y-6">
-          <h2 class="text-4xl md:text-5xl font-bold text-white">
-            Hi, I'm <span class="text-[#a855f7]">Sampada Tiwari</span>
-          </h2>
-          <p class="text-xl md:text-2xl text-gray-300">
-            I am a
-            <span id="typed" class="font-semibold text-[#38bdf8]"
-              >Data Scientist & Web Developer</span
-            >
-          </p>
-          <div class="flex justify-center md:justify-start gap-4">
-            <a
-              href="#contact"
-              class="px-6 py-3 bg-[#38bdf8] hover:bg-blue-400 text-black font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Contact Me
-            </a>
-            <a
-              href="resume.pdf"
-              download
-              class="px-6 py-3 border-2 border-[#38bdf8] text-[#38bdf8] hover:bg-[#38bdf8] hover:text-black font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Download Resume
-            </a>
-          </div>
-        </div>
-
-        <!-- Right Image -->
-        <div class="flex-1 flex justify-center items-center relative">
-          <img
-            src="./images/profile.jpeg"
-            alt="Sampada Tiwari"
-            class="w-72 md:w-80 rounded-full border-4 border-[#38bdf8] shadow-[0_0_40px_rgba(56,189,248,0.5),0_0_80px_rgba(168,85,247,0.4)] animate-float"
-          />
-        </div>
+  <!-- Hero Content -->
+  <div
+    class="flex flex-col-reverse md:flex-row items-center justify-between max-w-6xl w-full gap-8 md:gap-12"
+  >
+    <!-- Left Text -->
+    <div class="text-center md:text-left flex-1 space-y-6">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+        Hi, I'm <span class="text-[#a855f7]">Sampada Tiwari</span>
+      </h2>
+      <p class="text-lg sm:text-xl md:text-2xl text-gray-300">
+        I am a
+        <span id="typed" class="font-semibold text-[#38bdf8]">
+          Data Scientist & Web Developer
+        </span>
+      </p>
+      <div class="flex justify-center md:justify-start gap-4">
+        <a
+          href="#contact"
+          class="px-6 py-3 bg-[#38bdf8] hover:bg-blue-400 text-black font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          Contact Me
+        </a>
+        <a
+          href="resume.pdf"
+          download
+          class="px-6 py-3 border-2 border-[#38bdf8] text-[#38bdf8] hover:bg-[#38bdf8] hover:text-black font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          Download Resume
+        </a>
       </div>
-    </section>
+    </div>
+
+    <!-- Right Image -->
+    <div class="flex-1 flex justify-center items-center relative">
+      <img
+        src="./images/profile.jpeg"
+        alt="Sampada Tiwari"
+        class="w-48 sm:w-60 md:w-80 rounded-full border-4 border-[#38bdf8] shadow-[0_0_40px_rgba(56,189,248,0.5),0_0_80px_rgba(168,85,247,0.4)] animate-float"
+      />
+    </div>
+  </div>
+</section>
+
     <!-- ================= ABOUT SECTION ================= -->
     <section id="about" class="py-24 px-6 md:px-12 bg-[#0f172a] text-white">
       <div
@@ -261,60 +250,54 @@
               <p>Certifications</p>
             </div>
           </div>
-          <!-- Timeline -->
-          <div
-            class="relative border-l-2 border-[#38bdf8] ml-0 md:ml-6 pl-0 md:pl-8 space-y-10"
-          >
-            <!-- Timeline Item 1 -->
-            <div class="relative flex flex-col md:flex-row md:items-center">
-              <!-- Dot -->
-              <div
-                class="absolute md:static -left-4 md:-left-6 top-0 md:top-auto w-4 h-4 bg-[#38bdf8] rounded-full border-2 border-white"
-              ></div>
-              <!-- Year Badge -->
-              <span
-                class="absolute -left-16 md:-left-32 top-0 md:top-auto bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-sm md:text-base"
-              >
-                2023
-              </span>
-              <!-- Content -->
-              <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
-                Started journey in <b>Data Science & Web Development</b>.
-              </p>
-            </div>
+<!-- Timeline -->
+<div
+  class="relative border-l-2 border-[#38bdf8] ml-6 md:ml-10 pl-6 md:pl-10 space-y-10"
+>
+  <!-- Timeline Item 1 -->
+  <div class="relative flex flex-col md:flex-row md:items-center">
+   
+    <!-- Year Badge -->
+    <span
+      class="absolute -left-12 md:-left-28 top-0 bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-xs sm:text-sm md:text-base"
+    >
+      2023
+    </span>
+    <!-- Content -->
+    <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
+      Started journey in <b>Data Science & Web Development</b>.
+    </p>
+  </div>
 
-            <!-- Timeline Item 2 -->
-            <div class="relative flex flex-col md:flex-row md:items-center">
-              <div
-                class="absolute md:static -left-4 md:-left-6 top-0 md:top-auto w-4 h-4 bg-[#38bdf8] rounded-full border-2 border-white"
-              ></div>
-              <span
-                class="absolute -left-16 md:-left-32 top-0 md:top-auto bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-sm md:text-base"
-              >
-                2024
-              </span>
-              <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
-                Worked on multiple <b>frontend projects</b> & learned
-                <b>AI/ML basics</b>.
-              </p>
-            </div>
+  <!-- Timeline Item 2 -->
+  <div class="relative flex flex-col md:flex-row md:items-center">
+    
+    <span
+      class="absolute -left-12 md:-left-28 top-0 bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-xs sm:text-sm md:text-base"
+    >
+      2024
+    </span>
+    <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
+      Worked on multiple <b>frontend projects</b> & learned
+      <b>AI/ML basics</b>.
+    </p>
+  </div>
 
-            <!-- Timeline Item 3 -->
-            <div class="relative flex flex-col md:flex-row md:items-center">
-              <div
-                class="absolute md:static -left-4 md:-left-6 top-0 md:top-auto w-4 h-4 bg-[#38bdf8] rounded-full border-2 border-white"
-              ></div>
-              <span
-                class="absolute -left-16 md:-left-32 top-0 md:top-auto bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-sm md:text-base"
-              >
-                2025
-              </span>
-              <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
-                Pursuing B.Tech, building <b>portfolio projects</b> &
-                internships.
-              </p>
-            </div>
-          </div>
+  <!-- Timeline Item 3 -->
+  <div class="relative flex flex-col md:flex-row md:items-center">
+   
+    <span
+      class="absolute -left-12 md:-left-28 top-0 bg-[#38bdf8] text-black px-3 py-1 rounded-lg font-semibold text-xs sm:text-sm md:text-base"
+    >
+      2025
+    </span>
+    <p class="ml-6 md:ml-0 text-gray-200 md:pl-4">
+      Pursuing B.Tech, building <b>portfolio projects</b> &
+      internships.
+    </p>
+  </div>
+</div>
+
 
           <!-- Button -->
           <a
