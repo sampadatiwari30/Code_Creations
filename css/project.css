@@ -75,30 +75,7 @@ body.light #scrollTop {
   box-shadow: 0 8px 30px rgba(108, 92, 231, 0.3);
 }
 
-/* Toggle Button */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: linear-gradient(45deg, var(--royal-purple), var(--deep-navy));
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #fff;
-  font-size: 1.2rem;
-  z-index: 2000;
-  box-shadow: 0 4px 15px var(--shadow-color);
-  transition: all 0.3s ease;
-}
 
-.theme-toggle:hover {
-  transform: scale(1.1);
-}
 
 /* Projects Grid */
 /* --- Only for consistent card layout --- */
@@ -334,6 +311,148 @@ body.light footer a {
     color 0.3s ease,
     transform 0.3s ease;
 }
+/* ===== Light Mode Styling ===== */
+body.light {
+  background-color: #ffffff;
+  color: #1e293b; /* slate-800 for text */
+}
+
+/* Project card background */
+body.light .project-card .p-5 {
+  background-color: #ffffff; /* white card */
+  color: #1e293b;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Titles in light mode */
+body.light .project-card h3 {
+  color: #1e293b; /* dark text */
+}
+body.light .project-card h3:hover {
+  color: #d946ef; /* pink-400 hover */
+}
+
+/* Paragraphs */
+body.light .project-card p {
+  color: #475569; /* slate-600 */
+}
+
+/* Links */
+body.light .project-card a {
+  color: #2563eb; /* blue-600 */
+}
+body.light .project-card a:hover {
+  color: #1e40af; /* darker blue */
+}
+
+/* Comment section input + button */
+body.light .comment-section input {
+  background: #f1f5f9; /* slate-100 */
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+body.light .comment-section button {
+  background: #2563eb;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 12px;
+  margin-left: 6px;
+  transition: background 0.3s;
+}
+body.light .comment-section button:hover {
+  background: #1e40af;
+}
+/* Default layout (inline input + button) */
+.comment-section {
+  margin-top: 1rem;
+}
+.comment-input {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.comment-input input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+.comment-input button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.comment-input button:hover {
+  background: #1e40af;
+}
+
+/* ===== Responsive fix between 575px – 650px ===== */
+@media (min-width: 575px) and (max-width: 650px) {
+  .comment-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .comment-input input {
+    width: 100%;
+  }
+  .comment-input button {
+    width: 100%;
+    margin-top: 6px;
+  }
+}
+.comment-input {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.comment-input input {
+  flex: 1;
+  min-width: 0; /* ensures no overflow */
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.comment-input button {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.comment-input button:hover {
+  background: #1e40af;
+}
+
+/* ===== Fix for very small screens (≤380px) ===== */
+@media (max-width: 380px) {
+  .comment-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .comment-input input {
+    width: 100%;
+  }
+  .comment-input button {
+    width: 100%;
+  }
+}
+
 
 body.light footer a:hover {
   color: #6c5ce7; /* Hover color */

@@ -1,26 +1,49 @@
-// Theme Toggle with localStorage
-const toggleBtn = document.getElementById('themeToggle');
+// ===== Mobile Menu Toggle =====
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
+
+// ===== Theme Toggle =====
+const themeToggles = document.querySelectorAll(".theme-toggle");
+const themeIcons = document.querySelectorAll(".theme-toggle-icon");
 const body = document.body;
 
-// Load saved theme
-if (localStorage.getItem('theme') === 'light') {
-  body.classList.add('light');
-  toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+// 1️⃣ Load saved theme from localStorage or system preference
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "light") {
+  body.classList.add("light");
+  themeIcons.forEach(icon => icon.classList.replace("fa-moon", "fa-sun"));
+} else if (savedTheme === "dark") {
+  body.classList.remove("light");
+  themeIcons.forEach(icon => icon.classList.replace("fa-sun", "fa-moon"));
+} else {
+  // No saved theme: use system preference
+  if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+    body.classList.add("light");
+    themeIcons.forEach(icon => icon.classList.replace("fa-moon", "fa-sun"));
+  } else {
+    body.classList.remove("light");
+    themeIcons.forEach(icon => icon.classList.replace("fa-sun", "fa-moon"));
+  }
 }
 
-toggleBtn.addEventListener('click', () => {
-  body.classList.toggle('light');
-  const isLight = body.classList.contains('light');
-  toggleBtn.innerHTML = isLight
-    ? '<i class="fas fa-sun"></i>'
-    : '<i class="fas fa-moon"></i>';
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-});
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+// 2️⃣ Toggle theme on click (works for desktop & mobile)
+themeToggles.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const isLight = body.classList.toggle("light");
 
-menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
+    if (isLight) {
+      themeIcons.forEach(icon => icon.classList.replace("fa-moon", "fa-sun"));
+      localStorage.setItem("theme", "light");
+    } else {
+      themeIcons.forEach(icon => icon.classList.replace("fa-sun", "fa-moon"));
+      localStorage.setItem("theme", "dark");
+    }
+  });
 });
 // Comment Section Functionality
 document.querySelectorAll('.project-card').forEach((card) => {
