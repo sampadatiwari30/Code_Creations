@@ -16,52 +16,78 @@
     <link rel="stylesheet" href="css/project.css" />
   </head>
   <body>
-    <!-- Navbar -->
-    <header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
-      <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        
-        <!-- Brand / Logo -->
-        <h1 class="text-2xl font-bold text-white">
-          Sampada <span class="text-cyan-400">Tiwari</span>
-        </h1>
+    <header class="fixed top-0 left-0 w-full backdrop-blur-md z-50 transition-colors duration-300" id="main-header">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <!-- Brand / Logo -->
+    <h1 class="text-2xl font-bold" id="brand">
+      Sampada <span class="text-cyan-500">Tiwari</span>
+    </h1>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-6 font-medium">
-          <a href="#hero" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="experience.html" class="nav-link">Experience</a>
-          <a href="project.html" class="nav-link">Projects</a>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
-          <a href="contact.html" class="nav-link">Contact</a>
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-6 font-medium" id="desktop-nav">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="project.html" class="nav-link">Projects</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="contact.html" class="nav-link">Contact</a>
 
-          <!-- Theme Toggle -->
-          <button id="theme-toggle" class="ml-4 text-white hover:text-cyan-400 transition">
-            <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
-          </button>
-        </nav>
+      <!-- Theme Toggle (Desktop) -->
+      <button class="theme-toggle ml-4 transition">
+        <i class="theme-toggle-icon fas fa-moon text-xl"></i>
+      </button>
+    </nav>
 
-        <!-- Mobile Menu Button -->
-        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
-        <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
-          <a href="#hero" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="skills.html" class="nav-link">Skills</a>
-          <a href="experience.html" class="nav-link">Experience</a>
-          <a href="project.html" class="nav-link">Projects</a>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-        </nav>
-      </div>
-    </header>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden backdrop-blur-md transition-colors duration-300">
+    <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="project.html" class="nav-link">Projects</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Theme Toggle (Mobile) -->
+    <button class="theme-toggle ml-4 px-4 py-2 transition">
+      <i class="theme-toggle-icon fas fa-moon text-xl"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Tailwind Nav Link Styling -->
+<style>
+  .nav-link {
+    @apply relative text-white transition duration-300;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #22d3ee; /* cyan-400 */
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover {
+    color: #22d3ee; /* cyan-400 */
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+</style>
 
     <section class="py-20 text-center" style="margin-top: 4rem">
       <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-4">
@@ -117,12 +143,13 @@
           </div>
         </div>
       </div>
-
-      <!-- कला.ficial -->
-      <div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+     
+      <div
+        class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+      >
         <div class="relative h-48 overflow-hidden rounded-t-2xl">
           <img
-            src="https://images.unsplash.com/photo-1579546929662-711aa81148cf?auto=format&fit=crop&w=800&q=80"
+            src="./images/kala.ficial.png"
             alt="कला.ficial"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -164,7 +191,7 @@
       <div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
         <div class="relative h-48 overflow-hidden rounded-t-2xl">
           <img
-            src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?auto=format&fit=crop&w=800&q=80"
+            src="https://sites.uwasa.fi/vaasaspaceavenue/wp-content/blogs.dir/4/files/sites/188/2025/07/nasa-space-apps-kuva-jollaan-1080x500.png"
             alt="NASA Space Challenge"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -206,7 +233,7 @@
       <div class="project-card relative group rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
         <div class="relative h-48 overflow-hidden rounded-t-2xl">
           <img
-            src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80"
+            src="./images/desh-darshan.png"
             alt="DeshDarshan"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -217,7 +244,7 @@
             DeshDarshan (Ongoing)
           </h3>
           <p class="text-gray-400 mb-3 line-clamp-3">
-            Platform showcasing India's heritage, festivals, food, art, and
+            Platform showcasing India’s heritage, festivals, food, art, and
             famous places for immersive exploration across all states.
           </p>
           <div class="text-gray-300 text-sm space-y-1">
@@ -409,17 +436,16 @@
       </div>
 
     </div>
-
-    <!-- Scroll to Top/Bottom Button -->
-    <button id="smartScrollBtn" aria-label="Scroll">
-      <svg id="scrollIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" clip-rule="evenodd"/>
-      </svg>
-    </button>
-
-    <!-- Footer -->
-    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12" style="margin-top: 4rem">
-      <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
+    <!-- ================= FOOTER SECTION ================= -->
+    <footer
+      class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12"
+      style="margin-top: 4rem"
+    >
+      <!-- Footer Container -->
+      <div
+        class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8"
+      >
+        <!-- Brand / Logo -->
         <div class="text-center md:text-left">
           <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
             Sampada<span class="font-extrabold">Tiwari</span>
@@ -465,8 +491,83 @@
         © 2025 Sampada Tiwari • All Rights Reserved
       </div>
     </footer>
+    <!-- Tailwind JS for Mobile Menu Toggle -->
+  <script src="js/project.js"></script>
+  </body>
+</html>
 
-    <!-- External JavaScript File -->
-    <script src="js/project.js"></script>
+
+    <script>
+      
+
+      // Scroll button functionality
+      (function () {
+        const scrollBtn = document.getElementById('smartScrollBtn');
+        const scrollIcon = document.getElementById('scrollIcon');
+        if (!scrollBtn || !scrollIcon) return;
+
+        const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
+
+        const setIcon = (direction) => {
+          if (direction === 'down') {
+            scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>`;
+            scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
+          } else {
+            scrollIcon.innerHTML = `<path fill-rule="evenodd" d="M5.293 12.707a1 1 0 011.414 0L10 9.414l3.293 3.293a1 1 0 001.414-1.414l-4-4a1 1 0 00-1.414 0l-4 4a1 1 0 000 1.414z" clip-rule="evenodd"/>`;
+            scrollBtn.setAttribute('aria-label', 'Scroll to top');
+          }
+        };
+
+        const check = () => {
+          const threshold = updateThreshold();
+          const scrollTop = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const docHeight = document.body.scrollHeight;
+
+          if (scrollTop < threshold) {
+            setIcon('down');
+          } else if (windowHeight + scrollTop >= docHeight - threshold) {
+            setIcon('up');
+          } else {
+            setIcon('up');
+          }
+        };
+
+        window.addEventListener('scroll', check);
+        window.addEventListener('resize', check);
+        check();
+
+        scrollBtn.addEventListener('click', () => {
+          const scrollTop = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const docHeight = document.body.scrollHeight;
+          const threshold = updateThreshold();
+
+          if (scrollTop < threshold) {
+            window.scrollTo({ top: docHeight, behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        });
+      })();
+
+    
+
+      // Comment functionality
+      document.querySelectorAll('.comment-input button').forEach(button => {
+        button.addEventListener('click', function() {
+          const input = this.previousElementSibling;
+          const commentList = this.closest('.comment-section').querySelector('.comment-list');
+          
+          if (input.value.trim() !== '') {
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'text-sm text-gray-400 mb-2 p-2 bg-gray-800 rounded';
+            commentDiv.textContent = input.value;
+            commentList.appendChild(commentDiv);
+            input.value = '';
+          }
+        });
+      });
+    </script>
   </body>
 </html>
