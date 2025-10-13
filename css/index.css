@@ -1,0 +1,958 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+:root {
+  --primary: #38bdf8;
+  --secondary: #a855f7;
+  --dark: #0f172a;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0f172a; /* dark mode background */
+  color: #fff; /* dark mode text */
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+/* 🌞 Light Mode (applied when body has class "light") */
+body.light {
+  background: #f9fafb; /* light background */
+  color: #111827; /* dark text */
+  text-align: justify; /* justified text in light mode */
+}
+/* SKILLS SECTION */
+#skills {
+  padding: 6rem 8%;
+  background: #0f172a; /* consistent navy blue background */
+  color: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-title span {
+  color: #38bdf8;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  color: #9ca3af;
+}
+
+/* 🌞 Light Mode Overrides */
+body.light #skills {
+  background: #f3f4f6; /* light gray background */
+  color: #111827; /* dark text */
+}
+
+body.light .section-subtitle {
+  color: #374151; /* darker gray subtitle */
+}
+
+/* Tabs */
+.skill-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.skill-tabs .tab {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.05); /* dark mode default */
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.skill-tabs .tab.active,
+.skill-tabs .tab:hover {
+  background: linear-gradient(45deg, #38bdf8, #a855f7);
+  color: #000;
+}
+
+/* 🌞 Light Mode Overrides */
+body.light .skill-tabs .tab {
+  background: rgba(0, 0, 0, 0.05); /* subtle gray for light mode */
+  color: #111827; /* dark text */
+}
+
+body.light .skill-tabs .tab.active,
+body.light .skill-tabs .tab:hover {
+  background: linear-gradient(45deg, #38bdf8, #a855f7);
+  color: #fff; /* white text for contrast */
+}
+
+/* Skill Cards */
+/* 🌑 Dark Mode (default) */
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: left;
+  transition:
+    transform 0.3s,
+    background 0.3s,
+    box-shadow 0.3s;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+/* 🌞 Light Mode */
+body.light .skill-card {
+  background: rgba(0, 0, 0, 0.05);
+  color: #111827;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+body.light .skill-card:hover {
+  background: rgba(56, 189, 248, 0.15);
+}
+
+body.light .skill-card h3 {
+  color: #1f2937; /* dark gray */
+}
+
+/* Progress Bars */
+/* 🌑 Dark Mode (default) */
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  height: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  width: 0;
+  transition: width 2s ease;
+}
+
+.skill-card.visible .progress-bar {
+  width: var(--value);
+}
+
+/* 🌞 Light Mode */
+body.light .progress {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body.light .progress-bar {
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #7c3aed
+  ); /* deeper blue → purple */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-grid {
+    gap: 1.2rem;
+  }
+}
+
+/* Projects Section */
+.projects {
+  padding: 80px 10%;
+  background: #0f172a; /* consistent navy blue background */
+  color: #fff;
+  text-align: center;
+}
+
+.projects .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #527dff, #fefcfd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects .section-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #cfd8dc;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: left;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg, #ff6a00, #ee0979, #00c6ff, #ff6a00);
+  animation: rotate 6s linear infinite;
+  opacity: 0.15;
+}
+/* 🌞 Light Mode */
+body.light projects {
+  background: #f9fafb;
+  color: #111827;
+}
+
+body.light .projects .section-title {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.light .projects .section-subtitle {
+  color: #4b5563;
+}
+
+body.light .projects-grid {
+  gap: 20px;
+}
+
+body.light .project-card {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light .project-card::before {
+  opacity: 0.08;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0px 10px 30px rgba(0, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.project-link {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00e5ff;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #ff4081;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: #e0f7fa;
+  line-height: 1.5;
+}
+/* 🌞 Light Mode Hover & Text */
+body.light .project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0px 10px 30px rgba(56, 189, 248, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.light .project-link {
+  color: #2563eb; /* Dark blue for light mode */
+}
+
+body.light .project-link:hover {
+  color: #7c3aed; /* Purple hover for contrast */
+}
+
+body.light .project-description {
+  color: #374151; /* Dark gray text */
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 10s ease-in-out infinite;
+}
+.delay-2000 {
+  animation-delay: 2s;
+}
+
+/* Header Light Mode */
+body.light header {
+  background: rgba(249, 250, 251, 0.8); /* light semi-transparent */
+  color: #111827; /* dark text */
+  backdrop-blur: 5px;
+}
+
+/* Brand / Logo Light Mode */
+body.light header h1 {
+  color: #111827;
+}
+body.light header h1 span {
+  color: #3b82f6; /* cyan-like highlight for light mode */
+}
+
+/* Navigation Links Light Mode */
+body.light header nav a {
+  color: #111827;
+  transition: color 0.3s;
+}
+
+body.light header nav a:hover {
+  color: #3b82f6; /* cyan highlight on hover */
+}
+
+/* Theme Toggle Button Light Mode */
+body.light #theme-toggle {
+  color: #111827;
+}
+
+body.light #theme-toggle:hover {
+  color: #3b82f6;
+}
+/* Hero Section Light Mode */
+body.light #hero {
+  background: #f9fafb; /* light background */
+}
+
+/* Hero Text Light Mode */
+body.light #hero h2 {
+  color: #111827; /* dark text for light mode */
+}
+body.light #hero h2 span {
+  color: #7c3aed; /* slightly lighter purple for highlight */
+}
+
+body.light #hero p {
+  color: #374151; /* gray for subtitle */
+}
+body.light #typed {
+  color: #2563eb; /* bright blue highlight */
+}
+
+/* Image Border Light Mode */
+body.light #hero img {
+  border-color: #2563eb;
+  box-shadow:
+    0 0 40px rgba(56, 189, 248, 0.3),
+    0 0 80px rgba(168, 85, 247, 0.2);
+}
+/* ========== ABOUT SECTION LIGHT MODE ========== */
+body.light #about {
+  background: #f9fafb;
+  color: #111827;
+}
+body.light #about h2 {
+  color: #111827;
+}
+body.light #about h2 span {
+  color: #2563eb;
+}
+body.light #about p {
+  color: #374151;
+}
+body.light #about .counter {
+  color: #2563eb;
+}
+/* ================= About Section Light Mode ================= */
+body.light #about {
+  background: #f3f4f6; /* light background */
+  color: #111827; /* main text color */
+}
+
+/* Info Counters & Cards */
+body.light #about .info-card {
+  background: rgba(0, 0, 0, 0.05); /* subtle card overlay */
+  border-color: #2563eb; /* border for light mode */
+}
+
+body.light #about .info-card:hover {
+  background: rgba(37, 99, 235, 0.1); /* hover effect in light mode */
+}
+
+/* Timeline Dot */
+body.light #about .timeline-dot {
+  background: #2563eb;
+  border-color: #111827; /* optional border for contrast */
+}
+
+/* Timeline Year Badge */
+body.light #about .timeline-year {
+  background: #2563eb;
+  color: #fff; /* text on badges */
+}
+
+/* Paragraph Text */
+body.light #about p {
+  color: #374151; /* dark gray for readability */
+}
+
+/* Heading Text */
+body.light #about h2,
+body.light #about h3 {
+  color: #1f2937; /* slightly darker heading for light mode */
+}
+
+/* ================= SKILLS SECTION LIGHT MODE ================= */
+body.light #skills {
+  background: #f9fafb;
+  color: #111827;
+}
+body.light #skills .section-title {
+  color: #111827;
+}
+body.light #skills .section-title span {
+  color: #2563eb;
+}
+body.light #skills .section-subtitle {
+  color: #4b5563; /* darker gray */
+}
+body.light .skill-card {
+  background: rgba(0, 0, 0, 0.05);
+  color: #111827;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+body.light .skill-card:hover {
+  background: rgba(37, 99, 235, 0.1);
+}
+body.light .progress {
+  background: rgba(0, 0, 0, 0.1);
+}
+body.light .progress-bar {
+  background: linear-gradient(90deg, #38bdf8, #7c3aed);
+}
+
+/* ================= EXPERIENCE SECTION LIGHT MODE ================= */
+body.light #experience {
+  background: #f3f4f6;
+  color: #111827;
+}
+body.light #experience h2 {
+  color: #2563eb;
+}
+body.light #experience h2 span {
+  color: #7c3aed;
+}
+body.light #experience p {
+  color: #4b5563;
+}
+body.light .exp-card {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #111827;
+}
+body.light .exp-card .role {
+  color: #2563eb;
+}
+body.light .exp-card .duration,
+body.light .exp-card .location,
+body.light .exp-card ul li {
+  color: #4b5563;
+}
+body.light .exp-card:hover .bg-gradient-to-r {
+  opacity: 0.2;
+}
+/* ================= Projects Section Light Mode ================= */
+body.light #projects {
+  background: #f3f4f6; /* light background */
+  color: #111827; /* main text color */
+}
+
+/* Section Header */
+body.light #projects h2 {
+  color: #1e40af; /* dark blue gradient fallback for light mode */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+body.light #projects p {
+  color: #4b5563; /* dark gray for subtitle */
+}
+
+/* Project Cards */
+body.light #projects .relative.rounded-xl {
+  background: rgba(0, 0, 0, 0.03); /* subtle card background */
+  border-color: rgba(0, 0, 0, 0.05); /* border for light mode */
+  color: #111827;
+}
+
+/* Project Card Hover Glow */
+body.light #projects .relative.rounded-xl:hover {
+  background: rgba(37, 99, 235, 0.05); /* subtle light blue hover */
+  box-shadow: 0px 10px 30px rgba(37, 99, 235, 0.2);
+}
+
+/* Project Links */
+body.light #projects a.text-cyan-400 {
+  color: #2563eb; /* link color in light mode */
+}
+
+body.light #projects a.text-cyan-400:hover {
+  color: #9333ea; /* hover link color in light mode */
+}
+
+/* Gradient Glow Animation */
+body.light #projects .absolute[-inset-1] {
+  opacity: 0.05; /* reduce glow intensity in light mode */
+}
+
+/* ================= Testimonials Light Mode ================= */
+body.light #testimonials {
+  background: #f3f4f6; /* light background */
+  color: #111827; /* main text color */
+}
+
+/* Section Header */
+body.light #testimonials h2 {
+  color: #1d4ed8; /* dark blue gradient fallback */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+body.light #testimonials p {
+  color: #4b5563; /* subtitle text in dark gray */
+}
+
+/* Testimonial Cards */
+body.light #testimonials .testimonial-card {
+  background: rgba(0, 0, 0, 0.03); /* subtle card background */
+  color: #111827; /* text inside cards */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* subtle border */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Card Hover */
+body.light #testimonials .testimonial-card:hover {
+  background: rgba(37, 99, 235, 0.05); /* subtle blue hover */
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+}
+
+/* Client Name and Role */
+body.light #testimonials h4 {
+  color: #1d4ed8; /* dark blue for client name */
+}
+
+body.light #testimonials span {
+  color: #6b7280; /* dark gray for role text */
+}
+
+/* Client Avatar Border */
+body.light #testimonials img {
+  border-color: #2563eb; /* blue avatar border in light mode */
+}
+
+/* Navigation Dots */
+body.light #testimonials .dot {
+  background: #9ca3af; /* gray dots */
+}
+
+body.light #testimonials .dot.active {
+  background: #2563eb; /* active dot in blue */
+}
+/* ================= Contact Light Mode ================= */
+body.light #contact {
+  background: #f3f4f6; /* light background */
+  color: #111827; /* main text color */
+}
+
+/* Section Header */
+body.light #contact h2 {
+  color: #1d4ed8; /* dark blue fallback */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+body.light #contact p {
+  color: #4b5563; /* subtitle text */
+}
+
+/* Contact Form */
+body.light #contact-form {
+  background: rgba(255, 255, 255, 0.85); /* light translucent form */
+  color: #111827;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: none; /* remove blur for light mode */
+  border: 1px solid #e5e7eb;
+}
+
+/* Form Labels */
+body.light #contact-form label {
+  color: #374151 !important; /* dark gray for labels */
+}
+
+/* Form Headings */
+body.light #contact-form h3 {
+  color: #2563eb !important; /* blue heading */
+}
+
+/* Form Inputs and Textarea */
+body.light #contact-form input,
+body.light #contact-form textarea {
+  background: #ffffff; /* light input fields */
+  color: #111827 !important;
+  border: 1px solid #d1d5db; /* subtle gray border */
+}
+
+body.light #contact-form input::placeholder,
+body.light #contact-form textarea::placeholder {
+  color: #6b7280; /* darker placeholder */
+}
+
+body.light #contact-form input:focus,
+body.light #contact-form textarea:focus {
+  border-color: #2563eb; /* focus ring color */
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Send Button */
+body.light #contact-form button {
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  color: #fff;
+}
+
+body.light #contact-form button:hover {
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* Contact Info Section Background */
+body.light #contact .bg-white\/5 {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Contact Info Section Headings */
+body.light #contact h3 {
+  color: #2563eb !important; /* headings in dark blue */
+}
+
+/* All Contact Section Text */
+body.light #contact .text-gray-400 {
+  color: #6b7280 !important; /* gray labels */
+}
+
+body.light #contact .text-white {
+  color: #111827 !important; /* main text to dark */
+}
+
+body.light #contact .text-gray-300 {
+  color: #4b5563 !important; /* description text */
+}
+
+/* Contact Info Icons */
+body.light #contact .text-cyan-400 {
+  color: #2563eb !important; /* icons in dark blue */
+}
+
+body.light #contact .bg-cyan-500\/20 {
+  background: rgba(37, 99, 235, 0.1) !important; /* icon backgrounds */
+}
+
+body.light #contact .group:hover .bg-cyan-500\/30 {
+  background: rgba(37, 99, 235, 0.2) !important; /* icon hover backgrounds */
+}
+
+/* Social Media Links */
+body.light #contact a {
+  color: #111827; /* default link color */
+}
+
+body.light #contact a:hover {
+  color: #2563eb; /* hover blue */
+}
+
+body.light #contact a span {
+  color: #111827 !important; /* social media text */
+}
+
+body.light #contact a:hover span {
+  color: #2563eb !important; /* hover color for social text */
+}
+
+/* Social Icons */
+body.light #contact .fab {
+  color: #2563eb !important; /* social media icons */
+}
+
+body.light #contact a:hover .fab {
+  color: #1d4ed8 !important; /* darker blue on hover */
+}
+
+/* Success Message */
+body.light #success-message {
+  background: #059669; /* green success background */
+  color: #fff;
+}
+
+/* ================= Footer Light Mode ================= */
+body.light footer {
+  background: #f3f4f6; /* light background */
+  color: #1f2937; /* main text color */
+}
+
+/* Brand / Logo */
+body.light footer h2 {
+  color: #1d4ed8; /* dark blue text for brand */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+body.light footer p {
+  color: #4b5563; /* subtitle text */
+}
+
+/* Quick Links */
+body.light footer h3 {
+  color: #2563eb; /* heading color */
+}
+
+body.light footer ul li a {
+  color: #1f2937; /* link text color */
+}
+
+body.light footer ul li a:hover {
+  color: #2563eb; /* link hover color */
+}
+
+/* Social Media Icons */
+body.light footer .text-2xl a {
+  color: #1f2937; /* default icon color */
+}
+
+body.light footer .text-2xl a:hover {
+  color: #2563eb; /* icon hover color */
+}
+
+/* Bottom Bar */
+body.light footer .border-t {
+  border-color: #d1d5db; /* subtle border for light mode */
+}
+
+body.light footer .text-gray-500 {
+  color: #6b7280; /* bottom text color */
+}
+
+/* ================= Responsive Design ================= */
+
+/* Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    padding: 1rem;
+  }
+
+  header nav {
+    display: none; /* hide nav links for mobile */
+  }
+
+  header .hamburger {
+    display: block; /* show hamburger */
+  }
+
+  #hero {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  #hero h2 {
+    font-size: 1.8rem;
+  }
+
+  #hero p {
+    font-size: 0.9rem;
+  }
+
+  #skills,
+  #projects,
+  #about,
+  #experience,
+  #testimonials,
+  #contact {
+    padding: 4rem 2rem;
+  }
+
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: 1fr; /* stack vertically */
+    gap: 1rem;
+  }
+
+  .skill-tabs {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .project-card,
+  .skill-card,
+  .exp-card,
+  .testimonial-card {
+    padding: 1rem;
+  }
+
+  #contact-form input,
+  #contact-form textarea {
+    width: 100%;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+}
+
+/* Tablets (481px – 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  header nav {
+    display: none;
+  }
+
+  header .hamburger {
+    display: block;
+  }
+
+  #hero {
+    padding: 5rem 3rem;
+  }
+
+  #hero h2 {
+    font-size: 2rem;
+  }
+
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Small Laptops (769px – 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  header nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  header .hamburger {
+    display: none;
+  }
+
+  #hero {
+    padding: 6rem 5%;
+  }
+
+  #hero h2 {
+    font-size: 2.2rem;
+  }
+
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Desktops (1025px+) */
+@media (min-width: 1025px) {
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  header nav {
+    display: flex;
+  }
+
+  header .hamburger {
+    display: none;
+  }
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
