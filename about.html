@@ -1,553 +1,897 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me - Sampada Tiwari</title>
-    <meta
-      name="description"
-      content="Learn about Sampada Tiwari - Data Scientist and Web Developer passionate about machine learning and data analytics"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/about.css" />
-  </head>
-  <body>
-   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-charcoal: #0d1117;
+            --card-bg: #1a1a1a;
+            --card-gradient: linear-gradient(145deg, #1c1c1e, #1f1f21);
+            --white: #ffffff;
+            --royal-purple: #6c5ce7;
+            --deep-navy: #001f3f;
+            --text-secondary: #8b949e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+          body.light {
+            --dark-charcoal: #f9f9f9;
+            --card-bg: #ffffff;
+            --card-gradient: linear-gradient(145deg, #ffffff, #f0f0f0);
+            --white: #1a1a1a;
+            --royal-purple: #6c5ce7;
+            --deep-navy: #3b3bff;
+            --text-secondary: #555;
+            background: var(--dark-charcoal);
+            color: var(--white);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark-charcoal);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+         /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, var(--royal-purple), var(--deep-navy));
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2rem;
+            z-index: 2000;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover { transform: scale(1.1); }
+        /* Background Particles Effect */
+        .particles-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(108, 92, 231, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 31, 63, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(108, 92, 231, 0.05) 0%, transparent 50%);
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: rgba(13, 17, 23, 0.8) !important;
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            transition: all 0.4s ease;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .navbar.scrolled {
+            background: rgba(13, 17, 23, 0.95) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(108, 92, 231, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white) !important;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--royal-purple) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--royal-purple), var(--deep-navy));
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            border: 1px solid var(--royal-purple);
+            padding: 0.25rem 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Main Container */
+        .main-container {
+            padding: 8rem 0 4rem;
+            min-height: 100vh;
+        }
+
+        /* About Section Heading */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .section-heading h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--royal-purple), var(--deep-navy));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-heading .underline {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--royal-purple), var(--deep-navy));
+            margin: 0 auto;
+            border-radius: 2px;
+            animation: glowPulse 2s ease-in-out infinite alternate;
+        }
+
+        /* Education Card */
+        .education-card {
+            background: var(--card-gradient);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(108, 92, 231, 0.1);
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out 0.8s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, rgba(108, 92, 231, 0.05), rgba(0, 31, 63, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 16px;
+        }
+
+        .education-card:hover::before {
+            opacity: 1;
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(108, 92, 231, 0.2), 0 0 30px rgba(0, 31, 63, 0.1);
+            border-color: var(--royal-purple);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .education-icon {
+            font-size: 3.5rem;
+            color: var(--royal-purple);
+            margin-right: 2rem;
+            filter: drop-shadow(0 0 10px rgba(108, 92, 231, 0.3));
+        }
+
+        .education-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .education-subtitle {
+            font-size: 1.2rem;
+            color: var(--royal-purple);
+            font-weight: 500;
+        }
+
+        .education-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .education-details li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.2rem;
+            color: var(--white);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .education-details li:nth-child(1) { animation-delay: 1.2s; }
+        .education-details li:nth-child(2) { animation-delay: 1.4s; }
+        .education-details li:nth-child(3) { animation-delay: 1.6s; }
+        .education-details li:nth-child(4) { animation-delay: 1.8s; }
+        .education-details li:nth-child(5) { animation-delay: 2s; }
+
+        .education-details li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--royal-purple);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out 1.2s forwards;
+        }
+
+        .skills-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .skills-heading h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .skills-heading .underline {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--royal-purple), var(--deep-navy));
+            margin: 0 auto;
+            border-radius: 2px;
+            animation: glowPulse 2s ease-in-out infinite alternate;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-badge {
+            background: var(--card-gradient);
+            color: var(--white);
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1rem;
+            text-align: center;
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: scaleIn 0.6s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(108, 92, 231, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-badge:hover::before {
+            left: 100%;
+        }
+
+        .skill-badge:nth-child(1) { animation-delay: 1.5s; }
+        .skill-badge:nth-child(2) { animation-delay: 1.6s; }
+        .skill-badge:nth-child(3) { animation-delay: 1.7s; }
+        .skill-badge:nth-child(4) { animation-delay: 1.8s; }
+        .skill-badge:nth-child(5) { animation-delay: 1.9s; }
+        .skill-badge:nth-child(6) { animation-delay: 2s; }
+        .skill-badge:nth-child(7) { animation-delay: 2.1s; }
+        .skill-badge:nth-child(8) { animation-delay: 2.2s; }
+        .skill-badge:nth-child(9) { animation-delay: 2.3s; }
+        .skill-badge:nth-child(10) { animation-delay: 2.4s; }
+        .skill-badge:nth-child(11) { animation-delay: 2.5s; }
+        .skill-badge:nth-child(12) { animation-delay: 2.6s; }
+
+        .skill-badge:hover {
+            transform: translateY(-8px) scale(1.05);
+            background: linear-gradient(135deg, var(--royal-purple), var(--deep-navy));
+            box-shadow: 0 15px 35px rgba(108, 92, 231, 0.4);
+            border-color: var(--royal-purple);
+        }
+
+        /* Light Mode Footer */
+        body.light footer {
+            background: #f9f9f9;
+            color: #1a1a1a;
+        }
+
+        body.light footer h2 {
+            background: linear-gradient(to right, #6c5ce7, #00c6ff); /* Gradient for name */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light footer p {
+            color: #555; /* Subtitle text */
+        }
+
+        body.light footer h3 {
+            color: #6c5ce7; /* Section headings like Quick Links, Follow Me */
+        }
+
+        body.light footer a {
+            color: #1a1a1a; /* Default link color */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        body.light footer a:hover {
+            color: #6c5ce7; /* Hover color */
+            transform: scale(1.1);
+        }
+
+        body.light footer .border-top {
+            border-color: #ddd; /* Bottom bar border */
+        }
+
+        body.light footer .footer-copyright {
+            color: #555; /* Bottom bar text */
+        }
+
+        body.light footer .fab,
+        body.light footer .fas {
+            color: #1a1a1a; /* Social icons default */
+        }
+
+        body.light footer .fab:hover,
+        body.light footer .fas:hover {
+            color: #6c5ce7; /* Social icons hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+            color: #e0e0e0;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .footer-brand h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #00c6ff, #6c5ce7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand p {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        .footer-section h3 {
+            color: #00c6ff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00c6ff;
+            transform: scale(1.1);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-social a {
+            color: #e0e0e0;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #00c6ff;
+            transform: scale(1.25);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .footer-brand,
+            .footer-section {
+                text-align: left;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+
+            .footer-social {
+                justify-content: flex-start;
+            }
+        }
+        
+
+        /* Animations */
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(108, 92, 231, 0.8);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 6rem 0 2rem;
+            }
+
+            .section-heading h1 {
+                font-size: 2.5rem;
+            }
+
+            .education-card {
+                padding: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .education-header {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+
+            .education-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .education-title {
+                font-size: 1.5rem;
+            }
+
+            .education-subtitle {
+                font-size: 1rem;
+            }
+
+            .education-details li {
+                font-size: 1rem;
+                padding-left: 1.5rem;
+            }
+
+            .skills-heading h2 {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+
+            .skill-badge {
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .navbar-nav .nav-link {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-heading h1 {
+                font-size: 2rem;
+            }
+
+            .education-card {
+                padding: 1.5rem;
+            }
+
+            .education-title {
+                font-size: 1.3rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-badge {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
     <!-- Background Particles -->
     <div class="particles-bg"></div>
- <!-- Header -->
-<header class="fixed top-0 left-0 w-full bg-[#0f172a]/90 z-50">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-    
-    <!-- Brand / Logo -->
-    <h1 class="text-2xl font-bold text-white">
-      Sampada <span class="text-cyan-400">Tiwari</span>
-    </h1>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center space-x-6 font-medium">
-      <a href="#hero" class="nav-link hover:text-cyan-400 transition">Home</a>
-      <a href="about.html" class="nav-link hover:text-cyan-400 transition">About</a>
-      <a href="#skills" class="nav-link hover:text-cyan-400 transition">Skills</a>
-      <a href="experience.html" class="nav-link hover:text-cyan-400 transition">Experience</a>
-      <a href="project.html" class="nav-link hover:text-cyan-400 transition">Projects</a>
-      <a href="#testimonials" class="nav-link hover:text-cyan-400 transition">Testimonials</a>
-      <a href="contact.html" class="nav-link hover:text-cyan-400 transition">Contact</a>
-
-      <!-- Theme Toggle -->
-      <button id="theme-toggle" class="ml-4 text-white hover:text-cyan-400 transition">
-        <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
-      </button>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">sampada tiwari</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="project.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <!-- Mobile Menu Button -->
-    <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-      <svg id="menu-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
-
- <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md">
-  <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
-    <a href="#hero" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Home</a>
-    <a href="about.html" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">About</a>
-    <a href="skills.html" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Skills</a>
-    <a href="experience.html" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Experience</a>
-    <a href="project.html" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Projects</a>
-    <a href="#testimonials" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Testimonials</a>
-    <a href="contact.html" class="mobile-nav-link transition-colors duration-300 hover:text-cyan-400 hover:bg-[#1e293b]/70 px-3 py-2 rounded">Contact</a>
-
-    <!-- Theme Toggle -->
-    <button id="theme-toggle-mobile" class="mt-4 text-white hover:text-cyan-400 transition">
-      <i class="fas fa-moon text-xl"></i>
-    </button>
-  </nav>
-</div>
-
-</header>
     <!-- Main Container -->
     <div class="main-container">
-      <div class="container">
-        <!-- Profile Introduction Section -->
-        <div class="profile-section">
-          <div class="status-indicator">
-            <img
-              src="./images/profile.jpeg"
-              alt="Sampada Tiwari - Data Scientist and Web Developer"
-              class="profile-image"
-            />
-          </div>
-          <h1 class="section-heading mb-3">Sampada Tiwari</h1>
-          <p class="text-muted mb-3">Data Scientist & Web Developer</p>
-
-          <!-- Quick Stats -->
-          <div class="stat-cards">
-            <div class="stat-card">
-              <span class="stat-number" id="projectsCount">15</span>
-              <div class="stat-label">Projects</div>
-            </div>
-            <div class="stat-card">
-              <span class="stat-number" id="experienceCount">2</span>
-              <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-card">
-              <span class="stat-number" id="skillsCount">12</span>
-              <div class="stat-label">Skills</div>
-            </div>
-          </div>
-
-          <!-- Personal Introduction -->
-          <div class="personal-intro">
-            My passion for data science began during my first year of college
-            when I discovered how data could tell compelling stories and drive
-            meaningful decisions. I believe in making data accessible and
-            actionable for everyone, bridging the gap between complex technical
-            concepts and practical business solutions.
-          </div>
-        </div>
-
-        <!-- Enhanced Education Section -->
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="enhanced-education">
-              <div class="section-heading">
-                <h2>Education Journey</h2>
+        <div class="container">
+            <!-- About Section Heading -->
+            <div class="section-heading">
+                <h1>About Me</h1>
                 <div class="underline"></div>
-              </div>
-
-              <div class="education-card position-relative">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-
-                <div class="education-header">
-                  <i class="fas fa-graduation-cap education-icon"></i>
-                  <div>
-                    <h3 class="education-title">
-                      Bachelor of Computer Application
-                    </h3>
-                    <p class="education-subtitle">
-                      Banasthali University | July 2021 – July 2025
-                    </p>
-                  </div>
-                </div>
-                <ul class="education-details">
-                  <li>
-                    Specialized in Data Science, focusing on machine learning,
-                    data analytics, and statistical modeling using real-world
-                    datasets.
-                  </li>
-                  <li>
-                    Proficient in tools and technologies including Python,
-                    Microsoft Excel, Power BI, and data visualization libraries.
-                  </li>
-                  <li>
-                    Gained practical experience in data preprocessing, analysis,
-                    and interpretation for business decision-making.
-                  </li>
-                  <li>
-                    Developed strong engineering fundamentals combined with a
-                    data-driven problem-solving mindset.
-                  </li>
-                  <li>
-                    Demonstrated excellent communication and community building
-                    skills through academic and collaborative projects.
-                  </li>
-                </ul>
-              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Enhanced Skills Section -->
-        <div class="enhanced-skills">
-          <div class="skills-heading text-center">
-            <h2>Skills & Expertise</h2>
-            <div class="underline"></div>
-          </div>
-
-          <!-- Skill Categories -->
-          <div class="skills-categories">
-            <button
-              class="category-btn active"
-              data-category="programming"
-              tabindex="0"
-            >
-              Programming
-            </button>
-            <button class="category-btn" data-category="data" tabindex="0">
-              Data Science
-            </button>
-            <button class="category-btn" data-category="tools" tabindex="0">
-              Tools
-            </button>
-            <button
-              class="category-btn"
-              data-category="management"
-              tabindex="0"
-            >
-              Management
-            </button>
-          </div>
-
-          <!-- Skills Progress Bars -->
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <!-- Programming Skills -->
-              <div class="skills-group" data-group="programming">
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name"
-                      >Python (Programming Language)</span
-                    >
-                    <span class="skill-percentage">90%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="90"
-                      role="progressbar"
-                      aria-label="Python skill level"
-                      aria-valuenow="90"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
+            <!-- Education Card -->
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="education-card">
+                        <div class="education-header">
+                            <i class="fas fa-graduation-cap education-icon"></i>
+                            <div>
+                                <h3 class="education-title">Bachelor of computer Application</h3>
+                                <p class="education-subtitle">Banasthali University | July 2021 – July 2025</p>
+                            </div>
+                        </div>
+                        <ul class="education-details">
+                            <li>Specialized in Data Science, focusing on machine learning, data analytics, and statistical modeling using real-world datasets.</li>
+                            <li>Proficient in tools and technologies including Python, Microsoft Excel, Power BI, and data visualization libraries.</li>
+                            <li>Gained practical experience in data preprocessing, analysis, and interpretation for business decision-making.</li>
+                            <li>Developed strong engineering fundamentals combined with a data-driven problem-solving mindset.</li>
+                            <li>Demonstrated excellent communication and community building skills through academic and collaborative projects.</li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Data Visualization</span>
-                    <span class="skill-percentage">85%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="85"
-                      role="progressbar"
-                      aria-label="Data Visualization skill level"
-                      aria-valuenow="85"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Data Science Skills -->
-              <div class="skills-group hidden" data-group="data">
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Data Science</span>
-                    <span class="skill-percentage">88%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="88"
-                      role="progressbar"
-                      aria-label="Data Science skill level"
-                      aria-valuenow="88"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Statistical Data Analysis</span>
-                    <span class="skill-percentage">82%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="82"
-                      role="progressbar"
-                      aria-label="Statistical Analysis skill level"
-                      aria-valuenow="82"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Tools Skills -->
-              <div class="skills-group hidden" data-group="tools">
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Microsoft Excel</span>
-                    <span class="skill-percentage">92%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="92"
-                      role="progressbar"
-                      aria-label="Excel skill level"
-                      aria-valuenow="92"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Power BI</span>
-                    <span class="skill-percentage">80%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="80"
-                      role="progressbar"
-                      aria-label="Power BI skill level"
-                      aria-valuenow="80"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Google Workspace</span>
-                    <span class="skill-percentage">85%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="85"
-                      role="progressbar"
-                      aria-label="Google Workspace skill level"
-                      aria-valuenow="85"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Management Skills -->
-              <div class="skills-group hidden" data-group="management">
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Leadership</span>
-                    <span class="skill-percentage">90%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="90"
-                      role="progressbar"
-                      aria-label="Leadership skill level"
-                      aria-valuenow="90"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Team Management</span>
-                    <span class="skill-percentage">87%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="87"
-                      role="progressbar"
-                      aria-label="Team Management skill level"
-                      aria-valuenow="87"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="skill-progress">
-                  <div class="skill-header">
-                    <span class="skill-name">Operation Management</span>
-                    <span class="skill-percentage">83%</span>
-                  </div>
-                  <div class="progress-bar-container">
-                    <div
-                      class="progress-bar-fill"
-                      data-width="83"
-                      role="progressbar"
-                      aria-label="Operation Management skill level"
-                      aria-valuenow="83"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Personal Story Section -->
-        <div class="personal-story">
-          <h3 style="color: #8b5cf6; margin-bottom: 1rem">My Journey</h3>
-          <p style="color: #e5e7eb; line-height: 1.6; margin-bottom: 1rem">
-            What started as curiosity about numbers quickly evolved into a deep
-            fascination with machine learning and statistical modeling. Through
-            hands-on projects and internships, I've learned to bridge the gap
-            between complex technical concepts and practical business solutions.
-          </p>
-          <p style="color: #e5e7eb; line-height: 1.6">
-            I'm passionate about using data to drive meaningful change and help
-            organizations make informed decisions. My goal is to contribute to
-            projects that have real-world impact while continuously learning and
-            growing in this dynamic field.
-          </p>
+            <!-- Skills Section -->
+            <div class="skills-section" id="skills">
+                <div class="skills-heading">
+                    <h2>Skills & Tools</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-badge">Operation Management</div>
+                    <div class="skill-badge">Data Visualization</div>
+                    <div class="skill-badge">Data Science</div>
+                    <div class="skill-badge">Google Workspace</div>
+                    <div class="skill-badge">Statistical Data Analysis</div>
+                    <div class="skill-badge">Community Relations Management</div>
+                    <div class="skill-badge">Management</div>
+                    <div class="skill-badge">Microsoft Excel</div>
+                    <div class="skill-badge">Python (Programming Language)</div>
+                    <div class="skill-badge">Power BI</div>
+                    <div class="skill-badge">Leadership</div>
+                    <div class="skill-badge">Team Management</div>
+                </div>
+            </div>
         </div>
-
-        <!-- Resume Download Section -->
-        <div class="resume-section">
-          <h3 style="color: white; margin-bottom: 1rem">
-            Want to know more about my journey?
-          </h3>
-          <p style="color: #d1d5db; margin-bottom: 2rem">
-            Download my detailed resume to see my complete experience and
-            projects, or get in touch to discuss opportunities.
-          </p>
-          <div>
-            <button class="btn-download" onclick="downloadResume()">
-              <i class="fas fa-download me-2"></i>Download Resume
-            </button>
-            <a href="contact.html" class="btn-contact">
-              <i class="fas fa-envelope me-2"></i>Contact Me
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
 
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <!-- Brand / Logo -->
+          <div class="footer-brand text-center">
+            <h2>Sampada<span style="font-weight: 800;">Tiwari</span></h2>
+            <p>Data Scientist • Leader • Creator</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-section text-center">
+            <h3>Quick Links</h3>
+            <div class="footer-links">
+              <a href="about.html">About</a>
+              <a href="skills.html">Skills</a>
+              <a href="experience.html">Experience</a>
+              <a href="project.html">Projects</a>
+              <a href="experience.html#testimonials">Testimonials</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="footer-section text-center">
+            <h3>Follow Me</h3>
+            <div class="footer-social">
+              <a href="https://linkedin.com/in/sampada" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://github.com/sampada" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://twitter.com/sampada" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="mailto:sampada@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-copyright border-top">
+          © 2025 Sampada Tiwari • All Rights Reserved
+        </div>
+      </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script src="js/index.js"></script>
-
     <script>
-      // Skills category switching
-      document.querySelectorAll('.category-btn').forEach((btn) => {
-        btn.addEventListener('click', function () {
-          // Remove active class from all buttons
-          document
-            .querySelectorAll('.category-btn')
-            .forEach((b) => b.classList.remove('active'));
-          // Add active class to clicked button
-          this.classList.add('active');
+          // Theme Toggle with localStorage
+        const toggleBtn = document.getElementById('themeToggle');
+        const body = document.body;
 
-          // Hide all skill groups
-          document.querySelectorAll('.skills-group').forEach((group) => {
-            group.classList.add('hidden');
-          });
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light');
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        }
 
-          // Show selected group
-          const targetGroup = this.dataset.category;
-          const targetElement = document.querySelector(
-            `[data-group="${targetGroup}"]`
-          );
-          if (targetElement) {
-            targetElement.classList.remove('hidden');
-            // Animate progress bars
-            animateProgressBars(targetElement);
-          }
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light');
+            const isLight = body.classList.contains('light');
+            toggleBtn.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
-
-        // Add keyboard support
-        btn.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            this.click();
-          }
-        });
-      });
-
-      // Animate progress bars
-      function animateProgressBars(container = document) {
-        const progressBars = container.querySelectorAll('.progress-bar-fill');
-        progressBars.forEach((bar, index) => {
-          setTimeout(() => {
-            const width = bar.dataset.width;
-            bar.style.width = width + '%';
-          }, index * 200);
-        });
-      }
-
-      // Animate counters
-      function animateCounters() {
-        const counters = document.querySelectorAll('.stat-number');
-        counters.forEach((counter) => {
-          const target = parseInt(counter.textContent);
-          let current = 0;
-          const increment = target / 50;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              current = target;
-              clearInterval(timer);
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNavbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
-            counter.textContent = Math.floor(current);
-          }, 40);
         });
-      }
 
-      // Download resume function
-      function downloadResume() {
-        // Add your resume download logic here
-        const link = document.createElement('a');
-        link.href = './resume.pdf'; // Update path to your resume
-        link.download = 'Sampada_Tiwari_Resume.pdf';
-        link.click();
-      }
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-      // Initialize on page load
-      document.addEventListener('DOMContentLoaded', function () {
-        // Animate initial progress bars
-        animateProgressBars();
-        // Animate counters
-        animateCounters();
+        // Mobile menu auto-close on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
 
-        // Intersection Observer for animations
+        // Enhanced hover effects for skill badges
+        document.querySelectorAll('.skill-badge').forEach(badge => {
+            badge.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.05)';
+                this.style.boxShadow = '0 15px 35px rgba(108, 92, 231, 0.4)';
+            });
+            
+            badge.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Dynamic glow effect on education card
+        const educationCard = document.querySelector('.education-card');
+        educationCard.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const glowEffect = `radial-gradient(circle at ${x}px ${y}px, rgba(108, 92, 231, 0.1) 0%, transparent 50%)`;
+            this.style.background = `${glowEffect}, var(--card-gradient)`;
+        });
+
+        educationCard.addEventListener('mouseleave', function() {
+            this.style.background = 'var(--card-gradient)';
+        });
+
+        // Intersection Observer for scroll animations
         const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '50px 0px',
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.style.animationPlayState = 'running';
-            }
-          });
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
         }, observerOptions);
 
         // Observe elements for animation
-        document
-          .querySelectorAll('.skill-progress, .stat-card, .personal-story')
-          .forEach((el) => {
+        document.querySelectorAll('.education-card, .skills-section').forEach(el => {
             observer.observe(el);
-          });
-      });
+        });
+
+        // Add parallax effect to background particles
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const particles = document.querySelector('.particles-bg');
+            const rate = scrolled * -0.1;
+            
+            particles.style.transform = `translateY(${rate}px)`;
+        });
     </script>
-  </body>
+</body>
 </html>
