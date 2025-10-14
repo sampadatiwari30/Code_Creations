@@ -5,32 +5,33 @@ menuBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
 });
 
-// Tab Switching
-const tabs = document.querySelectorAll('.tab');
-const cards = document.querySelectorAll('.skill-card');
-tabs.forEach((tab) => {
-  tab.addEventListener('click', () => {
-    tabs.forEach((t) => t.classList.remove('active'));
-    tab.classList.add('active');
-    let category = tab.getAttribute('data-tab');
-    cards.forEach((card) => {
-      if (card.classList.contains(category)) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
-  });
-});
 // Animate progress bars on scroll
+const cards = document.querySelectorAll('.skill-card');
+
+// Use IntersectionObserver to detect visibility
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        // Stop observing once animated (optional, for performance)
+        observer.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.5 }
+  { threshold: 0.4 } // triggers when 40% visible
 );
+
+// Observe each skill card
 cards.forEach((card) => observer.observe(card));
+
+// ✅ Run animation immediately if section already in view (page loaded mid-scroll)
+window.addEventListener('load', () => {
+  cards.forEach((card) => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      card.classList.add('visible');
+    }
+  });
+});
+
