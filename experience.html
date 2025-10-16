@@ -346,67 +346,49 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="max-w-6xl mx-auto px-6 py-20" id="testimonials">
-      <h2
-        class="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-14"
-      >
-        Testimonials
-      </h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div
-          class="glass p-8 rounded-3xl shadow-2xl border border-green-400/40 hover:border-green-400/70 transition transform hover:scale-[1.05]"
-          data-tilt
-        >
-          <div class="flex items-start gap-3">
-            <span class="text-green-400 text-3xl">❝</span>
-            <p class="italic">
-              Community building efforts have been transformative, fostering
-              belonging and driving engagement. His passion shines through.
-            </p>
-          </div>
-          <p class="mt-5 font-semibold text-gray-300">
-            — Sandeep Jain, CEO GeeksforGeeks
-          </p>
-        </div>
+<section id="testimonials" class="testimonials-section">
+  <h2 class="testimonial-heading">Testimonials</h2>
 
-        <!-- Card 2 -->
-        <div
-          class="glass p-8 rounded-3xl shadow-2xl border border-blue-400/40 hover:border-blue-400/70 transition transform hover:scale-[1.05]"
-          data-tilt
-        >
-          <div class="flex items-start gap-3">
-            <span class="text-blue-400 text-3xl">❝</span>
-            <p class="italic">
-              Ability to connect us with the right gaming influencers and
-              opportunities has been impressive. Helped us reach loyal
-              audiences.
-            </p>
-          </div>
-          <p class="mt-5 font-semibold text-gray-300">
-            — Abhishek Aggarwal, CEO Trinity Gaming
-          </p>
-        </div>
-
-        <!-- Card 3 -->
-        <div
-          class="glass p-8 rounded-3xl shadow-2xl border border-purple-400/40 hover:border-purple-400/70 transition transform hover:scale-[1.05]"
-          data-tilt
-        >
-          <div class="flex items-start gap-3">
-            <span class="text-purple-400 text-3xl">❝</span>
-            <p class="italic">
-              Gaming sponsorship expertise has been a game-changer. Delivered
-              partnerships that boosted visibility in the gaming community.
-            </p>
-          </div>
-          <p class="mt-5 font-semibold text-gray-300">
-            — Manish Agarwal, CEO KGeN
-          </p>
-        </div>
+  <div class="testimonial-slider">
+    <div class="testimonial-track">
+      <div class="testimonial-card">
+        <p class="quote">❝</p>
+        <p>Ability to connect us with the right gaming influencers and opportunities has been impressive. Helped us reach loyal audiences.</p>
+        <p class="author">— Abhishek Aggarwal, CEO Trinity Gaming</p>
       </div>
-    </section>
-    <!-- ================= FOOTER SECTION ================= -->
+      <div class="testimonial-card">
+        <p class="quote">❝</p>
+        <p>Gaming sponsorship expertise has been a game-changer. Delivered partnerships that boosted visibility in the gaming community.</p>
+        <p class="author">— Manish Agarwal, CEO KGeN</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">❝</p>
+        <p>Working with Sampada has been inspiring. Her ability to translate complex data into clear, actionable insights made a huge difference to our project outcomes.</p>
+        <p class="author">— Rohan Mehta, Data Analytics Lead at Innovexa</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">❝</p>
+        <p>Sampada’s leadership in community initiatives truly stands out. She creates an environment where creativity and collaboration thrive.</p>
+        <p class="author">— Priya Sharma, Community Manager at DevCollective</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">❝</p>
+        <p>Her technical depth and genuine passion for innovation make her an exceptional collaborator. Every project with her raises the bar.</p>
+        <p class="author">— Arjun Rao, Product Engineer at CodeNectar</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">❝</p>
+        <p>Her vision, focus, and attention to detail have elevated our campaigns beyond expectations. A true professional.</p>
+        <p class="author">— Neha Kapoor, Product Manager</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+   <!-- ================= FOOTER SECTION ================= -->
     <footer
       class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12"
     >
@@ -519,6 +501,34 @@
         © 2025 Sampada Tiwari • All Rights Reserved
       </div>
     </footer>
+
     <script src="js/experience.js"></script>
+    <script>
+  const track = document.querySelector('.testimonial-track');
+  const clone = track.cloneNode(true);
+  track.parentNode.appendChild(clone);
+
+  // Adjust positioning so cloned track starts right after the first
+  clone.style.position = 'absolute';
+  clone.style.left = track.scrollWidth + 'px';
+
+  function animate() {
+    const totalWidth = track.scrollWidth;
+    let x = 0;
+
+    function step() {
+      x -= 1; // speed
+      if (x <= -totalWidth) x = 0;
+      track.style.transform = `translateX(${x}px)`;
+      clone.style.transform = `translateX(${x}px)`;
+      requestAnimationFrame(step);
+    }
+    step();
+  }
+  animate();
+</script>
+
+
+
   </body>
 </html>
