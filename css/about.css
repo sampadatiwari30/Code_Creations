@@ -918,9 +918,14 @@ body.nav-open {
   font-size: 0.9rem;
 }
 
+/* Change font color of category buttons to black in light mode */
+body.light .category-btn {
+  color: #000 !important;
+}
+
 .category-btn.active {
   background: #8b5cf6;
-  color: white;
+  color: rgb(0, 0, 0);
   transform: scale(1.05);
 }
 
@@ -937,8 +942,13 @@ body.nav-open {
 }
 
 .skill-name {
-  color: #f9fafb;
+  color: white !important;
   font-weight: 500;
+}
+
+/* Change font color of skill names to black in light mode */
+body.light .skill-name {
+  color: #000 !important;
 }
 
 .skill-percentage {
@@ -1067,4 +1077,46 @@ body.nav-open {
     margin: 0.5rem auto;
     width: 200px;
   }
+}
+/* ===== LIGHT MODE FIXES ===== */
+
+/* Make normally gray text black in light mode */
+body.light .text-gray-400,
+body.light .text-gray-500,
+body.light .text-gray-600,
+body.light .text-muted,
+body.light p,
+body.light .personal-intro,
+body.light .personal-story p {
+  color: #000 !important;
+}
+
+/* Keep navbar text white even in light mode */
+body.light header .nav-link,
+body.light header h1,
+body.light header button,
+body.light header svg,
+body.light header .theme-toggle-icon {
+  color: #fff !important;
+}
+/* === Light Mode: make grey category labels and stat titles black === */
+body.light .tab,
+body.light .tab.active,
+body.light .tab:hover,
+body.light .category-box,
+body.light .project-category,
+body.light .stats-card p,
+body.light .skill-card p,
+body.light .counter-label {
+  color: #ffffff !important;
+}
+
+/* Change font color of stat labels to black in light mode */
+body.light .stat-label {
+  color: #000 !important;
+}
+
+/* Change font color of "Data Scientist & Web Developer" to white */
+.profile-section .text-muted {
+  color: white !important;
 }
