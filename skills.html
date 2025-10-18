@@ -615,12 +615,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
   
-  // Desktop theme toggle
-  if (themeToggle) {
-    themeToggle.addEventListener('click', toggleTheme);
-  }
+  // Desktop theme toggle - DISABLED (Issue 1)
+  // if (themeToggle) {
+  //   themeToggle.addEventListener('click', toggleTheme);
+  // }
   
-  // Mobile theme toggle
+  // Mobile theme toggle - WORKING (Issue 2 - Fixed)
   if (mobileThemeToggle) {
     mobileThemeToggle.addEventListener('click', (e) => {
       e.preventDefault();
