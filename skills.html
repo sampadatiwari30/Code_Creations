@@ -19,37 +19,113 @@
         --secondary: #a855f7;
         --dark: #0f172a;
       }
+
+      [data-theme="light"] {
+        --bg-body: #f8fafc;
+        --bg-section: #ffffff;
+        --bg-header: rgba(248, 250, 252, 0.8);
+        --text-primary: #0f172a;
+        --text-secondary: #64748b;
+        --card-bg: #ffffff;
+        --card-shadow: rgba(0, 0, 0, 0.1);
+        --card-hover-bg: #f0f9ff;
+        --progress-bg: #e2e8f0;
+        --nav-link: #0f172a;
+      }
+
+      [data-theme="dark"] {
+        --bg-body: #0f172a;
+        --bg-section: #111827;
+        --bg-header: rgba(15, 23, 42, 0.8);
+        --text-primary: #ffffff;
+        --text-secondary: #9ca3af;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --card-shadow: rgba(0, 0, 0, 0.3);
+        --card-hover-bg: rgba(56, 189, 248, 0.08);
+        --progress-bg: rgba(255, 255, 255, 0.1);
+        --nav-link: #ffffff;
+      }
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+      
       body {
         font-family: 'Poppins', sans-serif;
-        background: var(--dark);
-        color: #fff;
+        background: var(--bg-body);
+        color: var(--text-primary);
         line-height: 1.6;
         scroll-behavior: smooth;
         overflow-x: hidden;
+        transition: background 0.3s ease, color 0.3s ease;
       }
+
+      header {
+        background: var(--bg-header) !important;
+        backdrop-filter: blur(12px);
+        transition: background 0.3s ease;
+      }
+
+      .nav-link {
+        position: relative;
+        color: var(--nav-link) !important;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #22d3ee;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #22d3ee !important;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      #theme-toggle {
+        color: var(--nav-link) !important;
+      }
+
+      #menu-btn {
+        color: var(--nav-link) !important;
+      }
+
       #skills {
         padding: 6rem 8%;
-        background: #111827;
-        color: #fff;
+        background: var(--bg-section);
+        color: var(--text-primary);
         text-align: center;
+        transition: background 0.3s ease, color 0.3s ease;
       }
+
       .section-title {
         font-size: 2.5rem;
         margin-bottom: 0.5rem;
+        color: var(--text-primary);
       }
+
       .section-title span {
         color: #38bdf8;
       }
+
       .section-subtitle {
         font-size: 1.1rem;
         margin-bottom: 2.5rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
       }
+
       .skill-tabs {
         display: flex;
         justify-content: center;
@@ -57,69 +133,130 @@
         margin-bottom: 3rem;
         flex-wrap: wrap;
       }
+
       .skill-tabs .tab {
         padding: 0.7rem 1.5rem;
         border: none;
         border-radius: 30px;
-        background: rgba(255, 255, 255, 0.05);
-        color: #fff;
+        background: var(--card-bg);
+        color: var(--text-primary);
         cursor: pointer;
-        transition: 0.3s;
+        transition: all 0.3s;
         font-weight: 600;
+        box-shadow: 0 2px 8px var(--card-shadow);
       }
+
       .skill-tabs .tab.active,
       .skill-tabs .tab:hover {
         background: linear-gradient(45deg, #38bdf8, #a855f7);
-        color: #000;
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
       }
+
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 2rem;
       }
+
       .skill-card {
-        background: rgba(255, 255, 255, 0.05);
+        background: var(--card-bg);
         border-radius: 20px;
         padding: 1.5rem;
         text-align: left;
-        transition:
-          transform 0.3s,
-          background 0.3s;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 20px var(--card-shadow);
       }
+
+      [data-theme="light"] .skill-card {
+        border: 1px solid #e2e8f0;
+      }
+
       .skill-card:hover {
         transform: translateY(-5px);
-        background: rgba(56, 189, 248, 0.08);
+        background: var(--card-hover-bg);
+        box-shadow: 0 8px 30px var(--card-shadow);
       }
+
       .skill-card h3 {
         margin-bottom: 1rem;
         font-size: 1.2rem;
+        color: var(--text-primary);
       }
+
+      .skill-card span {
+        color: var(--text-primary);
+      }
+
       .progress {
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--progress-bg);
         height: 10px;
         border-radius: 10px;
         overflow: hidden;
       }
+
       .progress-bar {
         height: 100%;
         background: linear-gradient(90deg, #38bdf8, #a855f7);
         width: 0;
         transition: width 2s ease;
       }
+
       .skill-card.visible .progress-bar {
         width: var(--value);
       }
+
       .hidden {
         display: none;
       }
+
+      footer {
+        background: var(--bg-section) !important;
+        color: var(--text-primary) !important;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      footer h2, footer h3 {
+        color: var(--text-primary) !important;
+      }
+
+      footer .text-gray-400 {
+        color: var(--text-secondary) !important;
+      }
+
+      footer .text-gray-500 {
+        color: var(--text-secondary) !important;
+      }
+
+      footer a {
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
+      }
+
+      footer a:hover {
+        color: #22d3ee !important;
+      }
+
+      [data-theme="light"] footer {
+        border-top: 1px solid #e2e8f0;
+      }
+
+      #mobile-theme-toggle {
+        color: var(--nav-link);
+        text-align: left;
+      }
+
+      #mobile-theme-toggle:hover {
+        color: #22d3ee;
+      }
+
       @media (max-width: 768px) {
         .skills-grid {
           gap: 1.2rem;
         }
       }
 
-      /* Small tablets and large phones: 577px - 768px */
       @media (min-width: 577px) and (max-width: 768px) {
         #skills {
           padding: 5rem 6%;
@@ -150,7 +287,6 @@
         }
       }
 
-      /* Mobile devices: up to 576px */
       @media (max-width: 576px) {
         #skills {
           padding: 4rem 4%;
@@ -184,7 +320,6 @@
         }
       }
 
-      /* Extra large screens: 1200px and above */
       @media (min-width: 1200px) {
         #skills {
           padding: 7rem 10%;
@@ -201,20 +336,14 @@
       }
     </style>
   </head>
-  <body>
+  <body data-theme="dark">
     <!-- Navbar -->
-    <header
-      class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50"
-    >
-      <div
-        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
-      >
-        <!-- Brand / Logo -->
-        <h1 class="text-2xl font-bold text-white">
+    <header class="fixed top-0 left-0 w-full bg-[#0f172a]/80 backdrop-blur-md z-50">
+      <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        <h1 class="text-2xl font-bold" style="color: var(--nav-link)">
           Sampada <span class="text-cyan-400">Tiwari</span>
         </h1>
 
-        <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center space-x-6 font-medium">
           <a href="index.html" class="nav-link">Home</a>
           <a href="about.html" class="nav-link">About</a>
@@ -224,38 +353,19 @@
           <a href="index.html#testimonials" class="nav-link">Testimonials</a>
           <a href="contact.html" class="nav-link">Contact</a>
 
-          <!-- Theme Toggle -->
-          <button
-            id="theme-toggle"
-            class="ml-4 text-white hover:text-cyan-400 transition"
-          >
+          <button id="theme-toggle" class="ml-4 hover:text-cyan-400 transition">
             <i id="theme-toggle-icon" class="fas fa-moon text-xl"></i>
           </button>
         </nav>
 
-        <!-- Mobile Menu Button -->
-        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+        <button id="menu-btn" class="md:hidden focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
 
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-[#0f172a]/95 backdrop-blur-md"
-      >
+      <div id="mobile-menu" class="hidden md:hidden backdrop-blur-md">
         <nav class="flex flex-col px-6 py-4 space-y-4 font-medium">
           <a href="index.html" class="nav-link">Home</a>
           <a href="about.html" class="nav-link">About</a>
@@ -264,35 +374,16 @@
           <a href="project.html" class="nav-link">Projects</a>
           <a href="index.html#testimonials" class="nav-link">Testimonials</a>
           <a href="contact.html" class="nav-link">Contact</a>
+          
+          <!-- Mobile Theme Toggle -->
+          <button id="mobile-theme-toggle" class="flex items-center gap-2 py-2 hover:text-cyan-400 transition">
+            <i id="mobile-theme-icon" class="fas fa-moon text-xl"></i>
+          </button>
         </nav>
       </div>
     </header>
 
-    <!-- Tailwind Nav Link Styling -->
-    <style>
-      .nav-link {
-        @apply relative text-white transition duration-300;
-      }
-      .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: #22d3ee; /* cyan-400 */
-        transition: width 0.3s ease;
-      }
-      .nav-link:hover {
-        color: #22d3ee; /* cyan-400 */
-      }
-      .nav-link:hover::after {
-        width: 100%;
-      }
-    </style>
-
     <!-- Skills Section -->
-
     <section id="skills" class="pt-32">
       <div class="skills-container">
         <h2 class="section-title">My <span>Skills</span></h2>
@@ -397,7 +488,7 @@
           <div class="skill-card tools">
             <h3 class="flex items-center gap-2">
               <i class="fab fa-git-alt text-3xl text-[#F05032]"></i>
-              <i class="fab fa-github text-3xl text-[#fff]"></i>
+              <i class="fab fa-github text-3xl"></i>
               <span class="text-sm font-medium">Git & GitHub</span>
             </h3>
             <div class="progress">
@@ -428,16 +519,10 @@
     </section>
 
     <!-- Footer -->
-    <footer
-      class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12 mt-16"
-    >
-      <div
-        class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8"
-      >
+    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-6 md:px-12 mt-16">
+      <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 mb-8">
         <div class="text-center md:text-left">
-          <h2
-            class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500"
-          >
+          <h2 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
             Sampada<span class="font-extrabold">Tiwari</span>
           </h2>
           <p class="text-gray-400 mt-1 text-sm md:text-base">
@@ -446,94 +531,105 @@
         </div>
         <div class="text-center md:text-left">
           <h3 class="text-cyan-400 text-lg font-semibold mb-3">Quick Links</h3>
-          <ul
-            class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2"
-          >
-            <li>
-              <a href="index.html" class="hover:text-cyan-400 transition-colors"
-                >Home</a
-              >
-            </li>
-
-            <li>
-              <a href="about.html" class="hover:text-cyan-400 transition-colors"
-                >About</a
-              >
-            </li>
-            <li>
-              <a
-                href="skills.html"
-                class="hover:text-cyan-400 transition-colors"
-                >Skills</a
-              >
-            </li>
-            <li>
-              <a
-                href="experience.html"
-                class="hover:text-cyan-400 transition-colors"
-                >Experience</a
-              >
-            </li>
-            <li>
-              <a
-                href="project.html"
-                class="hover:text-cyan-400 transition-colors"
-                >Projects</a
-              >
-            </li>
-            <li>
-              <a
-                href="index.html#testimonials"
-                class="hover:text-cyan-400 transition-colors"
-                >Testimonials</a
-              >
-            </li>
-            <li>
-              <a
-                href="contact.html"
-                class="hover:text-cyan-400 transition-colors"
-                >Contact</a
-              >
-            </li>
+          <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2">
+            <li><a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-cyan-400 transition-colors">About</a></li>
+            <li><a href="skills.html" class="hover:text-cyan-400 transition-colors">Skills</a></li>
+            <li><a href="experience.html" class="hover:text-cyan-400 transition-colors">Experience</a></li>
+            <li><a href="project.html" class="hover:text-cyan-400 transition-colors">Projects</a></li>
+            <li><a href="index.html#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a></li>
+            <li><a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a></li>
           </ul>
         </div>
         <div class="text-center md:text-left">
           <h3 class="text-cyan-400 text-lg font-semibold mb-3">Follow Me</h3>
           <div class="flex justify-center md:justify-start gap-4 text-2xl">
-            <a
-              href="https://linkedin.com/in/sampada"
-              target="_blank"
-              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <a
-              href="https://github.com/sampada"
-              target="_blank"
-              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              href="https://twitter.com/sampada"
-              target="_blank"
-              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a
-              href="mailto:sampada@example.com"
-              class="hover:text-cyan-400 transform hover:scale-125 transition-all"
-              ><i class="fas fa-envelope"></i
-            ></a>
+            <a href="https://linkedin.com/in/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitter.com/sampada" target="_blank" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="mailto:sampada@example.com" class="hover:text-cyan-400 transform hover:scale-125 transition-all">
+              <i class="fas fa-envelope"></i>
+            </a>
           </div>
         </div>
       </div>
-      <div
-        class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500"
-      >
+      <div class="border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
         © 2025 Sampada Tiwari • All Rights Reserved
       </div>
     </footer>
 
     <script>
+// ===========================
+// Theme Toggle Functionality
+// ===========================
+const body = document.body;
+
+// Check for saved theme preference or default to 'dark'
+const currentTheme = localStorage.getItem('theme') || 'dark';
+body.setAttribute('data-theme', currentTheme);
+
+// Function to update both icons
+function updateThemeIcons(theme) {
+  const themeIcon = document.getElementById('theme-toggle-icon');
+  const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+  
+  if (theme === 'light') {
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun');
+    mobileThemeIcon.classList.remove('fa-moon');
+    mobileThemeIcon.classList.add('fa-sun');
+  } else {
+    themeIcon.classList.remove('fa-sun');
+    themeIcon.classList.add('fa-moon');
+    mobileThemeIcon.classList.remove('fa-sun');
+    mobileThemeIcon.classList.add('fa-moon');
+  }
+}
+
+// Update icons based on current theme
+updateThemeIcons(currentTheme);
+
+// Function to toggle theme
+function toggleTheme() {
+  const theme = body.getAttribute('data-theme');
+  
+  if (theme === 'dark') {
+    body.setAttribute('data-theme', 'light');
+    updateThemeIcons('light');
+    localStorage.setItem('theme', 'light');
+  } else {
+    body.setAttribute('data-theme', 'dark');
+    updateThemeIcons('dark');
+    localStorage.setItem('theme', 'dark');
+  }
+}
+
+// Wait for DOM to be fully loaded before attaching event listeners
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.getElementById('theme-toggle');
+  const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+  
+  // Desktop theme toggle
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+  
+  // Mobile theme toggle
+  if (mobileThemeToggle) {
+    mobileThemeToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleTheme();
+    });
+  }
+});
+
 // ===========================
 // Mobile Menu Toggle
 // ===========================
@@ -545,6 +641,13 @@ if (menuBtn && mobileMenu) {
   });
 }
 
+// Close mobile menu when clicking on links (except theme toggle)
+const mobileLinks = document.querySelectorAll('#mobile-menu a');
+mobileLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+  });
+});
 
 // ===========================
 // Tab Switching
@@ -575,7 +678,6 @@ tabs.forEach((tab) => {
 // ===========================
 document.addEventListener("DOMContentLoaded", () => {
   const skillCards = document.querySelectorAll(".skill-card");
-  console.log("Found skill cards:", skillCards.length); // ✅ Debug
 
   if (!skillCards.length) return;
 
@@ -583,12 +685,11 @@ document.addEventListener("DOMContentLoaded", () => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log("Visible:", entry.target.querySelector("span")?.textContent);
           entry.target.classList.add("visible");
         }
       });
     },
-    { threshold: 0.3 } // Trigger when 30% visible
+    { threshold: 0.3 }
   );
 
   skillCards.forEach((card) => observer.observe(card));
@@ -603,8 +704,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
     </script>
-
   </body>
 </html>
