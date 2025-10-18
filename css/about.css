@@ -1120,3 +1120,86 @@ body.light .stat-label {
 .profile-section .text-muted {
   color: white !important;
 }
+body.light #contact {
+  background-color: #f8fafc; /* Light background */
+  color: #1e293b; /* Dark text */
+  border-color: #e2e8f0; /* Lighter border */
+}
+
+body.light #contact h2,
+body.light #contact h3 {
+  color: #6d28d9; /* Purple accent similar to dark mode (#8b5cf6) */
+}
+
+body.light #contact p {
+  color: #475569; /* Neutral text tone */
+}
+
+body.light #contact .bg-\[\#1a1a2e\],
+body.light #contact .bg-\[\#1a1a2e\]\/60 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+body.light #contact .text-\[\#8b5cf6\] {
+  color: #6d28d9 !important;
+}
+
+body.light #contact .progress-bar-fill {
+  background-color: #6d28d9;
+}
+
+body.light #contact input,
+body.light #contact textarea {
+  background-color: #ffffff;
+  color: #1e293b;
+  border-color: #cbd5e1;
+}
+
+body.light #contact input::placeholder,
+body.light #contact textarea::placeholder {
+  color: #94a3b8;
+}
+
+body.light #contact button {
+  background-color: #6d28d9;
+}
+
+body.light #contact button:hover {
+  background-color: #7c3aed;
+}
+
+/* ===== Footer Light Mode ===== */
+body.light footer {
+  background-color: #f9fafb; /* Light gray */
+  color: #1e293b;
+}
+
+body.light footer a {
+  color: #334155;
+}
+
+body.light footer a:hover {
+  color: #6d28d9;
+}
+
+body.light footer h3 {
+  color: #6d28d9;
+}
+
+body.light footer .text-cyan-400 {
+  color: #6d28d9 !important; /* Replace cyan with purple tone */
+}
+
+body.light footer .border-gray-700 {
+  border-color: #e2e8f0;
+}
+
+body.light footer .text-gray-400,
+body.light footer .text-gray-500 {
+  color: #475569 !important;
+}
+
+body.light footer .bg-gradient-to-r {
+  background-image: linear-gradient(to right, #7c3aed, #c084fc);
+}
