@@ -199,6 +199,161 @@
           gap: 2.5rem;
         }
       }
+      /* 🌞 LIGHT MODE (Overrides Dark Mode) */
+body.light-theme {
+  background-color: #f8fafc; /* light neutral background */
+  color: #0f172a; /* dark text color */
+}
+
+/* Navbar background for light mode */
+body.light-theme header {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar text and link colors */
+body.light-theme .nav-link {
+  color: #1e293b; /* slate-800 */
+  transition: color 0.3s ease;
+}
+
+body.light-theme .nav-link:hover {
+  color: #0891b2; /* cyan-600 hover */
+}
+
+/* Brand / Logo text */
+body.light-theme header h1 {
+  color: #0f172a; /* dark base */
+}
+
+body.light-theme header h1 span {
+  color: #06b6d4; /* cyan accent */
+}
+
+/* Theme toggle icon color (sun) */
+body.light-theme #theme-toggle-icon {
+  color: #facc15; /* yellow for sun */
+  transform: rotate(180deg);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Mobile menu background and links */
+body.light-theme #mobile-menu {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+body.light-theme #mobile-menu a {
+  color: #1e293b;
+}
+
+body.light-theme #mobile-menu a:hover {
+  color: #0891b2;
+}
+
+/* Optional subtle transition on entire page */
+body.light-theme,
+body.light-theme header,
+body.light-theme .nav-link,
+body.light-theme #mobile-menu {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme #skills {
+  background-color: #f8fafc; /* very light neutral background */
+  color: #0f172a; /* dark text */
+}
+
+/* Section title and subtitle */
+body.light-theme #skills .section-title {
+  color: #0f172a;
+}
+
+body.light-theme #skills .section-title span {
+  color: #06b6d4; /* cyan accent */
+}
+
+body.light-theme #skills .section-subtitle {
+  color: #475569; /* slate-600 */
+}
+
+/* Skill Cards */
+body.light-theme .skill-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0; /* subtle border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+body.light-theme .skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Skill title text */
+body.light-theme .skill-card h3 span {
+  color: #0f172a;
+}
+
+/* Progress bar background */
+body.light-theme .progress {
+  background-color: #e2e8f0; /* slate-200 */
+}
+
+/* Progress fill color (accent remains same) */
+body.light-theme .progress-bar {
+  background: linear-gradient(to right, #06b6d4, #818cf8);
+}
+body.light-theme footer {
+  background: #f3f4f6; /* light background */
+  color: #1f2937; /* main text color */
+}
+
+/* Brand / Logo */
+body.light-theme footer h2 {
+  color: #1d4ed8; /* dark blue text for brand */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+body.light-theme footer p {
+  color: #4b5563; /* subtitle text */
+}
+
+/* Quick Links */
+body.light-theme footer h3 {
+  color: #2563eb; /* heading color */
+}
+
+body.light-theme footer ul li a {
+  color: #1f2937; /* link text color */
+}
+
+body.light-theme footer ul li a:hover {
+  color: #2563eb; /* link hover color */
+}
+
+/* Social Media Icons */
+body.light-theme footer .text-2xl a {
+  color: #1f2937; /* default icon color */
+}
+
+body.light-theme footer .text-2xl a:hover {
+  color: #2563eb; /* icon hover color */
+}
+
+/* Bottom Bar */
+body.light-theme footer .border-t {
+  border-color: #d1d5db; /* subtle border for light mode */
+}
+
+body.light-theme footer .text-gray-500 {
+  color: #6b7280; /* bottom text color */
+}
+
+
     </style>
   </head>
   <body>
@@ -532,6 +687,39 @@
         © 2025 Sampada Tiwari • All Rights Reserved
       </div>
     </footer>
+    <script>
+// Select elements
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-toggle-icon");
+
+// Load stored theme (default: dark)
+const storedTheme = localStorage.getItem("theme") || "dark";
+applyTheme(storedTheme);
+
+// Handle theme toggle
+themeToggle.addEventListener("click", () => {
+  const currentTheme = document.body.classList.contains("light-theme") ? "light" : "dark";
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  applyTheme(newTheme);
+  localStorage.setItem("theme", newTheme);
+});
+
+// Function to apply selected theme
+function applyTheme(theme) {
+  if (theme === "light") {
+    document.body.classList.add("light-theme");
+    document.body.classList.remove("dark-theme");
+    themeIcon.classList.remove("fa-moon");
+    themeIcon.classList.add("fa-sun");
+  } else {
+    document.body.classList.remove("light-theme");
+    document.body.classList.add("dark-theme");
+    themeIcon.classList.remove("fa-sun");
+    themeIcon.classList.add("fa-moon");
+  }
+}
+</script>
+
 
     <script>
 // ===========================
