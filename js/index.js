@@ -6,6 +6,7 @@ menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
 
+localStorage.setItem("theme", "dark");
 // ===== Theme Toggle =====
 const themeToggles = document.querySelectorAll(".theme-toggle");
 const themeIcons = document.querySelectorAll(".theme-toggle-icon");
