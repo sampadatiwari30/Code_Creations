@@ -36,7 +36,9 @@
 
 <h2 id="overview">🔍 Overview</h2>
 
-> This website serves as an interactive portfolio showcasing a variety of front-end web development projects. The design is modern and minimalist, featuring a grid of visually distinct cards, each representing a different interactive application. The portfolio effectively highlights practical skills in creating dynamic user interfaces and experiences using core **web technologies like HTML, CSS, and JavaScript.** Each project is functional and can be interacted with directly from the main page, providing immediate evidence of their implementation.
+> This website serves as an interactive and dynamic portfolio that showcases a collection of front-end web development projects. It features a modern, minimalist design with a responsive grid layout, where each card represents a unique interactive application built using core **Web technologies — HTML, CSS, and JavaScript**.
+
+>Every project demonstrates practical expertise in UI/UX design, animation, and responsive interactivity, reflecting a strong command over creating engaging digital experiences. Visitors can interact directly with each project from the main page, making the portfolio not only a display of work but also a hands-on showcase of creativity, functionality, and technical proficiency.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
@@ -91,33 +93,40 @@ Experience kala.ficial live here:
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-<h2 id="screenshots"> 📸 Screenshots </h2>
+<h2 id="screenshots">📸 Screenshots</h2>
 
-<img src="https://github.com/sampadatiwari30/Code_Creations/blob/main/images/live%201.JPG">
-<img src="https://github.com/sampadatiwari30/Code_Creations/blob/main/images/live%202.JPG">
-<img src="https://github.com/sampadatiwari30/Code_Creations/blob/main/images/live%203.JPG">
-<img src="https://github.com/sampadatiwari30/Code_Creations/blob/main/images/live%204.JPG">
-<img src="https://github.com/sampadatiwari30/Code_Creations/blob/main/images/live%205.JPG">
-<img src="https://github.com/sampadatiwari30/Code_Creations/blob/main/images/live%206.JPG">
+<!-- Using HTML for consistent width -->
+<img src="images/Live1.png" alt="Live Screenshot 1" width="600"/>
+<img src="images/Live2.png" alt="Live Screenshot 2" width="600"/>
+<img src="images/Live3.png" alt="Live Screenshot 3" width="600"/>
+<img src="images/Live 4.png" alt="Live Screenshot 4" width="600"/>
+<img src="images/Live 5.png" alt="Live Screenshot 5" width="600"/>
+<img src="images/Live6.png" alt="Live Screenshot 6" width="600"/>
+
+
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-![GSSoC Logo](https://github.com/sampadatiwari30/Code_Creations/blob/main/images/gssoc%20logo.png)
+![GSSoC Logo](https://raw.githubusercontent.com/sampadatiwari30/Code_Creations/main/images/gssoc%20logo.png)
 
-🌟 **Exciting News...**
+## 🚀 Exciting News...
 
-🚀 This project is now an official part of GirlScript Summer of Code – GSSoC'25! 💃🎉💻 We're thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow _Code_Creations!_ Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
+We’re thrilled to announce that **_Code_Creations_** is now an official project under **GirlScript Summer of Code – GSSoC'25!** 💃🎉💻  
+This milestone marks the beginning of an incredible journey of collaboration, innovation, and open-source learning. 🌟  
 
-👩‍💻 GSSoC is one of India’s **largest 3-month-long open-source programs** that encourages developers of all levels to contribute to real-world projects 🌍 while learning, collaborating, and growing together. 🌱
+👩‍💻 **GSSoC** (GirlScript Summer of Code) is one of India’s **largest 3-month-long open-source programs**, empowering developers across all levels to contribute to meaningful projects 🌍 while gaining real-world experience, mentorship, and community support. 🌱  
 
-🌈 With **mentorship, community support**, and **collaborative coding**, it's the perfect platform for developers to:
+🌈 Through this program, contributors will get the opportunity to:  
 
-- ✨ Improve their skills
-- 🤝 Contribute to impactful projects
-- 🏆 Get recognized for their work
-- 📜 Receive certificates and swag!
+- ✨ Sharpen their technical and collaborative skills  
+- 🤝 Work on impactful, real-world open-source projects  
+- 🏆 Gain recognition for their contributions  
+- 📜 Earn certificates, badges, and exclusive swag!  
 
-🎉 **I can’t wait to welcome new contributors** from GSSoC 2025 to this Code_Creations project family! Let's build, learn, and grow together — one commit at a time. 🔥👨‍💻👩‍💻
+💡 Whether you’re a beginner or an experienced coder, this is your chance to grow, learn, and contribute to the thriving open-source community.  
+
+ 🎉 We can’t wait to welcome new contributors from **GSSoC 2025** into the _Code_Creations_ family! 
+**Let’s build, learn, and grow together — one commit at a time. 🔥👨‍💻👩‍💻**
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
@@ -130,33 +139,72 @@ Code_Creations/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── images /
+├── css /
+├── js /
 ├── about.html
+├── skills.html
+├── offline.html
 ├── contact.html
+├── achivement.html
 ├── expierence.html
 ├── project.html
 ├── index.html
+├── manifest.json
+├── sw.js
 ├── README.md
 ```
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-<h2 id="contribution-guidelines">Contribution Guidelines📑</h2>
+<h2 id="contribution-guidelines">📑 Contribution Guidelines</h2>
 
-- Firstly Star (⭐) the Repository
-- Fork the Repository and create a new branch for any updates/changes/issue you are working on.
-- Start Coding and do changes.
-- Commit your changes
-- Create a Pull Request which will be reviewed and suggestions would be added to improve it.
-- Add Screenshots and updated website links to help us understand what changes is all about.
+<p>We welcome contributions of all kinds! Follow these steps to get started:</p>
+
+<ol>
+  <li>⭐ <strong>Star the Repository</strong> to show your support.</li>
+  <li>🍴 <strong>Fork the Repository</strong> and create a new branch for your updates or bug fixes.</li>
+  <li>💻 <strong>Make your changes</strong> in your branch — fix bugs, improve UI/UX, add features, or update documentation.</li>
+  <li>📸 <strong>Add Screenshots or demo links</strong> if your changes affect the UI or functionality.</li>
+  <li>📝 <strong>Commit your changes</strong> with a meaningful commit message describing your updates.</li>
+  <li>📬 <strong>Create a Pull Request</strong> to the main repository. Your PR will be reviewed and suggestions may be added for improvement.</li>
+</ol>
+
+<p>By following these guidelines, you help maintain a clean and collaborative workflow for the project. Thank you for contributing! 💜</p>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-**Contributing is fun**
+<h2 id="contributing">🎉 Contributing is Fun!</h2>
 
-We welcome all contributions and suggestions!
-Whether it's a new feature, design improvement, or a bug fix - your voice matters 💜
+<p>We welcome all kinds of contributions — whether it's a new feature, UI/UX improvement, bug fix, or documentation update. Your voice matters! 💜</p>
 
-Your insights are invaluable to us. Reach out to us team for any inquiries, feedback, or concerns.
+<p>Your insights and suggestions are invaluable to us. Feel free to reach out to the team for any questions, feedback, or collaboration opportunities.</p>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<h2 id="acknowledgments">🙏 Acknowledgments</h2>
+
+<ul>
+  <li>Thank you to all the contributors who have made this project better.</li>
+  <li>Special shoutout to <strong>GirlScript Summer of Code (GSSoC’25)</strong> for their amazing mentorship, community support, and resources.</li>
+  <li>Built with dedication, collaboration, and lots of chai ☕</li>
+</ul>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<h2 id="submitting-pull-request">📥 Submitting a Pull Request</h2>
+
+<p>Follow these simple steps to contribute your changes to <strong>Code_Creations</strong>:</p>
+
+<ol>
+  <li>⭐ Star the repository to show your support.</li>
+  <li>🍴 Fork the repository and create a new branch for your updates.</li>
+  <li>💻 Make your changes — fix bugs, add features, or improve the UI/UX.</li>
+  <li>📸 Add screenshots or demo links if your changes affect the user interface.</li>
+  <li>📝 Commit your changes with a clear and meaningful message.</li>
+  <li>📬 Push your branch and submit a Pull Request. Your PR will be reviewed, and suggestions for improvement may be added.</li>
+</ol>
+
+<p>Thank you for helping make <strong>Code_Creations</strong> better! 🚀</p>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
